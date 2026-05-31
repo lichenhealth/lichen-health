@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('posts')).filter((p) => !p.data.draft);
+const order = ['vision','mission','ourstory','care-model','platform','business','opportunity','pilot','safety','social-networks'];
+const featured = order.map((s) => posts.find((p) => p.slug === s)).filter(Boolean).slice(0, 6);
+const pillars = [
+  { tag: 'Vision', title: 'Restore individual, social and ecological balance', href: '/vision' },
+  { tag: 'Care', title: 'Lichen puts you at the center of your care', href: '/care-model' },
+  { tag: 'Platform', title: 'Ancient wisdom woven with modern technology', href: '/platform' },
+];
+---
+<BaseLayout
+  title="Lichen — Because healing the world starts with ourselves"
+  description="A holistic healing network that connects people to the land, plants, animals, elements, healers and modern medical technology necessary to awaken their innate capacity to heal."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">The Holistic Healing Network</span>
+      <h1 class="display h-hero hero-head">
+        Because healing the world<br /><span class="display-italic">starts with ourselves</span>
+      </h1>
+      <p class="hero-sub">
+        We are a nonprofit on a mission to reduce human suffering and expand human
+        consciousness — in community, and in reciprocity with the land.
+      </p>
+      <div class="hero-actions">
+        <a href="/get-involved" class="btn btn-primary">Get involved</a>
+        <a href="/ourstory" class="btn btn-ghost">Read our story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="container section">
+    <div class="pillars">
+      {pillars.map((p) => (
+        <a href={p.href} class="pillar">
+          <span class="tag">{p.tag}</span>
+          <h3 class="pillar-title">{p.title}</h3>
+          <span class="pillar-link">Read more →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Mission band -->
+  <section class="band">
+    <div class="container container--narrow band-inner">
+      <h2 class="display h-1">Humanity, working together to restore balance.</h2>
+      <p class="band-text">
+        In every community on earth, a holistic, sustainable healing center that weaves
+        ancient wisdom with cutting-edge science — helping its members heal and grow into
+        new levels of health, wellbeing and creative potential.
+      </p>
+      <a href="/vision" class="btn btn-ink">Our vision for 2050</a>
+    </div>
+  </section>
+
+  <!-- Writing -->
+  <section class="container section">
+    <div class="section-head">
+      <span class="eyebrow">Writing</span>
+      <h2 class="display h-2">From the network</h2>
+    </div>
+    <div class="post-grid">
+      {featured.map((p) => (
+        <a href={`/${p.slug}`} class="post-card">
+          <h3 class="post-card-title">{p.data.title}</h3>
+          <span class="post-card-link">Read →</span>
+        </a>
+      ))}
+    </div>
+    <div style="margin-top: var(--s-7)"><a href="/blog" class="btn btn-ghost">See all writing</a></div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding-top: var(--s-10); padding-bottom: var(--s-9); }
+  .hero-inner { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-5); }
+  .hero-head { max-width: 14ch; margin-top: var(--s-3); }
+  .hero-sub { font-size: var(--t-xl); line-height: var(--lh-snug); color: var(--ink-soft); max-width: 48ch; font-weight: 300; }
+  .hero-actions { display: flex; gap: var(--s-3); margin-top: var(--s-3); flex-wrap: wrap; }
+  .section { padding-block: var(--s-9); }
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-5); }
+  .pillar { display: flex; flex-direction: column; gap: var(--s-3); padding: var(--s-7); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); box-shadow: var(--sh-card); transition: transform var(--d-base) var(--ease-out); }
+  .pillar:hover { transform: translateY(-3px); }
+  .pillar-title { font-family: var(--font-display); font-weight: 400; font-size: var(--t-xl); line-height: var(--lh-snug); color: var(--ink); }
+  .pillar-link { color: var(--peach-deep); font-size: var(--t-sm); margin-top: auto; }
+  .band { background: var(--moss); color: var(--bone); padding-block: var(--s-10); margin-top: var(--s-7); }
+  .band h2 { color: var(--bone-warm); }
+  .band-inner { display: flex; flex-direction: column; gap: var(--s-5); align-items: flex-start; }
+  .band-text { font-size: var(--t-xl); line-height: var(--lh-normal); color: color-mix(in srgb, var(--bone) 88%, transparent); font-weight: 300; }
+  .band .btn-ink { background: var(--bone); color: var(--ink); }
+  .section-head { display: flex; flex-direction: column; gap: var(--s-2); margin-bottom: var(--s-7); }
+  .post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); }
+  .post-card { display: flex; flex-direction: column; justify-content: space-between; gap: var(--s-6); min-height: 150px; padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md); transition: border-color var(--d-fast) var(--ease-out); }
+  .post-card:hover { border-color: var(--peach); }
+  .post-card-title { font-family: var(--font-display); font-weight: 400; font-size: var(--t-lg); color: var(--ink); }
+  .post-card-link { color: var(--peach-deep); font-size: var(--t-sm); }
+  @media (max-width: 760px) {
+    .pillars, .post-grid { grid-template-columns: 1fr; }
+  }
+</style>

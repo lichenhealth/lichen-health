@@ -1,0 +1,30 @@
+{
+  "home": {
+    "description": "A holistic healing network that connects people to the land, plants, animals, elements, healers and modern medical technology necessary to awaken their innate power to heal, grow, create and collaborate directly with Source.",
+    "title": "Lichen Health"
+  },
+  "about": {
+    "description": "An overview of the science and spirituality that inform our approach to holistic healthcare.",
+    "title": ""
+  },
+  "donate": {
+    "description": "Help restore human health by donating to expand access to holistic functional medicine for those who cannot afford care.",
+    "title": ""
+  },
+  "getinvolved-form": {
+    "description": "Join, volunteer and donate to the holistic healthcare movement.",
+    "title": ""
+  },
+  "blog": {
+    "description": "Add a description about your page or projects. Should be around 135 to 160 characters.",
+    "title": ""
+  },
+  "resources": {
+    "description": "Books, podcasts and other resources to help you heal your mind, body, spirit, community and environment.",
+    "title": ""
+  },
+  "pilot": {
+    "description": "An overview of the science and spirituality that inform our approach to holistic healthcare.",
+    "title": ""
+  }
+}

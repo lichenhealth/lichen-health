@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const ways = [
+  { name: 'PayPal', note: "Best if you'd like to make a recurring donation." },
+  { name: 'Stripe', note: "Best for an ACH or wire transfer." },
+  { name: 'Check', note: "Mailing a check avoids donation fees entirely." },
+  { name: 'Gift', note: "Speak with our donor relations team to facilitate a larger gift." },
+];
+---
+<BaseLayout title="Donate — Lichen" description="Help restore human health by donating to expand access to holistic, community-based care for those who cannot afford it.">
+  <section class="container container--narrow page">
+    <span class="eyebrow">Support the work</span>
+    <h1 class="display h-1">Restore balance by giving back</h1>
+    <p class="lede">Make a tax-deductible donation to expand access to holistic, community-based care for all. Thank you for investing in a more balanced and healthy future.</p>
+    <div class="give-grid">
+      {ways.map((w) => (
+        <div class="give-card"><h3 class="give-name">{w.name}</h3><p>{w.note}</p></div>
+      ))}
+    </div>
+    <p class="connect-note">Would you like to connect before giving? Email <a href="mailto:connect@lichen.health">connect@lichen.health</a> and we'll help.</p>
+  </section>
+</BaseLayout>
+<style>
+  .page{padding-block:var(--s-9);display:flex;flex-direction:column;gap:var(--s-5)}
+  .lede{font-size:var(--t-xl);color:var(--ink-soft);font-weight:300;line-height:var(--lh-snug);max-width:54ch}
+  .give-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-4);margin-top:var(--s-4)}
+  .give-card{padding:var(--s-6);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-lg)}
+  .give-name{font-family:var(--font-display);font-weight:400;font-size:var(--t-xl);margin-bottom:var(--s-2)}
+  .give-card p{color:var(--ink-muted);font-size:var(--t-sm)}
+  .connect-note{color:var(--ink-muted);font-size:var(--t-base)}
+  .connect-note a{color:var(--peach-deep)}
+  @media(max-width:600px){.give-grid{grid-template-columns:1fr}}
+</style>

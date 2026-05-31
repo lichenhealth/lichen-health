@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const events = [
+  "WAG: We're All God", 'WAG: Caring for Your Human', 'WAG: Psychedelics', 'WAG: Artificial Intelligence',
+];
+---
+<BaseLayout title="Events — Lichen" description="Gatherings and conversations from the Lichen community, including the We're All God (WAG) series.">
+  <section class="container container--narrow page">
+    <span class="eyebrow">Gatherings</span>
+    <h1 class="display h-1">Events</h1>
+    <p class="lede">Conversations and gatherings, including our <em>We're All God</em> (WAG) series.</p>
+    <ul class="ev-list">{events.map((e) => <li class="ev-item">{e}</li>)}</ul>
+    <p style="color:var(--ink-muted)">Want to know when the next one's happening? <a href="/get-involved" style="color:var(--peach-deep)">Join the list →</a></p>
+  </section>
+</BaseLayout>
+<style>.page{padding-block:var(--s-9);display:flex;flex-direction:column;gap:var(--s-5)}.lede{font-size:var(--t-xl);color:var(--ink-soft);font-weight:300}.ev-list{display:flex;flex-direction:column;gap:var(--s-3)}.ev-item{padding:var(--s-5);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-md);font-family:var(--font-display);font-size:var(--t-lg)}</style>

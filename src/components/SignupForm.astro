@@ -1,0 +1,106 @@
+---
+// HubSpot-ready signup form.
+// To go live: set PUBLIC_HUBSPOT_PORTAL_ID and PUBLIC_HUBSPOT_FORM_ID (Vercel env vars).
+// Until then it runs in "preview" mode and just shows a success state.
+const portalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID || '';
+const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || '';
+---
+<form class="signup" id="signupForm" data-portal={portalId} data-form={formId}>
+  <div class="field-row">
+    <label class="field">
+      <span class="field-label">First name</span>
+      <input type="text" name="firstname" required autocomplete="given-name" />
+    </label>
+    <label class="field">
+      <span class="field-label">Last name</span>
+      <input type="text" name="lastname" autocomplete="family-name" />
+    </label>
+  </div>
+  <label class="field">
+    <span class="field-label">Email</span>
+    <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+  </label>
+  <label class="field">
+    <span class="field-label">How would you like to be involved?</span>
+    <select name="involvement">
+      <option value="">Choose one…</option>
+      <option>Join the community</option>
+      <option>Volunteer</option>
+      <option>Donate or fund</option>
+      <option>Partner / collaborate</option>
+      <option>Just keep me updated</option>
+    </select>
+  </label>
+  <label class="field">
+    <span class="field-label">Anything you'd like us to know? <em>(optional)</em></span>
+    <textarea name="message" rows="3"></textarea>
+  </label>
+  <button type="submit" class="btn btn-primary signup-submit">Count me in</button>
+  <p class="signup-status" id="signupStatus" role="status"></p>
+  <p class="signup-fine">We'll only use your details to stay in touch. No spam, ever.</p>
+</form>
+
+<style>
+  .signup { display: flex; flex-direction: column; gap: var(--s-4); max-width: 520px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
+  .field { display: flex; flex-direction: column; gap: var(--s-2); }
+  .field-label { font-size: var(--t-sm); color: var(--ink-soft); font-weight: 400; }
+  .field-label em { color: var(--ink-faint); font-style: normal; }
+  .signup input, .signup select, .signup textarea {
+    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);
+    padding: 12px 14px; font-size: var(--t-base); color: var(--ink); transition: border-color var(--d-fast) var(--ease-out);
+  }
+  .signup input:focus, .signup select:focus, .signup textarea:focus { outline: none; border-color: var(--peach); }
+  .signup textarea { resize: vertical; }
+  .signup-submit { align-self: flex-start; margin-top: var(--s-2); }
+  .signup-status { font-size: var(--t-sm); min-height: 1em; }
+  .signup-status.ok { color: var(--moss); }
+  .signup-status.err { color: var(--rust); }
+  .signup-fine { font-size: var(--t-xs); color: var(--ink-faint); }
+  @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  const form = document.getElementById('signupForm') as HTMLFormElement | null;
+  const status = document.getElementById('signupStatus');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form || !status) return;
+    const portal = form.dataset.portal;
+    const formId = form.dataset.form;
+    const data = new FormData(form);
+    const btn = form.querySelector('.signup-submit') as HTMLButtonElement;
+    btn.disabled = true; status.className = 'signup-status'; status.textContent = 'Sending…';
+
+    // Preview mode — HubSpot not yet connected
+    if (!portal || !formId) {
+      setTimeout(() => {
+        status.className = 'signup-status ok';
+        status.textContent = "You're on the list — thank you! (Preview mode: connect HubSpot to capture this for real.)";
+        form.reset(); btn.disabled = false;
+      }, 500);
+      return;
+    }
+
+    // Live — submit to HubSpot Forms API
+    const fields = Array.from(data.entries())
+      .filter(([, v]) => String(v).trim() !== '')
+      .map(([name, value]) => ({ name, value: String(value) }));
+    try {
+      const res = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${portal}/${formId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields, context: { pageUri: location.href, pageName: document.title } }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      status.className = 'signup-status ok';
+      status.textContent = "You're on the list — thank you!";
+      form.reset();
+    } catch {
+      status.className = 'signup-status err';
+      status.textContent = 'Something went wrong — please email connect@lichen.health and we’ll add you.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
