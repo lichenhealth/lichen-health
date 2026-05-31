@@ -16,15 +16,13 @@ const { project } = Astro.props;
     </div>
   </section>
 
-  <section class="fsection">
-    <div class="container intro-grid">
-      <div class="intro-pic"><img src={project.intro.img} alt="" loading="lazy" /></div>
-      <div class="intro-copy">
-        <p>{project.intro.body}</p>
-        {project.intro.learnMore && (
-          <a href={project.intro.learnMore.href} class="btn btn-primary btn-up">{project.intro.learnMore.label}</a>
-        )}
-      </div>
+  <section class="fsection intro-section">
+    <div class="container">
+      <p class="intro-lead">{project.intro.body}</p>
+      {project.intro.learnMore && (
+        <a href={project.intro.learnMore.href} class="btn btn-primary btn-up">{project.intro.learnMore.label}</a>
+      )}
+      <hr class="intro-rule" />
     </div>
   </section>
 
@@ -51,9 +49,10 @@ const { project } = Astro.props;
 <style>
   .proj-eyebrow { color: var(--peach-light); }
 
-  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-  .intro-pic img { width: 100%; height: auto; display: block; }
-  .intro-copy p { font-size: 18px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; margin-bottom: 24px; }
+  .intro-section { padding-bottom: var(--s-6); }
+  .intro-lead { font-size: clamp(21px, 2.5vw, 27px); line-height: 1.55; color: var(--ink-soft); font-weight: 300; max-width: 68ch; letter-spacing: -0.01em; }
+  .intro-section .btn { margin-top: 26px; }
+  .intro-rule { height: 1px; background: #12181C; border: 0; margin-top: var(--s-8); }
 
   .sec-block { padding-block: var(--s-8); }
   .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
