@@ -13,7 +13,7 @@ export const heroes: Record<string, string> = {
   donate: `${WP}/2024/11/Lichen_Hero_Donation.png`,
   'get-involved': `${WP}/2024/12/Lichen_Hero_Involved.jpg`,
   check: `${WP}/2024/11/Hero_Check.jpg`,
-  resources: `${WP}/2024/10/Lichen_Hero.jpg`,
+  resources: 'https://images.squarespace-cdn.com/content/v1/56cd02bf9f72669d299bae54/1540242429329-VTDSHB4B7VMR7ZXZIGIQ/books.JPG?format=2500w',
   blog: `${WP}/2024/10/Lichen_Hero.jpg`,
   events: `${WP}/2024/10/Lichen_Hero.jpg`,
 };
