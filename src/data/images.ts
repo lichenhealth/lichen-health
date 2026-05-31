@@ -6,7 +6,7 @@ export const galynPhoto = `${WP}/2026/01/Galyn-2.svg`;
 
 export const heroes: Record<string, string> = {
   home: `${WP}/2024/10/Lichen_About_Pic01.png`,
-  about: `${WP}/2024/10/Lichen_About_Hero.png`,
+  about: `${WP}/2024/10/Lichen_Hero.jpg`,
   'care-model': `${WP}/2024/10/Lichen_Care_hero-1.png`,
   business: `${WP}/2024/10/Lichen_Business_Hero.png`,
   platform: `${WP}/2024/10/Lichen_platform_hero.png`,
