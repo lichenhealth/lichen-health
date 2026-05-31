@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import seo from '../data/seo.json';
+import { heroes } from '../data/images';
 
 export async function getStaticPaths() {
   const posts = (await getCollection('posts')).filter((p) => !p.data.draft);
@@ -11,24 +12,30 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 const meta = (seo as Record<string, any>)[post.slug] || {};
 const desc = meta.description || `${post.data.title} — Lichen, the holistic healing network.`;
+const hero = heroes[post.slug];
 ---
-<BaseLayout title={`${post.data.title} — Lichen`} description={desc}>
-  <article class="container container--narrow article">
-    <a href="/blog" class="back-link">← All writing</a>
-    <header class="article-head">
+<BaseLayout title={`${post.data.title} — Lichen`} description={desc} overHero={!!hero}>
+  {hero ? (
+    <section class="phero">
+      <div class="phero-bg"><img src={hero} alt="" /></div>
+      <div class="container phero-inner"><h1>{post.data.title}</h1></div>
+    </section>
+  ) : (
+    <section class="text-hero"><div class="container container--narrow">
       <span class="eyebrow">Lichen</span>
       <h1 class="display h-1">{post.data.title}</h1>
-    </header>
-    <hr class="divider" />
+    </div></section>
+  )}
+  <article class="container container--narrow article">
+    <a href="/blog" class="back-link">← All writing</a>
     <div class="prose">
       <Content />
     </div>
   </article>
 </BaseLayout>
 <style>
-  .article { padding-block: var(--s-9); }
-  .back-link { color: var(--ink-muted); font-size: var(--t-sm); }
+  .text-hero { padding-block: var(--s-10) var(--s-6); }
+  .article { padding-block: var(--s-8) var(--s-10); }
+  .back-link { color: var(--ink-muted); font-size: var(--t-sm); display: inline-block; margin-bottom: var(--s-6); }
   .back-link:hover { color: var(--ink); }
-  .article-head { margin-block: var(--s-6) var(--s-6); display: flex; flex-direction: column; gap: var(--s-3); }
-  .divider { margin-bottom: var(--s-7); }
 </style>

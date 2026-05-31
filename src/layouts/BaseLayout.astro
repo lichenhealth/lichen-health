@@ -6,11 +6,13 @@ export interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  overHero?: boolean;
 }
 const {
   title = 'Lichen — The Holistic Healing Network',
   description = 'A holistic healing network connecting people to land, plants, healers and modern medicine to awaken their innate capacity to heal.',
   ogImage = '/icons/icon-512.png',
+  overHero = false,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -37,7 +39,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <Header />
+    <Header overHero={overHero} />
     <main>
       <slot />
     </main>

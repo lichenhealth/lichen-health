@@ -1,48 +1,51 @@
 ---
+import { logoColor, socials } from '../data/images';
 const year = new Date().getFullYear();
 ---
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <div class="brand"><img src="/icons/logo.svg" alt="" width="26" height="26" /><span>Lichen</span></div>
-      <p class="footer-tag">The Holistic Healing Network</p>
-    </div>
-    <nav class="footer-cols" aria-label="Footer">
-      <div class="footer-col">
-        <span class="eyebrow">Explore</span>
-        <a href="/about">About</a>
-        <a href="/ourstory">Our Story</a>
-        <a href="/blog">Blog</a>
+<footer class="ffooter">
+  <div class="container">
+    <div class="ffoot-grid">
+      <div class="ffoot-logo">
+        <img src={logoColor} alt="Lichen" />
+        <p class="ffoot-tag">The Holistic Healing Network</p>
+      </div>
+      <div class="ffoot-col">
+        <h4>Learn</h4>
+        <a href="/about">About Lichen</a>
+        <a href="/care-model">The Care Model</a>
+        <a href="/business">The Business Model</a>
+        <a href="/platform">The Platform</a>
         <a href="/resources">Resources</a>
       </div>
-      <div class="footer-col">
-        <span class="eyebrow">Take part</span>
-        <a href="/get-involved">Get involved</a>
-        <a href="/donate">Donate</a>
+      <div class="ffoot-col">
+        <h4>Act</h4>
+        <a href="/get-involved">Get Involved</a>
+        <a href="/donate">Donate Now</a>
         <a href="/events">Events</a>
       </div>
-      <div class="footer-col">
-        <span class="eyebrow">Connect</span>
-        <a href="mailto:connect@lichen.health">connect@lichen.health</a>
+      <div class="ffoot-col fsubscribe">
+        <h4>Stay Connected</h4>
+        <form id="footSub">
+          <input type="email" name="email" placeholder="Your email" aria-label="Email" />
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Subscribe</button>
+        </form>
+        <div class="fsocials">
+          <a href={socials.instagram} target="_blank" rel="noopener">Instagram</a>
+          <a href={socials.facebook} target="_blank" rel="noopener">Facebook</a>
+          <a href={socials.youtube} target="_blank" rel="noopener">YouTube</a>
+          <a href={socials.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
-    </nav>
-  </div>
-  <div class="container footer-base">
-    <span>© {year} Lichen. A nonprofit healing network.</span>
-    <a href="/privacy-policy">Privacy</a>
+    </div>
+    <div class="ffoot-base">
+      <span>© Lichen Health {year} — all rights reserved</span>
+      <a href="/privacy">Privacy</a>
+    </div>
   </div>
 </footer>
-<style>
-  .site-footer { margin-top: var(--s-10); border-top: 1px solid var(--bone-edge); padding-top: var(--s-9); padding-bottom: var(--s-7); background: var(--bone-deep); }
-  .footer-inner { display: flex; flex-wrap: wrap; gap: var(--s-9); justify-content: space-between; }
-  .footer-brand .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: var(--t-xl); }
-  .footer-tag { color: var(--ink-muted); font-size: var(--t-sm); margin-top: var(--s-2); }
-  .footer-cols { display: flex; gap: var(--s-9); flex-wrap: wrap; }
-  .footer-col { display: flex; flex-direction: column; gap: var(--s-3); }
-  .footer-col .eyebrow { margin-bottom: var(--s-1); }
-  .footer-col a { font-size: var(--t-base); color: var(--ink-muted); }
-  .footer-col a:hover { color: var(--ink); }
-  .footer-base { display: flex; justify-content: space-between; margin-top: var(--s-8); padding-top: var(--s-5); border-top: 1px solid var(--bone-edge); font-size: var(--t-sm); color: var(--ink-faint); }
-  .footer-base a { color: var(--ink-faint); }
-  .footer-base a:hover { color: var(--ink); }
-</style>
+<script>
+  document.getElementById('footSub')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    location.href = '/get-involved';
+  });
+</script>

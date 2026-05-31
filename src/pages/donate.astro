@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { heroes } from '../data/images';
 const ways = [
   { name: 'PayPal', note: "Best if you'd like to make a recurring donation." },
   { name: 'Stripe', note: "Best for an ACH or wire transfer." },
@@ -7,15 +8,15 @@ const ways = [
   { name: 'Gift', note: "Speak with our donor relations team to facilitate a larger gift." },
 ];
 ---
-<BaseLayout title="Donate — Lichen" description="Help restore human health by donating to expand access to holistic, community-based care for those who cannot afford it.">
+<BaseLayout overHero={true} title="Donate — Lichen" description="Help restore human health by donating to expand access to holistic, community-based care for those who cannot afford it.">
+  <section class="phero">
+    <div class="phero-bg"><img src={heroes.donate} alt="" /></div>
+    <div class="container phero-inner"><h1>Restore balance by giving back</h1></div>
+  </section>
   <section class="container container--narrow page">
-    <span class="eyebrow">Support the work</span>
-    <h1 class="display h-1">Restore balance by giving back</h1>
     <p class="lede">Make a tax-deductible donation to expand access to holistic, community-based care for all. Thank you for investing in a more balanced and healthy future.</p>
     <div class="give-grid">
-      {ways.map((w) => (
-        <div class="give-card"><h3 class="give-name">{w.name}</h3><p>{w.note}</p></div>
-      ))}
+      {ways.map((w) => (<div class="give-card"><h3 class="give-name">{w.name}</h3><p>{w.note}</p></div>))}
     </div>
     <p class="connect-note">Would you like to connect before giving? Email <a href="mailto:connect@lichen.health">connect@lichen.health</a> and we'll help.</p>
   </section>
@@ -27,7 +28,6 @@ const ways = [
   .give-card{padding:var(--s-6);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-lg)}
   .give-name{font-family:var(--font-display);font-weight:400;font-size:var(--t-xl);margin-bottom:var(--s-2)}
   .give-card p{color:var(--ink-muted);font-size:var(--t-sm)}
-  .connect-note{color:var(--ink-muted);font-size:var(--t-base)}
-  .connect-note a{color:var(--peach-deep)}
+  .connect-note{color:var(--ink-muted)} .connect-note a{color:var(--peach-deep)}
   @media(max-width:600px){.give-grid{grid-template-columns:1fr}}
 </style>

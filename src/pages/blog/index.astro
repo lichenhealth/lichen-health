@@ -1,22 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { heroes } from '../../data/images';
 const posts = (await getCollection('posts')).filter((p) => !p.data.draft);
-function excerpt(body: string) {
-  const firstPara = body.split('\n\n').find((p) => p.trim() && !p.startsWith('#') && !p.startsWith('---')) || '';
-  const clean = firstPara.replace(/[#*_>\[\]]/g, '').replace(/\(https?:[^)]+\)/g, '').trim();
-  return clean.length > 180 ? clean.slice(0, 180).trim() + '…' : clean;
+function excerpt(body){
+  const fp = body.split('\n\n').find((p) => p.trim() && !p.startsWith('#') && !p.startsWith('---')) || '';
+  const c = fp.replace(/[#*_>\[\]]/g,'').replace(/\(https?:[^)]+\)/g,'').trim();
+  return c.length>170 ? c.slice(0,170).trim()+'…' : c;
 }
-const order = ['vision','mission','ourstory','care-model','platform','business','opportunity','pilot','safety','social-networks'];
-const sorted = [...posts].sort((a, b) => order.indexOf(a.slug) - order.indexOf(b.slug));
+const order=['vision','mission','ourstory','care-model','platform','business','opportunity','pilot','safety','social-networks'];
+const sorted=[...posts].sort((a,b)=>order.indexOf(a.slug)-order.indexOf(b.slug));
 ---
-<BaseLayout title="Writing — Lichen" description="Essays on holistic healing, community and reciprocity from the Lichen network.">
+<BaseLayout overHero={true} title="Writing — Lichen" description="Essays on holistic healing, community and reciprocity from the Lichen network.">
+  <section class="phero">
+    <div class="phero-bg"><img src={heroes.blog} alt="" /></div>
+    <div class="container phero-inner"><h1>From the network</h1></div>
+  </section>
   <section class="container">
-    <header class="blog-head">
-      <span class="eyebrow">Writing</span>
-      <h1 class="display h-1">From the network</h1>
-      <p class="blog-intro">Essays on our vision, our model of care, and the work of healing — individually and together.</p>
-    </header>
     <div class="blog-list">
       {sorted.map((p) => (
         <a href={`/${p.slug}`} class="blog-item">
@@ -29,13 +29,11 @@ const sorted = [...posts].sort((a, b) => order.indexOf(a.slug) - order.indexOf(b
   </section>
 </BaseLayout>
 <style>
-  .blog-head { padding-top: var(--s-9); padding-bottom: var(--s-7); display: flex; flex-direction: column; gap: var(--s-3); max-width: 60ch; }
-  .blog-intro { font-size: var(--t-xl); color: var(--ink-soft); font-weight: 300; line-height: var(--lh-snug); }
-  .blog-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-5); padding-bottom: var(--s-9); }
-  .blog-item { display: flex; flex-direction: column; gap: var(--s-3); padding: var(--s-7); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); transition: transform var(--d-base) var(--ease-out), border-color var(--d-fast) var(--ease-out); }
-  .blog-item:hover { transform: translateY(-2px); border-color: var(--peach); }
-  .blog-item-title { font-family: var(--font-display); font-weight: 400; font-size: var(--t-2xl); color: var(--ink); line-height: var(--lh-tight); }
-  .blog-item-excerpt { color: var(--ink-muted); font-size: var(--t-base); line-height: var(--lh-normal); }
-  .blog-item-link { color: var(--peach-deep); font-size: var(--t-sm); margin-top: auto; }
-  @media (max-width: 760px) { .blog-list { grid-template-columns: 1fr; } }
+  .blog-list{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-5);padding-block:var(--s-9)}
+  .blog-item{display:flex;flex-direction:column;gap:var(--s-3);padding:var(--s-7);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-lg);transition:transform var(--d-base) var(--ease-out),border-color var(--d-fast) var(--ease-out)}
+  .blog-item:hover{transform:translateY(-2px);border-color:var(--peach)}
+  .blog-item-title{font-family:var(--font-display);font-weight:400;font-size:var(--t-2xl);line-height:var(--lh-tight)}
+  .blog-item-excerpt{color:var(--ink-muted);font-size:var(--t-base)}
+  .blog-item-link{color:var(--peach-deep);font-size:var(--t-sm);margin-top:auto}
+  @media(max-width:760px){.blog-list{grid-template-columns:1fr}}
 </style>

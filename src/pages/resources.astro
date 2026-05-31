@@ -1,40 +1,39 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { heroes } from '../data/images';
 const books = [
-  ['The Secret to Healing Illness', 'Using nature and the quantum field to heal the mind and body'],
-  ['The Body Keeps the Score', 'How developmental trauma impacts brain development and mental illness'],
-  ['Healing the Fragmented Selves of Trauma Survivors', 'Overcoming the self-alienation inherent in developmental trauma'],
-  ["Why Zebras Don't Get Ulcers", 'How the ego and threat system create chronic stress and disease'],
-  ['When the Body Says No', 'The role developmental trauma plays in illness and disease'],
-  ["It Didn't Start with You", 'The epigenetic science of inherited trauma'],
-  ['In the Realm of Hungry Ghosts', 'The biological cause of addiction and how to treat it'],
-  ['Accessing the Healing Power of the Vagus Nerve', "Unlocking the self-healing power of Polyvagal Theory"],
-  ['The Polyvagal Theory', 'Neurophysiological foundations of emotion, attachment and self-regulation'],
-  ['Trauma-Proofing Your Kids', "Supporting children through hard moments so they don't develop PTSD"],
-  ["Child Development: A Practitioner's Guide", 'The phases of child development and how to support healthy maturation'],
-  ['Awakening to the Spirit World', 'An overview of the eco-spiritual world of shamanism'],
+  ['The Secret to Healing Illness','Using nature and the quantum field to heal the mind and body'],
+  ['The Body Keeps the Score','How developmental trauma impacts brain development and mental illness'],
+  ['Healing the Fragmented Selves of Trauma Survivors','Overcoming the self-alienation inherent in developmental trauma'],
+  ["Why Zebras Don't Get Ulcers",'How the ego and threat system create chronic stress and disease'],
+  ['When the Body Says No','The role developmental trauma plays in illness and disease'],
+  ["It Didn't Start with You",'The epigenetic science of inherited trauma'],
+  ['In the Realm of Hungry Ghosts','The biological cause of addiction and how to treat it'],
+  ['Accessing the Healing Power of the Vagus Nerve','Unlocking the self-healing power of Polyvagal Theory'],
+  ['The Polyvagal Theory','Neurophysiological foundations of emotion, attachment and self-regulation'],
+  ['Trauma-Proofing Your Kids',"Supporting children so they don't develop PTSD"],
+  ["Child Development: A Practitioner's Guide",'The phases of child development and how to support healthy maturation'],
+  ['Awakening to the Spirit World','An overview of the eco-spiritual world of shamanism'],
 ];
 ---
-<BaseLayout title="Resources — Lichen" description="Books, podcasts and other resources to help you heal your mind, body, spirit, community and environment.">
+<BaseLayout overHero={true} title="Resources — Lichen" description="Books, podcasts and other resources to help you heal your mind, body, spirit, community and environment.">
+  <section class="phero">
+    <div class="phero-bg"><img src={heroes.resources} alt="" /></div>
+    <div class="container phero-inner"><h1>Resources</h1></div>
+  </section>
   <section class="container page">
-    <div class="container--narrow" style="padding:0">
-      <span class="eyebrow">Resources</span>
-      <h1 class="display h-1">To help you heal — mind, body, spirit, community</h1>
-      <p class="lede">A starting library across psychology, biology and spirituality. More to come.</p>
-    </div>
+    <p class="lede">A starting library across psychology, biology and spirituality. More to come.</p>
     <ul class="res-list">
-      {books.map(([t, d]) => (
-        <li class="res-item"><h3 class="res-title">{t}</h3><p class="res-note">{d}</p></li>
-      ))}
+      {books.map(([t,d]) => (<li class="res-item"><h3 class="res-title">{t}</h3><p class="res-note">{d}</p></li>))}
     </ul>
   </section>
 </BaseLayout>
 <style>
   .page{padding-block:var(--s-9);display:flex;flex-direction:column;gap:var(--s-6)}
-  .lede{font-size:var(--t-xl);color:var(--ink-soft);font-weight:300;margin-top:var(--s-3)}
+  .lede{font-size:var(--t-xl);color:var(--ink-soft);font-weight:300}
   .res-list{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-4)}
   .res-item{padding:var(--s-5);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-md)}
-  .res-title{font-family:var(--font-display);font-weight:400;font-size:var(--t-lg);color:var(--ink)}
+  .res-title{font-family:var(--font-display);font-weight:400;font-size:var(--t-lg)}
   .res-note{color:var(--ink-muted);font-size:var(--t-sm);margin-top:var(--s-2)}
   @media(max-width:760px){.res-list{grid-template-columns:1fr}}
 </style>

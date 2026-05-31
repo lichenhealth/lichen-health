@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const events = [
-  "WAG: We're All God", 'WAG: Caring for Your Human', 'WAG: Psychedelics', 'WAG: Artificial Intelligence',
-];
+import { heroes } from '../data/images';
+const events = ["WAG: We're All God",'WAG: Caring for Your Human','WAG: Psychedelics','WAG: Artificial Intelligence'];
 ---
-<BaseLayout title="Events — Lichen" description="Gatherings and conversations from the Lichen community, including the We're All God (WAG) series.">
+<BaseLayout overHero={true} title="Events — Lichen" description="Gatherings and conversations from the Lichen community, including the We're All God (WAG) series.">
+  <section class="phero">
+    <div class="phero-bg"><img src={heroes.events} alt="" /></div>
+    <div class="container phero-inner"><h1>Events</h1></div>
+  </section>
   <section class="container container--narrow page">
-    <span class="eyebrow">Gatherings</span>
-    <h1 class="display h-1">Events</h1>
     <p class="lede">Conversations and gatherings, including our <em>We're All God</em> (WAG) series.</p>
     <ul class="ev-list">{events.map((e) => <li class="ev-item">{e}</li>)}</ul>
     <p style="color:var(--ink-muted)">Want to know when the next one's happening? <a href="/get-involved" style="color:var(--peach-deep)">Join the list →</a></p>
