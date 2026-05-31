@@ -15,7 +15,7 @@ export const heroes: Record<string, string> = {
   check: `${WP}/2024/11/Hero_Check.jpg`,
   resources: 'https://images.squarespace-cdn.com/content/v1/56cd02bf9f72669d299bae54/1540242429329-VTDSHB4B7VMR7ZXZIGIQ/books.JPG?format=2500w',
   blog: `${WP}/2025/02/bristle.png`,
-  events: `${WP}/2024/10/Lichen_Hero.jpg`,
+  events: 'https://images.squarespace-cdn.com/content/v1/56cd02bf9f72669d299bae54/1742674197570-KY4WGB5VU8VBFE0OMPVS/Galyn.jpg?format=2500w',
 };
 
 export const socials = {
