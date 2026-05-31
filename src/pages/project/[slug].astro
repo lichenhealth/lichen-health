@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { projects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { project: p } }));
+}
+const { project } = Astro.props;
+---
+<BaseLayout overHero={true} title={project.seoTitle} description={project.seoDesc}>
+  <section class="proj-hero">
+    <div class="container proj-hero-inner">
+      <span class="eyebrow proj-eyebrow">{project.eyebrow}</span>
+      <h1 class="display">{project.title}</h1>
+    </div>
+  </section>
+
+  <section class="fsection">
+    <div class="container intro-grid">
+      <div class="intro-pic"><img src={project.intro.img} alt="" loading="lazy" /></div>
+      <div class="intro-copy">
+        <p>{project.intro.body}</p>
+        {project.intro.learnMore && (
+          <a href={project.intro.learnMore.href} class="btn btn-primary btn-up">{project.intro.learnMore.label}</a>
+        )}
+      </div>
+    </div>
+  </section>
+
+  {project.sections.map((s, i) => (
+    <section class="fsection sec-block">
+      <div class:list={['container', 'sec-grid', { flip: i % 2 === 1 }]}>
+        {s.img && <div class="sec-pic"><img src={s.img} alt="" loading="lazy" /></div>}
+        <div class="sec-copy">
+          {s.title && <h2 class="display sec-title">{s.title}</h2>}
+          {s.body.map((para) => <p>{para}</p>)}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="fband proj-cta">
+    <div class="container">
+      <h2>{project.cta.line}</h2>
+      <a href={project.cta.href} class="btn btn-light btn-up">{project.cta.label}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .proj-hero { background: var(--moss); color: var(--bone); padding-top: 150px; padding-bottom: 64px; }
+  .proj-hero h1 { color: #fff; font-size: clamp(34px,6vw,72px); line-height: 1.04; text-transform: uppercase; letter-spacing: -0.02em; max-width: 18ch; }
+  .proj-eyebrow { color: var(--peach-light); }
+
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .intro-pic { background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: 14px; overflow: hidden; }
+  .intro-pic img { width: 100%; height: auto; }
+  .intro-copy p { font-size: 18px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; margin-bottom: 24px; }
+
+  .sec-block { padding-block: var(--s-8); }
+  .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .sec-grid.flip .sec-pic { order: 2; }
+  .sec-pic { background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: 14px; overflow: hidden; padding: 8px; }
+  .sec-pic img { width: 100%; height: auto; }
+  .sec-title { font-size: clamp(24px,3vw,38px); margin-bottom: 18px; }
+  .sec-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; margin-bottom: 16px; }
+
+  .proj-cta { margin-top: var(--s-8); }
+
+  @media (max-width: 860px) {
+    .intro-grid, .sec-grid { grid-template-columns: 1fr; gap: 28px; }
+    .sec-grid.flip .sec-pic { order: 0; }
+  }
+</style>
