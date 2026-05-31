@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { heroes } from '../data/images';
 const ways = [
-  { name: 'PayPal', note: "Best if you'd like to make a recurring donation." },
-  { name: 'Stripe', note: "Best for an ACH or wire transfer." },
+  { name: 'PayPal', note: "Best if you'd like to make a recurring donation.", url: 'https://www.paypal.com/donate/?hosted_button_id=F2A847YRU7EPU', cta: 'Give via PayPal' },
+  { name: 'Stripe', note: "Best for an ACH or wire transfer.", url: 'https://donate.stripe.com/dR69AU4hbcngbOE7ss', cta: 'Give via Stripe' },
   { name: 'Check', note: "Mailing a check avoids donation fees entirely." },
-  { name: 'Gift', note: "Speak with our donor relations team to facilitate a larger gift." },
+  { name: 'Gift', note: "Speak with our donor relations team to facilitate a larger gift.", url: 'https://calendly.com/galyntime', cta: 'Book a call' },
 ];
 ---
 <BaseLayout overHero={true} title="Donate — Lichen" description="Help restore human health by donating to expand access to holistic, community-based care for those who cannot afford it.">
@@ -16,7 +16,15 @@ const ways = [
   <section class="container container--narrow page">
     <p class="lede">Make a tax-deductible donation to expand access to holistic, community-based care for all. Thank you for investing in a more balanced and healthy future.</p>
     <div class="give-grid">
-      {ways.map((w) => (<div class="give-card"><h3 class="give-name">{w.name}</h3><p>{w.note}</p></div>))}
+      {ways.map((w) => (
+        <div class="give-card">
+          <h3 class="give-name">{w.name}</h3>
+          <p>{w.note}</p>
+          {w.url
+            ? <a href={w.url} target="_blank" rel="noopener" class="btn btn-primary btn-up give-cta">{w.cta}</a>
+            : <span class="give-soon">Coming soon</span>}
+        </div>
+      ))}
     </div>
     <p class="connect-note">Would you like to connect before giving? Feel free to <a href="https://calendly.com/galyntime" target="_blank" rel="noopener">book a time</a> to chat with us via Zoom.</p>
   </section>
@@ -27,7 +35,10 @@ const ways = [
   .give-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-4);margin-top:var(--s-4)}
   .give-card{padding:var(--s-6);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-lg)}
   .give-name{font-family:var(--font-display);font-weight:400;font-size:var(--t-xl);margin-bottom:var(--s-2)}
+  .give-card{display:flex;flex-direction:column}
   .give-card p{color:var(--ink-muted);font-size:var(--t-sm)}
+  .give-cta{align-self:flex-start;margin-top:var(--s-4);font-size:var(--t-sm);padding:10px 18px}
+  .give-soon{margin-top:var(--s-4);font-size:var(--t-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-faint)}
   .connect-note{color:var(--ink-muted)} .connect-note a{color:var(--peach-deep)}
   @media(max-width:600px){.give-grid{grid-template-columns:1fr}}
 </style>
