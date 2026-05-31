@@ -43,7 +43,6 @@ export const projects: Project[] = [
     intro: {
       img: `${WP}/2026/01/Group-4628.png`,
       body: "Lichen is the radical collaboration of a fungus and an algae. The fungus provides structure and protection while the algae provides food, allowing them to thrive where neither could survive alone. They are pioneers, providing the organic infrastructure for new ecosystems to evolve. Lichen's business is architected to lay the local, organic groundwork for the next generation of human healing, connection and collaboration.",
-      learnMore: { label: 'Learn More', href: '/business' },
     },
     sections: [
       { title: 'Revenue Model', img: `${WP}/2026/01/Ingrid-2.svg`, body: ["With lean operations and no investors or shareholders to pay, all profits from our Content, Community and Concierge memberships not required to run the platform's technology and fund the salaries of Lichen's minimal staff flow back into subsidizing access to the resources that members need to heal, grow, realize their purpose and enjoy their lives.", "Subsidies are tracked and fully transparent, because there is no shame in receiving support when you've been under-resourced by the systems that are crumbling. Concierge Services are provided for members receiving subsidies, to help them plot a course toward sovereign interdependence."] },
@@ -63,7 +62,6 @@ export const projects: Project[] = [
     intro: {
       img: `${WP}/2026/01/mycelium.svg`,
       body: "Our platform leverages the safety and adaptability of an AI-powered, Progressive Web Application, allowing humans to share information and resources, both locally and globally. Think of it as a silicon-based mycelium partnering with human intelligence to heal and maintain balance and reciprocity at the individual, social and ecological level — just as the trees use the fungi's mycelium to share information and resources to maintain the health of the forest.",
-      learnMore: { label: 'Learn More', href: '/platform' },
     },
     sections: [
       { title: 'Lichen', img: `${WP}/2026/01/Platform.svg`, body: ["Lichen provides a comprehensive ecosystem to share information, organized by Social, Creative, Educational and Actionable Content, as well as a Q&A feature. Members can post and manage Events; buy, sell, trade and gift on Marketplace; conduct Courses; manage and share books, articles, music, videos, photos and memes via Library; nourish themselves and each other with Food; share their creative gifts via Art; and connect with other network members through Directory.", "The Home, Concierge, Chat, Calendar, Save and Maps features are fully integrated with the content and utilities provided within the network, creating a seamless experience for Members, Providers, Organizations, Groups and Communities to collaborate, innovate, create, play and be, together."] },

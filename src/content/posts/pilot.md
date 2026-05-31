@@ -4,7 +4,7 @@ pubDate: "2025-02-16 21:51:23"
 author: "Galyn"
 originalUrl: "https://lichen.health/pilot"
 type: "post"
-draft: false
+draft: true
 ---
 Lichen Health, [The Hero's Journey Center](https://www.heroesjourneycenter.com/) and Mons Sana are three, independent organizations working together to prove that community-based, land-based, holistic functional medicine can deliver life-saving (and life-changing) care to veterans and first responders struggling with addiction, PTSD, TBI, moral injury, and developmental trauma.
 

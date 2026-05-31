@@ -4,7 +4,7 @@ pubDate: "2025-02-03 19:20:11"
 author: "Galyn"
 originalUrl: "https://lichen.health/platform"
 type: "post"
-draft: false
+draft: true
 ---
 The plants, animals, elements, healers and healing wisdom necessary to revolutionize healthcare exists. All that is needed is a technology platform and the [business](/business) infrastructure necessary to integrate these healing resources into a community operated, community owned holistic healthcare network that people can access centrally, but experience locally. As such, Lichen's platform is organized to support individuals throughout each phase of the horizontal healing process:
 

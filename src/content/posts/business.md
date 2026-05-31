@@ -4,7 +4,7 @@ pubDate: "2025-02-03 19:59:55"
 author: "Galyn"
 originalUrl: "https://lichen.health/business"
 type: "post"
-draft: false
+draft: true
 ---
 Lichen is a nonprofit that behaves like a startup. This allows our platform to be ignited by philanthropy, but sustained by ethical revenue streams over time. As a nonprofit, Lichen and its donors share the same goal: To expand access to holistic healthcare. Our donors simply realize that the best way to fuel innovation in the healthcare sector is to liberate Lichen from the conflicting interests of making money for investors while delivering care to clients. Said another way, success in the healthcare industry doesn't just mean stealing marketshare, it also means shrinking the market as much as you can.
 
