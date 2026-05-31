@@ -4,6 +4,7 @@ export interface Section { title?: string; img?: string; body: string[]; }
 export interface Project {
   slug: string;
   nav: string;
+  heroImg: string;
   eyebrow: string;
   title: string;
   intro: { img: string; body: string; learnMore?: { label: string; href: string } };
@@ -17,6 +18,7 @@ export const projects: Project[] = [
   {
     slug: 'care',
     nav: 'Care',
+    heroImg: `${WP}/2024/10/Lichen_Care_hero-1.png`,
     eyebrow: 'Care Model',
     title: 'Your care team forms around you',
     intro: {
@@ -35,6 +37,7 @@ export const projects: Project[] = [
   {
     slug: 'business',
     nav: 'Business',
+    heroImg: `${WP}/2024/10/Lichen_Business_Hero.png`,
     eyebrow: 'Lichen Business',
     title: 'Our business supports you',
     intro: {
@@ -54,6 +57,7 @@ export const projects: Project[] = [
   {
     slug: 'platform',
     nav: 'Platform',
+    heroImg: `${WP}/2024/10/Lichen_platform_hero.png`,
     eyebrow: 'Lichen Platform',
     title: 'Our platform serves you',
     intro: {
