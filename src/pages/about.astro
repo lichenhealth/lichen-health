@@ -1,19 +1,85 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { heroes } from '../data/images';
+import { heroes, WP } from '../data/images';
+const img = {
+  what: `${WP}/2026/01/Group-4729-2.svg`,
+  why: `${WP}/2026/01/Group-4730.svg`,
+  begin: `${WP}/2026/01/Group-4738-1.svg`,
+};
 ---
 <BaseLayout overHero={true} title="About — Lichen" description="An overview of the science and spirituality that inform our approach to holistic healthcare.">
   <section class="phero">
     <div class="phero-bg"><img src={heroes.about} alt="" /></div>
-    <div class="container phero-inner"><h1>About Lichen</h1></div>
-  </section>
-  <article class="container container--narrow article">
-    <div class="prose">
-      <p>Lichen is a nonprofit holistic healing network. We connect people to the land, plants, animals, elements, healers and modern medical technology necessary to awaken their innate capacity to heal — individually, in community, and in reciprocity with the living world.</p>
-      <p>Our approach is grounded in a simple, radical idea: the human mind, body and spirit are an integrated system that cannot be separated from the community, environment and universe from which it emerges. Healing the world starts with healing ourselves.</p>
-      <h2>Where to go next</h2>
-      <p><a href="/ourstory">Our Story</a> — how Lichen began. <a href="/vision">Our Vision</a> — the world we're working toward. <a href="/care-model">Our Model of Care</a> — how it works in practice.</p>
+    <div class="container phero-inner">
+      <span class="eyebrow proj-eyebrow">Human Evolution</span>
+      <h1>Human healing is the solution</h1>
     </div>
-  </article>
+  </section>
+
+  <section class="fsection intro-section">
+    <div class="container">
+      <p class="intro-lead">As Crazy Horse foresaw 150 years ago: a movement is forming to help humanity heal and grow into worthy stewards of the planet. Lichen is here to provide the technology platform and business infrastructure necessary to weave together the plants, animals, elements and people of this movement, so they can radically collaborate in pursuit of a brighter future.</p>
+      <a href="https://vimeo.com/1031804180" target="_blank" rel="noopener" class="btn btn-primary btn-up">▶ Watch the Video</a>
+      <p class="intro-note">The social, political and economic systems that divided, disempowered and disconnected us are crumbling. We have the opportunity to build better ones.</p>
+      <hr class="intro-rule" />
+    </div>
+  </section>
+
+  <section class="fsection sec-block">
+    <div class="container sec-grid">
+      <div class="sec-pic"><img src={img.what} alt="" loading="lazy" /></div>
+      <div class="sec-copy">
+        <h2 class="display sec-title">What is Lichen?</h2>
+        <p>Inspired by the forest using the mycelium to share information, carbon, water and medicines, Lichen is a technology <a href="/project/platform">platform</a> that empowers the safe and effective sharing of information and resources to foment individual, social and ecological healing. Like the trees, Lichen's members collaborate, because we know that the health of the collective and the individual are one and the same. Because the sole focus of our <a href="/project/business">business</a> is to expand access to the care our members need, the bigger we grow, the greater our capacity to restore health and balance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fsection sec-block">
+    <div class="container sec-grid flip">
+      <div class="sec-pic"><img src={img.why} alt="" loading="lazy" /></div>
+      <div class="sec-copy">
+        <h2 class="display sec-title">Why build Lichen?</h2>
+        <p>Physics can now measure what eco-spiritual peoples have known for millennia: there is a quantum field of consciousness that connects everything in the universe. The biological sciences are now advanced enough to measure how and why tapping into that field can help us heal at the cellular level. Once engaged with that field, we remember our interconnection with all things, inspiring us to transform Crazy Horse's vision into a reality.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fsection sec-block">
+    <div class="container sec-grid">
+      <div class="sec-pic"><img src={img.begin} alt="" loading="lazy" /></div>
+      <div class="sec-copy">
+        <h2 class="display sec-title">Where to begin?</h2>
+        <p>While our <a href="/mission">mission</a> is big, our platform is strong and our business model is sound. We have the experience, discipline and strategic partnerships in place to start small and make an impact where it matters most. Lichen, The <a href="https://www.heroesjourneycenter.com/" target="_blank" rel="noopener">Heroes Journey Center</a> and Mons Sana are ready to implement a pilot program that measures the safety and efficacy of a community-based, holistic functional medicine network that weaves earth wisdom with modern medicine and technology to deliver life-saving, life-changing care to veterans and first responders struggling with addiction and PTSD.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fband">
+    <div class="container">
+      <h2>Ready to be part of the solution?</h2>
+      <a href="/get-involved" class="btn btn-light btn-up">Get Involved</a>
+    </div>
+  </section>
 </BaseLayout>
-<style>.article{padding-block:var(--s-9) var(--s-10)}</style>
+
+<style>
+  .proj-eyebrow { color: var(--peach-light); }
+  .intro-section { padding-bottom: var(--s-6); }
+  .intro-lead { font-size: clamp(21px, 2.5vw, 27px); line-height: 1.55; color: var(--ink-soft); font-weight: 300; max-width: 68ch; letter-spacing: -0.01em; }
+  .intro-section .btn { margin-top: 26px; }
+  .intro-note { font-family: var(--font-display); font-size: clamp(20px,2.4vw,26px); line-height: 1.3; color: var(--ink); margin-top: var(--s-7); max-width: 60ch; }
+  .intro-rule { height: 1px; background: #12181C; border: 0; margin-top: var(--s-8); }
+  .sec-block { padding-block: var(--s-8); }
+  .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .sec-grid.flip .sec-pic { order: 2; }
+  .sec-pic img { width: 100%; height: auto; display: block; }
+  .sec-title { font-size: clamp(24px,3vw,38px); margin-bottom: 18px; }
+  .sec-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; }
+  .sec-copy a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .sec-copy a:hover { color: var(--rust); }
+  @media (max-width: 860px) {
+    .sec-grid { grid-template-columns: 1fr; gap: 28px; }
+    .sec-grid.flip .sec-pic { order: 0; }
+  }
+</style>
