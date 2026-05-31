@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { heroes } from '../data/images';
 const ways = [
-  { name: 'PayPal', note: "Best if you'd like to make a recurring donation.", url: 'https://www.paypal.com/donate/?hosted_button_id=F2A847YRU7EPU', cta: 'Give via PayPal' },
+  { name: 'PayPal', note: "Best for recurring donations.", url: 'https://www.paypal.com/donate/?hosted_button_id=F2A847YRU7EPU', cta: 'Give via PayPal' },
   { name: 'Stripe', note: "Best for an ACH or wire transfer.", url: 'https://donate.stripe.com/dR69AU4hbcngbOE7ss', cta: 'Give via Stripe' },
-  { name: 'Check', note: "Mailing a check avoids donation fees entirely." },
-  { name: 'Gift', note: "Speak with our donor relations team to facilitate a larger gift.", url: 'https://calendly.com/galyntime', cta: 'Book a call' },
+  { name: 'Check', note: "Mailing a check avoids donation fees entirely.", check: { payTo: 'Lichen Health', address: ['Galyn Burke', '320 Rustlers Rd.', 'Bailey, CO 80421'] } },
+  { name: 'Gift', note: "Speak with our founder to facilitate a larger gift.", url: 'https://calendly.com/galyntime', cta: 'Book a call' },
 ];
 ---
 <BaseLayout overHero={true} title="Donate — Lichen" description="Help restore human health by donating to expand access to holistic, community-based care for those who cannot afford it.">
@@ -20,15 +20,31 @@ const ways = [
         <div class="give-card">
           <h3 class="give-name">{w.name}</h3>
           <p>{w.note}</p>
-          {w.url
-            ? <a href={w.url} target="_blank" rel="noopener" class="btn btn-primary btn-up give-cta">{w.cta}</a>
-            : <span class="give-soon">Coming soon</span>}
+          {w.url && (
+            <a href={w.url} target="_blank" rel="noopener" class="btn btn-primary btn-up give-cta">{w.cta}</a>
+          )}
+          {w.check && (
+            <div class="give-check" id="checkBlock">
+              <div class="check-row"><span class="check-label">Payable to</span><span class="check-val">{w.check.payTo}</span></div>
+              <div class="check-row"><span class="check-label">Mail to</span><span class="check-val">{w.check.address.map((line) => <span>{line}<br/></span>)}</span></div>
+              <button type="button" class="check-copy" data-copy={`Lichen Health\n${w.check.address.join('\n')}`}>Copy details</button>
+            </div>
+          )}
+          {!w.url && !w.check && <span class="give-soon">Coming soon</span>}
         </div>
       ))}
     </div>
     <p class="connect-note">Would you like to connect before giving? Feel free to <a href="https://calendly.com/galyntime" target="_blank" rel="noopener">book a time</a> to chat with us via Zoom.</p>
   </section>
 </BaseLayout>
+<script>
+  // checkCopyScript
+  document.querySelectorAll('.check-copy').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(btn.dataset.copy || ''); const t = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => (btn.textContent = t), 1500); } catch {}
+    });
+  });
+</script>
 <style>
   .page{padding-block:var(--s-9);display:flex;flex-direction:column;gap:var(--s-5)}
   .lede{font-size:var(--t-xl);color:var(--ink-soft);font-weight:300;line-height:var(--lh-snug);max-width:54ch}
@@ -39,6 +55,12 @@ const ways = [
   .give-card p{color:var(--ink-muted);font-size:var(--t-sm)}
   .give-cta{align-self:flex-start;margin-top:var(--s-4);font-size:var(--t-sm);padding:10px 18px}
   .give-soon{margin-top:var(--s-4);font-size:var(--t-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-faint)}
+  .give-check{margin-top:var(--s-4);display:flex;flex-direction:column;gap:var(--s-3)}
+  .check-row{display:flex;flex-direction:column;gap:2px}
+  .check-label{font-family:var(--font-mono);font-size:var(--t-2xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .check-val{font-size:var(--t-sm);color:var(--ink)}
+  .check-copy{align-self:flex-start;font-size:var(--t-xs);letter-spacing:0.06em;text-transform:uppercase;color:var(--peach-deep);border:1px solid var(--bone-edge);border-radius:var(--r-full);padding:7px 14px}
+  .check-copy:hover{border-color:var(--peach);color:var(--rust)}
   .connect-note{color:var(--ink-muted)} .connect-note a{color:var(--peach-deep)}
   @media(max-width:600px){.give-grid{grid-template-columns:1fr}}
 </style>
