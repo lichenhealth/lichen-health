@@ -1,39 +1,51 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { heroes } from '../data/images';
-const books = [
-  ['The Secret to Healing Illness','Using nature and the quantum field to heal the mind and body'],
-  ['The Body Keeps the Score','How developmental trauma impacts brain development and mental illness'],
-  ['Healing the Fragmented Selves of Trauma Survivors','Overcoming the self-alienation inherent in developmental trauma'],
-  ["Why Zebras Don't Get Ulcers",'How the ego and threat system create chronic stress and disease'],
-  ['When the Body Says No','The role developmental trauma plays in illness and disease'],
-  ["It Didn't Start with You",'The epigenetic science of inherited trauma'],
-  ['In the Realm of Hungry Ghosts','The biological cause of addiction and how to treat it'],
-  ['Accessing the Healing Power of the Vagus Nerve','Unlocking the self-healing power of Polyvagal Theory'],
-  ['The Polyvagal Theory','Neurophysiological foundations of emotion, attachment and self-regulation'],
-  ['Trauma-Proofing Your Kids',"Supporting children so they don't develop PTSD"],
-  ["Child Development: A Practitioner's Guide",'The phases of child development and how to support healthy maturation'],
-  ['Awakening to the Spirit World','An overview of the eco-spiritual world of shamanism'],
-];
+import { resources } from '../data/resources';
 ---
 <BaseLayout overHero={true} title="Resources — Lichen" description="Books, podcasts and other resources to help you heal your mind, body, spirit, community and environment.">
   <section class="phero">
     <div class="phero-bg"><img src={heroes.resources} alt="" style="object-position: 50% 28%;" /></div>
     <div class="container phero-inner"><h1>Resources</h1></div>
   </section>
-  <section class="container page">
+
+  <section class="container container--narrow res-wrap">
     <p class="lede">A starting library across psychology, biology and spirituality. More to come.</p>
-    <ul class="res-list">
-      {books.map(([t,d]) => (<li class="res-item"><h3 class="res-title">{t}</h3><p class="res-note">{d}</p></li>))}
-    </ul>
+
+    {resources.map((topic) => (
+      <div class="res-topic">
+        <h2 class="display res-topic-title">{topic.topic}</h2>
+        {topic.groups.map((group) => (
+          <div class="res-group">
+            {group.label && <h3 class="res-group-label">{group.label}</h3>}
+            <ul class="res-items">
+              {group.items.map((item) => (
+                <li class="res-item">
+                  <a href={item.url} target="_blank" rel="noopener" class="res-link">{item.title}</a>
+                  <span class="res-note">{item.note}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <hr class="res-rule" />
+      </div>
+    ))}
   </section>
 </BaseLayout>
+
 <style>
-  .page{padding-block:var(--s-9);display:flex;flex-direction:column;gap:var(--s-6)}
-  .lede{font-size:var(--t-xl);color:var(--ink-soft);font-weight:300}
-  .res-list{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-4)}
-  .res-item{padding:var(--s-5);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-md)}
-  .res-title{font-family:var(--font-display);font-weight:400;font-size:var(--t-lg)}
-  .res-note{color:var(--ink-muted);font-size:var(--t-sm);margin-top:var(--s-2)}
-  @media(max-width:760px){.res-list{grid-template-columns:1fr}}
+  .res-wrap { padding-block: var(--s-9); }
+  .lede { font-size: var(--t-xl); color: var(--ink-soft); font-weight: 300; margin-bottom: var(--s-9); }
+  .res-topic { margin-bottom: var(--s-7); }
+  .res-topic-title { font-size: clamp(24px,3.2vw,38px); margin-bottom: var(--s-5); }
+  .res-group { margin-bottom: var(--s-6); }
+  .res-group-label { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: var(--s-4); }
+  .res-items { display: flex; flex-direction: column; gap: var(--s-4); }
+  .res-item { display: flex; flex-direction: column; gap: 3px; }
+  .res-link { font-family: var(--font-display); font-weight: 400; font-size: var(--t-lg); color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--peach); text-decoration-thickness: 1px; width: fit-content; }
+  .res-link:hover { color: var(--peach-deep); }
+  .res-note { font-size: var(--t-sm); color: var(--ink-muted); line-height: var(--lh-normal); }
+  .res-rule { height: 1px; background: #12181C; border: 0; margin-top: var(--s-7); }
+  .res-topic:last-child .res-rule { display: none; }
 </style>
