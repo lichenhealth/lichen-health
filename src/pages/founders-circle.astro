@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FoundersForm from '../components/FoundersForm.astro';
+import { WP } from '../data/images';
+import { tiers, steps, calendar, faqs } from '../data/founders';
+const heroImg = `${WP}/2024/10/Lichen_Hero.jpg`;
+---
+<BaseLayout overHero={true} title="The Founders Circle — Lichen" description="The Founders Circle is the inner cohort whose contributions bring Lichen into being — anchoring the first land, the first maloka, and the first generation of healing.">
+  <section class="phero">
+    <div class="phero-bg"><img src={heroImg} alt="" /></div>
+    <div class="container phero-inner">
+      <span class="eyebrow proj-eyebrow">Phase 1 Founding Cohort</span>
+      <h1>The Founders Circle</h1>
+    </div>
+  </section>
+
+  <section class="fsection intro-section">
+    <div class="container">
+      <p class="intro-lead">Beneath every old-growth forest is a quiet architecture — mycelium sharing water, nutrients, and medicine between trees so the whole stand may thrive. The Founders Circles are the foundational network that ensures the forest will thrive and its trees will stand tall.</p>
+      <p class="intro-note">An inner cohort of patrons, stewards and quiet believers who anchor the first land, the first maloka, the first version of the Lichen platform, and the first generation of healing offered. A foundational community where membership isn't transactional — it's a relationship, carrying lifetime recognition, year-round invitations, connection with like-hearted patrons, and a direct line to the founding team.</p>
+      <hr class="intro-rule" />
+    </div>
+  </section>
+
+  <section class="fsection">
+    <div class="container">
+      <div class="sec-head"><span class="eyebrow">Membership tiers</span><h2 class="display h-2">Each tier, a deeper layer of the forest</h2></div>
+      <div class="tier-grid">
+        {tiers.map((t) => (
+          <div class="ftier">
+            <span class="ftier-from">{t.from}</span>
+            <h3 class="ftier-name">{t.name}</h3>
+            <p class="ftier-essence">{t.essence}</p>
+            <ul class="ftier-benefits">{t.benefits.map((b) => <li>{b}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+      <p class="tier-foot">Contributions compound — a member at one level is welcomed into the next as commitments accumulate. Anonymity is honored at every tier. The legal and tax vehicle is confirmed with you in writing before any transfer of funds.</p>
+    </div>
+  </section>
+
+  <section class="fband">
+    <div class="container container--narrow band-center">
+      <h2>Where your contribution lives</h2>
+      <p>Founders Circle commitments fund the Phase 1 land, the maloka, the first guest structures, the founding clinical and ceremonial program — and the scholarship fund that brings healers, veterans, and frontline workers onto the land at no cost.</p>
+    </div>
+  </section>
+
+  <section class="fsection">
+    <div class="container">
+      <div class="sec-head"><span class="eyebrow">How to join</span><h2 class="display h-2">It begins with a conversation</h2></div>
+      <div class="steps">
+        {steps.map((s) => (
+          <div class="step"><span class="step-n">{s.n}</span><h3 class="step-t">{s.t}</h3><p>{s.d}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="fsection">
+    <div class="container container--narrow">
+      <div class="sec-head"><span class="eyebrow">The year on the land</span><h2 class="display h-2">Annual convergence calendar</h2></div>
+      <table class="cal">
+        <thead><tr><th>Month</th><th>Gathering</th><th>Access</th></tr></thead>
+        <tbody>{calendar.map(([m, g, a]) => <tr><td class="cal-m">{m}</td><td>{g}</td><td class="cal-a">{a}</td></tr>)}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="fsection">
+    <div class="container container--narrow">
+      <div class="sec-head"><span class="eyebrow">Questions</span><h2 class="display h-2">Good to know</h2></div>
+      <div class="faqs">{faqs.map((f) => <div class="faq"><h3 class="faq-q">{f.q}</h3><p class="faq-a">{f.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="fsection form-section">
+    <div class="container container--narrow">
+      <hr class="intro-rule" style="margin-bottom: var(--s-8)" />
+      <span class="eyebrow">Take your place in the Circle</span>
+      <h2 class="display h-1" style="margin: var(--s-2) 0 var(--s-4)">Begin the conversation</h2>
+      <p class="form-lede">The Founders Circle is intentionally small — a sanctuary, not a subscription. Share a little about yourself and the founding team will reach out personally.</p>
+      <FoundersForm />
+      <p class="contact-line">Or reach us directly: <a href="mailto:founders@lichen.health">founders@lichen.health</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .proj-eyebrow { color: var(--peach-light); }
+  .intro-section { padding-bottom: var(--s-6); }
+  .intro-lead { font-size: clamp(21px,2.5vw,27px); line-height: 1.5; color: var(--ink); font-weight: 300; max-width: 64ch; font-family: var(--font-display); }
+  .intro-note { font-size: var(--t-lg); line-height: var(--lh-loose); color: var(--ink-soft); font-weight: 300; margin-top: var(--s-6); max-width: 64ch; }
+  .intro-rule { height: 1px; background: #12181C; border: 0; margin-top: var(--s-8); }
+
+  .sec-head { display: flex; flex-direction: column; gap: var(--s-2); margin-bottom: var(--s-7); }
+  .tier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-4); }
+  .ftier { padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); display: flex; flex-direction: column; gap: var(--s-2); }
+  .ftier:last-child { grid-column: 1 / -1; }
+  .ftier-from { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--peach-deep); }
+  .ftier-name { font-family: var(--font-display); font-weight: 400; font-size: var(--t-2xl); color: var(--ink); }
+  .ftier-essence { font-family: var(--font-display); font-style: italic; font-size: var(--t-lg); color: var(--ink-muted); margin-bottom: var(--s-2); }
+  .ftier-benefits { display: flex; flex-direction: column; gap: var(--s-2); }
+  .ftier-benefits li { position: relative; padding-left: var(--s-5); font-size: var(--t-sm); color: var(--ink-soft); line-height: var(--lh-normal); }
+  .ftier-benefits li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--peach); }
+  .tier-foot { font-size: var(--t-sm); color: var(--ink-muted); margin-top: var(--s-6); max-width: 70ch; line-height: var(--lh-loose); }
+
+  .fband .band-center { text-align: center; }
+  .fband .band-center p { font-size: var(--t-lg); color: color-mix(in srgb, var(--bone) 90%, transparent); font-weight: 300; line-height: var(--lh-loose); margin-top: var(--s-4); }
+
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s-4); }
+  .step { display: flex; flex-direction: column; gap: var(--s-2); }
+  .step-n { font-family: var(--font-mono); font-size: var(--t-sm); color: var(--peach-deep); }
+  .step-t { font-family: var(--font-display); font-weight: 400; font-size: var(--t-md); color: var(--ink); }
+  .step p { font-size: var(--t-sm); color: var(--ink-muted); line-height: var(--lh-normal); }
+
+  .cal { width: 100%; border-collapse: collapse; font-size: var(--t-sm); }
+  .cal th { text-align: left; font-family: var(--font-mono); font-size: var(--t-2xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); padding: 0 var(--s-3) var(--s-3); border-bottom: 1px solid var(--bone-edge); }
+  .cal td { padding: var(--s-3); border-bottom: 1px solid var(--bone-edge); color: var(--ink-soft); }
+  .cal-m { font-weight: 500; color: var(--ink); white-space: nowrap; }
+  .cal-a { color: var(--ink-muted); white-space: nowrap; }
+
+  .faqs { display: flex; flex-direction: column; gap: var(--s-6); }
+  .faq-q { font-family: var(--font-display); font-weight: 400; font-size: var(--t-lg); color: var(--ink); margin-bottom: var(--s-2); }
+  .faq-a { font-size: var(--t-base); color: var(--ink-muted); line-height: var(--lh-loose); }
+
+  .form-lede { font-size: var(--t-lg); color: var(--ink-soft); font-weight: 300; margin-bottom: var(--s-6); max-width: 56ch; }
+  .contact-line { margin-top: var(--s-6); color: var(--ink-muted); font-size: var(--t-base); }
+  .contact-line a { color: var(--peach-deep); }
+
+  @media (max-width: 760px) {
+    .tier-grid { grid-template-columns: 1fr; }
+    .ftier:last-child { grid-column: auto; }
+    .steps { grid-template-columns: 1fr 1fr; }
+  }
+</style>
