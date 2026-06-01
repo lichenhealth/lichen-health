@@ -1,6 +1,6 @@
 export interface Tier { name: string; from: string; essence: string; benefits: string[]; }
 export const tiers: Tier[] = [
-  { name: 'Substrate Circle', from: 'From $5,000', essence: 'The ground that holds everything. The first quiet yes.', benefits: [
+  { name: 'Substrate Circle', from: 'From $5,000', essence: 'An ocean of those who are ready for sea change. The first, quiet yes.', benefits: [
     "Name etched on the Founders' Stone at the property entry",
     'Lifetime invitation to all four seasonal gatherings',
     "Annual founder's letter and seasonal land updates",
@@ -28,7 +28,7 @@ export const tiers: Tier[] = [
     'Inclusion in the founding documentary and archive',
     'Everything in Hearth Circle',
   ]},
-  { name: 'Old Growth Circle', from: 'From $1,000,000', essence: 'The slow trees that shelter the forest.', benefits: [
+  { name: 'Old Growth Circle', from: 'From $1,000,000', essence: 'The mother trees that anchor the entire forest.', benefits: [
     'Named in perpetuity on a flagship element of the land',
     'Lifetime, transferable patronage rights for your lineage',
     'Annual private retreat with a dedicated practitioner team',
