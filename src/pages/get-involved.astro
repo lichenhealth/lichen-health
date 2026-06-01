@@ -2,30 +2,71 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SignupForm from '../components/SignupForm.astro';
 import { heroes } from '../data/images';
+
+// Founding-member tiers. Add `url` (a Stripe Payment Link) to make a tier's button go live.
+const tiers = [
+  { name: 'Community', price: '$29', per: '/mo', blurb: 'Join the founding community. Your membership is credited in full to your account when the app launches.', url: '', cta: 'Join Community' },
+  { name: 'Concierge', price: '$99', per: '/mo', blurb: 'Founding concierge access — priority, hands-on support. Credited in full to your account at launch.', url: '', cta: 'Join Concierge', featured: true },
+  { name: 'Donate', price: '', per: '', blurb: 'Prefer to give a gift? Support the work directly, any amount, one-time or recurring.', url: '/donate', cta: 'Donate' },
+];
 ---
 <BaseLayout overHero={true} title="Get Involved — Lichen" description="Join, volunteer and support the holistic healthcare movement.">
   <section class="phero">
     <div class="phero-bg"><img src={heroes['get-involved']} alt="" /></div>
     <div class="container phero-inner"><h1>It takes a village</h1></div>
   </section>
+
   <section class="container container--narrow involved">
     <p class="lede">Because our beliefs create our reality, there are three ways to bring about a better, shared reality — heal yourself, be the change, and scale the change. Whichever calls you, there's a place here.</p>
-    <div class="ways">
-      <div class="way"><span class="tag">Heal Yourself</span><p>Get to the root of the limiting beliefs co-creating a reality you don't prefer.</p></div>
-      <div class="way"><span class="tag tag-moss">Be the Change</span><p>Be in right relationship with yourself, others and the planet.</p></div>
-      <div class="way"><span class="tag">Scale the Change</span><p>Apply your energy — money, time, expertise — to building the New Earth.</p></div>
+    <div class="support-head">
+      <span class="eyebrow">Support Lichen now</span>
+      <h2 class="display h-2">Become a founding member</h2>
+      <p class="support-note">Community and Concierge are in their infancy — but you can fuel the movement today. Every founding membership is <strong>credited in full to your account when the Lichen app launches.</strong></p>
     </div>
+    <div class="tiers">
+      {tiers.map((t) => (
+        <div class:list={['tier', { featured: t.featured }]}>
+          {t.featured && <span class="tier-badge">Most hands-on</span>}
+          {t.price && <span class="tier-price">{t.price}<span class="tier-per">{t.per}</span></span>}
+          <h3 class="tier-name">{t.name}</h3>
+          <p class="tier-blurb">{t.blurb}</p>
+          {t.url
+            ? <a href={t.url} target={t.url.startsWith('/') ? '_self' : '_blank'} rel="noopener" class="btn btn-primary btn-up tier-cta">{t.cta}</a>
+            : <span class="give-soon">Coming soon</span>}
+        </div>
+      ))}
+    </div>
+
     <hr class="divider" />
+
     <h2 class="display h-2" style="margin-bottom:var(--s-5)">Ready to be part of the solution?</h2>
+    <p class="form-intro">Not ready to join yet? Leave your details and tell us how you'd like to be involved — we'll keep you close to the work.</p>
     <SignupForm />
   </section>
 </BaseLayout>
+
 <style>
-  .involved{padding-block:var(--s-9);display:flex;flex-direction:column;gap:var(--s-4)}
-  .lede{font-size:var(--t-xl);color:var(--ink-soft);font-weight:300;line-height:var(--lh-snug);max-width:56ch}
-  .ways{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-4);margin-block:var(--s-5)}
-  .way{padding:var(--s-5);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-md);display:flex;flex-direction:column;gap:var(--s-3)}
-  .way p{font-size:var(--t-sm);color:var(--ink-muted)}
-  .divider{margin-block:var(--s-6)}
-  @media(max-width:760px){.ways{grid-template-columns:1fr}}
+  .involved { padding-block: var(--s-9); display: flex; flex-direction: column; gap: var(--s-4); }
+  .lede { font-size: var(--t-xl); color: var(--ink-soft); font-weight: 300; line-height: var(--lh-snug); max-width: 56ch; }
+  .ways { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--s-4); margin-block: var(--s-5); }
+  .way { padding: var(--s-5); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md); display: flex; flex-direction: column; gap: var(--s-3); }
+  .way p { font-size: var(--t-sm); color: var(--ink-muted); }
+  .divider { margin-block: var(--s-7); }
+
+  .support-head { display: flex; flex-direction: column; gap: var(--s-3); max-width: 60ch; }
+  .support-note { font-size: var(--t-lg); color: var(--ink-soft); font-weight: 300; line-height: var(--lh-normal); }
+  .support-note strong { color: var(--ink); font-weight: 500; }
+  .tiers { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--s-4); margin-top: var(--s-6); }
+  .tier { position: relative; padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); display: flex; flex-direction: column; gap: var(--s-3); }
+  .tier.featured { border-color: var(--peach); box-shadow: var(--sh-card); }
+  .tier-badge { position: absolute; top: -10px; left: var(--s-6); background: var(--peach); color: #fff; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding: 3px 10px; border-radius: var(--r-full); }
+  .tier-price { font-family: var(--font-display); font-size: var(--t-3xl); color: var(--ink); line-height: 1; }
+  .tier-per { font-family: var(--font-body); font-size: var(--t-base); color: var(--ink-muted); font-weight: 300; }
+  .tier-name { font-family: var(--font-display); font-weight: 400; font-size: var(--t-xl); color: var(--ink); }
+  .tier-blurb { font-size: var(--t-sm); color: var(--ink-muted); line-height: var(--lh-normal); flex: 1; }
+  .tier-cta { align-self: flex-start; margin-top: var(--s-2); }
+  .give-soon { margin-top: var(--s-2); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+  .form-intro { font-size: var(--t-base); color: var(--ink-muted); margin-top: calc(-1 * var(--s-3)); margin-bottom: var(--s-5); max-width: 52ch; }
+
+  @media (max-width: 760px) { .ways, .tiers { grid-template-columns: 1fr; } }
 </style>
