@@ -24,7 +24,7 @@ As I pondered my experience, I remembered a powerful moment in a mushroom ceremo
 
 Over the two years that followed, I channeled the blueprint for a global, functional medicine network that can be funded ethically and scaled sustainably, while simultaneously navigating a personal, kundalini awakening and spiritual emergence that could have been disastrous but proved transformational, thanks to the land, plants, animals, elements and functional medicine team that guided me through it. I emerged from the experience humbled, grateful and inspired to do what I could to ensure that everyone has access to the wisdom and care that I received.
 
-As the cultural, political and economic systems that have perpetuated human suffering crumble, a time of great individual, social and ecological transformation has begun. Humanity has the opportunity to build new systems, including a healthcare system that honors the spiritual, biological and mathematical truth of the interconnection of all things. Where attention goes, energy flows. If your soul's purpose is to prepare humanity for what's next, we'd love for you to [join us](https://lichen.health/getinvolved-form).
+As the cultural, political and economic systems that have perpetuated human suffering crumble, a time of great individual, social and ecological transformation has begun. Humanity has the opportunity to build new systems, including a healthcare system that honors the spiritual, biological and mathematical truth of the interconnection of all things. Where attention goes, energy flows. If your soul's purpose is to prepare humanity for what's next, we'd love for you to [join us](/get-involved).
 
 Sincerely,
 
