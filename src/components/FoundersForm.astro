@@ -14,7 +14,7 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
   </div>
   <label class="field">
     <span class="field-label">Tier you're drawn to</span>
-    <select name="tier">
+    <select name="tier" id="tierSelect">
       <option value="">Choose one…</option>
       {tierChoices.map((t) => <option>{t}</option>)}
     </select>
@@ -31,6 +31,7 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
   .field-label { font-size: var(--t-sm); color: var(--ink-soft); font-weight: 400; }
   .signup input, .signup select { background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md); padding: 12px 14px; font-size: var(--t-base); color: var(--ink); transition: border-color var(--d-fast) var(--ease-out); }
   .signup input:focus, .signup select:focus { outline: none; border-color: var(--peach); }
+  .signup select.flash { border-color: var(--peach); box-shadow: 0 0 0 3px var(--peach-tint); transition: box-shadow var(--d-base) var(--ease-out); }
   .signup-submit { align-self: flex-start; margin-top: var(--s-2); }
   .signup-status { font-size: var(--t-sm); min-height: 1em; }
   .signup-status.ok { color: var(--moss); }

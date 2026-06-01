@@ -27,11 +27,12 @@ const heroImg = `${WP}/2024/10/Lichen_Hero.jpg`;
       <div class="sec-head"><span class="eyebrow">Membership tiers</span><h2 class="display h-2">Each tier, a deeper layer of the forest</h2></div>
       <div class="tier-grid">
         {tiers.map((t) => (
-          <div class="ftier">
+          <div class="ftier" data-tier={t.name} role="button" tabindex="0">
             <span class="ftier-from">{t.from}</span>
             <h3 class="ftier-name">{t.name}</h3>
             <p class="ftier-essence">{t.essence}</p>
             <ul class="ftier-benefits">{t.benefits.map((b) => <li>{b}</li>)}</ul>
+            <span class="ftier-choose">Choose this tier →</span>
           </div>
         ))}
       </div>
@@ -67,14 +68,7 @@ const heroImg = `${WP}/2024/10/Lichen_Hero.jpg`;
     </div>
   </section>
 
-  <section class="fsection">
-    <div class="container container--narrow">
-      <div class="sec-head"><span class="eyebrow">Questions</span><h2 class="display h-2">Good to know</h2></div>
-      <div class="faqs">{faqs.map((f) => <div class="faq"><h3 class="faq-q">{f.q}</h3><p class="faq-a">{f.a}</p></div>)}</div>
-    </div>
-  </section>
-
-  <section class="fsection form-section">
+  <section class="fsection form-section" id="begin">
     <div class="container container--narrow">
       <hr class="intro-rule" style="margin-bottom: var(--s-8)" />
       <span class="eyebrow">Take your place in the Circle</span>
@@ -84,7 +78,35 @@ const heroImg = `${WP}/2024/10/Lichen_Hero.jpg`;
       <p class="contact-line">Or reach us directly: <a href="mailto:founders@lichen.health">founders@lichen.health</a></p>
     </div>
   </section>
+
+  <section class="fsection">
+    <div class="container container--narrow">
+      <div class="sec-head"><span class="eyebrow">Questions</span><h2 class="display h-2">Good to know</h2></div>
+      <div class="faqs">{faqs.map((f) => <div class="faq"><h3 class="faq-q">{f.q}</h3><p class="faq-a">{f.a}</p></div>)}</div>
+    </div>
+  </section>
 </BaseLayout>
+<script>
+  const select = document.getElementById('tierSelect') as HTMLSelectElement | null;
+  const target = document.getElementById('begin');
+  const choose = (card: Element) => {
+    const tier = (card as HTMLElement).dataset.tier;
+    if (select && tier) {
+      const opt = Array.from(select.options).find((o) => o.text.startsWith(tier));
+      if (opt) select.value = opt.value;
+    }
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    select?.classList.add('flash');
+    setTimeout(() => select?.classList.remove('flash'), 1300);
+  };
+  document.querySelectorAll('.ftier').forEach((card) => {
+    card.addEventListener('click', () => choose(card));
+    card.addEventListener('keydown', (e) => {
+      const k = (e as KeyboardEvent).key;
+      if (k === 'Enter' || k === ' ') { e.preventDefault(); choose(card); }
+    });
+  });
+</script>
 
 <style>
   .proj-eyebrow { color: var(--peach-light); }
@@ -95,7 +117,10 @@ const heroImg = `${WP}/2024/10/Lichen_Hero.jpg`;
 
   .sec-head { display: flex; flex-direction: column; gap: var(--s-2); margin-bottom: var(--s-7); }
   .tier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-4); }
-  .ftier { padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); display: flex; flex-direction: column; gap: var(--s-2); }
+  .ftier { padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); display: flex; flex-direction: column; gap: var(--s-2); cursor: pointer; transition: transform var(--d-base) var(--ease-out), border-color var(--d-fast) var(--ease-out); }
+  .ftier:hover { transform: translateY(-3px); border-color: var(--peach); }
+  .ftier:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
+  .ftier-choose { margin-top: var(--s-3); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--peach-deep); }
   .ftier:last-child { grid-column: 1 / -1; }
   .ftier-from { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--peach-deep); }
   .ftier-name { font-family: var(--font-display); font-weight: 400; font-size: var(--t-2xl); color: var(--ink); }
