@@ -61,7 +61,7 @@ export const calendar = [
 ];
 
 export const faqs = [
-  { q: 'Is my founding contribution tax-deductible?', a: "Lichen is finalizing its legal architecture — likely a charitable foundation holding the land and scholarship work alongside an operating entity. You receive full documentation appropriate to your contribution, and we walk through tax treatment with you before any commitment." },
+  { q: 'Is my founding contribution tax-deductible?', a: "Yes — Lichen Health is a registered 501(c)(3) nonprofit, so your contribution is tax-deductible to the fullest extent allowed by law. You'll receive full documentation appropriate to your gift, and we're glad to walk through the details with you before any commitment." },
   { q: 'Can I deepen my commitment over time?', a: 'Yes — commitments compound. A member who begins at Substrate is welcomed into Root, Hearth, or beyond as contributions accumulate. There is no penalty for starting small.' },
   { q: 'What if I want to remain anonymous?', a: 'Anonymity is honored at every tier, without exception. You receive the same access and invitations; your name appears nowhere unless you ask for it to.' },
   { q: 'Can a business, family foundation, or DAF contribute?', a: 'Yes. We welcome corporate contributions, matching gifts, and grants from family foundations and donor-advised funds, and coordinate documentation with you and your advisors.' },

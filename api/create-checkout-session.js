@@ -45,6 +45,7 @@ export default async function handler(req, res) {
       session = await stripe.checkout.sessions.create({
         mode: 'payment',
         submit_type: 'donate',
+        invoice_creation: { enabled: true },
         line_items: [{
           price_data: {
             currency: 'usd',
