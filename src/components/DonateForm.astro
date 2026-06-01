@@ -1,0 +1,92 @@
+---
+const presets = [25, 50, 100, 250];
+---
+<form class="donate-form" id="donateForm">
+  <div class="preset-row">
+    {presets.map((p) => <button type="button" class="preset" data-amt={p}>${p}</button>)}
+  </div>
+  <div class="amount-row">
+    <label class="amount-field">
+      <span class="df-label">Amount</span>
+      <div class="amount-input">
+        <span class="dollar">$</span>
+        <input type="number" name="amount" min="1" step="1" inputmode="decimal" placeholder="50" required />
+      </div>
+    </label>
+    <label class="freq-field">
+      <span class="df-label">Frequency</span>
+      <select name="frequency">
+        <option value="one-time">One time</option>
+        <option value="monthly">Monthly</option>
+        <option value="annually">Annually</option>
+      </select>
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary btn-up donate-submit">Donate</button>
+  <p class="df-status" id="dfStatus" role="status"></p>
+  <p class="df-fine">Secure checkout powered by Stripe. Monthly and annual gifts recur automatically until you cancel; you can stop anytime.</p>
+</form>
+
+<style>
+  .donate-form { display: flex; flex-direction: column; gap: var(--s-4); max-width: 520px; }
+  .preset-row { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+  .preset { border: 1px solid var(--bone-edge); background: var(--bone-warm); border-radius: var(--r-full); padding: 8px 16px; font-size: var(--t-sm); font-weight: 500; color: var(--ink); transition: border-color var(--d-fast) var(--ease-out), background var(--d-fast) var(--ease-out); }
+  .preset:hover { border-color: var(--peach); }
+  .preset.active { background: var(--peach); border-color: var(--peach); color: #fff; }
+  .amount-row { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s-4); }
+  .amount-field, .freq-field { display: flex; flex-direction: column; gap: var(--s-2); }
+  .df-label { font-size: var(--t-sm); color: var(--ink-soft); }
+  .amount-input { display: flex; align-items: center; background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md); padding-left: 14px; transition: border-color var(--d-fast) var(--ease-out); }
+  .amount-input:focus-within { border-color: var(--peach); }
+  .amount-input .dollar { font-size: var(--t-lg); color: var(--ink-muted); }
+  .amount-input input { border: 0; background: transparent; padding: 12px 14px 12px 6px; font-size: var(--t-lg); color: var(--ink); width: 100%; }
+  .amount-input input:focus { outline: none; }
+  .freq-field select { background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md); padding: 12px 14px; font-size: var(--t-base); color: var(--ink); height: 100%; }
+  .freq-field select:focus { outline: none; border-color: var(--peach); }
+  .donate-submit { align-self: flex-start; }
+  .df-status { font-size: var(--t-sm); min-height: 1em; }
+  .df-status.err { color: var(--rust); }
+  .df-fine { font-size: var(--t-xs); color: var(--ink-faint); max-width: 46ch; }
+  @media (max-width: 520px) { .amount-row { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  const form = document.getElementById('donateForm') as HTMLFormElement | null;
+  const status = document.getElementById('dfStatus');
+  const amountInput = form?.querySelector('input[name="amount"]') as HTMLInputElement | null;
+
+  form?.querySelectorAll('.preset').forEach((b) => {
+    b.addEventListener('click', () => {
+      if (amountInput) amountInput.value = (b as HTMLElement).dataset.amt || '';
+      form.querySelectorAll('.preset').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+    });
+  });
+  amountInput?.addEventListener('input', () => {
+    form?.querySelectorAll('.preset').forEach((x) => x.classList.remove('active'));
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form || !status) return;
+    const data = new FormData(form);
+    const amount = String(data.get('amount') || '');
+    const frequency = String(data.get('frequency') || 'one-time');
+    const btn = form.querySelector('.donate-submit') as HTMLButtonElement;
+    btn.disabled = true; status.className = 'df-status'; status.textContent = 'Taking you to secure checkout…';
+    try {
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount, frequency }),
+      });
+      const out = await res.json();
+      if (!res.ok || !out.url) throw new Error(out.error || 'Could not start checkout.');
+      window.location.href = out.url;
+    } catch (err: any) {
+      status.className = 'df-status err';
+      status.textContent = err?.message || 'Something went wrong — please try again or email connect@lichen.health.';
+      btn.disabled = false;
+    }
+  });
+</script>

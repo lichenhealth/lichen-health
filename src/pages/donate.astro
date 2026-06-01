@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import DonateForm from '../components/DonateForm.astro';
 import { heroes } from '../data/images';
+
+const status = Astro.url.searchParams.get('status');
+
 const ways = [
-  { name: 'PayPal', note: "Best for recurring donations.", url: 'https://www.paypal.com/donate/?hosted_button_id=F2A847YRU7EPU', cta: 'Give via PayPal' },
-  { name: 'Stripe', note: "Best for an ACH or wire transfer.", url: 'https://donate.stripe.com/dR69AU4hbcngbOE7ss', cta: 'Give via Stripe' },
-  { name: 'Check', note: "Mailing a check avoids donation fees entirely.", check: { payTo: 'Lichen Health', address: ['Galyn Burke', '320 Rustlers Rd.', 'Bailey, CO 80421'] } },
+  { name: 'PayPal', note: "Prefer PayPal? Give a one-time gift there.", url: 'https://www.paypal.com/donate/?hosted_button_id=F2A847YRU7EPU', cta: 'Give via PayPal' },
+  { name: 'Check', note: "Mailing a check avoids processing fees entirely.", check: { payTo: 'Lichen Health', address: ['Galyn Burke', '320 Rustlers Rd.', 'Bailey, CO 80421'] } },
   { name: 'Gift', note: "Speak with our founder to facilitate a larger gift.", url: 'https://calendly.com/galyntime', cta: 'Book a call' },
 ];
 ---
@@ -14,7 +17,24 @@ const ways = [
     <div class="container phero-inner"><h1>Restore balance by giving back</h1></div>
   </section>
   <section class="container container--narrow page">
+    {status === 'success' && (
+      <div class="banner banner-ok">Thank you — your donation went through. You're helping bring holistic, community-based care to those who need it most.</div>
+    )}
+    {status === 'cancelled' && (
+      <div class="banner banner-soft">No charge was made — your donation wasn't completed. You're welcome to try again whenever you're ready.</div>
+    )}
+
     <p class="lede">Make a tax-deductible donation to expand access to holistic, community-based care for all. Thank you for investing in a more balanced and healthy future.</p>
+
+    <div class="give-now">
+      <h2 class="display h-2 give-now-title">Give now</h2>
+      <p class="give-now-sub">Choose an amount and how often you'd like to give — one time, monthly, or annually.</p>
+      <DonateForm />
+    </div>
+
+    <hr class="divider" />
+
+    <h2 class="display h-2" style="margin-bottom: var(--s-2)">Other ways to give</h2>
     <div class="give-grid">
       {ways.map((w) => (
         <div class="give-card">
@@ -24,13 +44,12 @@ const ways = [
             <a href={w.url} target="_blank" rel="noopener" class="btn btn-primary btn-up give-cta">{w.cta}</a>
           )}
           {w.check && (
-            <div class="give-check" id="checkBlock">
+            <div class="give-check">
               <div class="check-row"><span class="check-label">Payable to</span><span class="check-val">{w.check.payTo}</span></div>
               <div class="check-row"><span class="check-label">Mail to</span><span class="check-val">{w.check.address.map((line) => <span>{line}<br/></span>)}</span></div>
               <button type="button" class="check-copy" data-copy={`Lichen Health\n${w.check.address.join('\n')}`}>Copy details</button>
             </div>
           )}
-          {!w.url && !w.check && <span class="give-soon">Coming soon</span>}
         </div>
       ))}
     </div>
@@ -38,29 +57,32 @@ const ways = [
   </section>
 </BaseLayout>
 <script>
-  // checkCopyScript
   document.querySelectorAll('.check-copy').forEach((btn) => {
     btn.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(btn.dataset.copy || ''); const t = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => (btn.textContent = t), 1500); } catch {}
+      try { await navigator.clipboard.writeText((btn as HTMLElement).dataset.copy || ''); const t = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => (btn.textContent = t), 1500); } catch {}
     });
   });
 </script>
 <style>
   .page{padding-block:var(--s-9);display:flex;flex-direction:column;gap:var(--s-5)}
+  .banner{padding:var(--s-4) var(--s-5);border-radius:var(--r-md);font-size:var(--t-base)}
+  .banner-ok{background:var(--moss-tint);color:var(--moss)}
+  .banner-soft{background:var(--peach-tint);color:var(--peach-deep)}
   .lede{font-size:var(--t-xl);color:var(--ink-soft);font-weight:300;line-height:var(--lh-snug);max-width:54ch}
-  .give-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-4);margin-top:var(--s-4)}
-  .give-card{padding:var(--s-6);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-lg)}
+  .give-now{display:flex;flex-direction:column;gap:var(--s-3)}
+  .give-now-sub{color:var(--ink-muted);font-size:var(--t-base);margin-bottom:var(--s-2)}
+  .divider{margin-block:var(--s-6)}
+  .give-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-4);margin-top:var(--s-4)}
+  .give-card{padding:var(--s-6);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-lg);display:flex;flex-direction:column}
   .give-name{font-family:var(--font-display);font-weight:400;font-size:var(--t-xl);margin-bottom:var(--s-2)}
-  .give-card{display:flex;flex-direction:column}
   .give-card p{color:var(--ink-muted);font-size:var(--t-sm)}
   .give-cta{align-self:flex-start;margin-top:var(--s-4);font-size:var(--t-sm);padding:10px 18px}
-  .give-soon{margin-top:var(--s-4);font-size:var(--t-xs);letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-faint)}
   .give-check{margin-top:var(--s-4);display:flex;flex-direction:column;gap:var(--s-3)}
   .check-row{display:flex;flex-direction:column;gap:2px}
   .check-label{font-family:var(--font-mono);font-size:var(--t-2xs);letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint)}
   .check-val{font-size:var(--t-sm);color:var(--ink)}
   .check-copy{align-self:flex-start;font-size:var(--t-xs);letter-spacing:0.06em;text-transform:uppercase;color:var(--peach-deep);border:1px solid var(--bone-edge);border-radius:var(--r-full);padding:7px 14px}
   .check-copy:hover{border-color:var(--peach);color:var(--rust)}
-  .connect-note{color:var(--ink-muted)} .connect-note a{color:var(--peach-deep)}
-  @media(max-width:600px){.give-grid{grid-template-columns:1fr}}
+  .connect-note{color:var(--ink-muted);margin-top:var(--s-4)} .connect-note a{color:var(--peach-deep)}
+  @media(max-width:760px){.give-grid{grid-template-columns:1fr}}
 </style>
