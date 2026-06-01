@@ -24,7 +24,7 @@ const presets = [25, 50, 100, 250];
   </div>
   <button type="submit" class="btn btn-primary btn-up donate-submit">Donate</button>
   <p class="df-status" id="dfStatus" role="status"></p>
-  <p class="df-fine">Secure checkout powered by Stripe. Monthly and annual gifts recur automatically until you cancel; you can stop anytime.</p>
+  <p class="df-fine">Secure checkout powered by Stripe. Monthly and annual gifts recur automatically until you cancel — <a href="https://billing.stripe.com/p/login/9B6bJ00MU047bRidT3bII00" target="_blank" rel="noopener">manage or cancel your donation anytime</a>.</p>
 </form>
 
 <style>
@@ -47,6 +47,7 @@ const presets = [25, 50, 100, 250];
   .df-status { font-size: var(--t-sm); min-height: 1em; }
   .df-status.err { color: var(--rust); }
   .df-fine { font-size: var(--t-xs); color: var(--ink-faint); max-width: 46ch; }
+  .df-fine a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 2px; }
   @media (max-width: 520px) { .amount-row { grid-template-columns: 1fr; } }
 </style>
 
