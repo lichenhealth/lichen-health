@@ -50,13 +50,15 @@ const heroImg = '/founders-hero.jpg';
     <div class="container container--narrow">
       <div class="sec-head"><span class="eyebrow">Two ways to take part</span><h2 class="display h-2">Give now, or pledge toward the build</h2></div>
       <div class="give-paths">
-        <div class="give-path">
+        <div class="give-path" data-contribution="Give now" role="button" tabindex="0">
           <h3 class="give-path-t">Give now</h3>
           <p>Make a contribution today and impact access to care immediately. Your gift flows straight into the work already underway — including the scholarship fund that brings healers, veterans, and frontline workers onto the land at no cost.</p>
+          <span class="give-path-cta">Give now →</span>
         </div>
-        <div class="give-path">
+        <div class="give-path" data-contribution="Pledge toward the build" role="button" tabindex="0">
           <h3 class="give-path-t">Pledge toward the build</h3>
           <p>Commit a larger sum toward building out the location and programming. We'll keep you close and, once we reach the critical mass of funds needed to begin, we'll let you know — and translate your pledge into a donation at that moment.</p>
+          <span class="give-path-cta">Pledge →</span>
         </div>
       </div>
     </div>
@@ -114,6 +116,19 @@ const heroImg = '/founders-hero.jpg';
     select?.classList.add('flash');
     setTimeout(() => select?.classList.remove('flash'), 1300);
   };
+  const radios = document.querySelectorAll('input[name="contribution"]') as NodeListOf<HTMLInputElement>;
+  const chooseContribution = (card: Element) => {
+    const val = (card as HTMLElement).dataset.contribution;
+    radios.forEach((r) => { if (r.value === val) r.checked = true; });
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  document.querySelectorAll('.give-path').forEach((card) => {
+    card.addEventListener('click', () => chooseContribution(card));
+    card.addEventListener('keydown', (e) => {
+      const k = (e as KeyboardEvent).key;
+      if (k === 'Enter' || k === ' ') { e.preventDefault(); chooseContribution(card); }
+    });
+  });
   document.querySelectorAll('.ftier').forEach((card) => {
     card.addEventListener('click', () => choose(card));
     card.addEventListener('keydown', (e) => {
@@ -146,7 +161,10 @@ const heroImg = '/founders-hero.jpg';
   .tier-foot { font-size: var(--t-sm); color: var(--ink-muted); margin-top: var(--s-6); max-width: 70ch; line-height: var(--lh-loose); }
 
   .give-paths { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
-  .give-path { padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); }
+  .give-path { padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); cursor: pointer; display: flex; flex-direction: column; transition: transform var(--d-base) var(--ease-out), border-color var(--d-fast) var(--ease-out); }
+  .give-path:hover { transform: translateY(-3px); border-color: var(--peach); }
+  .give-path:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
+  .give-path-cta { margin-top: var(--s-4); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--peach-deep); }
   .give-path-t { font-family: var(--font-display); font-weight: 400; font-size: var(--t-xl); color: var(--ink); margin-bottom: var(--s-3); }
   .give-path p { font-size: var(--t-sm); color: var(--ink-soft); line-height: var(--lh-loose); }
   @media (max-width: 640px) { .give-paths { grid-template-columns: 1fr; } }
