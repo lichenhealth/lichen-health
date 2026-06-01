@@ -11,6 +11,7 @@ export default async function handler(req, res) {
     return;
   }
   const stripe = new Stripe(key);
+  const TAX_FOOTER = 'Lichen Health is a registered 501(c)(3) nonprofit organization (EIN 73-1683375). Your donation is tax-deductible to the fullest extent permitted by law. No goods or services were provided in exchange for this contribution. Please retain this for your tax records. Thank you for investing in holistic, community-based care for all.';
   try {
     const { amount, frequency } = req.body || {};
     const cents = Math.round(Number(amount) * 100);
@@ -45,7 +46,7 @@ export default async function handler(req, res) {
       session = await stripe.checkout.sessions.create({
         mode: 'payment',
         submit_type: 'donate',
-        invoice_creation: { enabled: true },
+        invoice_creation: { enabled: true, invoice_data: { footer: TAX_FOOTER } },
         line_items: [{
           price_data: {
             currency: 'usd',
