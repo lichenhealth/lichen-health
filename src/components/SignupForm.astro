@@ -1,11 +1,11 @@
 ---
-// HubSpot-ready signup form.
-// To go live: set PUBLIC_HUBSPOT_PORTAL_ID and PUBLIC_HUBSPOT_FORM_ID (Vercel env vars).
-// Until then it runs in "preview" mode and just shows a success state.
-const portalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID || '';
-const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || '';
+// Connected to HubSpot (IDs are public — they ship in HubSpot's own embed code).
+const PORTAL_ID = '246356324';
+const FORM_ID = '66b86cc2-3710-48bd-8c08-c94c1198dc0e';
+// Involvement options mirror the "Get Involved" property in HubSpot.
+const involvementOptions = ['Keep Me Updates', 'Volunteer', 'Donate', 'Concierge', 'Community'];
 ---
-<form class="signup" id="signupForm" data-portal={portalId} data-form={formId}>
+<form class="signup" id="signupForm" data-portal={PORTAL_ID} data-form={FORM_ID}>
   <div class="field-row">
     <label class="field">
       <span class="field-label">First name</span>
@@ -20,17 +20,14 @@ const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || '';
     <span class="field-label">Email</span>
     <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
   </label>
-  <label class="field">
-    <span class="field-label">How would you like to be involved?</span>
-    <select name="involvement">
-      <option value="">Choose one…</option>
-      <option>Join the community</option>
-      <option>Volunteer</option>
-      <option>Donate or fund</option>
-      <option>Partner / collaborate</option>
-      <option>Just keep me updated</option>
-    </select>
-  </label>
+  <fieldset class="field involvement">
+    <legend class="field-label">How would you like to be involved? <em>(choose any)</em></legend>
+    <div class="checks">
+      {involvementOptions.map((opt) => (
+        <label class="check"><input type="checkbox" name="involvement" value={opt} /> <span>{opt}</span></label>
+      ))}
+    </div>
+  </fieldset>
   <label class="field">
     <span class="field-label">Anything you'd like us to know? <em>(optional)</em></span>
     <textarea name="message" rows="3"></textarea>
@@ -43,15 +40,18 @@ const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || '';
 <style>
   .signup { display: flex; flex-direction: column; gap: var(--s-4); max-width: 520px; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
-  .field { display: flex; flex-direction: column; gap: var(--s-2); }
+  .field { display: flex; flex-direction: column; gap: var(--s-2); border: 0; padding: 0; margin: 0; }
   .field-label { font-size: var(--t-sm); color: var(--ink-soft); font-weight: 400; }
   .field-label em { color: var(--ink-faint); font-style: normal; }
-  .signup input, .signup select, .signup textarea {
+  .signup input[type="text"], .signup input[type="email"], .signup textarea {
     background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);
     padding: 12px 14px; font-size: var(--t-base); color: var(--ink); transition: border-color var(--d-fast) var(--ease-out);
   }
-  .signup input:focus, .signup select:focus, .signup textarea:focus { outline: none; border-color: var(--peach); }
+  .signup input:focus, .signup textarea:focus { outline: none; border-color: var(--peach); }
   .signup textarea { resize: vertical; }
+  .involvement .checks { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); margin-top: var(--s-1); }
+  .check { display: inline-flex; align-items: center; gap: 7px; font-size: var(--t-sm); color: var(--ink); cursor: pointer; }
+  .check input { accent-color: var(--peach-deep); width: 16px; height: 16px; }
   .signup-submit { align-self: flex-start; margin-top: var(--s-2); }
   .signup-status { font-size: var(--t-sm); min-height: 1em; }
   .signup-status.ok { color: var(--moss); }
@@ -68,30 +68,39 @@ const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || '';
     if (!form || !status) return;
     const portal = form.dataset.portal;
     const formId = form.dataset.form;
-    const data = new FormData(form);
     const btn = form.querySelector('.signup-submit') as HTMLButtonElement;
+    const data = new FormData(form);
+
+    const get = (n: string) => String(data.get(n) || '').trim();
+    const involvement = data.getAll('involvement').map(String).join(';');
+
+    // All fields we'd like to send
+    const allFields = [
+      { name: 'firstname', value: get('firstname') },
+      { name: 'lastname', value: get('lastname') },
+      { name: 'email', value: get('email') },
+      { name: 'get_involved', value: involvement },
+      { name: 'message', value: get('message') },
+    ].filter((f) => f.value !== '');
+
+    // Safe subset that maps to default HubSpot properties (guaranteed to be accepted)
+    const safeNames = ['firstname', 'lastname', 'email', 'message'];
+
+    const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portal}/${formId}`;
+    const body = (fields: {name: string; value: string}[]) => JSON.stringify({
+      fields,
+      context: { pageUri: location.href, pageName: document.title },
+    });
+    const post = (fields: {name: string; value: string}[]) =>
+      fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body(fields) });
+
     btn.disabled = true; status.className = 'signup-status'; status.textContent = 'Sending…';
-
-    // Preview mode — HubSpot not yet connected
-    if (!portal || !formId) {
-      setTimeout(() => {
-        status.className = 'signup-status ok';
-        status.textContent = "You're on the list — thank you! (Preview mode: connect HubSpot to capture this for real.)";
-        form.reset(); btn.disabled = false;
-      }, 500);
-      return;
-    }
-
-    // Live — submit to HubSpot Forms API
-    const fields = Array.from(data.entries())
-      .filter(([, v]) => String(v).trim() !== '')
-      .map(([name, value]) => ({ name, value: String(value) }));
     try {
-      const res = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${portal}/${formId}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fields, context: { pageUri: location.href, pageName: document.title } }),
-      });
+      let res = await post(allFields);
+      if (!res.ok) {
+        // Retry without the custom field so a lead is never lost
+        res = await post(allFields.filter((f) => safeNames.includes(f.name)));
+      }
       if (!res.ok) throw new Error(String(res.status));
       status.className = 'signup-status ok';
       status.textContent = "You're on the list — thank you!";
