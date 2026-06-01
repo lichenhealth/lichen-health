@@ -1,6 +1,6 @@
 export interface Tier { name: string; from: string; essence: string; benefits: string[]; }
 export const tiers: Tier[] = [
-  { name: 'Substrate Circle', from: 'From $5,000', essence: 'An ocean of those who are ready for sea change. The first, quiet yes.', benefits: [
+  { name: 'Substrate Circle', from: 'From $5,000', essence: 'An ocean of those who are ready for sea change.', benefits: [
     "Name etched on the Founders' Stone at the property entry",
     'Lifetime invitation to all four seasonal gatherings',
     "Annual founder's letter and seasonal land updates",
