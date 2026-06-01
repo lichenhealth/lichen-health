@@ -19,13 +19,16 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
       <label class="radio"><input type="radio" name="contribution" value="Pledge toward the build" /> <span><strong>Pledge</strong> — toward building the location & programming</span></label>
     </div>
   </fieldset>
-  <label class="field">
-    <span class="field-label">Tier you're drawn to</span>
-    <select name="tier" id="tierSelect">
-      <option value="">Choose one…</option>
-      {tierChoices.map((t) => <option>{t}</option>)}
-    </select>
-  </label>
+  <div class="tier-row">
+    <label class="field tier-field">
+      <span class="field-label">Tier you're drawn to</span>
+      <select name="tier" id="tierSelect">
+        <option value="">Choose one…</option>
+        {tierChoices.map((t) => <option>{t}</option>)}
+      </select>
+    </label>
+    <p class="tier-hint">Not sure which level? <a href="#tiers">Review the membership tiers ↑</a> — pick one and you'll come right back here with your tier (and your give/pledge choice) already filled in.</p>
+  </div>
   <button type="submit" class="btn btn-primary signup-submit">Begin the conversation</button>
   <p class="signup-status" id="foundersStatus" role="status"></p>
   <p class="signup-fine">We'll reach out personally — there's no online checkout. The pace is deliberate, because the relationship is.</p>
@@ -44,7 +47,13 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
   .radio { display: flex; align-items: flex-start; gap: 9px; font-size: var(--t-sm); color: var(--ink-soft); cursor: pointer; line-height: var(--lh-normal); }
   .radio input { accent-color: var(--peach-deep); width: 16px; height: 16px; margin-top: 2px; flex: 0 0 auto; }
   .radio strong { color: var(--ink); font-weight: 500; }
+  .tier-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-5); align-items: center; }
+  .tier-field { margin: 0; }
+  .tier-hint { font-size: var(--t-sm); color: var(--ink-muted); line-height: var(--lh-normal); }
+  .tier-hint a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 2px; }
+  .tier-hint a:hover { color: var(--rust); }
   .signup-submit { align-self: flex-start; margin-top: var(--s-2); }
+  @media (max-width: 560px) { .tier-row { grid-template-columns: 1fr; gap: var(--s-3); } }
   .signup-status { font-size: var(--t-sm); min-height: 1em; }
   .signup-status.ok { color: var(--moss); }
   .signup-status.err { color: var(--rust); }
