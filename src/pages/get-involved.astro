@@ -5,8 +5,8 @@ import { heroes } from '../data/images';
 
 // Founding-member tiers. Add `url` (a Stripe Payment Link) to make a tier's button go live.
 const tiers = [
-  { name: 'Community', price: '$29', per: '/mo', blurb: 'Join the founding community. Your membership is credited in full to your account when the app launches.', url: '', cta: 'Join Community' },
-  { name: 'Concierge', price: '$99', per: '/mo', blurb: 'Founding concierge access — priority, hands-on support. Credited in full to your account at launch.', url: '', cta: 'Join Concierge', featured: true },
+  { name: 'Community', price: '$29', per: '/mo', blurb: 'Join the founding community and help the movement take root.', url: '', cta: 'Join Community' },
+  { name: 'Community + Concierge', price: '$99', per: '/mo', blurb: 'The fullest founding membership — Community plus hands-on Concierge support.', url: '', cta: 'Join Now', featured: true },
   { name: 'Donate', price: '', per: '', blurb: 'Prefer to give a gift? Support the work directly, any amount, one-time or recurring.', url: '/donate', cta: 'Donate' },
 ];
 ---
@@ -21,7 +21,7 @@ const tiers = [
     <div class="support-head">
       <span class="eyebrow">Support Lichen now</span>
       <h2 class="display h-2">Become a founding member</h2>
-      <p class="support-note">Community and Concierge are in their infancy — but you can fuel the movement today. Every founding membership is <strong>credited in full to your account when the Lichen app launches.</strong></p>
+      <p class="support-note">Community and Concierge are in their infancy — but you can fuel the movement today. Every founding membership receives <strong>special perks and appreciation for believing in the change</strong> before the movement has taken root and matured.</p>
     </div>
     <div class="tiers">
       {tiers.map((t) => (
