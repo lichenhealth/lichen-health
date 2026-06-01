@@ -26,7 +26,6 @@ const tiers = [
     <div class="tiers">
       {tiers.map((t) => (
         <div class:list={['tier', { featured: t.featured }]}>
-          {t.featured && <span class="tier-badge">Most hands-on</span>}
           {t.price && <span class="tier-price">{t.price}<span class="tier-per">{t.per}</span></span>}
           <h3 class="tier-name">{t.name}</h3>
           <p class="tier-blurb">{t.blurb}</p>
@@ -64,7 +63,7 @@ const tiers = [
   .tier-per { font-family: var(--font-body); font-size: var(--t-base); color: var(--ink-muted); font-weight: 300; }
   .tier-name { font-family: var(--font-display); font-weight: 400; font-size: var(--t-xl); color: var(--ink); }
   .tier-blurb { font-size: var(--t-sm); color: var(--ink-muted); line-height: var(--lh-normal); flex: 1; }
-  .tier-cta { align-self: flex-start; margin-top: var(--s-2); }
+  .tier-cta { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: var(--t-sm); padding: 11px 22px; }
   .give-soon { margin-top: var(--s-2); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
   .form-intro { font-size: var(--t-base); color: var(--ink-muted); margin-top: calc(-1 * var(--s-3)); margin-bottom: var(--s-5); max-width: 52ch; }
 
