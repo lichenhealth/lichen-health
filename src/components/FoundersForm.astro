@@ -12,6 +12,13 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
     <label class="field"><span class="field-label">Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@example.com" /></label>
     <label class="field"><span class="field-label">Phone</span><input type="tel" name="phone" autocomplete="tel" placeholder="(000) 000-0000" /></label>
   </div>
+  <fieldset class="field radio-group">
+    <legend class="field-label">How would you like to take part?</legend>
+    <div class="radios">
+      <label class="radio"><input type="radio" name="contribution" value="Give now" /> <span><strong>Give now</strong> — impact access to care immediately</span></label>
+      <label class="radio"><input type="radio" name="contribution" value="Pledge toward the build" /> <span><strong>Pledge</strong> — toward building the location & programming</span></label>
+    </div>
+  </fieldset>
   <label class="field">
     <span class="field-label">Tier you're drawn to</span>
     <select name="tier" id="tierSelect">
@@ -32,6 +39,11 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
   .signup input, .signup select { background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md); padding: 12px 14px; font-size: var(--t-base); color: var(--ink); transition: border-color var(--d-fast) var(--ease-out); }
   .signup input:focus, .signup select:focus { outline: none; border-color: var(--peach); }
   .signup select.flash { border-color: var(--peach); box-shadow: 0 0 0 3px var(--peach-tint); transition: box-shadow var(--d-base) var(--ease-out); }
+  .radio-group { border: 0; padding: 0; margin: 0; }
+  .radios { display: flex; flex-direction: column; gap: var(--s-3); margin-top: var(--s-2); }
+  .radio { display: flex; align-items: flex-start; gap: 9px; font-size: var(--t-sm); color: var(--ink-soft); cursor: pointer; line-height: var(--lh-normal); }
+  .radio input { accent-color: var(--peach-deep); width: 16px; height: 16px; margin-top: 2px; flex: 0 0 auto; }
+  .radio strong { color: var(--ink); font-weight: 500; }
   .signup-submit { align-self: flex-start; margin-top: var(--s-2); }
   .signup-status { font-size: var(--t-sm); min-height: 1em; }
   .signup-status.ok { color: var(--moss); }
@@ -50,6 +62,7 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
     const data = new FormData(form);
     const g = (n: string) => String(data.get(n) || '').trim();
     const tier = g('tier');
+    const contribution = g('contribution');
     const btn = form.querySelector('.signup-submit') as HTMLButtonElement;
     // All fields map to default HubSpot properties; tier is folded into the note so it's never lost.
     const fields = [
@@ -57,7 +70,7 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
       { name: 'lastname', value: g('lastname') },
       { name: 'email', value: g('email') },
       { name: 'phone', value: g('phone') },
-      { name: 'message', value: tier ? `Founder's Circle inquiry — tier of interest: ${tier}` : "Founder's Circle inquiry" },
+      { name: 'message', value: `Founder's Circle inquiry${contribution ? ` — ${contribution}` : ''}${tier ? `; tier of interest: ${tier}` : ''}` },
     ].filter((f) => f.value !== '');
     btn.disabled = true; status.className = 'signup-status'; status.textContent = 'Sending…';
     try {

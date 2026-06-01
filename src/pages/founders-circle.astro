@@ -47,6 +47,22 @@ const heroImg = '/founders-hero.jpg';
   </section>
 
   <section class="fsection">
+    <div class="container container--narrow">
+      <div class="sec-head"><span class="eyebrow">Two ways to take part</span><h2 class="display h-2">Give now, or pledge toward the build</h2></div>
+      <div class="give-paths">
+        <div class="give-path">
+          <h3 class="give-path-t">Give now</h3>
+          <p>Make a contribution today and impact access to care immediately. Your gift flows straight into the work already underway — including the scholarship fund that brings healers, veterans, and frontline workers onto the land at no cost.</p>
+        </div>
+        <div class="give-path">
+          <h3 class="give-path-t">Pledge toward the build</h3>
+          <p>Commit a larger sum toward building out the location and programming. We'll keep you close and, once we reach the critical mass of funds needed to begin, we'll let you know — and translate your pledge into a donation at that moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fsection">
     <div class="container">
       <div class="sec-head"><span class="eyebrow">How to join</span><h2 class="display h-2">It begins with a conversation</h2></div>
       <div class="steps">
@@ -128,6 +144,12 @@ const heroImg = '/founders-hero.jpg';
   .ftier-benefits li { position: relative; padding-left: var(--s-5); font-size: var(--t-sm); color: var(--ink-soft); line-height: var(--lh-normal); }
   .ftier-benefits li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--peach); }
   .tier-foot { font-size: var(--t-sm); color: var(--ink-muted); margin-top: var(--s-6); max-width: 70ch; line-height: var(--lh-loose); }
+
+  .give-paths { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
+  .give-path { padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); }
+  .give-path-t { font-family: var(--font-display); font-weight: 400; font-size: var(--t-xl); color: var(--ink); margin-bottom: var(--s-3); }
+  .give-path p { font-size: var(--t-sm); color: var(--ink-soft); line-height: var(--lh-loose); }
+  @media (max-width: 640px) { .give-paths { grid-template-columns: 1fr; } }
 
   .fband .band-center { text-align: center; }
   .fband .band-center p { font-size: var(--t-lg); color: color-mix(in srgb, var(--bone) 90%, transparent); font-weight: 300; line-height: var(--lh-loose); margin-top: var(--s-4); }
