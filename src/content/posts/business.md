@@ -28,11 +28,11 @@ Translate the IP, best practices and business learnings from the pilot program i
 
 As network revenue grows, we will subsidize less profitable business units (e.g. Training, Treatment and Research) with more profitable revenue streams across the business. Once an existing community network is self sustaining, we will invest profits in opening up additional locations, pairing a high SES community with a lower SES community, to equitably expand access to care
 
-![](https://lichen.health/wp-content/uploads/2025/02/model-3.png)
+![](/img/2025/02/model-3.png)
 
 As for our path to self sustainability: There are many potential revenue streams, some are dependent on procuring a large user base, while others are not. Because users own their data, any data monetization efforts would be approved by network members. All research will be double-blind to protect user privacy.
 
-![](https://lichen.health/wp-content/uploads/2025/02/monetization-1-1024x558.png)
+![](/img/2025/02/monetization-1.png)
 
 So, let's say we're successful at building our network. How will we distribute resources across it?
 

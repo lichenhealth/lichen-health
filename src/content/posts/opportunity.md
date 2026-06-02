@@ -14,7 +14,7 @@ Physicists and Biologists are beginning to rediscover what eco-spiritual healers
 
 Said another way, science is finally proving what indigenous peoples have embodied for millennia: The human organism only *perceives*its material separation from the natural world and the cosmos. That means, maintaining our health and realizing our potential requires remembering our personal, social and planetary interconnection.
 
-![](https://lichen.health/wp-content/uploads/2025/02/vibration-1-1024x318.png)
+![](/img/2025/02/vibration-1.png)
 
 These discoveries couldn't have come at a better time. For generations, we have been trapped in cultural, religious, political and economic systems that have abused, neglected and denied our divine interconnection with each other, the planet and the cosmos, leading us to:
 
@@ -24,7 +24,7 @@ These discoveries couldn't have come at a better time. For generations, we have 
 
 In response, our mental, emotional, physical and energetic bodies have shifted into lower vibrational states, forcing many of our souls to vacated our bodies. The resulting epidemic of mental and emotional suffering, physical disease and premature death has begun to bring down global life expectancy.
 
-![](https://lichen.health/wp-content/uploads/2025/02/disease-2-1024x456.png)
+![](/img/2025/02/disease-2.png)
 
 Unfortunately, the mainstream medical system is not equipped to address the problem because they have neither the infrastructure nor the wisdom to treat humans holistically. Drug companies are incentivized to manage instead of cure disease, because throwing medications at chronic suffering is more profitable than healing people. Insurance companies are pressured to maintain the status quo short-term, because restricting coverage and denying claims increases profits and minimizes losses.
 

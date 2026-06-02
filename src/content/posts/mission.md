@@ -16,7 +16,7 @@ Based on the evolutionary recency of our outsized cognitive capacities and the a
 
 While there are technological innovations that can improve the wellbeing of all, the majority of our healing and growth comes from remembering our interdependence with everything then working to restore balance within ourselves, between each other and with the planet. Because neocortical mutations in our brains merely ~75,000 years ago gave us access to collective wisdom without the evolutionary runway for our instincts and senses to catch up; as spiritual traditions have done for thousands of years, we must put our powerful ego in check by returning to a regular practice of deconstructing the separate self.
 
-![](https://lichen.health/wp-content/uploads/2023/08/snake-1-1024x667.png)
+![](/img/2023/08/snake-1.png)
 
 **Reduce Suffering**
 
@@ -30,4 +30,4 @@ While our cognitive capacities allow us to circumvent authentic attachment to co
 
 In deep meditation and restorative sleep, our brains sync with Earth's electromagnetic frequency (~7.83 Hz), triggering cellular repair, reducing cortisol, increasing gray matter and myriad other health benefits associated with tapping into the unified field of energy that governs the body that stewards our soul. From the antidepressant properties of soil,[\*](https://www.gardeningknowhow.com/garden-how-to/soil-fertilizers/antidepressant-microbes-soil.htm#:~:text=Did%20you%20know%20that%20there's,makes%20you%20relaxed%20and%20happier.) to the positive impact that horses have on the nervous system,[\*](https://www.sciencedirect.com/science/article/abs/pii/S1744388120303315) to the years that are added to one's life with the love of a dog;[\*](https://www.amazon.com/Letting-David-Hawkins-M-D-Ph-D/dp/1401945015) to the anxiety, depression and addiction treatment capacities and neurogenesis fomented by psychoactive plant medicines;[\*](https://www.frontiersin.org/articles/10.3389/fpsyt.2021.724606/full) holistic, earth-based healthcare is the minimum viable treatment model to prepare individuals and communities to become prosocial and environmental advocates for global systems change. Luckily, the measurement tools of these same systems have become powerful enough to measure the holistic energetic forces behind the healing and growth that happens at the holistic crossroads of physics and biology.
 
-![](https://lichen.health/wp-content/uploads/2023/08/flower-1024x667.png)
+![](/img/2023/08/flower.png)

@@ -34,7 +34,7 @@ Technology + Innovation
 * A technology platform, to empower collaboration & community stewardship
 * Consciousness-based model, to promote evolution
 
-![](https://lichen.health/wp-content/uploads/2025/02/heroes-5.svg)
+![](/img/2025/02/heroes-5.svg)
 
 Led by CEO Brian W. Sims, CPRS-V, CEI, VSR, CPPS, an army veteran who overcame homelessness, Substance User Disorder, Moral Injury, Post Traumatic Stress, and a 2015 suicide attempt thanks to peer-supported recovery, including Psychedelic Assisted Recovery. Heroes Journey Center:
 
@@ -57,7 +57,7 @@ Led by CEO Brian W. Sims, CPRS-V, CEI, VSR, CPPS, an army veteran who overcame h
 
 Founded by Dr. Lance Cutsforth, an army veteran, D. Div and double board-certified Doctor of Functional Medicine. Mons Sana:
 
-![](https://lichen.health/wp-content/uploads/2025/02/monssana-3.png)
+![](/img/2025/02/monssana-3.png)
 
 1. Delivers the highest level of eco-spiritual care, via:
 
@@ -75,7 +75,7 @@ Founded by Dr. Lance Cutsforth, an army veteran, D. Div and double board-certifi
 * Fostering ongoing cohort-support, to protect the gains participants experience
 * Welcoming alumni into a community that will continue to hold them
 
-![](https://lichen.health/wp-content/uploads/2025/02/lichen-3.svg)
+![](/img/2025/02/lichen-3.svg)
 
 Galyn Burke, LMFT, LMHC, is a tech professional turned holistic trauma therapist. After years of watching people heal themselves with proper resourcing and support, she felt called to found a holistic healing network that weaves earth wisdom with modern science and technology to bring quantum healing to the world. Lichen is here to:
 

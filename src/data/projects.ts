@@ -1,4 +1,4 @@
-export const WP = 'https://lichen.health/wp-content/uploads';
+export const WP = '/img';
 
 export interface Section { title?: string; img?: string; body: string[]; }
 export interface Project {
@@ -18,7 +18,7 @@ export const projects: Project[] = [
   {
     slug: 'care',
     nav: 'Care',
-    heroImg: `${WP}/2024/10/Lichen_Care_hero-1.png`,
+    heroImg: `${WP}/2024/10/Lichen_Care_hero-1.jpg`,
     eyebrow: 'Care Model',
     title: 'Your care team forms around you',
     intro: {
@@ -37,7 +37,7 @@ export const projects: Project[] = [
   {
     slug: 'business',
     nav: 'Business',
-    heroImg: `${WP}/2024/10/Lichen_Business_Hero.png`,
+    heroImg: `${WP}/2024/10/Lichen_Business_Hero.jpg`,
     eyebrow: 'Lichen Business',
     title: 'Our business supports you',
     intro: {
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   {
     slug: 'platform',
     nav: 'Platform',
-    heroImg: `${WP}/2024/10/Lichen_platform_hero.png`,
+    heroImg: `${WP}/2024/10/Lichen_platform_hero.jpg`,
     eyebrow: 'Lichen Platform',
     title: 'Our platform serves you',
     intro: {
