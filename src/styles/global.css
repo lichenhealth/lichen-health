@@ -133,7 +133,7 @@ input, textarea, select { font: inherit; color: inherit; }
 /* Sections */
 .fsection { padding-block: var(--s-10); }
 .fband { background: var(--moss); color: var(--bone); text-align: center; padding-block: 84px; }
-.fband h2 { color: #fff; font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,4vw,52px); max-width: 18ch; margin: 0 auto 28px; }
+.fband h2 { color: #fff; font-family: var(--font-display); font-weight: 400; font-size: clamp(28px,4vw,52px); max-width: 24ch; margin: 0 auto 28px; }
 
 .fproj-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
 .fproj { background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: 16px; overflow: hidden; transition: transform .3s var(--ease-out); }
