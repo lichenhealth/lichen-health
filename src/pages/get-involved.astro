@@ -36,6 +36,8 @@ const tiers = [
       ))}
     </div>
 
+    <p class="manage-line">Manage or cancel your subscription, <a href="https://billing.stripe.com/p/login/9B6bJ00MU047bRidT3bII00" target="_blank" rel="noopener">here</a>. Manage or cancel your recurring donation, <a href="https://billing.stripe.com/p/login/9B6bJ00MU047bRidT3bII00" target="_blank" rel="noopener">here</a>.</p>
+
     <hr class="divider" />
 
     <h2 class="display h-2" style="margin-bottom:var(--s-5)">Not Ready to Join Yet?</h2>
@@ -68,4 +70,6 @@ const tiers = [
   .form-intro { font-size: var(--t-base); color: var(--ink-muted); margin-top: calc(-1 * var(--s-3)); margin-bottom: var(--s-5); max-width: 52ch; }
 
   @media (max-width: 760px) { .ways, .tiers { grid-template-columns: 1fr; } }
+  .manage-line { text-align: center; font-size: var(--t-sm); color: var(--ink-muted); margin: var(--s-6) 0 0; }
+  .manage-line a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 2px; }
 </style>
