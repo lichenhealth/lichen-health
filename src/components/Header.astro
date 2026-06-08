@@ -1,5 +1,5 @@
 ---
-import { logoWhite } from '../data/images';
+import { logoWhite, logoColor } from '../data/images';
 export interface Props { overHero?: boolean }
 const { overHero = false } = Astro.props;
 const nav = [
@@ -18,7 +18,7 @@ const nav = [
 <header class:list={['fheader', { solid: !overHero }]}>
   <div class="container fnav">
     <a href="/" class="logo brand" aria-label="Lichen home">
-      <img src={logoWhite} alt="Lichen" />
+      <img src={overHero ? logoWhite : logoColor} alt="Lichen" />
     </a>
     <button class="fnav-toggle" id="fnavToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="fnav-links" id="fnavLinks" aria-label="Primary">
