@@ -8,7 +8,7 @@ function excerpt(body){
   const c = fp.replace(/[#*_>\[\]]/g,'').replace(/\(https?:[^)]+\)/g,'').trim();
   return c.length>170 ? c.slice(0,170).trim()+'…' : c;
 }
-const order=['vision','mission','ourstory','care-model','platform','business','opportunity','pilot','safety','social-networks'];
+const order=['vision','mission','ourstory','care-model','platform','business','conscious-economy','opportunity','pilot','safety','social-networks'];
 const sorted=[...posts].sort((a,b)=>order.indexOf(a.slug)-order.indexOf(b.slug));
 ---
 <BaseLayout overHero={true} title="Writing — Lichen" description="Essays on holistic healing, community and reciprocity from the Lichen network.">

@@ -43,12 +43,14 @@ export const projects: Project[] = [
     intro: {
       img: `${WP}/2026/01/Group-4628.png`,
       body: "Lichen is the radical collaboration of a fungus and an algae. The fungus provides structure and protection while the algae provides food, allowing them to thrive where neither could survive alone. They are pioneers, providing the organic infrastructure for new ecosystems to evolve. Lichen's business is architected to lay the local, organic groundwork for the next generation of human healing, connection and collaboration.",
+      learnMore: { label: 'Explore the Conscious Economy →', href: '/conscious-economy' },
     },
     sections: [
       { title: 'Revenue Model', img: `${WP}/2026/01/Ingrid-2.svg`, body: [
         "With lean operations and no investors or shareholders to pay, all profits from our Content, Community and Concierge memberships not required to run the platform's technology and fund the salaries of Lichen's minimal staff flow back into subsidizing access to the resources that members need to heal, grow, realize their purpose and enjoy their lives.",
         "Subsidies are tracked and fully transparent, because there is no shame in receiving support when you've been under-resourced by the systems that are crumbling. Concierge Services are provided for members receiving subsidies, to help them plot a course toward sovereign interdependence.",
         "Artificial intelligence is leveraged to identify and optimize the re-balancing process, helping us return to a state of reciprocity with each other and the planet as quickly and efficiently as possible.",
+        "Every contribution and subsidy is tracked through Lichen's Universal Current-cy — a transparent unit of account pegged to the incumbent global economy, so value can be honored within the network and translated into the wider world. We call this Universal Value Attribution: a system that returns value to every participant, human and non-human alike.",
       ] },
       { title: 'Philanthropic Model', img: `${WP}/2026/01/country.svg`, body: [
         "With a clear path to self-sustainability via member subscriptions, our 501c3 Nonprofit is poised to pass donations through to network members, which makes donating to Lichen compelling for those passionate about immediate impact. Because 100% of our technological infrastructure is focused on supporting members in collaborating with each other, we are well positioned to foster efficiency across the network.",
@@ -72,6 +74,7 @@ export const projects: Project[] = [
     intro: {
       img: `${WP}/2026/01/mycelium.svg`,
       body: "Our platform leverages the safety and adaptability of an AI-powered, Progressive Web Application, allowing humans to share information and resources, both locally and globally. Think of it as a silicon-based mycelium partnering with human intelligence to heal and maintain balance and reciprocity at the individual, social and ecological level — just as the trees use the fungi's mycelium to share information and resources to maintain the health of the forest.",
+      learnMore: { label: 'Explore the Conscious Economy →', href: '/conscious-economy' },
     },
     sections: [
       { title: 'Lichen', img: `${WP}/2026/01/Platform.svg`, body: [
@@ -79,6 +82,7 @@ export const projects: Project[] = [
         "Members can post and manage Events; buy, sell, trade and gift on Marketplace; conduct Courses; manage and share books, articles, music, videos, photos and memes via Library; nourish themselves and each other with Food; share their creative gifts via Art; and connect with other network members through Directory.",
         "Members can engage the entire network, or drop in to the Communities, Groups and Organizations to which they belong. Unique to each member is their Mycelium, the network of Members, Providers, Organizations and Places that comprise their unique, human web.",
         "The Home, Concierge, Chat, Calendar, Save and Maps features are fully integrated with the content and utilities provided within the network, thereby creating a seamless experience for Members, Providers, Organizations, Groups and Communities to collaborate, innovate, create, play and be, together.",
+        "Beneath every exchange runs Lichen's Universal Current-cy — the silicon mycelium's accounting layer. Time, knowledge, goods, services, and the contributions of plants, animals and land are all tracked and made interchangeable, pegged to the global economy so value can flow within the network and translate beyond it.",
       ] },
       { title: 'Community', img: `${WP}/2026/01/Group-4670-2.svg`, body: [
         "Inspired by the efficiency and wisdom of the Fibonacci Spiral, each Community, Group, Organization and Place that decides to use the platform enjoys their own, complete ecosystem, which includes all of the features of the greater network. The platform even allows you to spin out your own progressive web application, so members can access you via the Lichen App, or via your owned and operated app.",
