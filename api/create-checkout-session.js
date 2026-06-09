@@ -1,6 +1,15 @@
 import Stripe from 'stripe';
 
 export default async function handler(req, res) {
+  const ALLOWED = ['https://lichen.healthcare','https://www.lichen.healthcare','https://lichen.health','https://www.lichen.health'];
+  const reqOrigin = req.headers.origin;
+  if (reqOrigin && ALLOWED.includes(reqOrigin)) {
+    res.setHeader('Access-Control-Allow-Origin', reqOrigin);
+    res.setHeader('Vary', 'Origin');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') { res.status(204).end(); return; }
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method not allowed' });
     return;
