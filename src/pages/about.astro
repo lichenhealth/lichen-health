@@ -4,7 +4,7 @@ import { heroes, WP } from '../data/images';
 const img = {
   what: `${WP}/2026/01/Group-4729-2.svg`,
   why: `${WP}/2026/01/Group-4730.svg`,
-  begin: `${WP}/2026/01/Group-4738-1.svg`,
+  begin: `${WP}/join.webp`,
 };
 ---
 <BaseLayout overHero={true} title="About — Lichen" description="An overview of the science and spirituality that inform our approach to holistic healthcare.">
@@ -50,7 +50,12 @@ const img = {
       <div class="sec-pic"><img src={img.begin} alt="" loading="lazy" /></div>
       <div class="sec-copy">
         <h2 class="display sec-title">Where to begin?</h2>
-        <p>While our <a href="/mission">mission</a> is big, our platform is strong and our business model is sound. We have the experience, discipline and strategic partnerships in place to start small and make an impact where it matters most. Lichen, The <a href="https://www.heroesjourneycenter.com/" target="_blank" rel="noopener">Heroes Journey Center</a> and Mons Sana are ready to implement a pilot program that measures the safety and efficacy of a community-based, holistic functional medicine network that weaves earth wisdom with modern medicine and technology to deliver life-saving, life-changing care to veterans and first responders struggling with addiction and PTSD.</p>
+        <p>While our <a href="/mission">mission</a> is big, our platform is strong and our business model is sound. We have the experience, discipline and strategic partnerships in place to start small and make an impact where it matters most.</p>
+        <p>We’re just getting started — and there’s no better time to put down roots. Join us in our infancy as a founding member, through our Community or with hands-on Concierge care, and help shape this ecosystem from the ground up. Or, if you feel called to carry the whole vision forward, become part of our Founders Circle.</p>
+        <div class="begin-cta">
+          <a href="/get-involved#tiers" class="btn btn-primary btn-up">Become a Founding Member</a>
+          <a href="/founders-circle" class="btn btn-outline btn-up">Explore the Founders Circle</a>
+        </div>
       </div>
     </div>
   </section>
@@ -78,6 +83,8 @@ const img = {
   .sec-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; }
   .sec-copy a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   .sec-copy a:hover { color: var(--rust); }
+  .begin-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+  .begin-cta .btn { margin-top: 0; }
   @media (max-width: 860px) {
     .sec-grid { grid-template-columns: 1fr; gap: 28px; }
     .sec-grid.flip .sec-pic { order: 0; }
