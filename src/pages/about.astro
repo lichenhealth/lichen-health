@@ -101,12 +101,12 @@ const img = {
   .sec-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; }
   .sec-copy a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   .sec-copy a:hover { color: var(--rust); }
-  .maps-wrap { display: flex; flex-direction: column; align-items: center; gap: 28px; }
-  .maps-copy { max-width: 68ch; }
-  .maps-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; }
-  .maps-cap { font-size: 14px; font-style: italic; color: var(--ink-muted); max-width: 56ch; text-align: center; }
+  /* Full container width, like every other section (founder 2026-07-26). */
+  .maps-wrap { display: flex; flex-direction: column; align-items: stretch; gap: 28px; }
+  .maps-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; max-width: 78ch; }
+  .maps-cap { font-size: 14px; font-style: italic; color: var(--ink-muted); text-align: center; }
   .maps-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 8px; }
-  .maps-cta p { font-size: 14px; color: var(--ink-muted); max-width: 52ch; text-align: center; }
+  .maps-cta p { font-size: 14px; color: var(--ink-muted); max-width: 60ch; text-align: center; }
   .begin-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
   .begin-cta .btn { margin-top: 0; color: #fff; }
   .begin-cta .btn:hover { color: #fff; }
