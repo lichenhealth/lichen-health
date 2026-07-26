@@ -2,10 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TwoMaps from '../components/TwoMaps.astro';
 import { heroes, WP } from '../data/images';
+// Real screenshots of the live platform (captured from the app itself —
+// regenerate via the capture script whenever the product evolves).
 const img = {
-  what: `${WP}/2026/01/Group-4729-2.svg`,
-  why: `${WP}/2026/01/Group-4730.svg`,
-  begin: `${WP}/join2.webp`,
+  what: '/screens/home-feed.png',
+  why: '/screens/assistant-chat.png',
+  begin: '/screens/membership.png',
 };
 ---
 <BaseLayout overHero={true} title="About — Lichen" description="An overview of the science and spirituality that inform our approach to holistic healthcare.">
@@ -28,7 +30,7 @@ const img = {
 
   <section class="fsection sec-block">
     <div class="container sec-grid">
-      <div class="sec-pic"><img src={img.what} alt="" loading="lazy" /></div>
+      <div class="sec-pic"><img class="phone-shot" src={img.what} alt="" loading="lazy" /></div>
       <div class="sec-copy">
         <h2 class="display sec-title">What is Lichen?</h2>
         <p>Inspired by the forest using the mycelium to share information, carbon, water and medicines, Lichen is a technology <a href="/project/platform">platform</a> that empowers the safe and effective sharing of information and resources to foment individual, social and ecological healing. Like the trees, Lichen's members collaborate, because we know that the health of the collective and the individual are one and the same. Because the sole focus of our <a href="/project/business">business</a> is to expand access to the care our members need, the bigger we grow, the greater our capacity to restore health and balance. Value moves through the network via a <a href="/conscious-economy">conscious economy</a> — a Universal Current-cy pegged to the global economy, so every contribution can be tracked, honored, and translated into the wider world.</p>
@@ -38,7 +40,7 @@ const img = {
 
   <section class="fsection sec-block">
     <div class="container sec-grid flip">
-      <div class="sec-pic"><img src={img.why} alt="" loading="lazy" /></div>
+      <div class="sec-pic"><img class="phone-shot" src={img.why} alt="" loading="lazy" /></div>
       <div class="sec-copy">
         <h2 class="display sec-title">Why build Lichen?</h2>
         <p>Physics can now measure what eco-spiritual peoples have known for millennia: there is a quantum field of consciousness that connects everything in the universe. The biological sciences are now advanced enough to measure how and why tapping into that field can help us heal at the cellular level. Once engaged with that field, we remember our interconnection with all things, inspiring us to transform Crazy Horse's vision into a reality.</p>
@@ -65,7 +67,7 @@ const img = {
 
   <section class="fsection sec-block">
     <div class="container sec-grid">
-      <div class="sec-pic"><img src={img.begin} alt="" loading="lazy" /></div>
+      <div class="sec-pic"><img class="phone-shot" src={img.begin} alt="" loading="lazy" /></div>
       <div class="sec-copy">
         <h2 class="display sec-title">Where to begin?</h2>
         <p>While our <a href="/mission">mission</a> is big, our platform is strong and our business model is sound. We have the experience, discipline and strategic partnerships in place to start small and make an impact where it matters most.</p>
@@ -97,6 +99,12 @@ const img = {
   .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
   .sec-grid.flip .sec-pic { order: 2; }
   .sec-pic img { width: 100%; height: auto; display: block; }
+  /* Real platform screenshots, framed like the phone they live on. */
+  .sec-pic .phone-shot {
+    max-width: 320px; margin-inline: auto;
+    border-radius: 28px; border: 1px solid var(--bone-edge);
+    box-shadow: 0 18px 44px rgba(18, 24, 28, 0.14);
+  }
   .sec-title { font-size: clamp(24px,3vw,38px); margin-bottom: 18px; }
   .sec-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; }
   .sec-copy a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
@@ -107,9 +115,12 @@ const img = {
   .maps-cap { font-size: 14px; font-style: italic; color: var(--ink-muted); text-align: center; }
   .maps-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 8px; }
   .maps-cta p { font-size: 14px; color: var(--ink-muted); max-width: 60ch; text-align: center; }
+  /* Side-by-side on desktop (compact type so both fit the column), with real
+     beige air below before the green band (founder 2026-07-26). */
   .begin-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
-  .begin-cta .btn { margin-top: 0; color: #fff; }
+  .begin-cta .btn { margin-top: 0; color: #fff; font-size: 13px; padding: 11px 18px; white-space: nowrap; }
   .begin-cta .btn:hover { color: #fff; }
+  .sec-block:last-of-type { padding-bottom: calc(var(--s-8) + 56px); }
   @media (max-width: 860px) {
     .sec-grid { grid-template-columns: 1fr; gap: 28px; }
     .sec-grid.flip .sec-pic { order: 0; }
