@@ -23,19 +23,8 @@ const tiers = [
   <section class="container container--narrow involved">
     <p class="lede">Because our beliefs create our reality, there are three ways to bring about a better, shared reality — heal yourself, be the change, and scale the change. Whichever calls you, there's a place here.</p>
 
-    <!-- The front door: the app is live, and the first three months are a gift. -->
-    <div class="join-live" id="join" style="scroll-margin-top:96px">
-      <span class="eyebrow">The platform is live</span>
-      <h2 class="display h-2">Your first three months are on us</h2>
-      <p class="support-note">Lichen is growing, and we want you growing with it. Every new member receives <strong>three months of full Concierge membership, free</strong> — the complete platform: your communities and groups, the marketplace, courses and library, events and calendars, concierge care, and a web of people you trust. No card required. When your three months end, choose the membership that fits, right inside the app.</p>
-      <div class="join-ctas">
-        <a href={`${APP}/signup`} class="btn btn-primary btn-up">Join now — 3 months free</a>
-        <a href={APP} class="join-open">Already a member? Open the app →</a>
-      </div>
-    </div>
-
     <div class="support-head" id="tiers" style="scroll-margin-top:96px">
-      <span class="eyebrow">After your free months</span>
+      <span class="eyebrow">Support Lichen</span>
       <h2 class="display h-2">Membership that funds the mission</h2>
       <p class="support-note">Lichen is a nonprofit — membership revenue not needed to run the platform flows back into <strong>subsidizing care for those who can't afford it</strong>. Every plan starts with the same free three months.</p>
     </div>
@@ -51,6 +40,18 @@ const tiers = [
         </div>
       ))}
     </div>
+
+    <!-- The front door: the app is live, and the first three months are a gift. -->
+    <div class="join-live" id="join" style="scroll-margin-top:96px">
+      <span class="eyebrow">The platform is live</span>
+      <h2 class="display h-2">Your first three months are on us</h2>
+      <p class="support-note">Lichen is growing, and we want you growing with it. Every new member receives <strong>three months of full Concierge membership, free</strong> — the complete platform: your communities and groups, the marketplace, courses and library, events and calendars, concierge care, and a web of people you trust. No card required. When your three months end, choose the membership that fits, right inside the app.</p>
+      <div class="join-ctas">
+        <a href={`${APP}/signup`} class="btn btn-primary btn-up">Join now — 3 months free</a>
+        <a href={APP} class="join-open">Already a member? Open the app →</a>
+      </div>
+    </div>
+
 
     <p class="manage-line">Manage or cancel your subscription, <a href="https://billing.stripe.com/p/login/9B6bJ00MU047bRidT3bII00" target="_blank" rel="noopener">here</a>. Manage or cancel your recurring donation, <a href="https://billing.stripe.com/p/login/9B6bJ00MU047bRidT3bII00" target="_blank" rel="noopener">here</a>.</p>
 
@@ -70,11 +71,14 @@ const tiers = [
   .way p { font-size: var(--t-sm); color: var(--ink-muted); }
   .divider { margin-block: var(--s-7); }
 
+  /* Full width — matches the three-tier grid above it (founder 2026-07-26). */
   .join-live {
-    display: flex; flex-direction: column; gap: var(--s-3); max-width: 62ch;
+    display: flex; flex-direction: column; gap: var(--s-3);
+    margin-top: var(--s-4);
     padding: var(--s-6); background: var(--bone-warm);
     border: 2px solid var(--peach); border-radius: var(--r-lg);
   }
+  .join-live .support-note { max-width: 72ch; }
   .join-ctas { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-4); margin-top: var(--s-2); }
   .join-open { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   .join-open:hover { color: var(--rust); }
