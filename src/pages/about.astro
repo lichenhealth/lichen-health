@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TwoMaps from '../components/TwoMaps.astro';
 import { heroes, WP } from '../data/images';
 const img = {
   what: `${WP}/2026/01/Group-4729-2.svg`,
@@ -45,6 +46,23 @@ const img = {
     </div>
   </section>
 
+  <!-- The economy's argument, in one visual — ported from the app's About
+       page, which remains the canonical deep version. -->
+  <section class="fsection sec-block">
+    <div class="container maps-wrap">
+      <div class="maps-copy">
+        <h2 class="display sec-title">Designed for reciprocity. Tuned for reconnection.</h2>
+        <p>Every system is perfectly designed to get the results it gets. The current economy prices a mother&rsquo;s care at zero, doesn&rsquo;t count an old-growth forest at all, and pays speculative investors handsomely. Lichen&rsquo;s economy is designed for a different result: every being&rsquo;s contribution counted — people, plants, animals, elements and places — woven into one web of reciprocity.</p>
+      </div>
+      <TwoMaps />
+      <p class="maps-cap">Two maps of the same world. The distance between them is everything the current system gets wrong — and exactly what Lichen&rsquo;s algorithm works to close.</p>
+      <div class="maps-cta">
+        <a href="https://lichen.healthcare/about" class="btn btn-primary btn-up">Read the full story →</a>
+        <p>The whole picture — the economy in action, the trust web, and the partnership of carbon and silicon intelligence — lives on the platform&rsquo;s About page.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="fsection sec-block">
     <div class="container sec-grid">
       <div class="sec-pic"><img src={img.begin} alt="" loading="lazy" /></div>
@@ -83,6 +101,12 @@ const img = {
   .sec-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; }
   .sec-copy a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   .sec-copy a:hover { color: var(--rust); }
+  .maps-wrap { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+  .maps-copy { max-width: 68ch; }
+  .maps-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; }
+  .maps-cap { font-size: 14px; font-style: italic; color: var(--ink-muted); max-width: 56ch; text-align: center; }
+  .maps-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 8px; }
+  .maps-cta p { font-size: 14px; color: var(--ink-muted); max-width: 52ch; text-align: center; }
   .begin-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
   .begin-cta .btn { margin-top: 0; color: #fff; }
   .begin-cta .btn:hover { color: #fff; }

@@ -1,0 +1,128 @@
+---
+// The two-maps visual, ported from the app's About page (the canonical,
+// founder-iterated version lives at lichen.healthcare/about — keep this one
+// a faithful summary, not a fork). Within each row the pair differs ONLY in
+// size/presence — never in color.
+const KIND = {
+  people: 'var(--peach)',
+  plants: '#98BE4D',
+  animals: '#D9A441',
+  elements: '#7FA8C9',
+  places: '#A78BBA',
+  extraction: '#B0563C',
+};
+const LEGEND = [
+  { label: 'people', color: KIND.people },
+  { label: 'plants', color: KIND.plants },
+  { label: 'animals', color: KIND.animals },
+  { label: 'elements', color: KIND.elements },
+  { label: 'places', color: KIND.places },
+];
+const ROWS = [
+  { label: 'a mother’s care', left: { size: 46, bg: KIND.people }, right: { size: 7, bg: KIND.people, note: 'not compensated' } },
+  { label: 'an old-growth forest', left: { size: 54, bg: KIND.plants }, right: { size: 22, dashed: true, stroke: KIND.plants, note: 'not counted' } },
+  { label: 'a paramedic’s shift', left: { size: 34, bg: KIND.people }, right: { size: 13, bg: KIND.people, note: 'under-compensated' } },
+  { label: 'speculative investors', left: { size: 15, dashed: true, stroke: KIND.extraction }, right: { size: 46, bg: KIND.extraction, note: 'over-compensated' } },
+];
+const dotStyle = (d: { size: number; bg?: string; dashed?: boolean; stroke?: string }) =>
+  `width:${d.size}px;height:${d.size}px;background:${d.dashed ? 'transparent' : d.bg};${d.stroke ? `border-color:${d.stroke};` : ''}`;
+---
+<div class="tm" role="img"
+  aria-label="Two maps side by side: what each being actually gives, versus what the market pays — care at zero, forests not counted, speculative investors over-compensated.">
+  <div class="tm-col">
+    <p class="tm-title">The Lichen economy</p>
+    <div class="tm-panel">
+      <svg class="tm-globe" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="52" fill="var(--bone)" stroke="var(--bone-edge)" stroke-width="1.2" />
+        <ellipse cx="60" cy="60" rx="24" ry="52" fill="none" stroke="var(--bone-edge)" stroke-width="0.8" />
+        <ellipse cx="60" cy="60" rx="42" ry="52" fill="none" stroke="var(--bone-edge)" stroke-width="0.7" opacity="0.7" />
+        <ellipse cx="60" cy="60" rx="52" ry="20" fill="none" stroke="var(--bone-edge)" stroke-width="0.8" />
+        <ellipse cx="60" cy="60" rx="52" ry="40" fill="none" stroke="var(--bone-edge)" stroke-width="0.7" opacity="0.7" />
+        <g stroke-width="2" stroke-linecap="round" fill="none">
+          <path d="M16,72 Q58,22 104,54" stroke={KIND.plants} />
+          <path d="M22,42 Q64,88 100,74" stroke={KIND.people} />
+          <path d="M32,96 Q58,58 92,28" stroke={KIND.animals} />
+          <path d="M14,56 Q48,44 78,16" stroke={KIND.elements} />
+          <path d="M42,106 Q76,82 106,66" stroke={KIND.places} />
+          <g stroke="none">
+            <circle cx="16" cy="72" r="3" fill={KIND.plants} /><circle cx="104" cy="54" r="3" fill={KIND.plants} />
+            <circle cx="22" cy="42" r="3" fill={KIND.people} /><circle cx="100" cy="74" r="3" fill={KIND.people} />
+            <circle cx="32" cy="96" r="3" fill={KIND.animals} /><circle cx="92" cy="28" r="3" fill={KIND.animals} />
+            <circle cx="14" cy="56" r="3" fill={KIND.elements} /><circle cx="78" cy="16" r="3" fill={KIND.elements} />
+            <circle cx="42" cy="106" r="3" fill={KIND.places} /><circle cx="106" cy="66" r="3" fill={KIND.places} />
+          </g>
+        </g>
+      </svg>
+      <div class="tm-legend" aria-hidden="true">
+        {LEGEND.map((l) => (
+          <span class="tm-key"><span class="tm-swatch" style={`background:${l.color}`}></span>{l.label}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="tm-gapcol" aria-hidden="true"><span class="tm-gaplbl">the gap</span></div>
+  <div class="tm-col">
+    <p class="tm-title">The current economy</p>
+    <div class="tm-panel">
+      <svg class="tm-globe" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="52" fill="var(--bone)" stroke="var(--bone-edge)" stroke-width="1.2" />
+        <ellipse cx="60" cy="60" rx="24" ry="52" fill="none" stroke="var(--bone-edge)" stroke-width="0.8" />
+        <ellipse cx="60" cy="60" rx="42" ry="52" fill="none" stroke="var(--bone-edge)" stroke-width="0.7" opacity="0.7" />
+        <ellipse cx="60" cy="60" rx="52" ry="20" fill="none" stroke="var(--bone-edge)" stroke-width="0.8" />
+        <ellipse cx="60" cy="60" rx="52" ry="40" fill="none" stroke="var(--bone-edge)" stroke-width="0.7" opacity="0.7" />
+        <g stroke-linecap="round" fill="none">
+          <path d="M24,86 Q60,44 100,70" stroke={KIND.extraction} stroke-width="5" opacity="0.85" />
+          <path d="M22,42 Q64,88 100,74" stroke={KIND.people} stroke-width="1.2" opacity="0.35" />
+          <path d="M16,72 Q38,50 58,40" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="2 5" opacity="0.5" />
+          <path d="M60,96 Q78,74 92,60" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="2 5" opacity="0.5" />
+          <g stroke="none">
+            <circle cx="24" cy="86" r="3.4" fill={KIND.extraction} /><circle cx="100" cy="70" r="3.4" fill={KIND.extraction} />
+          </g>
+        </g>
+      </svg>
+      <p class="tm-missing" aria-hidden="true">most threads missing</p>
+    </div>
+  </div>
+  <div class="tm-rows">
+    {ROWS.map((r) => (
+      <div class="tm-xrow">
+        <div class="tm-xleft">
+          <span class="tm-xlbl">{r.label}</span>
+          <span class="tm-slot"><span class:list={['tm-dot', { 'is-dashed': r.left.dashed }]} style={dotStyle(r.left)}></span></span>
+        </div>
+        <div class="tm-xmid" aria-hidden="true"><span class="tm-conn"></span></div>
+        <div class="tm-xright">
+          <span class="tm-slot"><span class:list={['tm-dot', { 'is-dashed': r.right.dashed }]} style={dotStyle(r.right)}></span></span>
+          <span class="tm-xnote">{r.right.note}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .tm { display: grid; grid-template-columns: 1fr 28px 1fr; gap: 0 6px; align-items: stretch; max-width: 640px; }
+  .tm-title { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 6px; line-height: 1.4; }
+  .tm-panel { flex: 1; background: var(--bone-warm); border: 1px solid var(--bone-edge); border-bottom: 0; border-radius: 14px 14px 0 0; padding: 10px 12px; display: flex; flex-direction: column; }
+  .tm-col { display: flex; flex-direction: column; }
+  .tm-col .tm-panel { flex: 1; }
+  .tm-globe { display: block; width: 100%; max-width: 150px; margin: 4px auto 8px; height: auto; }
+  .tm-legend { display: flex; flex-wrap: wrap; gap: 4px 10px; justify-content: center; margin-bottom: 8px; }
+  .tm-key { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; color: var(--ink-soft); }
+  .tm-swatch { width: 8px; height: 8px; border-radius: 999px; flex-shrink: 0; }
+  .tm-missing { text-align: center; font-size: 10px; font-style: italic; color: var(--ink-faint); line-height: 1.4; margin: 0 0 8px; }
+  .tm-gapcol { display: flex; align-items: center; justify-content: center; padding-top: 22px; }
+  .tm-gaplbl { writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--peach-deep, var(--peach)); }
+  .tm-rows { grid-column: 1 / -1; display: flex; flex-direction: column; }
+  .tm-xrow { display: grid; grid-template-columns: 1fr 28px 1fr; column-gap: 6px; min-height: 64px; align-items: stretch; }
+  .tm-xleft, .tm-xright { display: flex; align-items: center; gap: 8px; padding: 0 12px; background: var(--bone-warm); border-left: 1px solid var(--bone-edge); border-right: 1px solid var(--bone-edge); }
+  .tm-xleft { justify-content: flex-end; }
+  .tm-xrow:last-child .tm-xleft, .tm-xrow:last-child .tm-xright { border-bottom: 1px solid var(--bone-edge); border-radius: 0 0 14px 14px; padding-bottom: 8px; }
+  .tm-xmid { display: flex; align-items: center; }
+  .tm-xlbl { flex: 1; min-width: 0; text-align: right; font-size: 13px; color: var(--ink); line-height: 1.3; }
+  .tm-conn { flex: 1; min-width: 0; border-top: 1.5px dashed var(--peach); opacity: 0.55; }
+  .tm-xnote { flex: 1; min-width: 0; font-size: 12px; font-style: italic; color: var(--ink-soft); line-height: 1.3; }
+  .tm-slot { width: 56px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .tm-dot { border-radius: 999px; flex-shrink: 0; display: inline-flex; opacity: 0.88; }
+  .tm-dot.is-dashed { border: 1.5px dashed var(--ink-faint); background: transparent !important; opacity: 1; }
+</style>
