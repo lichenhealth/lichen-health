@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import DonateForm from '../components/DonateForm.astro';
 import { heroes } from '../data/images';
 
 const status = Astro.url.searchParams.get('status');
@@ -28,8 +27,9 @@ const ways = [
 
     <div class="give-now">
       <h2 class="display h-2 give-now-title">Give now</h2>
-      <p class="give-now-sub">Choose an amount and how often you'd like to give — one time, monthly, or annually.</p>
-      <DonateForm />
+      <p class="give-now-sub">Giving lives on the Lichen platform now — one time, monthly, or annually. You can direct your gift (subsidize care, goods &amp; services, spaces, or operations), and your 501(c)(3) tax receipt arrives by email automatically. No account needed.</p>
+      <a href="https://lichen.healthcare/donate" class="btn btn-primary btn-up give-now-cta">Give on Lichen →</a>
+      <p class="give-now-more"><a href="https://lichen.healthcare/donate/how">How giving works</a> — the two maps, the routing promise, and where every dollar goes.</p>
     </div>
 
     <p class="tax-note">Lichen Health is a registered 501(c)(3) nonprofit organization (EIN 73-1683375), based in Nevada City, California. Donations are tax-deductible to the fullest extent allowed by law.</p>
@@ -72,7 +72,10 @@ const ways = [
   .banner-soft{background:var(--peach-tint);color:var(--peach-deep)}
   .lede{font-size:var(--t-xl);color:var(--ink-soft);font-weight:300;line-height:var(--lh-snug);max-width:54ch}
   .give-now{display:flex;flex-direction:column;gap:var(--s-3)}
-  .give-now-sub{color:var(--ink-muted);font-size:var(--t-base);margin-bottom:var(--s-2)}
+  .give-now-sub{color:var(--ink-muted);font-size:var(--t-base);margin-bottom:var(--s-2);max-width:58ch}
+  .give-now-cta{align-self:flex-start}
+  .give-now-more{font-size:var(--t-sm);color:var(--ink-muted)}
+  .give-now-more a{color:var(--peach-deep);text-decoration:underline;text-underline-offset:2px}
   .divider{margin-block:var(--s-6)}
   .give-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-4);margin-top:var(--s-4)}
   .give-card{padding:var(--s-6);background:var(--bone-warm);border:1px solid var(--bone-edge);border-radius:var(--r-lg);display:flex;flex-direction:column}

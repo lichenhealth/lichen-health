@@ -3,14 +3,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SignupForm from '../components/SignupForm.astro';
 import { heroes } from '../data/images';
 
-// Founding-member tiers. Add `url` (a Stripe Payment Link) to make a tier's button go live.
+// Membership tiers — informational now. Joining ALWAYS starts with the free
+// three months inside the app; paid plans are chosen there when the trial
+// ends. (Stripe Payment Links retired 2026-07: subscribers who paid through
+// them never existed in the app's records and hit the paywall.)
+const APP = 'https://lichen.healthcare';
 const tiers = [
-  { name: 'Community', price: '$29', per: '/mo', blurb: 'Join the founding community and help the movement take root.', url: 'https://buy.stripe.com/fZudR83Z69EH8F66qBbII0e', cta: 'Join Now' },
-  { name: 'Community + Concierge', price: '$99', per: '/mo', blurb: 'The fullest founding membership — Community plus hands-on Concierge support.', url: 'https://buy.stripe.com/8x23cuanuaILf3u6qBbII0f', cta: 'Join Now', featured: true },
+  { name: 'Community', price: '$29', per: '/mo', blurb: 'The whole network — marketplace, courses, library, events, communities, and your trusted web.', url: `${APP}/signup`, cta: 'Start Free' },
+  { name: 'Community + Concierge', price: '$99', per: '/mo', blurb: 'Everything in Community, plus hands-on Concierge care — your care team, on-call support, and coordination.', url: `${APP}/signup`, cta: 'Start Free', featured: true },
   { name: "Founder's Circle", price: '$5K–$1M', per: '', blurb: "Be part of the team of benefactors who make Lichen's tech platform and pilot location take flight.", url: '/founders-circle', cta: 'Explore the Circle' },
 ];
 ---
-<BaseLayout overHero={true} title="Get Involved — Lichen" description="Join, volunteer and support the holistic healthcare movement.">
+<BaseLayout overHero={true} title="Get Involved — Lichen" description="Join Lichen free for three months, volunteer, and support the holistic healthcare movement.">
   <section class="phero">
     <div class="phero-bg"><img src={heroes['get-involved']} alt="" /></div>
     <div class="container phero-inner"><h1>It takes a village</h1></div>
@@ -18,10 +22,22 @@ const tiers = [
 
   <section class="container container--narrow involved">
     <p class="lede">Because our beliefs create our reality, there are three ways to bring about a better, shared reality — heal yourself, be the change, and scale the change. Whichever calls you, there's a place here.</p>
+
+    <!-- The front door: the app is live, and the first three months are a gift. -->
+    <div class="join-live" id="join" style="scroll-margin-top:96px">
+      <span class="eyebrow">The platform is live</span>
+      <h2 class="display h-2">Your first three months are on us</h2>
+      <p class="support-note">Lichen is growing, and we want you growing with it. Every new member receives <strong>three months of full Concierge membership, free</strong> — the complete platform: your communities and groups, the marketplace, courses and library, events and calendars, concierge care, and a web of people you trust. No card required. When your three months end, choose the membership that fits, right inside the app.</p>
+      <div class="join-ctas">
+        <a href={`${APP}/signup`} class="btn btn-primary btn-up">Join now — 3 months free</a>
+        <a href={APP} class="join-open">Already a member? Open the app →</a>
+      </div>
+    </div>
+
     <div class="support-head" id="tiers" style="scroll-margin-top:96px">
-      <span class="eyebrow">Support Lichen now</span>
-      <h2 class="display h-2">Become a founding member</h2>
-      <p class="support-note">Community and Concierge are in their infancy — but you can fuel the movement today. Every founding membership receives <strong>special perks and appreciation for believing in the change</strong> before the movement has taken root and matured.</p>
+      <span class="eyebrow">After your free months</span>
+      <h2 class="display h-2">Membership that funds the mission</h2>
+      <p class="support-note">Lichen is a nonprofit — membership revenue not needed to run the platform flows back into <strong>subsidizing care for those who can't afford it</strong>. Every plan starts with the same free three months.</p>
     </div>
     <div class="tiers">
       {tiers.map((t) => (
@@ -53,6 +69,15 @@ const tiers = [
   .way { padding: var(--s-5); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md); display: flex; flex-direction: column; gap: var(--s-3); }
   .way p { font-size: var(--t-sm); color: var(--ink-muted); }
   .divider { margin-block: var(--s-7); }
+
+  .join-live {
+    display: flex; flex-direction: column; gap: var(--s-3); max-width: 62ch;
+    padding: var(--s-6); background: var(--bone-warm);
+    border: 2px solid var(--peach); border-radius: var(--r-lg);
+  }
+  .join-ctas { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-4); margin-top: var(--s-2); }
+  .join-open { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .join-open:hover { color: var(--rust); }
 
   .support-head { display: flex; flex-direction: column; gap: var(--s-3); max-width: 60ch; }
   .support-note { font-size: var(--t-lg); color: var(--ink-soft); font-weight: 300; line-height: var(--lh-normal); }

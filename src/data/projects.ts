@@ -83,6 +83,7 @@ export const projects: Project[] = [
         "Members can engage the entire network, or drop in to the Communities, Groups and Organizations to which they belong. Unique to each member is their Mycelium, the network of Members, Providers, Organizations and Places that comprise their unique, human web.",
         "The Home, Concierge, Chat, Calendar, Save and Maps features are fully integrated with the content and utilities provided within the network, thereby creating a seamless experience for Members, Providers, Organizations, Groups and Communities to collaborate, innovate, create, play and be, together.",
         "Beneath every exchange runs Lichen's Universal Current-cy — the silicon mycelium's accounting layer. Time, knowledge, goods, services, and the contributions of plants, animals and land are all tracked and made interchangeable, pegged to the global economy so value can flow within the network and translate beyond it.",
+        "All of this is live today — and every new member's first three months of full Concierge membership are free.",
       ] },
       { title: 'Community', img: `${WP}/2026/01/Group-4670-2.svg`, body: [
         "Inspired by the efficiency and wisdom of the Fibonacci Spiral, each Community, Group, Organization and Place that decides to use the platform enjoys their own, complete ecosystem, which includes all of the features of the greater network. The platform even allows you to spin out your own progressive web application, so members can access you via the Lichen App, or via your owned and operated app.",
@@ -93,7 +94,7 @@ export const projects: Project[] = [
         "Lichen providers take turns being on-call for urgent care needs, ensuring that members get support while avoiding practitioner burnout. Each member also has an (optional) AI Assistant to synthesize information, answer questions and connect you with the bio/psycho/social/spiritual/ecological information you need to unlock your own, inner wisdom to heal and grow into your highest self. Your care team reviews your Assistant's work, helping it learn from the intelligence of the plants, animals, elements and individuals who support you.",
       ] },
     ],
-    cta: { line: 'Ready to build healing connections?', label: 'Get Involved', href: '/get-involved' },
+    cta: { line: 'Ready to build healing connections?', label: 'Join Lichen — 3 months free', href: 'https://lichen.healthcare/signup' },
     seoTitle: 'Platform — Lichen',
     seoDesc: "Lichen's AI-powered Progressive Web App: a silicon-based mycelium for sharing information and resources across community, content and concierge care.",
   },
