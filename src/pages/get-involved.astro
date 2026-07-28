@@ -9,8 +9,8 @@ import { heroes } from '../data/images';
 // them never existed in the app's records and hit the paywall.)
 const APP = 'https://lichen.healthcare';
 const tiers = [
-  { name: 'Community', price: '$29', per: '/mo', blurb: 'The whole network — marketplace, courses, library, events, communities, and your trusted web.', url: `${APP}/signup`, cta: 'Start Free' },
-  { name: 'Community + Concierge', price: '$99', per: '/mo', blurb: 'Everything in Community, plus hands-on Concierge care — your care team, on-call support, and coordination.', url: `${APP}/signup`, cta: 'Start Free', featured: true },
+  { name: 'Community', price: '$29', per: '/mo', blurb: 'The whole network — marketplace, courses, library, events, communities, and your trusted web.', url: `${APP}/signup`, cta: 'Request an invitation' },
+  { name: 'Community + Concierge', price: '$99', per: '/mo', blurb: 'Everything in Community, plus hands-on Concierge care — your care team, on-call support, and coordination.', url: `${APP}/signup`, cta: 'Request an invitation', featured: true },
   { name: "Founder's Circle", price: '$5K–$1M', per: '', blurb: "Be part of the team of benefactors who make Lichen's tech platform and pilot location take flight.", url: '/founders-circle', cta: 'Explore the Circle' },
 ];
 ---
@@ -44,11 +44,12 @@ const tiers = [
     <!-- The front door: the app is live, and the first three months are a gift. -->
     <div class="join-live" id="join" style="scroll-margin-top:96px">
       <span class="eyebrow">The platform is live</span>
-      <h2 class="display h-2">Your first three months are on us</h2>
-      <p class="support-note">Lichen is growing, and we want you growing with it. Every new member receives <strong>three months of full Concierge membership, free</strong> — the complete platform: your communities and groups, the marketplace, courses and library, events and calendars, concierge care, and a web of people you trust. No card required. When your three months end, choose the membership that fits, right inside the app.</p>
+      <h2 class="display h-2">Lichen grows by invitation</h2>
+      <p class="support-note">Every member arrives through someone already here — woven into their web from day one. It&rsquo;s how a network stays trustworthy enough to hand your care, your work and your exchanges to. <strong>Know someone inside?</strong> Ask them for an invitation. <strong>Don&rsquo;t yet?</strong> Introduce yourself at the door — tell us who you are and what draws you here, and a real person will write back.</p>
+      <p class="support-note">Every new member receives <strong>three months of full Concierge membership, free</strong> — the complete platform: your communities and groups, the marketplace, courses and library, events and calendars, concierge care, and a web of people you trust. No card required. When your three months end, choose the membership that fits, right inside the app.</p>
       <div class="join-ctas">
-        <a href={`${APP}/signup`} class="btn btn-primary btn-up">Join now — 3 months free</a>
-        <a href={APP} class="join-open">Already a member? Open the app →</a>
+        <a href={`${APP}/signup`} class="btn btn-primary btn-up">Request an invitation</a>
+        <a href={APP} class="join-open">Already invited, or a member? Open the app →</a>
       </div>
     </div>
 
