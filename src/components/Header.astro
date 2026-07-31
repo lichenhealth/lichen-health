@@ -2,17 +2,24 @@
 import { logoWhite, logoColor } from '../data/images';
 export interface Props { overHero?: boolean }
 const { overHero = false } = Astro.props;
+// The site now serves lichen.health itself (Shape A, founder 2026-07-31):
+// About/Donate/Events/Resources/Blog resolve to the APP's richer versions on
+// the same domain; deep functionality (The Economy = the marketplace) is a
+// door into membership — "Request to join" IS the answer, because the
+// functionality is the membership.
 const nav = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Care', href: '/project/care' },
   { label: 'Business', href: '/project/business' },
   { label: 'Platform', href: '/project/platform' },
+  { label: 'The Economy', href: '/signup' },
   { label: 'Donate', href: '/donate' },
   { label: 'Get Involved', href: '/get-involved' },
   { label: 'Events', href: '/events' },
   { label: 'Resources', href: '/resources' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Sign in', href: '/login' },
 ];
 ---
 <header class:list={['fheader', { solid: !overHero }]}>

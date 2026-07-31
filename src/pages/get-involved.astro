@@ -7,11 +7,16 @@ import { heroes } from '../data/images';
 // three months inside the app; paid plans are chosen there when the trial
 // ends. (Stripe Payment Links retired 2026-07: subscribers who paid through
 // them never existed in the app's records and hit the paywall.)
-const APP = 'https://lichen.healthcare';
-const tiers = [
-  { name: 'Community', price: '$29', per: '/mo', blurb: 'The whole network — marketplace, courses, library, events, communities, and your trusted web.', url: `${APP}/signup`, cta: 'Request an invitation' },
-  { name: 'Community + Concierge', price: '$99', per: '/mo', blurb: 'Everything in Community, plus hands-on Concierge care — your care team, on-call support, and coordination.', url: `${APP}/signup`, cta: 'Request an invitation', featured: true },
-  { name: "Founder's Circle", price: '$5K–$1M', per: '', blurb: "Be part of the team of benefactors who make Lichen's tech platform and pilot location take flight.", url: '/founders-circle', cta: 'Explore the Circle' },
+const APP = '';   // same domain now — the app IS lichen.health (Shape A, 2026-07-31)
+const joinTiers = [
+  { name: 'Community', price: '$29', per: '/mo', blurb: 'The whole network — marketplace, courses, library, events, communities, and your trusted web.', url: '/signup', cta: 'Request an invitation' },
+  { name: 'Community + Concierge', price: '$99', per: '/mo', blurb: 'Everything in Community, plus hands-on Concierge care — your care team, on-call support, and coordination.', url: '/signup', cta: 'Request an invitation', featured: true },
+];
+// SEED (founder 2026-07-31): the patrons and donors whose Current-cy grows
+// the commons — distinct from joining, preceding the Founders Circle.
+const seedTiers = [
+  { name: 'Donate', price: 'Any amount', per: '', blurb: 'Tax-deductible. 95% is minted as Current-cy that subsidizes care for those who can\'t afford it; your dollars are permanently dedicated to the commons.', url: '/donate', cta: 'Donate' },
+  { name: "Founder's Circle", price: '$5K–$1M', per: '', blurb: "Be part of the team of benefactors who make Lichen's tech platform and pilot location take flight.", url: '/founders-circle', cta: 'Explore the Circle', featured: true },
 ];
 ---
 <BaseLayout overHero={true} title="Get Involved — Lichen" description="Join Lichen free for three months, volunteer, and support the holistic healthcare movement.">
@@ -23,13 +28,14 @@ const tiers = [
   <section class="container container--narrow involved">
     <p class="lede">Because our beliefs create our reality, there are three ways to bring about a better, shared reality — heal yourself, be the change, and scale the change. Whichever calls you, there's a place here.</p>
 
+    <span class="section-word" aria-hidden="true">JOIN</span>
     <div class="support-head" id="tiers" style="scroll-margin-top:96px">
-      <span class="eyebrow">Support Lichen</span>
+      <span class="eyebrow">Membership</span>
       <h2 class="display h-2">Membership that funds the mission</h2>
       <p class="support-note">Lichen is a nonprofit — membership revenue not needed to run the platform flows back into <strong>subsidizing care for those who can't afford it</strong>. Every plan starts with the same free three months.</p>
     </div>
     <div class="tiers">
-      {tiers.map((t) => (
+      {joinTiers.map((t) => (
         <div class:list={['tier', { featured: t.featured }]}>
           {t.price && <span class="tier-price">{t.price}<span class="tier-per">{t.per}</span></span>}
           <h3 class="tier-name">{t.name}</h3>
@@ -46,13 +52,30 @@ const tiers = [
       <span class="eyebrow">The platform is live</span>
       <h2 class="display h-2">Lichen grows by invitation</h2>
       <p class="support-note">Every member arrives through someone already here — woven into their web from day one. It&rsquo;s how a network stays trustworthy enough to hand your care, your work and your exchanges to. <strong>Know someone inside?</strong> Ask them for an invitation. <strong>Don&rsquo;t yet?</strong> Introduce yourself at the door — tell us who you are and what draws you here, and a real person will write back.</p>
-      <p class="support-note">Every new member receives <strong>three months of full Concierge membership, free</strong> — the complete platform: your communities and groups, the marketplace, courses and library, events and calendars, concierge care, and a web of people you trust. No card required. When your three months end, choose the membership that fits, right inside the app.</p>
+      <p class="support-note">Every new member receives <strong>three months of full Concierge membership, free</strong> — the complete platform: your communities and groups, the marketplace, courses and library, events and calendars, concierge care, and a web of people you trust. No card required. When your three months end, choose the membership that fits, right inside the app. And because it's early, your voice carries: <strong>founding members tell us which features they need and help us test the platform</strong> — you won't just use Lichen, you'll shape it.</p>
       <div class="join-ctas">
-        <a href={`${APP}/signup`} class="btn btn-primary btn-up">Request an invitation</a>
-        <a href={APP} class="join-open">Already invited, or a member? Open the app →</a>
+        <a href="/signup" class="btn btn-primary btn-up">Request an invitation</a>
+        <a href="/login" class="join-open">Already invited, or a member? Sign in →</a>
       </div>
     </div>
 
+
+    <span class="section-word section-word--seed" aria-hidden="true">SEED</span>
+    <div class="support-head">
+      <span class="eyebrow">Patrons &amp; donors</span>
+      <h2 class="display h-2">Grow the commons</h2>
+      <p class="support-note">Some bring about the better world with their presence; some seed it with their resources. Donations and founding gifts become <strong>Current-cy that carries real care to real people</strong> — and build the land, the sanctuary, and the platform underneath everything Lichen does.</p>
+    </div>
+    <div class="tiers tiers--seed">
+      {seedTiers.map((t) => (
+        <div class:list={['tier', { featured: t.featured }]}>
+          {t.price && <span class="tier-price">{t.price}<span class="tier-per">{t.per}</span></span>}
+          <h3 class="tier-name">{t.name}</h3>
+          <p class="tier-blurb">{t.blurb}</p>
+          <a href={t.url} class="btn btn-primary btn-up tier-cta">{t.cta}</a>
+        </div>
+      ))}
+    </div>
 
     <p class="manage-line">Manage or cancel your subscription, <a href="https://billing.stripe.com/p/login/9B6bJ00MU047bRidT3bII00" target="_blank" rel="noopener">here</a>. Manage or cancel your recurring donation, <a href="https://billing.stripe.com/p/login/9B6bJ00MU047bRidT3bII00" target="_blank" rel="noopener">here</a>.</p>
 
@@ -66,6 +89,15 @@ const tiers = [
 
 <style>
   .involved { padding-block: var(--s-9); display: flex; flex-direction: column; gap: var(--s-4); }
+  /* Gray all-caps section words: JOIN the mission, SEED the commons. */
+  .section-word {
+    font-size: clamp(30px, 4.4vw, 48px); letter-spacing: 0.22em;
+    color: var(--ink-faint); font-weight: 500; line-height: 1;
+    margin-top: var(--s-5);
+  }
+  .section-word--seed { margin-top: var(--s-7); }
+  .tiers--seed { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 760px) { .tiers--seed { grid-template-columns: 1fr; } }
   .lede { font-size: var(--t-xl); color: var(--ink-soft); font-weight: 300; line-height: var(--lh-snug); max-width: 56ch; }
   .ways { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--s-4); margin-block: var(--s-5); }
   .way { padding: var(--s-5); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md); display: flex; flex-direction: column; gap: var(--s-3); }
