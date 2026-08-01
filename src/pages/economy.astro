@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TwoMaps from '../components/TwoMaps.astro';
+import { heroes } from '../data/images';
+
+// THE ECONOMY (founder 2026-07-31): the nav door that used to drop straight
+// onto the signup page now makes the case first — the long-form articulation
+// of the economy and the algorithm, ending at the two ways in. Body adapted
+// faithfully from the founding essay "The Conscious Economy" (Galyn, 2026).
+---
+<BaseLayout overHero={true} title="The Lichen Economy" description="Nature doesn't do charity — it does reciprocity. How value moves through Lichen: Universal Current-cy, the two maps, and the algorithm that closes the gap between them.">
+  <section class="phero">
+    <div class="phero-bg"><img src={heroes.business} alt="" /></div>
+    <div class="container phero-inner"><h1>The Lichen Economy</h1></div>
+  </section>
+
+  <section class="container container--narrow econ">
+    <p class="lede">Nature doesn&rsquo;t do charity. It does reciprocity.</p>
+
+    <p>Conventional capitalism behaves like a cancer — profiting from sickness until it devours its host. It extracts value, externalizes cost, and quietly depends on dysfunction. Lichen is built on the opposite premise: that a healthy economy, like a healthy forest, understands its survival is inseparable from the health of the whole.</p>
+
+    <p>We call this <strong>Universal Value Attribution</strong> — a system that tracks all contributions and all extractions, human and non-human, and facilitates reciprocity between every participant. Time, energy, knowledge, land stewardship, emotional labor, the work of a therapy animal, the medicine of a plant — all of it holds value, and all of it can be honored.</p>
+
+    <h2 class="display h-2">Two maps of the same world</h2>
+    <p>Every economy is a map of what it can see. The current one prices a mother&rsquo;s care at zero, doesn&rsquo;t count an old-growth forest at all, underpays the paramedic and over-rewards speculation. Lichen&rsquo;s map draws every strand — and the gap between the two maps is exactly what the platform exists to close.</p>
+    <TwoMaps />
+
+    <h2 class="display h-2">A currency that remembers</h2>
+    <p>The accounting layer beneath the ecosystem is the <strong>Universal Current-cy</strong> — the unit through which value is tracked and flows interchangeably between every participant. Crucially, it is pegged to the incumbent global economy. It isn&rsquo;t a closed loop or a token that only matters inside our walls: value earned, contributed, or received within Lichen can be translated and exported into the wider world. Members can budget and coordinate their care, their work, and their exchanges both within the network and beyond it.</p>
+    <p>This is what lets the <a href="/project/care">Care Model</a> work in practice — your Kaleidoscope of Care is budgeted in the same terms you already live on, mapping cleanly to the mainstream medical and economic systems you navigate every day.</p>
+    <p>Why build an economy this way? Because epigenetics shows our cells respond to signals from their environment — including the political, economic, and cultural systems that shape our families and communities. A conscious economy isn&rsquo;t only a moral project; it&rsquo;s a biological one. When people are held in systems that honor and return their contributions, the body begins to heal.</p>
+
+    <h2 class="display h-2">The algorithm, in one sentence</h2>
+    <p><strong>Route what is given to where the gap is largest — and bring the story back to the giver.</strong> Inside Lichen, gifts, trades, fair sales and in-search-of asks flow through one marketplace. When someone seeks what another offers, the matcher connects them the moment the offer appears — generosity answering first. Entrusted offerings are routed by a human steward the algorithm assists, never the reverse. And there are no ratings to farm, no follower counts to perform for: what you see is filtered through the people <em>you</em> actually trust, and a path through real relationships can&rsquo;t be faked.</p>
+
+    <h2 class="display h-2">The Shadow Clause</h2>
+    <p>Healing doesn&rsquo;t mean erasing the shadow inherent in the natural world. The mycelium itself isn&rsquo;t purely altruistic — it builds dependency through indispensability, a natural monopoly earned rather than forced. Separation, competition, and limits are part of the curriculum of being alive in a dual realm. A healthy ecosystem doesn&rsquo;t pretend these forces away; it holds them consciously.</p>
+    <p>So the Lichen economy carries a <strong>Shadow Clause</strong> — an acknowledgment that every system has a shadow, and a commitment to name it and build accountability around it. What doesn&rsquo;t metabolize its shadow eventually becomes it.</p>
+
+    <h2 class="display h-2">Why philanthropy is still needed</h2>
+    <p>If the long-term solution is reciprocity, why operate a 501(c)(3) at all? Because the systems we inherited didn&rsquo;t merely deny our interconnection — they profited from severing it, and the wounds are real. Philanthropy is the temporary scaffolding that holds people while the new floor is built beneath them. Lichen&rsquo;s foundation pays only the gap — what insurance doesn&rsquo;t cover, what organizations can&rsquo;t absorb, what individuals can&rsquo;t yet afford, what the current market won&rsquo;t fund. No further.</p>
+    <p>This is corrective investment: targeted, efficient, and designed to become obsolete. <a href="/donate">Seed it here.</a></p>
+
+    <h2 class="display h-2">A new Renaissance</h2>
+    <p>The closest historical parallel is the Renaissance — a moment when builders didn&rsquo;t just create individual products, but invested in the cultural, intellectual, and spiritual infrastructure that made a new era possible. Lichen is building two things at once: a <a href="/project/business">new economic model</a> and the living <a href="/project/platform">platform</a> that carries it. The platform is the mycelium through which value flows; the economy ensures that nothing is wasted and everything is valued.</p>
+    <p>That&rsquo;s not radical. That&rsquo;s just how nature works.</p>
+
+    <!-- The two ways in — the economy IS the membership. -->
+    <div class="econ-join">
+      <h2 class="display h-2">Step inside it</h2>
+      <p>The economy isn&rsquo;t something you read about here — it&rsquo;s something you join. Every member arrives through someone already here, and every new member&rsquo;s first three months are a gift.</p>
+      <div class="econ-ctas">
+        <a href="/signup" class="btn btn-primary btn-up">Request an invitation</a>
+        <a href="/login" class="econ-signin">Already a member? Sign in →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .econ { padding-block: var(--s-9); display: flex; flex-direction: column; gap: var(--s-4); }
+  .lede { font-size: var(--t-xl); color: var(--ink-soft); font-weight: 300; line-height: var(--lh-snug); max-width: 56ch; }
+  .econ p { color: var(--ink-soft); line-height: 1.75; max-width: 66ch; }
+  .econ p strong { color: var(--ink); }
+  .econ a { color: var(--rust); text-decoration: underline; text-underline-offset: 3px; }
+  .econ .h-2 { margin-top: var(--s-5); }
+  .econ-join {
+    margin-top: var(--s-6); padding: var(--s-6);
+    background: var(--bone-warm); border: 2px solid var(--peach); border-radius: var(--r-lg);
+    display: flex; flex-direction: column; gap: var(--s-3);
+  }
+  .econ-ctas { display: flex; align-items: center; gap: var(--s-5); flex-wrap: wrap; }
+  .econ-signin { color: var(--ink-soft) !important; text-decoration: none !important; font-weight: 500; }
+  .econ-signin:hover { color: var(--ink) !important; }
+</style>
