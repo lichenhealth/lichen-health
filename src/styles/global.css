@@ -194,5 +194,5 @@ input, textarea, select { font: inherit; color: inherit; }
 /* Two-across tier grids (JOIN memberships, SEED patrons) — unscoped so the
    base .tiers 3-column rule can't outrank the page's intent (Astro page
    styles compile to zero-specificity :where(), founder hit this live). */
-.tiers.tiers--two, .tiers.tiers--seed { grid-template-columns: repeat(2, 1fr); }
-@media (max-width: 760px) { .tiers.tiers--two, .tiers.tiers--seed { grid-template-columns: 1fr; } }
+.tiers.tiers--two, .tiers.tiers--seed { grid-template-columns: repeat(2, 1fr) !important; }
+@media (max-width: 760px) { .tiers.tiers--two, .tiers.tiers--seed { grid-template-columns: 1fr !important; } }
