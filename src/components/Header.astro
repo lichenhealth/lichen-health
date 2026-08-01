@@ -27,7 +27,11 @@ const nav = [
     </a>
     <button class="fnav-toggle" id="fnavToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="fnav-links" id="fnavLinks" aria-label="Primary">
-      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+      {nav.map((n) => {
+        const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+        const here = n.href === '/' ? (path === '/' || path === '/welcome') : path === n.href;
+        return <a href={n.href} class:list={[{ 'is-here': here }]} aria-current={here ? 'page' : undefined}>{n.label}</a>;
+      })}
     </nav>
   </div>
 </header>

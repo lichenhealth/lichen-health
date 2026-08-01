@@ -114,6 +114,8 @@ input, textarea, select { font: inherit; color: inherit; }
 .fnav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: .9; }
 .fheader:not(.solid) .fnav-links a, .fheader:not(.solid) .fnav .brand-word { color: #fff; }
 .fnav-links a:hover { opacity: 1; }
+/* You-are-here: a thin beige line under the current section (founder 2026-07-31). */
+.fnav-links a.is-here { opacity: 1; border-bottom: 2px solid #C9B79C; padding-bottom: 3px; }
 .fnav-toggle { display: none; margin-left: auto; flex-direction: column; gap: 4px; }
 .fnav-toggle span { width: 22px; height: 2px; background: currentColor; display: block; }
 .fheader:not(.solid) .fnav-toggle { color: #fff; }
