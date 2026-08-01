@@ -34,7 +34,7 @@ const seedTiers = [
       <h2 class="display h-2">Membership that funds the mission</h2>
       <p class="support-note">Lichen is a nonprofit — membership revenue not needed to run the platform flows back into <strong>subsidizing care for those who can't afford it</strong>. Every plan starts with the same free three months.</p>
     </div>
-    <div class="tiers">
+    <div class="tiers tiers--two">
       {joinTiers.map((t) => (
         <div class:list={['tier', { featured: t.featured }]}>
           {t.price && <span class="tier-price">{t.price}<span class="tier-per">{t.per}</span></span>}
@@ -97,8 +97,8 @@ const seedTiers = [
     margin-top: var(--s-5);
   }
   .section-word--seed { margin-top: var(--s-7); }
-  .tiers--seed { grid-template-columns: repeat(2, 1fr); }
-  @media (max-width: 760px) { .tiers--seed { grid-template-columns: 1fr; } }
+  .tiers--two, .tiers--seed { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 760px) { .tiers--two, .tiers--seed { grid-template-columns: 1fr; } }
   .lede { font-size: var(--t-xl); color: var(--ink-soft); font-weight: 300; line-height: var(--lh-snug); max-width: 56ch; }
   .ways { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--s-4); margin-block: var(--s-5); }
   .way { padding: var(--s-5); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md); display: flex; flex-direction: column; gap: var(--s-3); }
