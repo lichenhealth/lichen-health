@@ -116,6 +116,17 @@ input, textarea, select { font: inherit; color: inherit; }
 .fnav-links a:hover { opacity: 1; }
 /* You-are-here: a thin beige line under the current section (founder 2026-07-31). */
 .fnav-links a.is-here { opacity: 1; border-bottom: 2px solid #C9B79C; padding-bottom: 3px; }
+/* Persistent Sign in — visible at every breakpoint (founder 2026-07-31). */
+.fnav-signin {
+  margin-left: auto; order: 2;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 8px 16px; border: 1px solid currentColor; border-radius: 999px;
+  white-space: nowrap;
+}
+.fheader:not(.solid) .fnav-signin { color: #fff; }
+.fnav-toggle { order: 3; }
+.fnav-links { order: 4; }
+@media (min-width: 861px) { .fnav-signin { margin-left: 16px; order: 5; } .fnav-links { margin-left: auto; } }
 .fnav-toggle { display: none; margin-left: auto; flex-direction: column; gap: 4px; }
 .fnav-toggle span { width: 22px; height: 2px; background: currentColor; display: block; }
 .fheader:not(.solid) .fnav-toggle { color: #fff; }
@@ -179,3 +190,9 @@ input, textarea, select { font: inherit; color: inherit; }
   .fnav-links.open { display: flex; position: absolute; top: 84px; left: 0; right: 0; flex-direction: column; background: var(--ink); padding: 16px 28px; }
   .fnav-links.open a { color: #fff; padding: 6px 0; }
 }
+
+/* Two-across tier grids (JOIN memberships, SEED patrons) — unscoped so the
+   base .tiers 3-column rule can't outrank the page's intent (Astro page
+   styles compile to zero-specificity :where(), founder hit this live). */
+.tiers.tiers--two, .tiers.tiers--seed { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 760px) { .tiers.tiers--two, .tiers.tiers--seed { grid-template-columns: 1fr; } }

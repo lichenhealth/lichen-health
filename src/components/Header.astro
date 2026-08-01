@@ -17,7 +17,6 @@ const nav = [
   { label: 'Donate', href: '/donate' },
   { label: 'Get Involved', href: '/get-involved' },
   { label: 'Events', href: '/events' },
-  { label: 'Sign in', href: '/login' },
 ];
 ---
 <header class:list={['fheader', { solid: !overHero }]}>
@@ -25,6 +24,7 @@ const nav = [
     <a href="/" class="logo brand" aria-label="Lichen home">
       <img src={overHero ? logoWhite : logoColor} alt="Lichen" />
     </a>
+    <a href="/login" class="fnav-signin">Sign in</a>
     <button class="fnav-toggle" id="fnavToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="fnav-links" id="fnavLinks" aria-label="Primary">
       {nav.map((n) => {
