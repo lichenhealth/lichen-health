@@ -78,9 +78,9 @@ export const projects: Project[] = [
     },
     sections: [
       { title: 'Lichen', img: `${WP}/2026/01/Platform.svg`, body: [
-        "Lichen provides a comprehensive ecosystem to share information, organized by Social, Creative, Educational and Actionable Content, as well as a Q&A feature.",
+        "Lichen provides a comprehensive ecosystem for humans, plants, animals and land to share information and resources — organized by Social, Creative, Educational and Actionable Content, as well as a Q&A feature.",
         "Members can post and manage Events; buy, sell, trade and gift on Marketplace; conduct Courses; manage and share books, articles, music, videos, photos and memes via Library; nourish themselves and each other with Food; share their creative gifts via Art; and connect with other network members through Directory.",
-        "Members can engage the entire network, or drop in to the Communities, Groups and Organizations to which they belong. Unique to each member is their Mycelium, the network of Members, Providers, Organizations and Places that comprise their unique, human web.",
+        "Members can engage the entire network, or drop in to the Communities, Groups and Organizations to which they belong. Unique to each member is their My-celium, the network of Members, Providers, Organizations and Places that comprise their unique, human web.",
         "The Home, Concierge, Chat, Calendar, Save and Maps features are fully integrated with the content and utilities provided within the network, thereby creating a seamless experience for Members, Providers, Organizations, Groups and Communities to collaborate, innovate, create, play and be, together.",
         "Beneath every exchange runs Lichen's Universal Current-cy — the silicon mycelium's accounting layer. Time, knowledge, goods, services, and the contributions of plants, animals and land are all tracked and made interchangeable, pegged to the global economy so value can flow within the network and translate beyond it.",
         "All of this is live today — and every new member's first three months of full Concierge membership are free.",
