@@ -94,7 +94,7 @@ export const projects: Project[] = [
         "Lichen providers take turns being on-call for urgent care needs, ensuring that members get support while avoiding practitioner burnout. Each member also has an (optional) AI Assistant to synthesize information, answer questions and connect you with the bio/psycho/social/spiritual/ecological information you need to unlock your own, inner wisdom to heal and grow into your highest self. Your care team reviews your Assistant's work, helping it learn from the intelligence of the plants, animals, elements and individuals who support you.",
       ] },
     ],
-    cta: { line: 'Ready to build healing connections?', label: 'Request an invitation', href: 'https://lichen.healthcare/signup' },
+    cta: { line: 'Ready to build healing connections?', label: 'Explore the Ecosystem', href: '/signup' },
     seoTitle: 'Platform — Lichen',
     seoDesc: "Lichen's AI-powered Progressive Web App: a silicon-based mycelium for sharing information and resources across community, content and concierge care.",
   },
