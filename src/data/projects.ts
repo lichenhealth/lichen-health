@@ -23,14 +23,14 @@ export const projects: Project[] = [
     title: 'Your care team forms around you',
     intro: {
       img: `${WP}/2026/01/Group-4702-1.png`,
-      body: "As social primates, community connection is vital to heal and stay well. As eternal souls, harmonic resonance with the collective field of energy that governs the health of our Mind, Body and Spirit is imperative to grow and thrive. Lichen considers all of these factors when delivering a comprehensive, functional medicine plan that helps you heal by remembering your divine interconnection with the planet and the universe.",
+      body: "As social primates, community connection is vital to heal and stay well. As eternal souls, harmonic resonance with the collective field of energy that governs the health of our Mind, Body and Spirit is imperative to grow and thrive. And money is still the global, current-cy through which the exchange of energies is brokered between people, plants, animals and the land. Lichen considers all of these factors when delivering a comprehensive, functional medicine plan that helps you heal by remembering your divine interconnection with the planet and the universe.",
     },
     sections: [
       { title: 'Connect', img: `${WP}/2026/01/Group-4721.svg`, body: ["Your care team assembles around you, leveraging Lichen's Concierge platform to collaborate in weaving the land, plants, animals, elements, eco-spiritual practices, western medicine, naturopathic interventions and cutting edge technology necessary to best support your unique path to healing and expansion."] },
       { title: 'Integrate', img: `${WP}/2026/01/Group-4722.svg`, body: ["Your Web of Wellbeing tracks the mental, physical, spiritual, social, economic and environmental factors that are hindering your deepest healing and highest potential, weaving the organic intelligence of your care team with the artificial intelligence of Lichen's network to connect you to the next, best resources on your path to wholeness."] },
       { title: 'Deliver', img: `${WP}/2026/01/Group-4744.svg`, body: ["We translate your Web of Wellbeing into a personalized healing and growth plan. The language of your Kaleidoscope of Care maps to the mainstream medical system, making it easy to export your data for outside care coordination. Because the network's currency is pinned to the incumbent, global economic system, members can budget and coordinate their care within (and outside) the network."] },
     ],
-    cta: { line: 'Ready to heal yourself?', label: 'Get Involved', href: '/get-involved' },
+    cta: { line: 'Ready to heal yourself?', label: 'Request to Join', href: '/signup' },
     seoTitle: 'Care — Lichen',
     seoDesc: 'Your care team forms around you — Lichen weaves community, eco-spiritual practice and modern medicine into a comprehensive, functional medicine plan.',
   },
