@@ -19,13 +19,13 @@ const LEGEND = [
   { label: 'places', color: KIND.places },
 ];
 const ROWS = [
-  { label: 'a mother’s care', left: { size: 54, dashed: true, stroke: KIND.people }, right: { size: 7, bg: KIND.people, note: 'not compensated' } },
+  { label: 'a mother’s care', left: { size: 54, dashed: true, stroke: KIND.people }, right: { size: 22, hollow: true, stroke: KIND.people, note: 'not compensated' } },
   { label: 'an old-growth forest', left: { size: 54, bg: KIND.plants }, right: { size: 22, dashed: true, stroke: KIND.plants, note: 'not counted' } },
   { label: 'a paramedic’s shift', left: { size: 34, bg: KIND.people }, right: { size: 13, bg: KIND.people, note: 'under-compensated' } },
   { label: 'speculative investors', left: { size: 15, dashed: true, stroke: KIND.extraction }, right: { size: 46, bg: KIND.extraction, note: 'over-compensated' } },
 ];
-const dotStyle = (d: { size: number; bg?: string; dashed?: boolean; stroke?: string }) =>
-  `width:${d.size}px;height:${d.size}px;background:${d.dashed ? 'transparent' : d.bg};${d.stroke ? `border-color:${d.stroke};` : ''}`;
+const dotStyle = (d: { size: number; bg?: string; dashed?: boolean; hollow?: boolean; stroke?: string }) =>
+  `width:${d.size}px;height:${d.size}px;background:${(d.dashed || d.hollow) ? 'transparent' : d.bg};${d.stroke ? `border-color:${d.stroke};` : ''}`;
 ---
 <div class="tm" role="img"
   aria-label="Two maps side by side: what each being actually gives, versus what the market pays — care at zero, forests not counted, speculative investors over-compensated.">
@@ -88,11 +88,11 @@ const dotStyle = (d: { size: number; bg?: string; dashed?: boolean; stroke?: str
       <div class="tm-xrow">
         <div class="tm-xleft">
           <span class="tm-xlbl">{r.label}</span>
-          <span class="tm-slot"><span class:list={['tm-dot', { 'is-dashed': r.left.dashed }]} style={dotStyle(r.left)}></span></span>
+          <span class="tm-slot"><span class:list={['tm-dot', { 'is-dashed': r.left.dashed, 'is-hollow': r.left.hollow }]} style={dotStyle(r.left)}></span></span>
         </div>
         <div class="tm-xmid" aria-hidden="true"><span class="tm-conn"></span></div>
         <div class="tm-xright">
-          <span class="tm-slot"><span class:list={['tm-dot', { 'is-dashed': r.right.dashed }]} style={dotStyle(r.right)}></span></span>
+          <span class="tm-slot"><span class:list={['tm-dot', { 'is-dashed': r.right.dashed, 'is-hollow': r.right.hollow }]} style={dotStyle(r.right)}></span></span>
           <span class="tm-xnote">{r.right.note}</span>
         </div>
       </div>
@@ -125,4 +125,5 @@ const dotStyle = (d: { size: number; bg?: string; dashed?: boolean; stroke?: str
   .tm-slot { width: 56px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .tm-dot { border-radius: 999px; flex-shrink: 0; display: inline-flex; opacity: 0.88; }
   .tm-dot.is-dashed { border: 1.5px dashed var(--ink-faint); background: transparent !important; opacity: 1; }
+  .tm-dot.is-hollow { border: 1.5px solid var(--ink-faint); background: transparent !important; opacity: 1; }
 </style>
