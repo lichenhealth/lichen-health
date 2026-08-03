@@ -73,6 +73,7 @@ const seedTiers = [
           <h3 class="tier-name">{t.name}</h3>
           <p class="tier-blurb">{t.blurb}</p>
           <a href={t.url} class="btn btn-primary btn-up tier-cta">{t.cta}</a>
+          {t.name === 'Donate' && <p class="tier-caption">Welcome to the Community</p>}
         </div>
       ))}
     </div>
@@ -98,6 +99,7 @@ const seedTiers = [
   }
   .section-word--seed { margin-top: var(--s-7); }
   .tiers--two, .tiers--seed { grid-template-columns: repeat(2, 1fr); }
+  .tier-caption { margin-top: 10px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); }
   @media (max-width: 760px) { .tiers--two, .tiers--seed { grid-template-columns: 1fr; } }
   .lede { font-size: var(--t-xl); color: var(--ink-soft); font-weight: 300; line-height: var(--lh-snug); max-width: 56ch; }
   .ways { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--s-4); margin-block: var(--s-5); }

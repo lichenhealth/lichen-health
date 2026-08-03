@@ -196,3 +196,11 @@ input, textarea, select { font: inherit; color: inherit; }
    styles compile to zero-specificity :where(), founder hit this live). */
 .tiers.tiers--two, .tiers.tiers--seed { grid-template-columns: repeat(2, 1fr) !important; }
 @media (max-width: 760px) { .tiers.tiers--two, .tiers.tiers--seed { grid-template-columns: 1fr !important; } }
+
+/* "Welcome to the Community" caption — near a donation CTA, not on it
+   (founder 2026-08-02: nav/footer/payment buttons stay literal "Donate";
+   the community framing lives in a small line beside them where there's room). */
+.lede-caption {
+  font-size: 13px; letter-spacing: 0.04em; color: var(--peach-deep, var(--peach));
+  font-weight: 500; margin-top: -6px;
+}
