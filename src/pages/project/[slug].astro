@@ -29,7 +29,11 @@ const { project } = Astro.props;
   {project.sections.map((s, i) => (
     <section class="fsection sec-block">
       <div class:list={['container', 'sec-grid', { flip: i % 2 === 1 }]}>
-        {s.img && <div class="sec-pic"><img src={s.img} alt="" loading="lazy" /></div>}
+        {s.img && (
+          <div class="sec-pic">
+            <img src={s.img} alt="" loading="lazy" class:list={{ 'phone-shot': s.screenshot }} />
+          </div>
+        )}
         <div class="sec-copy">
           {s.title && <h2 class="display sec-title">{s.title}</h2>}
           {s.body.map((para) => <p>{para}</p>)}
@@ -58,6 +62,12 @@ const { project } = Astro.props;
   .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
   .sec-grid.flip .sec-pic { order: 2; }
   .sec-pic img { width: 100%; height: auto; display: block; }
+  /* Real platform screenshots, framed like the phone they live on (matches about.astro). */
+  .sec-pic .phone-shot {
+    max-width: 320px; margin-inline: auto;
+    border-radius: 28px; border: 1px solid var(--bone-edge);
+    box-shadow: 0 18px 44px rgba(18, 24, 28, 0.14);
+  }
   .sec-title { font-size: clamp(24px,3vw,38px); margin-bottom: 18px; }
   .sec-copy p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); font-weight: 300; margin-bottom: 16px; }
 

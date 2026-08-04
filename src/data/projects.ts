@@ -1,6 +1,6 @@
 export const WP = '/img';
 
-export interface Section { title?: string; img?: string; body: string[]; }
+export interface Section { title?: string; img?: string; screenshot?: boolean; body: string[]; }
 export interface Project {
   slug: string;
   nav: string;
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     },
     sections: [
       { title: 'Connect', img: `${WP}/2026/01/Group-4721.svg`, body: ["Your care team assembles around you, leveraging Lichen's Concierge platform to collaborate in weaving the land, plants, animals, elements, eco-spiritual practices, western medicine, naturopathic interventions and cutting edge technology necessary to best support your unique path to healing and expansion."] },
-      { title: 'Integrate', img: `${WP}/2026/01/Group-4722.svg`, body: ["Your Web of Wellbeing tracks the mental, physical, spiritual, social, economic and environmental factors that are hindering your deepest healing and highest potential, weaving the organic intelligence of your care team with the artificial intelligence of Lichen's network to connect you to the next, best resources on your path to wholeness."] },
+      { title: 'Integrate', img: `${WP}/2026/01/concierge-wow.png`, screenshot: true, body: ["Your Web of Wellbeing tracks the mental, physical, spiritual, social, economic and environmental factors that are hindering your deepest healing and highest potential, weaving the organic intelligence of your care team with the artificial intelligence of Lichen's network to connect you to the next, best resources on your path to wholeness."] },
       { title: 'Deliver', img: `${WP}/2026/01/Group-4744.svg`, body: ["We translate your Web of Wellbeing into a personalized healing and growth plan. The language of your Kaleidoscope of Care maps to the mainstream medical system, making it easy to export your data for outside care coordination. Because the network's currency is pinned to the incumbent, global economic system, members can budget and coordinate their care within (and outside) the network."] },
     ],
     cta: { line: 'Ready to heal yourself?', label: 'Request to Join', href: '/signup' },
@@ -52,7 +52,7 @@ export const projects: Project[] = [
         "Artificial intelligence is leveraged to identify and optimize the re-balancing process, helping us return to a state of reciprocity with each other and the planet as quickly and efficiently as possible.",
         "Every contribution and subsidy is tracked through Lichen's Universal Current-cy — a transparent unit of account pegged to the incumbent global economy, so value can be honored within the network and translated into the wider world. We call this Universal Value Attribution: a system that returns value to every participant, human and non-human alike.",
       ] },
-      { title: 'Philanthropic Model', img: `${WP}/2026/01/country.svg`, body: [
+      { title: 'Philanthropic Model', img: `${WP}/2026/01/countryman-stables.png`, screenshot: true, body: [
         "With a clear path to self-sustainability via member subscriptions, our 501c3 Nonprofit is poised to pass donations through to network members, which makes donating to Lichen compelling for those passionate about immediate impact. Because 100% of our technological infrastructure is focused on supporting members in collaborating with each other, we are well positioned to foster efficiency across the network.",
         "With a highly trained, AI Engineer on staff, we are ready to solve operational problems for our network members via the buildout of additional platform features as the need arises.",
       ] },
@@ -77,7 +77,7 @@ export const projects: Project[] = [
       learnMore: { label: 'Explore the Conscious Economy →', href: '/conscious-economy' },
     },
     sections: [
-      { title: 'Lichen', img: `${WP}/2026/01/Platform.svg`, body: [
+      { title: 'Lichen', img: `${WP}/2026/01/platform-home.png`, screenshot: true, body: [
         "Lichen provides a comprehensive ecosystem for humans, plants, animals and land to share information and resources — organized by Social, Creative, Educational and Actionable Content, as well as a Q&A feature.",
         "Members can post and manage Events; buy, sell, trade and gift on Marketplace; conduct Courses; manage and share books, articles, music, videos, photos and memes via Library; nourish themselves and each other with Food; share their creative gifts via Art; and connect with other network members through Directory.",
         "Members can engage the entire network, or drop in to the Communities, Groups and Organizations to which they belong. Unique to each member is their My-celium, the network of Members, Providers, Organizations and Places that comprise their unique, human web.",
@@ -85,11 +85,11 @@ export const projects: Project[] = [
         "Beneath every exchange runs Lichen's Universal Current-cy — the silicon mycelium's accounting layer. Time, knowledge, goods, services, and the contributions of plants, animals and land are all tracked and made interchangeable, pegged to the global economy so value can flow within the network and translate beyond it.",
         "All of this is live today — and every new member's first three months of full Concierge membership are free.",
       ] },
-      { title: 'Community', img: `${WP}/2026/01/Group-4670-2.svg`, body: [
+      { title: 'Community', img: `${WP}/2026/01/community-event.png`, screenshot: true, body: [
         "Inspired by the efficiency and wisdom of the Fibonacci Spiral, each Community, Group, Organization and Place that decides to use the platform enjoys their own, complete ecosystem, which includes all of the features of the greater network. The platform even allows you to spin out your own progressive web application, so members can access you via the Lichen App, or via your owned and operated app.",
         "You can further filter the information and resources of the platform by the Members, Providers, Communities, Groups and Organizations you trust. Results can be expanded to include those trusted by someone you trust. This information is kept private, thereby dissuading inauthentic endorsements while automating and scaling the process of providing (and receiving) trusted recommendations surrounding what information you digest, the goods and services you exchange, the healthcare you receive, the places you go, and the entertainment you enjoy.",
       ] },
-      { title: 'Concierge', img: `${WP}/2026/01/Group-4726.svg`, body: [
+      { title: 'Concierge', img: `${WP}/2026/01/concierge-koc.png`, screenshot: true, body: [
         "The Concierge utility provides a safe, secure and private ecosystem within the Lichen app, where practitioners can collaborate to deliver the next, best intervention on your journey of healing, growth and transformation. Integrated with Lichen's chat feature, communication is easy and seamless.",
         "Lichen providers take turns being on-call for urgent care needs, ensuring that members get support while avoiding practitioner burnout. Each member also has an (optional) AI Assistant to synthesize information, answer questions and connect you with the bio/psycho/social/spiritual/ecological information you need to unlock your own, inner wisdom to heal and grow into your highest self. Your care team reviews your Assistant's work, helping it learn from the intelligence of the plants, animals, elements and individuals who support you.",
       ] },
