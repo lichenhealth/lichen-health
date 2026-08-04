@@ -69,7 +69,7 @@ const { project } = Astro.props;
      stands in for the device (matches about.astro). */
   .sec-pic .phone-shot {
     max-width: 320px; margin-inline: auto;
-    border-radius: 38px; border: 8px solid #1a1a1a;
+    border-radius: 38px; border: 4px solid #1a1a1a;
     box-shadow: 0 18px 44px rgba(18, 24, 28, 0.22);
   }
   /* The teardrop: a real lifestyle photo behind the phone, same composition
@@ -84,7 +84,7 @@ const { project } = Astro.props;
   }
   .sec-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .sec-pic img.phone-shot--composed {
-    position: absolute; right: 0; bottom: -4%; z-index: 1;
+    position: absolute; right: 0; top: 0; z-index: 1;
     width: 39%; height: auto; max-width: none; margin: 0;
   }
   .sec-title { font-size: clamp(24px,3vw,38px); margin-bottom: 18px; }
