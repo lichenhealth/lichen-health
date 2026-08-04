@@ -78,12 +78,12 @@ const { project } = Astro.props;
   .sec-pic--composed { position: relative; width: 100%; max-width: 420px; aspect-ratio: 1 / 1.05; }
   .sec-bg {
     position: absolute; top: 0; left: 0;
-    width: 66%; aspect-ratio: 1 / 1;
+    width: 80%; aspect-ratio: 1 / 1;
     border-radius: 50%; overflow: hidden;
   }
   .sec-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .sec-pic img.phone-shot--composed {
-    position: absolute; right: 0; bottom: 0; z-index: 1;
+    position: absolute; right: 0; bottom: -4%; z-index: 1;
     width: 56%; height: auto; max-width: none; margin: 0;
   }
   .sec-title { font-size: clamp(24px,3vw,38px); margin-bottom: 18px; }
