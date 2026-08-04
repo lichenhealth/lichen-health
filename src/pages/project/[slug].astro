@@ -62,14 +62,15 @@ const { project } = Astro.props;
   .intro-rule { height: 1px; background: #12181C; border: 0; margin-top: var(--s-8); }
 
   .sec-block { padding-block: var(--s-8); }
-  .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
   .sec-grid.flip .sec-pic { order: 2; }
   .sec-pic img { width: 100%; height: auto; display: block; }
-  /* Real platform screenshots, framed like the phone they live on (matches about.astro). */
+  /* Real platform screenshots, framed like an actual phone — a dark bezel
+     stands in for the device (matches about.astro). */
   .sec-pic .phone-shot {
     max-width: 320px; margin-inline: auto;
-    border-radius: 28px; border: 1px solid var(--bone-edge);
-    box-shadow: 0 18px 44px rgba(18, 24, 28, 0.14);
+    border-radius: 38px; border: 8px solid #1a1a1a;
+    box-shadow: 0 18px 44px rgba(18, 24, 28, 0.22);
   }
   /* The teardrop: a real lifestyle photo behind the phone, same composition
      as the original Figma mockups — just with a real screenshot up front.
