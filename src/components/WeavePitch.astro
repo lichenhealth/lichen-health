@@ -19,7 +19,7 @@ const { partner } = Astro.props;
 </section>
 
 <section class="fsection wsection">
-  <div class="container container--narrow">
+  <div class="container">
     <h2 class="display h-2">A partnership of carbon and silicon</h2>
     <p class="wbody">Lichen is a partnership between carbon-based intelligence and silicon-based intelligence — architected to build the infrastructure for a better way of sharing information, goods and services within the human family, and between humans and the planet.</p>
   </div>
@@ -27,22 +27,27 @@ const { partner } = Astro.props;
 
 <section class="fsection wsection wsection--alt">
   <div class="container">
-    <h2 class="display h-2">Care, business and platform — built as one thing</h2>
-    <div class="wgrid">
+    <h2 class="display h-2">An entire ecosystem to heal, grow and be in better relationship with all that is</h2>
+    <div class="wquad">
+      <div class="wcol">
+        <h3 class="wcol-title">Community</h3>
+        <p>The corrective social network — one trusted web for your whole life, with no follower counts, no leaderboards, and nothing to perform for.</p>
+        <a href="/about" class="wlink">Learn more about the network →</a>
+      </div>
       <div class="wcol">
         <h3 class="wcol-title">Care</h3>
-        <p>Your care team forms around you — human wisdom and AI working together to track your Web of Wellbeing and coordinate real support.</p>
-        <a href="/project/care" class="wlink">Learn more about the care model →</a>
+        <p>The Concierge service — your care team forms around you, human wisdom and AI working together to track your Web of Wellbeing and coordinate real support.</p>
+        <a href="/care" class="wlink">Learn more about the care model →</a>
       </div>
       <div class="wcol">
         <h3 class="wcol-title">Business</h3>
-        <p>A lean nonprofit with no investors to pay — the business exists to expand access to care, and grows more capable of that the bigger it gets.</p>
-        <a href="/project/business" class="wlink">Learn more about the business model →</a>
+        <p>How the model supports the mission — a lean nonprofit with no investors to pay, where revenue flows back into expanding access to care.</p>
+        <a href="/business" class="wlink">Learn more about the business model →</a>
       </div>
       <div class="wcol">
         <h3 class="wcol-title">Platform</h3>
-        <p>One ecosystem for members, groups, communities, organizations and places — with plants, animals, elements and land woven in as stewarded participants, not backdrop.</p>
-        <a href="/project/platform" class="wlink">Learn more about the platform →</a>
+        <p>How the technology fuels the new economy and culture — one ecosystem where people, plants, animals, elements and land all participate.</p>
+        <a href="/platform" class="wlink">Learn more about the platform →</a>
       </div>
     </div>
     <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
@@ -50,7 +55,7 @@ const { partner } = Astro.props;
 </section>
 
 <section class="fsection wsection">
-  <div class="container container--narrow">
+  <div class="container">
     <h2 class="display h-2">An economy that finally does the math right</h2>
     <p class="wbody">Underneath every exchange runs Lichen&rsquo;s Universal Current-cy — value tracked and honored, then translated back into the wider economy. The algorithm is still evolving toward something the current system never bothered to calculate: not just time, but the wisdom, skill and risk carried inside that time.</p>
     <ul class="wexamples">
@@ -64,7 +69,7 @@ const { partner } = Astro.props;
 </section>
 
 <section class="fsection wsection wsection--alt">
-  <div class="container container--narrow">
+  <div class="container">
     <h2 class="display h-2">It takes real people, choosing to build the new</h2>
     <p class="wbody">The infrastructure only comes alive through a real, global human collaborative — with hyper-local chapters. Lichen is architected to serve a better society, but individuals have to choose to build it, gracefully replacing the old. That looks like three things:</p>
     <ol class="wpaths">
@@ -76,7 +81,7 @@ const { partner } = Astro.props;
 </section>
 
 <section class="fsection wsection">
-  <div class="container container--narrow">
+  <div class="container">
     <h2 class="display h-2">You decide what&rsquo;s shared, and with whom</h2>
     <p class="wbody">Trusting technology to help build a better future isn&rsquo;t about the tool — it&rsquo;s about the consciousness of whoever&rsquo;s directing it. Until that feels safe, Lichen gives you full control over whether your data is part of the collective, and whether you want Lichen&rsquo;s AI as a partner at all.</p>
     <a href="https://lichen.health/collections/de300007-0000-4000-a000-000000000001" target="_blank" rel="noopener" class="wlink">Go deeper on data, privacy and AI →</a>
@@ -84,14 +89,14 @@ const { partner } = Astro.props;
 </section>
 
 <section class="fsection wsection wsection--alt wsection--center">
-  <div class="container container--narrow">
+  <div class="container">
     <h2 class="display h-2">This is your call to make</h2>
     <p class="wbody">Before we talk about what weaving in might look like, you know best — whether Lichen is a fit, and how to weave your own highest timeline into the tapestry.</p>
   </div>
 </section>
 
 <section class="fsection wsection wstorm" id="weave">
-  <div class="container container--narrow">
+  <div class="container">
     <slot name="weave">
       <span class="eyebrow">The brain/soul-storm</span>
       <h2 class="display h-2">What weaving in could look like</h2>
@@ -111,9 +116,11 @@ const { partner } = Astro.props;
 </section>
 
 <style>
+  /* Desktop wants the copy to SPREAD (founder 2026-08-04): one consistent
+     wide container for every section — no narrow column, no early wraps. */
   .whero { padding: var(--s-10) 0 var(--s-8); background: var(--bone-warm); border-bottom: 1px solid var(--bone-edge); }
-  .whero-inner { max-width: 780px; display: flex; flex-direction: column; gap: var(--s-4); }
-  .wlede { font-size: clamp(19px, 2.2vw, 24px); line-height: var(--lh-snug); color: var(--ink-soft); font-weight: 300; max-width: 56ch; }
+  .whero-inner { display: flex; flex-direction: column; gap: var(--s-4); }
+  .wlede { font-size: clamp(19px, 2.2vw, 24px); line-height: var(--lh-snug); color: var(--ink-soft); font-weight: 300; max-width: 72ch; }
   .wfor { font-family: var(--font-mono); font-size: var(--t-sm); letter-spacing: 0.06em; text-transform: uppercase; color: var(--peach-deep); }
 
   .wsection { }
@@ -126,10 +133,20 @@ const { partner } = Astro.props;
      auto-scopes styles to elements written in THIS file's own template, not
      to slotted children from the consuming page. Without :global() every
      custom page would need to redeclare this CSS itself. */
-  :global(.wbody) { font-size: var(--t-lg); line-height: var(--lh-normal); color: var(--ink-soft); font-weight: 300; max-width: 68ch; margin-top: var(--s-4); }
+  :global(.wbody) { font-size: var(--t-lg); line-height: var(--lh-normal); color: var(--ink-soft); font-weight: 300; max-width: 82ch; margin-top: var(--s-4); }
   :global(.wbody + .wbody) { margin-top: var(--s-4); }
 
-  .wgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-6); margin-top: var(--s-6); }
+  /* The ecosystem box: one square, four quadrants (founder 2026-08-04 —
+     Community | Care over Business | Platform). Hairlines form the cross. */
+  .wquad {
+    display: grid; grid-template-columns: 1fr 1fr;
+    margin-top: var(--s-6);
+    border: 1px solid var(--bone-edge); border-radius: var(--r-lg);
+    background: var(--bone-warm); overflow: hidden;
+  }
+  .wquad .wcol { padding: var(--s-6); }
+  .wquad .wcol:nth-child(even) { border-left: 1px solid var(--bone-edge); }
+  .wquad .wcol:nth-child(n+3) { border-top: 1px solid var(--bone-edge); }
   .wcol { display: flex; flex-direction: column; gap: var(--s-3); }
   .wcol-title { font-family: var(--font-display); font-size: var(--t-xl); color: var(--ink); font-weight: 400; }
   .wcol p { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
@@ -153,6 +170,8 @@ const { partner } = Astro.props;
   .wclose-ctas { display: flex; align-items: center; justify-content: center; gap: var(--s-4); flex-wrap: wrap; margin-top: var(--s-2); }
 
   @media (max-width: 760px) {
-    .wgrid { grid-template-columns: 1fr; gap: var(--s-7); }
+    .wquad { grid-template-columns: 1fr; }
+    .wquad .wcol:nth-child(even) { border-left: 0; }
+    .wquad .wcol:nth-child(n+2) { border-top: 1px solid var(--bone-edge); }
   }
 </style>
