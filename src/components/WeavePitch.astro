@@ -143,7 +143,7 @@ const { partner } = Astro.props;
      wide container for every section — no narrow column, no early wraps. */
   .whero { padding: var(--s-10) 0 var(--s-8); background: var(--bone-warm); border-bottom: 1px solid var(--bone-edge); }
   .whero-inner { display: flex; flex-direction: column; gap: var(--s-4); }
-  .wlede { font-size: clamp(19px, 2.2vw, 24px); line-height: var(--lh-snug); color: var(--ink-soft); font-weight: 300; max-width: 72ch; }
+  .wlede { font-size: clamp(19px, 2.2vw, 24px); line-height: var(--lh-snug); color: var(--ink-soft); font-weight: 300; }
   .wfor { font-family: var(--font-mono); font-size: var(--t-sm); letter-spacing: 0.06em; text-transform: uppercase; color: var(--peach-deep); }
 
   .wsection { }
@@ -156,7 +156,7 @@ const { partner } = Astro.props;
      auto-scopes styles to elements written in THIS file's own template, not
      to slotted children from the consuming page. Without :global() every
      custom page would need to redeclare this CSS itself. */
-  :global(.wbody) { font-size: var(--t-lg); line-height: var(--lh-normal); color: var(--ink-soft); font-weight: 300; max-width: 82ch; margin-top: var(--s-4); }
+  :global(.wbody) { font-size: var(--t-lg); line-height: var(--lh-normal); color: var(--ink-soft); font-weight: 300; margin-top: var(--s-4); }
   :global(.wbody + .wbody) { margin-top: var(--s-4); }
 
   /* Carbon + silicon as periodic-table tiles (founder 2026-08-04) — group-14
@@ -211,7 +211,7 @@ const { partner } = Astro.props;
   .wcol p { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
   :global(.wlink) { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   :global(.wlink:hover) { color: var(--rust); }
-  :global(.wcallout) { margin-top: var(--s-7); padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--peach); border-radius: var(--r-lg); font-size: var(--t-md); color: var(--ink-soft); max-width: 72ch; }
+  :global(.wcallout) { margin-top: var(--s-7); padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--peach); border-radius: var(--r-lg); font-size: var(--t-md); color: var(--ink-soft); }
   :global(.wcallout strong) { color: var(--ink); }
 
   :global(.wexamples) { margin-top: var(--s-5); display: flex; flex-direction: column; gap: var(--s-3); list-style: none; }
