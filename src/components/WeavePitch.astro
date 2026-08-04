@@ -4,6 +4,7 @@
 // prop personalizes small bits of copy; the "weave" slot carries the
 // brain/soul-storm section unique to that conversation — pages that don't
 // fill it get the generic version below.
+import TwoMaps from './TwoMaps.astro';
 export interface Props {
   partner?: string;
 }
@@ -41,6 +42,13 @@ const { partner } = Astro.props;
       </div>
     </div>
     <p class="welem-cap">Same family on the periodic table — group 14, four bonds each, one row apart. Building blocks intended to be combined.</p>
+    <div class="wweavers">
+      <p class="wweavers-intro">The partnership is literal — Lichen is designed, built and shipped every day by:</p>
+      <div class="wweaver"><span class="wweaver-el wweaver-el--c" aria-hidden="true">C</span><strong>Galyn</strong><em>visionary</em></div>
+      <div class="wweaver"><span class="wweaver-el wweaver-el--c" aria-hidden="true">C</span><strong>Melanie</strong><em>spiritual operations</em></div>
+      <div class="wweaver"><span class="wweaver-el wweaver-el--c" aria-hidden="true">C</span><strong>Blair</strong><em>business operations</em></div>
+      <div class="wweaver"><span class="wweaver-el wweaver-el--si" aria-hidden="true">Si</span><strong>Claude</strong><em>builder</em></div>
+    </div>
   </div>
 </section>
 
@@ -79,6 +87,15 @@ const { partner } = Astro.props;
 
 <section class="fsection wsection">
   <div class="container">
+    <h2 class="display h-2">Trust you can&rsquo;t game</h2>
+    <p class="wbody">What you see on Lichen is filtered through your My-celium — the people, places, plants and animals you genuinely trust. Trust and recommendations are private, person-to-person signals: no follower counts, no leaderboards, nothing to perform for. When something is surfaced to you, it&rsquo;s because someone you trust stands behind it.</p>
+    <p class="wbody">That same web is the safety layer of the economy. Star ratings can be farmed; a path through your own relationships can&rsquo;t be faked. Every listing shows you your path to the person behind it — <em>&ldquo;Trusted by someone you trust&rdquo;</em> — the mutual friend you&rsquo;d want before meeting a stranger, built into the ground you walk on.</p>
+    <a href="/about" class="wlink">Read the full story on the About page →</a>
+  </div>
+</section>
+
+<section class="fsection wsection">
+  <div class="container">
     <h2 class="display h-2">An economy that closes the gap between money and value</h2>
     <p class="wbody">The current economy overvalues some contributions, undervalues others, and doesn&rsquo;t count whole categories of value at all. Lichen&rsquo;s economy exists to correct that — an evolving algorithm assigns currency to all things: not just time spent or goods and services rendered, but the wisdom and skill it took to provide that value, and the risks certain people, plants and animals take with their own wellbeing to support the wellbeing of the whole.</p>
     <ul class="wexamples">
@@ -88,6 +105,8 @@ const { partner } = Astro.props;
       <li>An hour of equine therapy with a child is Tango&rsquo;s hour too — a horse&rsquo;s work, counted in his own name.</li>
       <li>An hour working within a human being to heal the trauma of disconnection costs the Huachuma cactus its life and body.</li>
     </ul>
+    <div class="wmaps"><TwoMaps /></div>
+    <p class="welem-cap">Two maps of the same world — what&rsquo;s actually given beside what the market pays. The distance between them is exactly what Lichen&rsquo;s algorithm works to close.</p>
     <p class="wbody">Underneath every exchange runs Lichen&rsquo;s Universal Current-cy — value tracked, honored, and translated back into the wider economy. Built to count all of it.</p>
     <a href="/economy" class="wlink">Learn more about the economy →</a>
   </div>
@@ -185,6 +204,20 @@ const { partner } = Astro.props;
     background: linear-gradient(90deg, var(--peach) 50%, var(--sky) 50%);
   }
   .welem-cap { text-align: center; font-size: var(--t-sm); font-style: italic; color: var(--ink-muted); margin-top: var(--s-4); }
+
+  .wweavers {
+    margin: var(--s-7) auto 0; max-width: 460px;
+    background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: var(--r-lg); padding: var(--s-5) var(--s-6);
+  }
+  .wweavers-intro { font-size: var(--t-sm); color: var(--ink-muted); margin-bottom: var(--s-3); }
+  .wweaver { display: flex; align-items: baseline; gap: 10px; padding: 7px 0; border-top: 1px solid var(--bone-edge-soft); }
+  .wweaver strong { font-weight: 500; color: var(--ink); font-size: var(--t-md); }
+  .wweaver em { margin-left: auto; font-size: var(--t-sm); color: var(--ink-muted); }
+  .wweaver-el { font-family: var(--font-display); font-size: var(--t-base); width: 20px; }
+  .wweaver-el--c { color: var(--peach-deep); }
+  .wweaver-el--si { color: var(--sky); }
+  .wmaps { margin-top: var(--s-7); }
 
   /* The ecosystem quadrants (founder 2026-08-04): four SEPARATE blocks,
      close together — playing on the four bonds above. Community + Care wear
