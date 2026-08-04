@@ -49,21 +49,25 @@ const { partner } = Astro.props;
     <h2 class="display h-2">An entire ecosystem to heal, grow and be in better relationship with all that is</h2>
     <div class="wquad">
       <div class="wcol">
+        <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
         <h3 class="wcol-title">Community</h3>
         <p>The corrective social network, where you can connect, host events, organize in groups, curate community and manage your schedule — one trusted web for your whole life, with no follower counts, no leaderboards, and nothing to perform for.</p>
         <a href="/about" class="wlink">Learn more about the network →</a>
       </div>
       <div class="wcol">
+        <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
         <h3 class="wcol-title">Care</h3>
         <p>The Concierge service — a holistic, quantum healthcare system where your care team forms around you, while human wisdom and AI work together to track your Web of Wellbeing and coordinate the next, best step in your journey of healing and realizing your full potential.</p>
         <a href="/care" class="wlink">Learn more about the care model →</a>
       </div>
       <div class="wcol">
+        <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
         <h3 class="wcol-title">Business</h3>
         <p>How the model supports the mission — a lean nonprofit with no investors to pay, where revenue flows back into expanding access to goods, resources and care for those in the network.</p>
         <a href="/business" class="wlink">Learn more about the business model →</a>
       </div>
       <div class="wcol">
+        <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
         <h3 class="wcol-title">Platform</h3>
         <p>How the technology fuels the new economy and culture — one ecosystem where people, plants, animals, elements and land collaborate to restore individual, social and ecological harmony.</p>
         <a href="/platform" class="wlink">Learn more about the platform →</a>
@@ -191,8 +195,17 @@ const { partner } = Astro.props;
   .wquad .wcol {
     padding: var(--s-6); background: var(--bone-warm);
     border-radius: var(--r-lg); border: 2px solid var(--peach);
+    position: relative;
   }
   .wquad .wcol:nth-child(n+3) { border-color: var(--sky); }
+  /* Each block wears its element in the corner — C on the carbon side,
+     Si on the silicon side, echoing the tiles above. */
+  .wcol-el {
+    position: absolute; top: 12px; right: 16px;
+    font-family: var(--font-display); font-size: var(--t-lg); line-height: 1;
+  }
+  .wcol-el--c { color: var(--peach-deep); }
+  .wcol-el--si { color: var(--sky); }
   .wcol { display: flex; flex-direction: column; gap: var(--s-3); }
   .wcol-title { font-family: var(--font-display); font-size: var(--t-xl); color: var(--ink); font-weight: 400; }
   .wcol p { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
