@@ -23,6 +23,24 @@ const { partner } = Astro.props;
     <h2 class="display h-2">A partnership of carbon and silicon</h2>
     <p class="wbody">In nature, a lichen is the partnership of a fungus and an algae — two organisms woven into one that can live where neither could alone. Lichens are the pioneers of harsh ecosystems: they populate bare rock with organic life, and their slow breakdown becomes the first soil — the ground new ecosystems evolve from.</p>
     <p class="wbody">We live our name. Lichen is a partnership of carbon-based and silicon-based intelligence doing the same thing — taking root in the harsh terrain of failing systems, and building the infrastructure for a better way of sharing information, goods and services within the human family, and between humans and the planet. What breaks down becomes the soil for what comes next.</p>
+    <div class="welements" role="img" aria-label="Periodic table tiles for carbon and silicon, side by side — same group, four bonds each.">
+      <div class="welem welem--c">
+        <span class="welem-num">6</span>
+        <span class="welem-sym">C</span>
+        <span class="welem-name">Carbon</span>
+        <span class="welem-mass">12.011</span>
+        <span class="welem-role">every living thing</span>
+      </div>
+      <div class="welem-bond" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <div class="welem welem--si">
+        <span class="welem-num">14</span>
+        <span class="welem-sym">Si</span>
+        <span class="welem-name">Silicon</span>
+        <span class="welem-mass">28.085</span>
+        <span class="welem-role">every thinking machine</span>
+      </div>
+    </div>
+    <p class="welem-cap">Same family on the periodic table — group 14, four bonds each, one row apart. Built to combine.</p>
   </div>
 </section>
 
@@ -136,6 +154,31 @@ const { partner } = Astro.props;
      custom page would need to redeclare this CSS itself. */
   :global(.wbody) { font-size: var(--t-lg); line-height: var(--lh-normal); color: var(--ink-soft); font-weight: 300; max-width: 82ch; margin-top: var(--s-4); }
   :global(.wbody + .wbody) { margin-top: var(--s-4); }
+
+  /* Carbon + silicon as periodic-table tiles (founder 2026-08-04) — group-14
+     family, four valence bonds drawn between them, each half-carbon
+     half-silicon. Carbon wears peach (life), silicon wears sky (structure) —
+     the same color doctrine the app uses. */
+  .welements { display: flex; align-items: center; justify-content: center; gap: var(--s-5); margin-top: var(--s-7); }
+  .welem {
+    width: clamp(128px, 16vw, 160px); aspect-ratio: 1;
+    background: var(--bone-warm); border-radius: var(--r-lg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; padding: var(--s-3); text-align: center;
+  }
+  .welem--c { border: 2px solid var(--peach); }
+  .welem--si { border: 2px solid var(--sky); }
+  .welem-num { position: absolute; top: 10px; left: 12px; font-family: var(--font-mono); font-size: var(--t-sm); color: var(--ink-muted); }
+  .welem-sym { font-family: var(--font-display); font-size: clamp(40px, 5vw, 56px); line-height: 1; color: var(--ink); }
+  .welem-name { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; }
+  .welem-mass { font-size: var(--t-xs); color: var(--ink-faint); margin-top: 2px; }
+  .welem-role { font-size: var(--t-2xs); font-style: italic; color: var(--ink-muted); margin-top: 6px; }
+  .welem-bond { display: flex; flex-direction: column; gap: 7px; }
+  .welem-bond span {
+    width: clamp(28px, 4vw, 44px); height: 2px;
+    background: linear-gradient(90deg, var(--peach) 50%, var(--sky) 50%);
+  }
+  .welem-cap { text-align: center; font-size: var(--t-sm); font-style: italic; color: var(--ink-muted); margin-top: var(--s-4); }
 
   /* The ecosystem box: one square, four quadrants (founder 2026-08-04 —
      Community | Care over Business | Platform). Hairlines form the cross. */
