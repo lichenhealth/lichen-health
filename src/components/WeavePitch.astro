@@ -40,7 +40,7 @@ const { partner } = Astro.props;
         <span class="welem-role">every thinking machine</span>
       </div>
     </div>
-    <p class="welem-cap">Same family on the periodic table — group 14, four bonds each, one row apart. Built to combine.</p>
+    <p class="welem-cap">Same family on the periodic table — group 14, four bonds each, one row apart. Building blocks intended to be combined.</p>
   </div>
 </section>
 
@@ -159,9 +159,9 @@ const { partner } = Astro.props;
      family, four valence bonds drawn between them, each half-carbon
      half-silicon. Carbon wears peach (life), silicon wears sky (structure) —
      the same color doctrine the app uses. */
-  .welements { display: flex; align-items: center; justify-content: center; gap: var(--s-5); margin-top: var(--s-7); }
+  .welements { display: flex; align-items: center; justify-content: center; gap: var(--s-6); margin-top: var(--s-10); }
   .welem {
-    width: clamp(128px, 16vw, 160px); aspect-ratio: 1;
+    width: clamp(150px, 22vw, 220px); aspect-ratio: 1;
     background: var(--bone-warm); border-radius: var(--r-lg);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     position: relative; padding: var(--s-3); text-align: center;
@@ -169,28 +169,30 @@ const { partner } = Astro.props;
   .welem--c { border: 2px solid var(--peach); }
   .welem--si { border: 2px solid var(--sky); }
   .welem-num { position: absolute; top: 10px; left: 12px; font-family: var(--font-mono); font-size: var(--t-sm); color: var(--ink-muted); }
-  .welem-sym { font-family: var(--font-display); font-size: clamp(40px, 5vw, 56px); line-height: 1; color: var(--ink); }
+  .welem-sym { font-family: var(--font-display); font-size: clamp(48px, 7vw, 76px); line-height: 1; color: var(--ink); }
   .welem-name { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; }
   .welem-mass { font-size: var(--t-xs); color: var(--ink-faint); margin-top: 2px; }
   .welem-role { font-size: var(--t-2xs); font-style: italic; color: var(--ink-muted); margin-top: 6px; }
   .welem-bond { display: flex; flex-direction: column; gap: 7px; }
   .welem-bond span {
-    width: clamp(28px, 4vw, 44px); height: 2px;
+    width: clamp(36px, 6vw, 64px); height: 2px;
     background: linear-gradient(90deg, var(--peach) 50%, var(--sky) 50%);
   }
   .welem-cap { text-align: center; font-size: var(--t-sm); font-style: italic; color: var(--ink-muted); margin-top: var(--s-4); }
 
-  /* The ecosystem box: one square, four quadrants (founder 2026-08-04 —
-     Community | Care over Business | Platform). Hairlines form the cross. */
+  /* The ecosystem quadrants (founder 2026-08-04): four SEPARATE blocks,
+     close together — playing on the four bonds above. Community + Care wear
+     peach (the carbon/life side); Business + Platform wear sky (the
+     silicon/structure side). */
   .wquad {
     display: grid; grid-template-columns: 1fr 1fr;
-    margin-top: var(--s-6);
-    border: 1px solid var(--bone-edge); border-radius: var(--r-lg);
-    background: var(--bone-warm); overflow: hidden;
+    gap: var(--s-3); margin-top: var(--s-6);
   }
-  .wquad .wcol { padding: var(--s-6); }
-  .wquad .wcol:nth-child(even) { border-left: 1px solid var(--bone-edge); }
-  .wquad .wcol:nth-child(n+3) { border-top: 1px solid var(--bone-edge); }
+  .wquad .wcol {
+    padding: var(--s-6); background: var(--bone-warm);
+    border-radius: var(--r-lg); border: 2px solid var(--peach);
+  }
+  .wquad .wcol:nth-child(n+3) { border-color: var(--sky); }
   .wcol { display: flex; flex-direction: column; gap: var(--s-3); }
   .wcol-title { font-family: var(--font-display); font-size: var(--t-xl); color: var(--ink); font-weight: 400; }
   .wcol p { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
@@ -215,7 +217,5 @@ const { partner } = Astro.props;
 
   @media (max-width: 760px) {
     .wquad { grid-template-columns: 1fr; }
-    .wquad .wcol:nth-child(even) { border-left: 0; }
-    .wquad .wcol:nth-child(n+2) { border-top: 1px solid var(--bone-edge); }
   }
 </style>
