@@ -87,7 +87,7 @@ const { partner } = Astro.props;
 
 <section class="fsection wsection">
   <div class="container">
-    <h2 class="display h-2">Trust you can&rsquo;t game</h2>
+    <h2 class="display h-2">Authentic connection, safety and trust you can&rsquo;t game</h2>
     <p class="wbody">What you see on Lichen is filtered through your My-celium — the people, places, plants and animals you genuinely trust. Trust and recommendations are private, person-to-person signals: no follower counts, no leaderboards, nothing to perform for. When something is surfaced to you, it&rsquo;s because someone you trust stands behind it.</p>
     <p class="wbody">That same web is the safety layer of the economy. Star ratings can be farmed; a path through your own relationships can&rsquo;t be faked. Every listing shows you your path to the person behind it — <em>&ldquo;Trusted by someone you trust&rdquo;</em> — the mutual friend you&rsquo;d want before meeting a stranger, built into the ground you walk on.</p>
     <a href="/about" class="wlink">Read the full story on the About page →</a>
@@ -102,7 +102,7 @@ const { partner } = Astro.props;
       <li>An hour teaching carries the wisdom of everything that came before it.</li>
       <li>An hour building a custom table carries years of apprenticeship inside it.</li>
       <li>An hour fighting a fire carries real risk — exposure, danger, the chance of not coming home.</li>
-      <li>An hour of equine therapy with a child is Tango&rsquo;s hour too — a horse&rsquo;s work, counted in his own name.</li>
+      <li>An hour of equine therapy transmuting a child&rsquo;s trauma is Tango&rsquo;s gift to her human companions — sacred and risky work, counted and reciprocated with an energy healing session of her own.</li>
       <li>An hour working within a human being to heal the trauma of disconnection costs the Huachuma cactus its life and body.</li>
     </ul>
     <div class="wmaps"><TwoMaps /></div>
@@ -246,7 +246,13 @@ const { partner } = Astro.props;
   .wcol p { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
   :global(.wlink) { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   :global(.wlink:hover) { color: var(--rust); }
-  :global(.wcallout) { margin-top: var(--s-7); padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--peach); border-radius: var(--r-lg); font-size: var(--t-md); color: var(--ink-soft); }
+  :global(.wcallout) {
+    margin-top: var(--s-7); padding: var(--s-5) var(--s-6);
+    font-family: var(--font-display); font-style: italic;
+    font-size: 19px; line-height: 1.5; color: var(--ink);
+    border-left: 3px solid var(--peach); background: var(--peach-tint);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+  }
   :global(.wcallout strong) { color: var(--ink); }
 
   :global(.wexamples) { margin-top: var(--s-5); display: flex; flex-direction: column; gap: var(--s-3); list-style: none; }
