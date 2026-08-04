@@ -1,0 +1,153 @@
+---
+// The general partnership pitch, and the template every per-prospect page
+// (/4windsweave, /sarahsmithweave, /gaiaweave…) is built from. The `partner`
+// prop personalizes small bits of copy; the "weave" slot carries the
+// brain/soul-storm section unique to that conversation — pages that don't
+// fill it get the generic version below.
+export interface Props {
+  partner?: string;
+}
+const { partner } = Astro.props;
+---
+<section class="whero">
+  <div class="container whero-inner">
+    <span class="eyebrow">Partnership</span>
+    <h1 class="display h-1">Weaving the mycelium for a better future</h1>
+    <p class="wlede">As incumbent systems crumble, we have the chance to build better ones — not by fighting the old, but by investing in the new.</p>
+    {partner && <p class="wfor">A conversation with {partner}</p>}
+  </div>
+</section>
+
+<section class="fsection wsection">
+  <div class="container container--narrow">
+    <h2 class="display h-2">A partnership of carbon and silicon</h2>
+    <p class="wbody">Lichen is a partnership between carbon-based intelligence and silicon-based intelligence — architected to build the infrastructure for a better way of sharing information, goods and services within the human family, and between humans and the planet.</p>
+  </div>
+</section>
+
+<section class="fsection wsection wsection--alt">
+  <div class="container">
+    <h2 class="display h-2">Care, business and platform — built as one thing</h2>
+    <div class="wgrid">
+      <div class="wcol">
+        <h3 class="wcol-title">Care</h3>
+        <p>Your care team forms around you — human wisdom and AI working together to track your Web of Wellbeing and coordinate real support.</p>
+        <a href="/project/care" class="wlink">Learn more about the care model →</a>
+      </div>
+      <div class="wcol">
+        <h3 class="wcol-title">Business</h3>
+        <p>A lean nonprofit with no investors to pay — the business exists to expand access to care, and grows more capable of that the bigger it gets.</p>
+        <a href="/project/business" class="wlink">Learn more about the business model →</a>
+      </div>
+      <div class="wcol">
+        <h3 class="wcol-title">Platform</h3>
+        <p>One ecosystem for members, groups, communities, organizations and places — with plants, animals, elements and land woven in as stewarded participants, not backdrop.</p>
+        <a href="/project/platform" class="wlink">Learn more about the platform →</a>
+      </div>
+    </div>
+    <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
+  </div>
+</section>
+
+<section class="fsection wsection">
+  <div class="container container--narrow">
+    <h2 class="display h-2">An economy that finally does the math right</h2>
+    <p class="wbody">Underneath every exchange runs Lichen&rsquo;s Universal Current-cy — value tracked and honored, then translated back into the wider economy. The algorithm is still evolving toward something the current system never bothered to calculate: not just time, but the wisdom, skill and risk carried inside that time.</p>
+    <ul class="wexamples">
+      <li>An hour teaching carries the wisdom of everything that came before it — it isn&rsquo;t the same as an hour washing dishes.</li>
+      <li>An hour building a custom table carries years of apprenticeship inside it.</li>
+      <li>An hour fighting a fire carries real risk inside it — exposure, danger, the chance of not coming home.</li>
+    </ul>
+    <p class="wbody">Lichen&rsquo;s economy is built to count all of it.</p>
+    <a href="/economy" class="wlink">Learn more about the economy →</a>
+  </div>
+</section>
+
+<section class="fsection wsection wsection--alt">
+  <div class="container container--narrow">
+    <h2 class="display h-2">It takes real people, choosing to build the new</h2>
+    <p class="wbody">The infrastructure only comes alive through a real, global human collaborative — with hyper-local chapters. Lichen is architected to serve a better society, but individuals have to choose to build it, gracefully replacing the old. That looks like three things:</p>
+    <ol class="wpaths">
+      <li><strong>Invest</strong> — subscription revenue funds the infrastructure itself, as an individual or an organization.</li>
+      <li><strong>Scale</strong> — donations and seed gifts speed up the mycelium&rsquo;s rebalancing work.</li>
+      <li><strong>Bring it to life</strong> — move your calendar, events, goods, services and social network onto the platform, so the web has something real to hold.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="fsection wsection">
+  <div class="container container--narrow">
+    <h2 class="display h-2">You decide what&rsquo;s shared, and with whom</h2>
+    <p class="wbody">Trusting technology to help build a better future isn&rsquo;t about the tool — it&rsquo;s about the consciousness of whoever&rsquo;s directing it. Until that feels safe, Lichen gives you full control over whether your data is part of the collective, and whether you want Lichen&rsquo;s AI as a partner at all.</p>
+    <a href="https://lichen.health/collections/de300007-0000-4000-a000-000000000001" target="_blank" rel="noopener" class="wlink">Go deeper on data, privacy and AI →</a>
+  </div>
+</section>
+
+<section class="fsection wsection wsection--alt wsection--center">
+  <div class="container container--narrow">
+    <h2 class="display h-2">This is your call to make</h2>
+    <p class="wbody">Before we talk about what weaving in might look like, you know best — whether Lichen is a fit, and how to weave your own highest timeline into the tapestry.</p>
+  </div>
+</section>
+
+<section class="fsection wsection wstorm" id="weave">
+  <div class="container container--narrow">
+    <slot name="weave">
+      <span class="eyebrow">The brain/soul-storm</span>
+      <h2 class="display h-2">What weaving in could look like</h2>
+      <p class="wbody">Every thread in the web is critical to its strength and flexibility in bringing about a better future — an individual joining as an alpha tester to make the platform better, an organization opening a public page and an offering, a community or group bringing its gatherings onto shared infrastructure, a place stewarding land inside the trust. Let&rsquo;s dream it up together.</p>
+    </slot>
+  </div>
+</section>
+
+<section class="fband">
+  <div class="container">
+    <h2>Questions, comments, compliments, next steps?</h2>
+    <div class="wclose-ctas">
+      <a href="mailto:connect@lichen.health" class="btn btn-light btn-up">Let&rsquo;s talk</a>
+      <a href="/signup" class="btn btn-outline-light btn-up">Request an invitation</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .whero { padding: var(--s-10) 0 var(--s-8); background: var(--bone-warm); border-bottom: 1px solid var(--bone-edge); }
+  .whero-inner { max-width: 780px; display: flex; flex-direction: column; gap: var(--s-4); }
+  .wlede { font-size: clamp(19px, 2.2vw, 24px); line-height: var(--lh-snug); color: var(--ink-soft); font-weight: 300; max-width: 56ch; }
+  .wfor { font-family: var(--font-mono); font-size: var(--t-sm); letter-spacing: 0.06em; text-transform: uppercase; color: var(--peach-deep); }
+
+  .wsection { }
+  .wsection--alt { background: var(--bone); }
+  .wsection--center { text-align: center; }
+  .wsection--center .wbody { margin-inline: auto; }
+
+  .wbody { font-size: var(--t-lg); line-height: var(--lh-normal); color: var(--ink-soft); font-weight: 300; max-width: 68ch; margin-top: var(--s-4); }
+  .wbody + .wbody { margin-top: var(--s-4); }
+
+  .wgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-6); margin-top: var(--s-6); }
+  .wcol { display: flex; flex-direction: column; gap: var(--s-3); }
+  .wcol-title { font-family: var(--font-display); font-size: var(--t-xl); color: var(--ink); font-weight: 400; }
+  .wcol p { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
+  .wlink { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .wlink:hover { color: var(--rust); }
+  .wcallout { margin-top: var(--s-7); padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--peach); border-radius: var(--r-lg); font-size: var(--t-md); color: var(--ink-soft); max-width: 72ch; }
+  .wcallout strong { color: var(--ink); }
+
+  .wexamples { margin-top: var(--s-5); display: flex; flex-direction: column; gap: var(--s-3); list-style: none; }
+  .wexamples li { position: relative; padding-left: var(--s-6); font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-soft); }
+  .wexamples li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--peach); }
+
+  .wpaths { margin-top: var(--s-6); display: flex; flex-direction: column; gap: var(--s-4); list-style: none; counter-reset: wpath; }
+  .wpaths li { counter-increment: wpath; position: relative; padding-left: var(--s-8); font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-soft); }
+  .wpaths li::before { content: counter(wpath); position: absolute; left: 0; top: -2px; width: 28px; height: 28px; border-radius: 50%; background: var(--peach-tint); color: var(--peach-deep); font-family: var(--font-mono); font-size: var(--t-sm); display: flex; align-items: center; justify-content: center; }
+  .wpaths strong { color: var(--ink); font-weight: 500; }
+
+  .wstorm { border-top: 2px solid var(--peach); }
+  .wstorm .eyebrow { color: var(--peach-deep); }
+
+  .wclose-ctas { display: flex; align-items: center; justify-content: center; gap: var(--s-4); flex-wrap: wrap; margin-top: var(--s-2); }
+
+  @media (max-width: 760px) {
+    .wgrid { grid-template-columns: 1fr; gap: var(--s-7); }
+  }
+</style>
