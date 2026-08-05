@@ -13,6 +13,8 @@
 // The `partner` prop personalizes the hero; the "weave" slot carries the
 // per-prospect closing section.
 import TwoMaps from './TwoMaps.astro';
+import AboutPhones from './AboutPhones.astro';
+import EconomyJourneys from './EconomyJourneys.astro';
 export interface Props {
   partner?: string;
   variant?: 'about' | 'pitch';
@@ -120,6 +122,7 @@ const FAQS = [
       <h3 class="display h-2 wsub">The corrective social network</h3>
       <p class="wbody">Most technology platforms feed you to an algorithm tuned to maximize attention, harvest fear, and drive consumption that temporarily comforts the dis-ease of disconnection because our current political and economic systems rely on human suffering to survive. Lichen holds the whole of you instead — your care and healing, your work and the things you offer, the events you gather for, the places you love, the jobs that give you purpose and fund your livelihood, and a fairer economy that values all things, not just human contributions — woven into a single web of people, plants, animals, elements, spaces, communities, groups and organizations you trust. Everything in one place, because your best life isn&rsquo;t lived in silos — or on a technology platform.</p>
       <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
+      <AboutPhones />
     </div>
   </section>
 
@@ -144,6 +147,7 @@ const FAQS = [
       </ul>
       <div class="wmaps"><TwoMaps /></div>
       <p class="welem-cap">Two maps of the same world — what&rsquo;s actually given beside what the market pays. The distance between them is exactly what Lichen&rsquo;s algorithm works to close.</p>
+      <EconomyJourneys />
       <p class="wbody">Lichen honors non-human people. The beings we&rsquo;re in relationship with are members too — a therapy horse, a sacred plant medicine, a river — stewarded by humans, their contributions valued and reciprocated within Lichen&rsquo;s economy. Underneath every exchange runs Lichen&rsquo;s Universal Current-cy — value tracked, honored, and translated back into the wider economy.</p>
       <a href="/economy" class="wlink">Learn more about the economy →</a>
     </div>

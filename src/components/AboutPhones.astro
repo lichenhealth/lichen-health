@@ -1,0 +1,131 @@
+---
+// Two realistic phone mockups, side by side (founder 2026-08-05): the
+// assistant briefing a member on the left; a protected course recording on
+// the right — "Video download, screen recording & AI disabled" as clear
+// language. Hand-built in the app's own visual vocabulary (bone, peach,
+// hairlines) rather than screenshots, so the scenarios can be ideal.
+---
+<div class="ph-pair">
+  <div class="ph">
+    <div class="ph-notch" aria-hidden="true"></div>
+    <div class="ph-head">
+      <span class="ph-brain" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M9.5 3.5a3 3 0 00-3 3v.6a3 3 0 00-2.5 2.95V12a3 3 0 002.5 2.95v.6a3 3 0 003 3h2.5V3.5H9.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M14.5 3.5a3 3 0 013 3v.6a3 3 0 012.5 2.95V12a3 3 0 01-2.5 2.95v.6a3 3 0 01-3 3H12V3.5h2.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M9.5 8h-1M9.5 11.5h-1M14.5 8h1M14.5 11.5h1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div>
+        <p class="ph-title">Your assistant</p>
+        <p class="ph-sub">the brief, while you were away</p>
+      </div>
+    </div>
+    <div class="ph-body">
+      <div class="ph-card">
+        <p><strong>Rosa accepted your trade</strong> — her elderberry syrup for your garden hours. She suggested Thursday afternoon.</p>
+      </div>
+      <div class="ph-card">
+        <p><strong>Two people are waiting at Pine Valley Grange&rsquo;s door</strong> — both woven in by members you trust. Your desk has them ready.</p>
+      </div>
+      <div class="ph-card ph-card--match">
+        <p><strong>A gift matches what you&rsquo;re seeking:</strong> a cedar planter box, offered by someone Melanie trusts, four miles away.</p>
+      </div>
+      <div class="ph-card">
+        <p><strong>Tomorrow:</strong> your 3pm blood draw, then the Grange potluck at 5. Want a reminder to bring the seed packets?</p>
+      </div>
+      <p class="ph-foot">Carbon decides; silicon organizes.</p>
+    </div>
+  </div>
+
+  <div class="ph">
+    <div class="ph-notch" aria-hidden="true"></div>
+    <div class="ph-head">
+      <div>
+        <p class="ph-title">Curanderismo Training</p>
+        <p class="ph-sub">Weekend 2 · Kapulli 2026</p>
+      </div>
+    </div>
+    <div class="ph-body">
+      <div class="ph-video" role="img" aria-label="A course video player, paused on the Weekend 2 recording.">
+        <span class="ph-play" aria-hidden="true">▶</span>
+        <span class="ph-dur">1:48:22</span>
+      </div>
+      <p class="ph-lesson">Weekend 2 — full recording</p>
+      <div class="ph-protect">
+        <p class="ph-protect-line">Video download, screen recording &amp; AI — <strong>disabled</strong></p>
+        <p class="ph-protect-sub">This teaching stays in the room. A standing promise, made by the teacher, kept by the platform.</p>
+      </div>
+      <div class="ph-rows">
+        <p class="ph-row"><span class="ph-row-done">✓</span> Weekend 1 — opening the four directions</p>
+        <p class="ph-row ph-row--now"><span class="ph-row-play">●</span> Weekend 2 — full recording</p>
+        <p class="ph-row ph-row--dim">Weekend 3 — coming October</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="ph-cap">Left: the assistant organizes what&rsquo;s waiting — only in the sections you&rsquo;ve switched on. Right: a teacher&rsquo;s recording, protected — downloads off, recording off, and never read by any AI.</p>
+
+<style>
+  .ph-pair {
+    display: flex; justify-content: center; gap: var(--s-6);
+    margin-top: var(--s-8); flex-wrap: wrap;
+  }
+  .ph {
+    width: 300px; border: 4px solid #1a1a1a; border-radius: 19px;
+    background: var(--bone); overflow: hidden; position: relative;
+    box-shadow: 0 18px 44px rgba(18, 24, 28, 0.22);
+  }
+  .ph-notch { width: 84px; height: 8px; background: #1a1a1a; border-radius: 0 0 8px 8px; margin: 0 auto; }
+  .ph-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 16px 10px; border-bottom: 1px solid var(--bone-edge);
+  }
+  .ph-brain {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    border: 1.5px solid var(--peach); color: var(--peach-deep);
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--bone-warm);
+  }
+  .ph-title { font-weight: 600; font-size: 14px; color: var(--ink); }
+  .ph-sub { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
+  .ph-body { padding: 12px 12px 16px; }
+  .ph-card {
+    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);
+    padding: 10px 12px; margin-bottom: 8px;
+  }
+  .ph-card p { font-size: 11.5px; line-height: 1.45; color: var(--ink-soft); }
+  .ph-card p strong { color: var(--ink); font-weight: 600; }
+  .ph-card--match { border-color: var(--peach); background: var(--peach-tint); }
+  .ph-foot { text-align: center; font-family: var(--font-display); font-style: italic; font-size: 11px; color: var(--ink-muted); margin-top: 10px; }
+  .ph-video {
+    position: relative; aspect-ratio: 16 / 9; border-radius: var(--r-md);
+    background: #23201c; display: flex; align-items: center; justify-content: center;
+  }
+  .ph-play {
+    width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.92);
+    color: #23201c; font-size: 14px; display: inline-flex; align-items: center; justify-content: center;
+    padding-left: 3px;
+  }
+  .ph-dur { position: absolute; right: 8px; bottom: 6px; font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.85); }
+  .ph-lesson { font-size: 12.5px; font-weight: 600; color: var(--ink); margin-top: 8px; }
+  .ph-protect {
+    margin-top: 8px; padding: 9px 11px;
+    background: var(--peach-tint); border-left: 3px solid var(--peach);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  }
+  .ph-protect-line { font-size: 11.5px; color: var(--ink); }
+  .ph-protect-line strong { font-weight: 700; }
+  .ph-protect-sub { font-size: 10px; color: var(--ink-muted); margin-top: 3px; line-height: 1.4; }
+  .ph-rows { margin-top: 10px; }
+  .ph-row {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 11.5px; color: var(--ink-soft);
+    padding: 7px 2px; border-top: 1px solid var(--bone-edge-soft);
+  }
+  .ph-row-done { color: var(--moss, #4A5D3F); font-size: 10px; }
+  .ph-row-play { color: var(--peach-deep); font-size: 8px; }
+  .ph-row--now { color: var(--ink); font-weight: 600; }
+  .ph-row--dim { color: var(--ink-faint); }
+  .ph-cap { text-align: center; font-size: var(--t-sm); font-style: italic; color: var(--ink-muted); margin-top: var(--s-4); }
+</style>

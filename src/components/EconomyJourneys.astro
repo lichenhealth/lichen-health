@@ -1,0 +1,192 @@
+---
+// "The economy in action" — the four journey maps, ported faithfully from the
+// retired app About (AboutLichen.tsx, founder-iterated SVGs + captions).
+// Colors follow the two-maps strand palette: peach people, #98BE4D plants,
+// #D9A441 animals/donor. The brain mark = the assistant, a member of the web.
+const PLANTS = '#98BE4D';
+interface Stop {
+  emoji: string; x: number; y: number;
+  name: string; sub: string; sub2?: string; sub2color?: string;
+  lx: number; ly: number; anchor: 'start' | 'end' | 'middle';
+}
+const TABLE_STOPS: Stop[] = [
+  { emoji: '🌳', x: 44, y: 44, name: 'the tree', sub: '50 years of growing', lx: 66, ly: 46, anchor: 'start' },
+  { emoji: '🪚', x: 200, y: 58, name: 'the artisan', sub: '7 hours of craft', lx: 222, ly: 54, anchor: 'start' },
+  { emoji: '🥕', x: 120, y: 128, name: 'the farm', sub: 'clean food loaded', lx: 98, ly: 124, anchor: 'end' },
+  { emoji: '🏠', x: 240, y: 150, name: 'a neighbor', sub: 'pays for produce', lx: 262, ly: 134, anchor: 'start' },
+  { emoji: '🏠', x: 120, y: 210, name: 'another neighbor', sub: 'covered by the commons', sub2: 'plants trees in return', sub2color: PLANTS, lx: 98, ly: 214, anchor: 'end' },
+  { emoji: '🏡', x: 284, y: 258, name: 'the family’s kitchen', sub: 'the table, earned by the drive', lx: 272, ly: 288, anchor: 'middle' },
+];
+const TANGO_STOPS: Stop[] = [
+  { emoji: '🧒', x: 44, y: 48, name: 'a hurting child', sub: 'releases what’s heavy', lx: 46, ly: 82, anchor: 'middle' },
+  { emoji: '🐴', x: 190, y: 64, name: 'Tango', sub: 'takes on the heavy energy', lx: 212, ly: 60, anchor: 'start' },
+  { emoji: '💆', x: 110, y: 140, name: 'the bodyworker', sub: 'clears Tango’s load', sub2: 'paid in Current-cy', sub2color: 'var(--peach-deep)', lx: 88, ly: 136, anchor: 'end' },
+  { emoji: '🛒', x: 256, y: 204, name: 'the wider world', sub: 'Current-cy cashed out to dollars', lx: 250, ly: 236, anchor: 'middle' },
+  { emoji: '🥕', x: 300, y: 130, name: 'the organic farm', sub: 'her manure feeds the soil', lx: 278, ly: 126, anchor: 'end' },
+  { emoji: '🤲', x: 64, y: 204, name: 'Tango’s steward', sub: 'fresh produce comes back', lx: 64, ly: 232, anchor: 'middle' },
+];
+---
+<div class="ej">
+  <h3 class="display h-2 ejsub">The economy in action</h3>
+  <p class="wbody">Lichen serves three groups the current system leaves behind — those carrying wounds, under-resourced innovators, and the chronically undervalued. Three stories, one web — and an assistant weaving every route.</p>
+
+  <div class="ej-mock">
+    <p class="ej-eyebrow">The table&rsquo;s journey</p>
+    <p class="ej-byhand"><em>In the current economy,</em> you&rsquo;d give the table to the first person who has the time to browse for the style and dimensions that fit their space and is willing to pay what you are asking for it — one need (inefficiently) met. <em>In the Lichen Economy,</em> the web of need and contribution is matched to minimize waste, balance resources and maximize quality of life for all living beings. Your AI assistant knows your style and space requirements, so matches aren&rsquo;t just based on need — they&rsquo;re based on the true, authentic expression of you, your family and your space.</p>
+    <svg class="ej-journey" viewBox="0 0 340 310" role="img"
+      aria-label="A map route: from the tree that grew the wood, to the artisan who crafted the table, to the farm where clean food is loaded in, to one neighbor who pays for produce and another covered by the commons, ending at the family’s kitchen — the table earned by the drive.">
+      <path d="M-10,104 q45,-14 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.55" />
+      <path d="M-10,168 q45,12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.45" />
+      <path d="M-10,268 q45,-8 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
+      <path d="M44,44 C90,14 152,32 200,58 C232,78 160,96 120,128 C90,152 190,142 240,150 C288,178 170,180 120,210 C96,226 180,232 232,246"
+        fill="none" stroke="var(--peach)" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" />
+      <g transform="translate(248,251) scale(-1,1)"><text x="0" y="0" font-size="13" text-anchor="middle">🚚</text></g>
+      <path d="M110,198 C50,184 10,160 10,112 C10,72 18,52 38,46"
+        fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
+      <text x="60" y="158" font-size="11" text-anchor="middle">🌱</text>
+      {TABLE_STOPS.map((s) => (
+        <g>
+          <circle cx={s.x} cy={s.y} r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+          <text x={s.x} y={s.y + 5} font-size="14" text-anchor="middle">{s.emoji}</text>
+          <text x={s.lx} y={s.ly} font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor={s.anchor}>{s.name}</text>
+          <text x={s.lx} y={s.ly + 12} font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor={s.anchor}>{s.sub}</text>
+          {s.sub2 && <text x={s.lx} y={s.ly + 24} font-size="9" font-style="italic" fill={s.sub2color} text-anchor={s.anchor}>{s.sub2}</text>}
+        </g>
+      ))}
+    </svg>
+    <p class="ej-cap">One route, the whole economy. A family who can&rsquo;t afford the table earns it by running community deliveries — via a truck borrowed from a truck driver during the days he&rsquo;s not on a route, approved by his employer, a trusted organization on Lichen&rsquo;s platform. The family delivers it to their own home after a heartfelt day of delivering clean food for the neighborhood: one neighbor pays for their produce; donations and membership revenue cover the other&rsquo;s. Lichen remembers every contributor — the tree&rsquo;s fifty years, the artisan&rsquo;s hours, the family&rsquo;s miles — and the story returns to each of them. The route itself? Drawn by the assistant — the fewest miles, the smallest carbon footprint.</p>
+  </div>
+
+  <div class="ej-mock">
+    <p class="ej-eyebrow">Carrying wounds · Tango&rsquo;s exchange</p>
+    <svg class="ej-journey" viewBox="0 0 340 250" role="img"
+      aria-label="A map route: a hurting child releases what’s heavy, Tango the therapy horse takes it on, her bodyworker clears her and is paid in Current-cy, and cashes out to dollars in the wider world. A green loop closes alongside: Tango’s manure feeds the organic farm, and fresh produce comes back to her steward.">
+      <path d="M-10,108 q45,-12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
+      <path d="M-10,178 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
+      <path d="M44,48 C92,20 148,36 190,64 C226,88 152,112 110,140 C78,162 190,168 256,204"
+        fill="none" stroke="var(--peach)" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" />
+      <path d="M204,74 C246,88 284,100 298,116"
+        fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
+      <path d="M290,142 C258,192 160,222 80,208"
+        fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
+      <text x="140" y="26" font-size="11" text-anchor="middle">✨</text>
+      {TANGO_STOPS.map((s) => (
+        <g>
+          <circle cx={s.x} cy={s.y} r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+          <text x={s.x} y={s.y + 5} font-size="14" text-anchor="middle">{s.emoji}</text>
+          <text x={s.lx} y={s.ly} font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor={s.anchor}>{s.name}</text>
+          <text x={s.lx} y={s.ly + 12} font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor={s.anchor}>{s.sub}</text>
+          {s.sub2 && <text x={s.lx} y={s.ly + 24} font-size="9" font-style="italic" fill={s.sub2color} text-anchor={s.anchor}>{s.sub2}</text>}
+        </g>
+      ))}
+    </svg>
+    <p class="ej-cap">Not everything can be measured in hours — a trade carries years of training, and some work spends the body itself. Tango&rsquo;s does: absorbing what a hurting child releases is skilled, risky labor, and Current-cy is how it&rsquo;s honored. The session pays into Tango&rsquo;s care, held by her steward; her bodyworker is paid from it to clear her; and what the bodyworker earns cashes out to dollars in the wider world. A being who can&rsquo;t hold money just moved real value through three lives. Her body feeds a quieter loop too: manure to the organic farm down the road, fresh produce back to her steward&rsquo;s table — nothing wasted, everything counted. And this model is young, on purpose — we give ourselves space to learn, adding nuance as the mycelium grows and new variables reveal themselves.</p>
+  </div>
+
+  <div class="ej-mock">
+    <p class="ej-eyebrow">Under-resourced innovators · Crystal&rsquo;s startup</p>
+    <svg class="ej-journey" viewBox="0 0 340 250" role="img"
+      aria-label="A map route: Crystal, an under-resourced founder; her AI assistant reads the roadblock; a peer founder holds the missing half; together they launch a shared venture — plan drafted by the assistant, seeded by the commons.">
+      <path d="M-10,108 q45,-12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
+      <path d="M-10,178 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
+      <path d="M44,48 C92,20 148,36 200,64 C226,88 152,112 110,140 C78,162 190,168 256,204"
+        fill="none" stroke="var(--peach)" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" />
+      <circle cx="44" cy="48" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+      <text x="44" y="53" font-size="14" text-anchor="middle">💡</text>
+      <text x="46" y="82" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Crystal</text>
+      <text x="46" y="94" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">a founder, under-resourced</text>
+      <circle cx="200" cy="64" r="16" fill="var(--peach-tint)" stroke="var(--peach)" stroke-width="1.2" />
+      <g transform="translate(191,55)" color="var(--peach-deep)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M9.5 3.5a3 3 0 00-3 3v.6a3 3 0 00-2.5 2.95V12a3 3 0 002.5 2.95v.6a3 3 0 003 3h2.5V3.5H9.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M14.5 3.5a3 3 0 013 3v.6a3 3 0 012.5 2.95V12a3 3 0 01-2.5 2.95v.6a3 3 0 01-3 3H12V3.5h2.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M9.5 8h-1M9.5 11.5h-1M14.5 8h1M14.5 11.5h1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </g>
+      <text x="222" y="60" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="start">her assistant</text>
+      <text x="222" y="72" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="start">reads the roadblock</text>
+      <circle cx="110" cy="140" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+      <text x="110" y="145" font-size="14" text-anchor="middle">🔧</text>
+      <text x="88" y="136" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="end">a peer founder</text>
+      <text x="88" y="148" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="end">the missing half</text>
+      <circle cx="256" cy="204" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+      <text x="256" y="209" font-size="14" text-anchor="middle">🚀</text>
+      <text x="250" y="236" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">a shared venture</text>
+      <text x="250" y="248" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">plan drafted · seeded by the commons</text>
+    </svg>
+    <p class="ej-cap">Innovation in today&rsquo;s economy runs on exclusivity and competition — guard the idea, outrun the rest. As a result, most innovators are stressed out, tired and on the verge of getting sick. Competition has its place, but radical collaboration is the more efficient engine for innovation: shared knowledge compounds instead of duplicating effort. Crystal&rsquo;s roadblock is another founder&rsquo;s strength — and hers is theirs. As part of Lichen&rsquo;s Founder community, she&rsquo;s paired with others working toward the same mission, and the platform resources only what they still can&rsquo;t contribute together. Her assistant reads what each of them is missing, makes the introduction, and drafts the collaborative plan — the commons seeds what the old economy starved. Every person, place, and group — eventually the network itself — can have an assistant that helps, never sells.</p>
+  </div>
+
+  <div class="ej-mock">
+    <p class="ej-eyebrow">Chronically undervalued · the firefighters&rsquo; retreat</p>
+    <svg class="ej-journey" viewBox="0 0 340 320" role="img"
+      aria-label="A map route: first responders — risk taken, vicarious trauma carried; the assistant weaves their shift rotations into a shared window; a community healing center offers a retreat close by; the healers arrive free to heal, coordination lifted, working with Huachuma medicine; a donor's large gift funds the services and the commons carries the rest; the medicine's own value flows onward to the Huachuma Foundation, which preserves and re-plants the cacti in Peru.">
+      <path d="M-10,116 q45,-8 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
+      <path d="M-10,178 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
+      <path d="M44,48 C92,20 148,36 200,64 C226,88 152,112 110,140 C78,162 190,168 256,204"
+        fill="none" stroke="var(--peach)" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" />
+      <path d="M280,153 C288,172 272,186 262,192"
+        fill="none" stroke="#D9A441" stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.9" />
+      <path d="M240,204 C210,200 186,206 178,214 C172,220 170,226 170,232"
+        fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.9" />
+      <path d="M160,244 C132,240 100,246 80,258"
+        fill="none" stroke={PLANTS} stroke-width="1.4" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.8" />
+      <circle cx="44" cy="48" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+      <text x="44" y="53" font-size="14" text-anchor="middle">🚒</text>
+      <text x="58" y="82" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">first responders</text>
+      <text x="58" y="94" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">risk taken,</text>
+      <text x="58" y="106" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">vicarious trauma carried</text>
+      <circle cx="200" cy="64" r="16" fill="var(--peach-tint)" stroke="var(--peach)" stroke-width="1.2" />
+      <g transform="translate(191,55)" color="var(--peach-deep)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M9.5 3.5a3 3 0 00-3 3v.6a3 3 0 00-2.5 2.95V12a3 3 0 002.5 2.95v.6a3 3 0 003 3h2.5V3.5H9.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M14.5 3.5a3 3 0 013 3v.6a3 3 0 012.5 2.95V12a3 3 0 01-2.5 2.95v.6a3 3 0 01-3 3H12V3.5h2.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M9.5 8h-1M9.5 11.5h-1M14.5 8h1M14.5 11.5h1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </g>
+      <text x="222" y="60" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="start">the assistant</text>
+      <text x="222" y="72" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="start">finds the shared window</text>
+      <circle cx="110" cy="140" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+      <text x="110" y="145" font-size="14" text-anchor="middle">🏞️</text>
+      <text x="88" y="130" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="end">a community</text>
+      <text x="88" y="142" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="end">healing center</text>
+      <text x="88" y="154" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="end">a retreat, close by</text>
+      <circle cx="282" cy="136" r="16" fill="var(--bone-warm)" stroke="#D9A441" stroke-width="1.2" />
+      <text x="282" y="141" font-size="14" text-anchor="middle">💝</text>
+      <text x="282" y="96" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">a donor</text>
+      <text x="282" y="108" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">one big gift, many healed</text>
+      <circle cx="256" cy="204" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+      <text x="256" y="209" font-size="14" text-anchor="middle">🌿</text>
+      <text x="256" y="228" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">the healers</text>
+      <text x="256" y="240" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">free to heal, not coordinate</text>
+      <text x="256" y="252" font-size="9" font-style="italic" fill="var(--peach-deep)" text-anchor="middle">covered by the commons</text>
+      <circle cx="170" cy="234" r="14" fill="var(--bone-warm)" stroke={PLANTS} stroke-width="1.2" />
+      <text x="170" y="239" font-size="12" text-anchor="middle">🌵</text>
+      <text x="170" y="262" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Huachuma</text>
+      <text x="170" y="274" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">the medicine, honored</text>
+      <circle cx="72" cy="270" r="16" fill="var(--bone-warm)" stroke={PLANTS} stroke-width="1.2" />
+      <text x="72" y="275" font-size="14" text-anchor="middle">🌱</text>
+      <text x="72" y="298" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Huachuma Foundation</text>
+      <text x="72" y="310" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">preserves cacti in Peru</text>
+    </svg>
+    <p class="ej-cap">First responders put their mind, body and soul on the line for the rest of us — work the current economy under-values and fails to support. Lichen&rsquo;s Economy closes the gap: the assistant reads a whole station&rsquo;s shift rotations, finds the shared window, books a nearby community healing center, and lifts every ounce of retreat coordination off the healers — who arrive simply to heal, working with Huachuma (San Pedro) medicine. A donor&rsquo;s large gift funds the services; the commons carries the rest. One big gift can heal whole crews — care is the honest repayment for sacred sacrifices given. And the medicine itself is honored as a contributing member, not consumed and forgotten: its value flows onward to the Huachuma Foundation, which stewards the preservation and re-planting of the cacti in Peru.</p>
+  </div>
+</div>
+
+<style>
+  .ej { margin-top: var(--s-9); }
+  .ejsub { margin-bottom: 0; }
+  .ej-mock {
+    max-width: 780px; margin: var(--s-6) auto 0;
+    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg);
+    padding: var(--s-5) var(--s-6);
+  }
+  .ej-eyebrow {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: var(--s-3);
+  }
+  .ej-byhand { font-size: var(--t-sm); color: var(--ink-soft); line-height: 1.55; margin-bottom: var(--s-3); }
+  .ej-byhand em { color: var(--ink); font-weight: 500; font-style: italic; }
+  .ej-journey { display: block; width: 100%; max-width: 520px; height: auto; margin: var(--s-2) auto; }
+  .ej-cap { font-size: var(--t-sm); color: var(--ink-soft); line-height: 1.55; font-style: italic; margin-top: var(--s-4); }
+</style>
