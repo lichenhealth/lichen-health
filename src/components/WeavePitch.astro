@@ -117,7 +117,7 @@ const FAQS = [
           <a href="/platform" class="wlink">Learn more about the platform →</a>
         </div>
       </div>
-      <h3 class="wsub">The corrective social network</h3>
+      <h3 class="display h-2 wsub">The corrective social network</h3>
       <p class="wbody">Most networks feed you to an algorithm tuned to maximize attention, harvest fear, and drive consumption that temporarily comforts the dis-ease of disconnection — chronic suffering that current systems rely on to survive. Lichen holds the whole of you instead — your care and healing, your work and the things you offer, the events you gather for, the places you love, the jobs that give you purpose and fund your livelihood, and a fairer economy that values all things, not just human contributions — woven into a single web of people, plants, animals, elements, spaces, communities, groups and organizations you trust. Everything in one place, because your best life isn&rsquo;t lived in silos — or on a technology platform.</p>
       <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
     </div>
@@ -144,8 +144,7 @@ const FAQS = [
       </ul>
       <div class="wmaps"><TwoMaps /></div>
       <p class="welem-cap">Two maps of the same world — what&rsquo;s actually given beside what the market pays. The distance between them is exactly what Lichen&rsquo;s algorithm works to close.</p>
-      <p class="wbody">Lichen honors non-human people. The beings we&rsquo;re in relationship with are members too — a therapy horse, a sacred plant medicine, a river — stewarded by humans, their contributions valued and reciprocated within Lichen&rsquo;s economy.</p>
-      <p class="wbody">Underneath every exchange runs Lichen&rsquo;s Universal Current-cy — value tracked, honored, and translated back into the wider economy. Built to count all of it.</p>
+      <p class="wbody">Lichen honors non-human people. The beings we&rsquo;re in relationship with are members too — a therapy horse, a sacred plant medicine, a river — stewarded by humans, their contributions valued and reciprocated within Lichen&rsquo;s economy. Underneath every exchange runs Lichen&rsquo;s Universal Current-cy — value tracked, honored, and translated back into the wider economy. Built to count all of it.</p>
       <a href="/economy" class="wlink">Learn more about the economy →</a>
     </div>
   </section>
@@ -292,7 +291,7 @@ const FAQS = [
   .wlede { font-size: clamp(19px, 2.2vw, 24px); line-height: var(--lh-snug); color: var(--ink-soft); font-weight: 300; }
   .wfor { font-family: var(--font-mono); font-size: var(--t-sm); letter-spacing: 0.06em; text-transform: uppercase; color: var(--peach-deep); }
 
-  .wsection { }
+  .wsection { padding-block: var(--s-8); }
   .wsection--alt { background: var(--bone); }
   .wsection--center { text-align: center; }
   .wsection--center .wbody { margin-inline: auto; }
@@ -345,7 +344,7 @@ const FAQS = [
   .wmaps { margin-top: var(--s-7); }
   /* Sub-heading inside a section — carries its own air above (founder:
      more blank space between the quadrants and this paragraph). */
-  .wsub { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); font-weight: 400; color: var(--ink); margin-top: var(--s-9); }
+  .wsub { margin-top: var(--s-9); }
 
   /* The ecosystem quadrants (founder 2026-08-04): four SEPARATE blocks,
      close together — playing on the four bonds above. Community + Care wear
@@ -375,9 +374,9 @@ const FAQS = [
   :global(.wlink) { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   :global(.wlink:hover) { color: var(--rust); }
   :global(.wcallout) {
-    margin-top: var(--s-7); margin-bottom: var(--s-6); padding: var(--s-5) var(--s-6);
+    margin-top: var(--s-7); margin-bottom: 0; padding: var(--s-5) var(--s-6);
     font-family: var(--font-display); font-style: italic;
-    font-size: 19px; line-height: 1.5; color: var(--ink);
+    font-size: 22px; line-height: 1.5; color: var(--ink);
     border-left: 3px solid var(--peach); background: var(--peach-tint);
     border-radius: 0 var(--r-md) var(--r-md) 0;
   }
