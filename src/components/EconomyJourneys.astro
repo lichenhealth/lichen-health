@@ -17,14 +17,6 @@ const TABLE_STOPS: Stop[] = [
   { emoji: '🏠', x: 120, y: 210, name: 'another neighbor', sub: 'covered by the commons', sub2: 'plants trees in return', sub2color: PLANTS, lx: 98, ly: 214, anchor: 'end' },
   { emoji: '🏡', x: 284, y: 258, name: 'the family’s kitchen', sub: 'the table, earned by the drive', lx: 272, ly: 288, anchor: 'middle' },
 ];
-const TANGO_STOPS: Stop[] = [
-  { emoji: '🧒', x: 44, y: 48, name: 'a hurting child', sub: 'releases what’s heavy', lx: 46, ly: 82, anchor: 'middle' },
-  { emoji: '🐴', x: 190, y: 64, name: 'Tango', sub: 'takes on the heavy energy', lx: 212, ly: 60, anchor: 'start' },
-  { emoji: '💆', x: 110, y: 140, name: 'the bodyworker', sub: 'clears Tango’s load', sub2: 'paid in Current-cy', sub2color: 'var(--peach-deep)', lx: 88, ly: 136, anchor: 'end' },
-  { emoji: '🛒', x: 256, y: 204, name: 'the wider world', sub: 'Current-cy cashed out to dollars', lx: 250, ly: 236, anchor: 'middle' },
-  { emoji: '🥕', x: 300, y: 130, name: 'the organic farm', sub: 'her manure feeds the soil', lx: 278, ly: 126, anchor: 'end' },
-  { emoji: '🤲', x: 64, y: 204, name: 'Tango’s steward', sub: 'fresh produce comes back', lx: 64, ly: 232, anchor: 'middle' },
-];
 ---
 <div class="ej">
   <h3 class="display h-2 ejsub">The economy in action</h3>
@@ -55,32 +47,6 @@ const TANGO_STOPS: Stop[] = [
       ))}
     </svg>
     <p class="ej-cap">One route, the whole economy. A family who can&rsquo;t afford the table earns it by running community deliveries — via a truck borrowed from a truck driver during the days he&rsquo;s not on a route, approved by his employer, a trusted organization on Lichen&rsquo;s platform. The family delivers it to their own home after a heartfelt day of delivering clean food for the neighborhood: one neighbor pays for their produce; donations and membership revenue cover the other&rsquo;s. Lichen remembers every contributor — the tree&rsquo;s fifty years, the artisan&rsquo;s hours, the family&rsquo;s miles — and the story returns to each of them. The route itself? Drawn by the assistant — the fewest miles, the smallest carbon footprint.</p>
-  </div>
-
-  <div class="ej-mock">
-    <p class="ej-eyebrow">Carrying wounds · Tango&rsquo;s exchange</p>
-    <svg class="ej-journey" viewBox="0 0 340 250" role="img"
-      aria-label="A map route: a hurting child releases what’s heavy, Tango the therapy horse takes it on, her bodyworker clears her and is paid in Current-cy, and cashes out to dollars in the wider world. A green loop closes alongside: Tango’s manure feeds the organic farm, and fresh produce comes back to her steward.">
-      <path d="M-10,108 q45,-12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
-      <path d="M-10,178 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
-      <path d="M44,48 C92,20 148,36 190,64 C226,88 152,112 110,140 C78,162 190,168 256,204"
-        fill="none" stroke="var(--peach)" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" />
-      <path d="M204,74 C246,88 284,100 298,116"
-        fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
-      <path d="M290,142 C258,192 160,222 80,208"
-        fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
-      <text x="140" y="26" font-size="11" text-anchor="middle">✨</text>
-      {TANGO_STOPS.map((s) => (
-        <g>
-          <circle cx={s.x} cy={s.y} r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
-          <text x={s.x} y={s.y + 5} font-size="14" text-anchor="middle">{s.emoji}</text>
-          <text x={s.lx} y={s.ly} font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor={s.anchor}>{s.name}</text>
-          <text x={s.lx} y={s.ly + 12} font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor={s.anchor}>{s.sub}</text>
-          {s.sub2 && <text x={s.lx} y={s.ly + 24} font-size="9" font-style="italic" fill={s.sub2color} text-anchor={s.anchor}>{s.sub2}</text>}
-        </g>
-      ))}
-    </svg>
-    <p class="ej-cap">Not everything can be measured in hours — a trade carries years of training, and some work spends the body itself. Tango&rsquo;s does: absorbing what a hurting child releases is skilled, risky labor, and Current-cy is how it&rsquo;s honored. The session pays into Tango&rsquo;s care, held by her steward; her bodyworker is paid from it to clear her; and what the bodyworker earns cashes out to dollars in the wider world. A being who can&rsquo;t hold money just moved real value through three lives. Her body feeds a quieter loop too: manure to the organic farm down the road, fresh produce back to her steward&rsquo;s table — nothing wasted, everything counted. And this model is young, on purpose — we give ourselves space to learn, adding nuance as the mycelium grows and new variables reveal themselves.</p>
   </div>
 
   <div class="ej-mock">

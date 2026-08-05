@@ -15,6 +15,7 @@
 import TwoMaps from './TwoMaps.astro';
 import AboutPhones from './AboutPhones.astro';
 import EconomyJourneys from './EconomyJourneys.astro';
+import TangoExchange from './TangoExchange.astro';
 export interface Props {
   partner?: string;
   variant?: 'about' | 'pitch';
@@ -123,6 +124,7 @@ const FAQS = [
       <h3 class="display h-2 wsub">The corrective social network</h3>
       <p class="wbody">Most technology platforms feed you to an algorithm tuned to maximize attention, harvest fear, and drive consumption that temporarily comforts the dis-ease of disconnection because our current political and economic systems rely on human suffering to survive. Lichen holds the whole of you instead — your care and healing, your work and the things you offer, the events you gather for, the places you love, the jobs that give you purpose and fund your livelihood, and a fairer economy that values all things, not just human contributions — woven into a single web of people, plants, animals, elements, spaces, communities, groups and organizations you trust. Everything in one place, because your best life isn&rsquo;t lived in silos — or on a technology platform.</p>
       <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
+      <TangoExchange />
     </div>
   </section>
 
@@ -396,6 +398,7 @@ const FAQS = [
   :global(.wpaths strong) { color: var(--ink); font-weight: 500; }
 
   .wstorm { border-top: 2px solid var(--peach); }
+  .wstorm :global(.wcallout) { margin-bottom: var(--s-8); }
   :global(.wstorm .eyebrow) { color: var(--peach-deep); }
 
   .wclose-ctas { display: flex; align-items: center; justify-content: center; gap: var(--s-4); flex-wrap: wrap; margin-top: var(--s-2); }

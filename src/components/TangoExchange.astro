@@ -1,0 +1,161 @@
+---
+// Tango's exchange, below the commons epigraph (founder 2026-08-05): her
+// journey map beside her BOOKING — the Figma mockup (286-8171, Equine Energy
+// Healing with Rick Smith) translated into the real UI vocabulary. A
+// beyond-human member earning in her own name on the left; spending on her
+// own care on the right. Map first on mobile.
+const PLANTS = '#98BE4D';
+interface Stop {
+  emoji: string; x: number; y: number;
+  name: string; sub: string; sub2?: string; sub2color?: string;
+  lx: number; ly: number; anchor: 'start' | 'end' | 'middle';
+}
+const TANGO_STOPS: Stop[] = [
+  { emoji: '🧒', x: 44, y: 48, name: 'a hurting child', sub: 'releases what’s heavy', lx: 46, ly: 82, anchor: 'middle' },
+  { emoji: '🐴', x: 190, y: 64, name: 'Tango', sub: 'takes on the heavy energy', lx: 212, ly: 60, anchor: 'start' },
+  { emoji: '💆', x: 110, y: 140, name: 'the bodyworker', sub: 'clears Tango’s load', sub2: 'paid in Current-cy', sub2color: 'var(--peach-deep)', lx: 88, ly: 136, anchor: 'end' },
+  { emoji: '🛒', x: 256, y: 204, name: 'the wider world', sub: 'Current-cy cashed out to dollars', lx: 250, ly: 236, anchor: 'middle' },
+  { emoji: '🥕', x: 300, y: 130, name: 'the organic farm', sub: 'her manure feeds the soil', lx: 278, ly: 126, anchor: 'end' },
+  { emoji: '🤲', x: 64, y: 204, name: 'Tango’s steward', sub: 'fresh produce comes back', lx: 64, ly: 232, anchor: 'middle' },
+];
+const APRIL = [
+  ['', '', '', '1', '2', '3', '4'],
+  ['5', '6', '7', '8', '9', '10', '11'],
+  ['12', '13', '14', '15', '16', '17', '18'],
+  ['19', '20', '21', '22', '23', '24', '25'],
+  ['26', '27', '28', '29', '30', '', ''],
+];
+const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
+---
+<div class="tx">
+  <div class="tx-col">
+    <div class="tx-mapcard">
+      <p class="tx-eyebrow">Carrying wounds · Tango&rsquo;s exchange</p>
+      <svg class="tx-journey" viewBox="0 0 340 250" role="img"
+        aria-label="A map route: a hurting child releases what’s heavy, Tango the therapy horse takes it on, her bodyworker clears her and is paid in Current-cy, and cashes out to dollars in the wider world. A green loop closes alongside: Tango’s manure feeds the organic farm, and fresh produce comes back to her steward.">
+        <path d="M-10,108 q45,-12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
+        <path d="M-10,178 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
+        <path d="M44,48 C92,20 148,36 190,64 C226,88 152,112 110,140 C78,162 190,168 256,204"
+          fill="none" stroke="var(--peach)" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" />
+        <path d="M204,74 C246,88 284,100 298,116"
+          fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
+        <path d="M290,142 C258,192 160,222 80,208"
+          fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
+        <text x="140" y="26" font-size="11" text-anchor="middle">✨</text>
+        {TANGO_STOPS.map((s) => (
+          <g>
+            <circle cx={s.x} cy={s.y} r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+            <text x={s.x} y={s.y + 5} font-size="14" text-anchor="middle">{s.emoji}</text>
+            <text x={s.lx} y={s.ly} font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor={s.anchor}>{s.name}</text>
+            <text x={s.lx} y={s.ly + 12} font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor={s.anchor}>{s.sub}</text>
+            {s.sub2 && <text x={s.lx} y={s.ly + 24} font-size="9" font-style="italic" fill={s.sub2color} text-anchor={s.anchor}>{s.sub2}</text>}
+          </g>
+        ))}
+      </svg>
+    </div>
+    <p class="tx-cap">Tango&rsquo;s work is sacred and risky — absorbing what a hurting child releases — and it&rsquo;s counted in her own name: real value, moving through three lives, held by her steward.</p>
+  </div>
+
+  <div class="tx-col">
+    <div class="tx-phone">
+      <div class="tx-notch" aria-hidden="true"></div>
+      <div class="tx-head">
+        <span class="tx-avatar" aria-hidden="true">🐴</span>
+        <div>
+          <p class="tx-title">Equine Energy Healing</p>
+          <p class="tx-sub">with Rick Smith · bookable session</p>
+        </div>
+      </div>
+      <div class="tx-body">
+        <div class="tx-wallet">
+          <span class="tx-wallet-name">Perfect Tango</span>
+          <span class="tx-wallet-bal">973 Current</span>
+        </div>
+        <p class="tx-mon">April 2026</p>
+        <table class="tx-cal" aria-label="April 2026 — Tango's booked care days highlighted">
+          <thead><tr>{['S','M','T','W','T','F','S'].map((d) => <th>{d}</th>)}</tr></thead>
+          <tbody>
+            {APRIL.map((week) => (
+              <tr>{week.map((d) => (
+                <td class={d && BOOKED.has(d) ? 'is-on' : ''}>{d}</td>
+              ))}</tr>
+            ))}
+          </tbody>
+        </table>
+        <div class="tx-notes">
+          <p class="tx-notes-label">Appointment notes</p>
+          <p>She&rsquo;ll need the usual, bi-weekly clearing of what she&rsquo;s taken on from her Equine Therapy clients, as well as continued PTSD processing and wound healing from pasture injury to left hind.</p>
+        </div>
+        <span class="tx-book">Request sessions</span>
+      </div>
+    </div>
+    <p class="tx-cap">And what she earns comes back to her: Tango books her own care — bi-weekly clearings, wound healing — paid from her own Current-cy, arranged by her steward.</p>
+  </div>
+</div>
+
+<style>
+  .tx {
+    display: flex; justify-content: center; align-items: flex-start;
+    gap: var(--s-7); margin-top: var(--s-8); flex-wrap: wrap;
+  }
+  .tx-col { display: flex; flex-direction: column; align-items: center; flex: 1 1 300px; max-width: 460px; }
+  .tx-mapcard {
+    width: 100%;
+    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg);
+    padding: var(--s-4) var(--s-5);
+  }
+  .tx-eyebrow {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: var(--s-2);
+  }
+  .tx-journey { display: block; width: 100%; height: auto; }
+  .tx-cap { text-align: center; font-size: var(--t-sm); font-style: italic; color: var(--ink-muted); margin-top: var(--s-4); line-height: 1.5; max-width: 380px; }
+
+  .tx-phone {
+    width: 300px; border: 4px solid #1a1a1a; border-radius: 19px;
+    background: var(--bone); overflow: hidden;
+    box-shadow: 0 18px 44px rgba(18, 24, 28, 0.22);
+  }
+  .tx-notch { width: 84px; height: 8px; background: #1a1a1a; border-radius: 0 0 8px 8px; margin: 0 auto; }
+  .tx-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 16px 10px; border-bottom: 1px solid var(--bone-edge);
+  }
+  .tx-avatar {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    border: 1.5px solid var(--peach); background: var(--bone-warm);
+    display: inline-flex; align-items: center; justify-content: center; font-size: 15px;
+  }
+  .tx-title { font-weight: 600; font-size: 14px; color: var(--ink); }
+  .tx-sub { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
+  .tx-body { padding: 12px 14px 16px; }
+  .tx-wallet {
+    display: flex; align-items: baseline; justify-content: space-between;
+    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);
+    padding: 8px 12px;
+  }
+  .tx-wallet-name { font-size: 12px; font-weight: 600; color: var(--ink); }
+  .tx-wallet-bal { font-family: var(--font-display); font-size: 15px; color: var(--peach-deep); }
+  .tx-mon { text-align: center; font-size: 11.5px; font-weight: 600; color: var(--ink); margin-top: 10px; }
+  .tx-cal { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .tx-cal th { font-family: var(--font-mono); font-size: 8px; color: var(--ink-faint); font-weight: 500; padding: 3px 0; }
+  .tx-cal td {
+    text-align: center; font-size: 10px; color: var(--ink-soft);
+    padding: 4px 0; width: 14.28%;
+  }
+  .tx-cal td.is-on {
+    background: var(--peach-tint); color: var(--peach-deep); font-weight: 700;
+    border-radius: 50%;
+  }
+  .tx-notes {
+    margin-top: 10px; background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: var(--r-md); padding: 9px 11px;
+  }
+  .tx-notes-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+  .tx-notes p:last-child { font-size: 10.5px; line-height: 1.45; color: var(--ink-soft); }
+  .tx-book {
+    display: block; margin-top: 12px; text-align: center;
+    background: var(--peach); color: #fff; font-size: 12px; font-weight: 600;
+    padding: 9px 0; border-radius: var(--r-full);
+  }
+</style>
