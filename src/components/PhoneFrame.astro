@@ -8,8 +8,11 @@
 export interface Props {
   initial?: string;          // avatar letter(s); omit for the plain dot
   active?: 'home' | 'concierge' | 'chat' | 'calendar' | 'saved' | 'maps' | 'profile';
+  /** Space pages carry no section mark — the kind's glyph sits beside its
+   *  word under the name instead (founder 2026-08-05). */
+  mark?: boolean;
 }
-const { initial = 'G', active = 'home' } = Astro.props;
+const { initial = 'G', active = 'home', mark = true } = Astro.props;
 const NAV: { key: Props['active']; label: string }[] = [
   { key: 'home', label: 'Home' }, { key: 'concierge', label: 'Concierge' },
   { key: 'chat', label: 'Chat' }, { key: 'calendar', label: 'Calendar' },
@@ -26,9 +29,9 @@ const NAV: { key: Props['active']; label: string }[] = [
     <span class="pf-circ">
       <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </span>
-    <span class="pf-circ pf-mark"><slot name="center">
+    {mark && <span class="pf-circ pf-mark"><slot name="center">
       <svg viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.5-7-9.5A4 4 0 0112 7a4 4 0 017 3.5C19 15.5 12 20 12 20z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-    </slot></span>
+    </slot></span>}
     <span class="pf-gap"></span>
     <span class="pf-avatar">{initial}</span>
     <span class="pf-circ">
