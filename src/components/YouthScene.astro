@@ -20,7 +20,7 @@ const YOUTH_STOPS: Stop[] = [
   { emoji: '🧒', x: 44, y: 48, name: 'a young person', sub: 'curious, still whole', lx: 46, ly: 82, anchor: 'middle' },
   { emoji: '🤲', x: 190, y: 60, name: 'their guardians', sub: 'weave the first web', lx: 212, ly: 56, anchor: 'start' },
   { emoji: '🌱', x: 112, y: 136, name: 'an elder’s hands', sub: 'teaching in person', lx: 92, ly: 132, anchor: 'end' },
-  { emoji: '🎨', x: 268, y: 150, name: 'what they make', sub: 'counted in their own name', sub2: 'earns Current-cy', sub2color: 'var(--peach-deep)', lx: 262, ly: 180, anchor: 'middle' },
+  { emoji: '🎨', x: 268, y: 150, name: 'what they make', sub: 'offered with a guardian’s yes', sub2: 'earns Current-cy', sub2color: 'var(--peach-deep)', lx: 262, ly: 180, anchor: 'middle' },
   { emoji: '🏡', x: 96, y: 214, name: 'the neighborhood', sub: 'their work comes back to it', lx: 96, ly: 244, anchor: 'middle' },
 ];
 ---
@@ -59,6 +59,7 @@ const YOUTH_STOPS: Stop[] = [
         <span class="yth-door"><span class="yth-door-circ"><AppIcon name="graduation-cap" size={13} /></span><em>Learn</em></span>
         <span class="yth-door"><span class="yth-door-circ"><AppIcon name="palette" size={13} /></span><em>Make</em></span>
         <span class="yth-door"><span class="yth-door-circ"><AppIcon name="leaf" size={13} /></span><em>Grow</em></span>
+        <span class="yth-door"><span class="yth-door-circ"><AppIcon name="store" size={13} /></span><em>Market</em></span>
         <span class="yth-door"><span class="yth-door-circ"><AppIcon name="chat" size={13} /></span><em>Chat</em></span>
         <span class="yth-door"><span class="yth-door-circ"><AppIcon name="calendar" size={13} /></span><em>Days</em></span>
       </div>
@@ -70,17 +71,22 @@ const YOUTH_STOPS: Stop[] = [
       </div>
 
       <div class="yth-card yth-card--made">
-        <p class="yth-when">What you made</p>
-        <p class="yth-what">Your seed-paper cards sold out at the Grange</p>
+        <p class="yth-when">Your listing</p>
+        <p class="yth-what">Seed-paper cards &mdash; 12 left</p>
         <p class="yth-earn">
           <span class="yth-bolt"><svg viewBox="0 0 24 24" fill="none"><path d="M13.5 3 6 13.5h4.8L10.5 21 18 10.5h-4.8L13.5 3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
-          18 Current &mdash; yours, in your own name
+          18 Current earned &mdash; yours, in your own name
         </p>
       </div>
 
+      <div class="yth-hold">
+        <p class="yth-hold-line"><strong>Waiting on Melanie</strong> &mdash; Ada would like to buy four. Grown-ups say yes before anything changes hands.</p>
+        <span class="yth-hold-chip">Ask Mom &rarr;</span>
+      </div>
+
       <p class="yth-safe">
-        No marketplace. No strangers. No counts to chase.
-        <em>Your grown-ups can see everything here.</em>
+        Ruby can offer and earn. Buying, selling and meeting need a guardian&rsquo;s yes.
+        <em>No strangers, no counts to chase, and your grown-ups see everything here.</em>
       </p>
     </div>
   </PhoneFrame>
@@ -92,9 +98,9 @@ const YOUTH_STOPS: Stop[] = [
   </Fragment>
   <Fragment slot="capphone">
     A young person&rsquo;s Lichen is making and learning, not a feed: a web their guardians
-    weave, elders who teach in person, and contributions counted in their own name. No
-    marketplace, no strangers, nothing to perform for — and everything visible to the
-    grown-ups who hold them.
+    weave, elders who teach in person, and real earnings counted in their own name. They can
+    offer what they make — and a guardian&rsquo;s yes stands between them and every purchase,
+    sale and meeting.
   </Fragment>
 </ScenePair>
 
@@ -137,6 +143,17 @@ const YOUTH_STOPS: Stop[] = [
   }
   .yth-bolt { display: inline-flex; }
   .yth-bolt svg { width: 12px; height: 12px; }
+  .yth-hold {
+    margin-top: 8px; background: var(--bone-warm); border: 1px solid var(--peach);
+    border-radius: var(--r-md); padding: 8px 10px;
+  }
+  .yth-hold-line { font-size: 10px; line-height: 1.4; color: var(--ink-soft); }
+  .yth-hold-line strong { color: var(--ink); font-weight: 600; }
+  .yth-hold-chip {
+    display: inline-block; margin-top: 5px; font-size: 9px; font-weight: 600;
+    color: var(--peach-deep); border: 1px solid var(--peach); border-radius: var(--r-full);
+    padding: 2px 8px;
+  }
   .yth-safe {
     margin-top: 10px; font-size: 9px; line-height: 1.5; color: var(--ink-muted);
     border-top: 1px solid var(--bone-edge-soft); padding-top: 7px;
