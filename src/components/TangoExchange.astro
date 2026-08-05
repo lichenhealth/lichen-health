@@ -64,7 +64,7 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
         <span class="tx-avatar" aria-hidden="true">🐴</span>
         <div>
           <p class="tx-title">Equine Energy Healing</p>
-          <p class="tx-sub">with Rick Smith · bookable session</p>
+          <p class="tx-sub">with <span class="tx-link">Rick Smith</span></p>
         </div>
       </div>
       <div class="tx-body">
@@ -96,7 +96,7 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
             <span class="tx-msg-reply">Reply to Elizabeth in Chat &rarr;</span>
           </div>
         </div>
-        <span class="tx-book">Request sessions</span>
+        <span class="tx-book">Book session</span>
       </div>
     </PhoneFrame>
     <p class="tx-cap">And what she earns comes back to her: Elizabeth&rsquo;s note arrives in Chat, the sessions land on Tango&rsquo;s calendar, and her own Current-cy pays for the care — one platform carrying the conversation, the schedule and the exchange.</p>
@@ -123,7 +123,7 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
 
   .tx-head {
     display: flex; align-items: center; gap: 10px;
-    padding: 4px 16px 10px; border-bottom: 1px solid var(--bone-edge);
+    padding: 10px 16px 12px; border-bottom: 1px solid var(--bone-edge);
   }
   .tx-avatar {
     width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
@@ -132,10 +132,11 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
   }
   .tx-title { font-weight: 600; font-size: 14px; color: var(--ink); }
   .tx-sub { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
-  .tx-body { padding: 8px 12px 12px; }
+  .tx-link { color: var(--peach-deep); font-weight: 600; }
+  .tx-body { padding: 10px 12px 12px; }
   .tx-photos { display: flex; gap: 6px; }
   .tx-photos img {
-    display: block; width: calc(50% - 3px); height: 76px; object-fit: cover;
+    display: block; width: calc(50% - 3px); height: 64px; object-fit: cover;
     border-radius: var(--r-md);
   }
   .tx-wallet {

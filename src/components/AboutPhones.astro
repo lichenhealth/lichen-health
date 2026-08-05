@@ -54,6 +54,11 @@ import PhoneFrame from './PhoneFrame.astro';
       <p class="ph-space-name">Curanderismo Kapulli 2026</p>
       <p class="ph-space-kind">Group</p>
     </div>
+    <div class="ph-tabs" aria-hidden="true">
+      <span class="ph-tab is-on">All</span>
+      <span class="ph-tab">Social</span>
+      <span class="ph-tab">Actionable</span>
+    </div>
     <div class="ph-doors" aria-hidden="true">
       <span class="ph-door">
         <span class="ph-door-circ"><svg viewBox="28 211 30 30" fill="none" stroke-width="1.88"><path d="M43 241C51.2844 241 58 234.284 58 226C58 217.716 51.2844 211 43 211C34.7157 211 28 217.716 28 226C28 234.284 34.7157 241 43 241Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.8454 230.615C45.0317 230.615 47.6146 228.032 47.6146 224.846C47.6146 221.66 45.0317 219.077 41.8454 219.077C38.6591 219.077 36.0762 221.66 36.0762 224.846C36.0762 228.032 38.6591 230.615 41.8454 230.615Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M49.9229 232.923L45.9307 228.931" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -98,7 +103,6 @@ import PhoneFrame from './PhoneFrame.astro';
       <div class="ph-rows">
         <p class="ph-row"><span class="ph-row-done">✓</span> Weekend 1 — opening the four directions</p>
         <p class="ph-row ph-row--now"><span class="ph-row-play">●</span> Weekend 2 — full recording</p>
-        <p class="ph-row ph-row--dim">Weekend 3 — coming October</p>
       </div>
     </div>
   </PhoneFrame>
@@ -113,21 +117,30 @@ import PhoneFrame from './PhoneFrame.astro';
   }
   .ph-head {
     display: flex; align-items: center; gap: 10px;
-    padding: 4px 16px 10px; border-bottom: 1px solid var(--bone-edge);
+    padding: 10px 16px 12px; border-bottom: 1px solid var(--bone-edge);
   }
   .ph-title { font-weight: 600; font-size: 14px; color: var(--ink); }
   .ph-sub { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
   .ph-body { padding: 12px 12px 16px; }
   /* A space's home screen: avatar, name, kind — no banner behind it. */
-  .ph-space { text-align: center; padding: 6px 14px 8px; }
+  .ph-space { text-align: center; padding: 8px 14px 8px; }
   .ph-space-ava {
-    width: 62px; height: 62px; border-radius: 50%;
+    width: 52px; height: 52px; border-radius: 50%;
     background: #8E7259; color: #fff;
-    font-family: var(--font-display); font-size: 22px;
+    font-family: var(--font-display); font-size: 19px;
     display: inline-flex; align-items: center; justify-content: center;
   }
   .ph-space-name { font-family: var(--font-display); font-size: 15px; color: var(--ink); margin-top: 7px; line-height: 1.2; }
   .ph-space-kind { font-size: 10.5px; color: var(--ink-muted); margin-top: 2px; }
+  /* All | Social | Actionable — the same tabs every feed carries, so you can
+     browse a space at the highest level (founder 2026-08-05). */
+  .ph-tabs { display: flex; gap: 14px; padding: 0 14px 6px; }
+  .ph-tab { position: relative; font-size: 11px; font-weight: 300; color: var(--ink); padding-bottom: 4px; }
+  .ph-tab.is-on { color: var(--peach-deep); font-weight: 600; }
+  .ph-tab.is-on::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+    height: 2px; border-radius: 2px; background: var(--peach);
+  }
   /* The section doors, in the platform's order: search · add · assistant,
      then the hairline, then this space's own rooms. */
   .ph-doors { display: flex; align-items: flex-start; gap: 4px; padding: 0 8px 8px; }
@@ -156,7 +169,7 @@ import PhoneFrame from './PhoneFrame.astro';
   .ph-card--match { border-color: var(--peach); background: var(--peach-tint); }
   .ph-foot { text-align: center; font-family: var(--font-display); font-style: italic; font-size: 11px; color: var(--ink-muted); margin-top: 10px; }
   .ph-video {
-    position: relative; aspect-ratio: 16 / 9; border-radius: var(--r-md);
+    position: relative; height: 130px; border-radius: var(--r-md);
     background: #23201c; display: flex; align-items: center; justify-content: center;
   }
   .ph-play {
@@ -167,14 +180,14 @@ import PhoneFrame from './PhoneFrame.astro';
   .ph-dur { position: absolute; right: 8px; bottom: 6px; font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.85); }
   .ph-lesson { font-size: 12.5px; font-weight: 600; color: var(--ink); margin-top: 8px; }
   .ph-protect {
-    margin-top: 8px; padding: 9px 11px;
+    margin-top: 8px; padding: 8px 11px;
     background: var(--peach-tint); border-left: 3px solid var(--peach);
     border-radius: 0 var(--r-sm) var(--r-sm) 0;
   }
   .ph-protect-line { font-size: 11.5px; color: var(--ink); }
   .ph-protect-line strong { font-weight: 700; }
   .ph-protect-sub { font-size: 10px; color: var(--ink-muted); margin-top: 3px; line-height: 1.4; }
-  .ph-rows { margin-top: 10px; }
+  .ph-rows { margin-top: 8px; }
   .ph-row {
     display: flex; align-items: center; gap: 7px;
     font-size: 11.5px; color: var(--ink-soft);
