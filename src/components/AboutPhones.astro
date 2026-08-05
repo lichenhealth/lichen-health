@@ -6,6 +6,7 @@
 // hairlines) rather than screenshots, so the scenarios can be ideal.
 ---
 <div class="ph-pair">
+  <div class="ph-col">
   <div class="ph">
     <div class="ph-notch" aria-hidden="true"></div>
     <div class="ph-head">
@@ -37,7 +38,10 @@
       <p class="ph-foot">Carbon decides; silicon organizes.</p>
     </div>
   </div>
+  <p class="ph-colcap">The assistant helps you live most fully, organizing your needs digitally so you can spend your time more organically.</p>
+  </div>
 
+  <div class="ph-col">
   <div class="ph">
     <div class="ph-notch" aria-hidden="true"></div>
     <div class="ph-head">
@@ -63,8 +67,9 @@
       </div>
     </div>
   </div>
+  <p class="ph-colcap">A teacher&rsquo;s channeled wisdom is protected as her sacred plant allies have requested — downloads off, recording off, and never read by AI, ever.</p>
+  </div>
 </div>
-<p class="ph-cap">Left: the assistant organizes what&rsquo;s waiting — only in the sections you&rsquo;ve switched on. Right: a teacher&rsquo;s recording, protected — downloads off, recording off, and never read by any AI.</p>
 
 <style>
   .ph-pair {
@@ -127,5 +132,6 @@
   .ph-row-play { color: var(--peach-deep); font-size: 8px; }
   .ph-row--now { color: var(--ink); font-weight: 600; }
   .ph-row--dim { color: var(--ink-faint); }
-  .ph-cap { text-align: center; font-size: var(--t-sm); font-style: italic; color: var(--ink-muted); margin-top: var(--s-4); }
+  .ph-col { display: flex; flex-direction: column; align-items: center; max-width: 320px; }
+  .ph-colcap { text-align: center; font-size: var(--t-sm); font-style: italic; color: var(--ink-muted); margin-top: var(--s-4); line-height: 1.5; }
 </style>
