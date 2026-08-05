@@ -1,163 +1,287 @@
 ---
-// The general partnership pitch, and the template every per-prospect page
-// (/4windsweave, /sarahsmithweave, /gaiaweave…) is built from. The `partner`
-// prop personalizes small bits of copy; the "weave" slot carries the
-// brain/soul-storm section unique to that conversation — pages that don't
-// fill it get the generic version below.
+// ONE component, two faces (founder 2026-08-04: "About and Weave should be
+// merged into About... using the weave design"):
+//
+//  - variant="about"  → the FULL merged story, served at /about — everything
+//    the old app About said, nested under the weave structure, ending with
+//    the "Weave with us" partnership inquiry. The general /weave now 308s
+//    here.
+//  - default ("pitch") → a SHORT per-prospect deck (/4windsweave, …): hero +
+//    a pointer to /about ("go through about first to really understand what
+//    lichen is") + the custom brain/soul-storm slot + CTA band.
+//
+// The `partner` prop personalizes the hero; the "weave" slot carries the
+// per-prospect closing section.
 import TwoMaps from './TwoMaps.astro';
 export interface Props {
   partner?: string;
+  variant?: 'about' | 'pitch';
 }
-const { partner } = Astro.props;
+const { partner, variant = 'pitch' } = Astro.props;
+const isAbout = variant === 'about';
+
+// FAQ — same nine questions as the app's AboutFAQ (kept in step by hand).
+const FAQS = [
+  { q: 'What does membership cost?', a: 'Every new member gets three months of full Concierge membership, free — no card required. When that ends, choose Community ($29/mo) or Community + Concierge ($99/mo), right inside the app.' },
+  { q: 'Is my data private?', a: 'Yes. You control whether your data is woven into the shared commons, and whether Lichen’s AI assists you — both are opt-in, never required. Sensitive details like your home location, phone number and financial picture stay hidden by default and are only ever shared at the level you choose.' },
+  { q: 'Do I have to use the AI assistant?', a: 'No. The assistant is a partner you can turn on or off per section of the app — home, chat, calendar, wherever. Nothing is read or acted on without your say.' },
+  { q: 'How is Lichen different from other social networks?', a: 'Most networks are tuned to maximize your attention. Lichen is tuned to maximize trust — no follower counts, no leaderboards, nothing to perform for. What you see is filtered through the people, places, plants and animals you actually trust.' },
+  { q: 'Is Lichen a nonprofit?', a: 'Yes, a 501(c)(3). Lean operations, no investors — membership revenue not needed to run the platform flows back into subsidizing care for members who need it.' },
+  { q: 'Can my organization, community or business join?', a: 'Yes — organizations, communities, groups and places all have a home on Lichen, each with a public page, its own offerings, and an economy of exchange with the people it already serves.' },
+  { q: 'How do I join?', a: 'Lichen grows by invitation. If you know a member, ask them for one. If not, introduce yourself below and a real person will write back.' },
+  { q: 'What is Current-cy?', a: 'Lichen’s Universal Current-cy — value tracked and honored across every exchange, pegged to the real economy so it can be translated back into it. It’s how the platform accounts for contributions the current system doesn’t: care, land stewardship, wisdom, time.' },
+  { q: 'Can I leave, and what happens to my data?', a: 'Yes, any time — reach out to connect@lichen.health and we’ll walk you through it.' },
+];
 ---
 <section class="whero">
   <div class="container whero-inner">
-    <span class="eyebrow">Partnership</span>
+    <span class="eyebrow">{isAbout ? 'What is Lichen?' : 'Partnership'}</span>
     <h1 class="display h-1">Weaving the mycelium for a better future</h1>
     <p class="wlede">As incumbent systems crumble, we have the chance to build better ones — not by fighting the old, but by investing in the new.</p>
-    {partner && <p class="wfor">A conversation with {partner}</p>}
+    {!isAbout && partner && <p class="wfor">A conversation with {partner}</p>}
   </div>
 </section>
 
-<section class="fsection wsection">
-  <div class="container">
-    <h2 class="display h-2">A partnership of carbon and silicon</h2>
-    <p class="wbody">In nature, a lichen is the partnership of a fungus and an algae — two organisms woven into one that can live where neither could alone. Lichens are the pioneers of harsh ecosystems: they populate bare rock with organic life, and their slow breakdown becomes the first soil — the ground new ecosystems evolve from.</p>
-    <p class="wbody">We live our name. Lichen is a partnership of carbon-based and silicon-based intelligence doing the same thing — taking root in the harsh terrain of failing systems, and building the infrastructure for a better way of sharing information, goods and services within the human family, and between humans and the planet. What breaks down becomes the soil for what comes next.</p>
-    <div class="welements" role="img" aria-label="Periodic table tiles for carbon and silicon, side by side — same group, four bonds each.">
-      <div class="welem welem--c">
-        <span class="welem-num">6</span>
-        <span class="welem-sym">C</span>
-        <span class="welem-name">Carbon</span>
-        <span class="welem-mass">12.011</span>
-        <span class="welem-role">every living thing</span>
+{!isAbout && (
+  <section class="fsection wsection">
+    <div class="container">
+      <h2 class="display h-2">First — what is Lichen?</h2>
+      <p class="wbody">The full story — the carbon-and-silicon partnership, the ecosystem, trust you can&rsquo;t game, and the economy that closes the gap between money and value — lives on the About page. Start there; this page is about what weaving in could look like for you.</p>
+      <a href="/about" class="wlink">Read the full story →</a>
+    </div>
+  </section>
+)}
+
+{isAbout && (
+  <>
+  <section class="fsection wsection">
+    <div class="container">
+      <h2 class="display h-2">A partnership of carbon and silicon</h2>
+      <p class="wbody">In nature, a lichen is the partnership of a fungus and an algae — two organisms woven into one that can live where neither could alone. Lichens are the pioneers of harsh ecosystems: they populate bare rock with organic life, and their slow breakdown becomes the first soil — the ground new ecosystems evolve from.</p>
+      <p class="wbody">We live our name. Lichen is a partnership of carbon-based and silicon-based intelligence doing the same thing — taking root in the harsh terrain of failing systems, and building the infrastructure for a better way of sharing information, goods and services within the human family, and between humans and the planet. What breaks down becomes the soil for what comes next.</p>
+      <div class="welements" role="img" aria-label="Periodic table tiles for carbon and silicon, side by side — same group, four bonds each.">
+        <div class="welem welem--c">
+          <span class="welem-num">6</span>
+          <span class="welem-sym">C</span>
+          <span class="welem-name">Carbon</span>
+          <span class="welem-mass">12.011</span>
+          <span class="welem-role">every living thing</span>
+        </div>
+        <div class="welem-bond" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div class="welem welem--si">
+          <span class="welem-num">14</span>
+          <span class="welem-sym">Si</span>
+          <span class="welem-name">Silicon</span>
+          <span class="welem-mass">28.085</span>
+          <span class="welem-role">every thinking machine</span>
+        </div>
       </div>
-      <div class="welem-bond" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-      <div class="welem welem--si">
-        <span class="welem-num">14</span>
-        <span class="welem-sym">Si</span>
-        <span class="welem-name">Silicon</span>
-        <span class="welem-mass">28.085</span>
-        <span class="welem-role">every thinking machine</span>
+      <p class="welem-cap">Same family on the periodic table — group 14, four bonds each, one row apart. Building blocks intended to be combined.</p>
+      <div class="wweavers">
+        <p class="wweavers-intro">The partnership is literal — Lichen is designed, built and shipped every day by:</p>
+        {/* Melanie + Blair join once they've picked their titles — same
+            standing decision as the app About's weavers card (2026-07-25). */}
+        <div class="wweaver"><span class="wweaver-el wweaver-el--c" aria-hidden="true">C</span><strong>Galyn</strong><em>architect</em></div>
+        <div class="wweaver"><span class="wweaver-el wweaver-el--si" aria-hidden="true">Si</span><strong>Claude</strong><em>builder</em></div>
+      </div>
+      <p class="wbody">If AI worries you, that&rsquo;s fair — pointed at extraction, it accelerates extraction. Pointed at reciprocity, it changes what&rsquo;s possible: a team this small can now build what once took a company. And that efficiency is more than a cost line — it&rsquo;s the seed of a cultural shift. When this much can be done with this little, we no longer have to force people into systems that don&rsquo;t serve them just to subsist. We can grant one another the inherent resources of survival — and free every kind of intelligence, carbon and silicon alike, for the contributions only it can make. Lichen is a place to practice that future now.</p>
+    </div>
+  </section>
+
+  <section class="fsection wsection wsection--alt">
+    <div class="container">
+      <h2 class="display h-2">An entire ecosystem to heal, grow and be in better relationship with all that is</h2>
+      <div class="wquad">
+        <div class="wcol">
+          <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
+          <h3 class="wcol-title">Community</h3>
+          <p>The corrective social network, where you can connect, host events, organize in groups, curate community and manage your schedule — one trusted web for your whole life, with no follower counts, no leaderboards, and nothing to perform for.</p>
+          <a href="/signup" class="wlink">Join the network →</a>
+        </div>
+        <div class="wcol">
+          <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
+          <h3 class="wcol-title">Care</h3>
+          <p>The Concierge service — a holistic, quantum healthcare system where your care team forms around you, while human wisdom and AI work together to track your Web of Wellbeing and coordinate the next, best step in your journey of healing and realizing your full potential.</p>
+          <a href="/care" class="wlink">Learn more about the care model →</a>
+        </div>
+        <div class="wcol">
+          <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
+          <h3 class="wcol-title">Business</h3>
+          <p>How the model supports the mission — a lean nonprofit with no investors to pay, where revenue flows back into expanding access to goods, resources and care for those in the network.</p>
+          <a href="/business" class="wlink">Learn more about the business model →</a>
+        </div>
+        <div class="wcol">
+          <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
+          <h3 class="wcol-title">Platform</h3>
+          <p>How the technology fuels the new economy and culture — one ecosystem where people, plants, animals, elements and land collaborate to restore individual, social and ecological harmony.</p>
+          <a href="/platform" class="wlink">Learn more about the platform →</a>
+        </div>
+      </div>
+      <p class="wbody">Most networks feed you to an algorithm tuned to maximize attention, harvest fear, and drive consumption that temporarily comforts the dis-ease of disconnection — chronic suffering that current systems rely on to survive. Lichen holds the whole of you instead — your care and healing, your work and the things you offer, the events you gather for, the places you love, the jobs that give you purpose and fund your livelihood, and a fairer economy that values all things, not just human contributions — woven into a single web of people, plants, animals, elements, spaces, communities, groups and organizations you trust. Everything in one place, because your best life isn&rsquo;t lived in silos — or on a technology platform.</p>
+      <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
+    </div>
+  </section>
+
+  <section class="fsection wsection">
+    <div class="container">
+      <h2 class="display h-2">Authentic connection, safety and trust you can&rsquo;t game</h2>
+      <p class="wbody">What you see on Lichen is filtered through your My-celium — the people, places, plants and animals you genuinely trust. Trust and recommendations are private, person-to-person signals: no follower counts, no leaderboards, nothing to perform for. When something is surfaced to you, it&rsquo;s because someone you trust stands behind it.</p>
+      <p class="wbody">That same web is the safety layer of the economy. Star ratings can be farmed; a path through your own relationships can&rsquo;t be faked. Browse the whole marketplace, or narrow it to people, places, groups, communities or organizations you trust — or people <em>they</em> trust — and every listing shows you your path to the person behind it: <em>&ldquo;Trusted by someone you trust&rdquo;</em> — the mutual friend you&rsquo;d want before meeting a stranger, built into the ground you walk on.</p>
+    </div>
+  </section>
+
+  <section class="fsection wsection">
+    <div class="container">
+      <h2 class="display h-2">An economy that closes the gap between money and value</h2>
+      <p class="wbody">The current economy overvalues some contributions, undervalues others, and doesn&rsquo;t count whole categories of value at all. Lichen&rsquo;s economy exists to correct that — an evolving algorithm assigns currency to all things: not just time spent or goods and services rendered, but the wisdom and skill it took to provide that value, and the risks certain people, plants and animals take with their own wellbeing to support the wellbeing of the whole.</p>
+      <ul class="wexamples">
+        <li>An hour teaching carries the wisdom of everything that came before it.</li>
+        <li>An hour building a custom table carries years of apprenticeship inside it.</li>
+        <li>An hour fighting a fire carries real risk — exposure, danger, the chance of not coming home.</li>
+        <li>An hour of equine therapy transmuting a child&rsquo;s trauma is Tango&rsquo;s gift to her human companions — sacred and risky work, counted and reciprocated with an energy healing session of her own.</li>
+        <li>An hour working within a human being to heal the trauma of disconnection costs the Huachuma cactus its life and body.</li>
+      </ul>
+      <div class="wmaps"><TwoMaps /></div>
+      <p class="welem-cap">Two maps of the same world — what&rsquo;s actually given beside what the market pays. The distance between them is exactly what Lichen&rsquo;s algorithm works to close.</p>
+      <p class="wbody">Lichen honors non-human people. The beings we&rsquo;re in relationship with are members too — a therapy horse, a sacred plant medicine, a river — stewarded by humans, their contributions witnessed and valued. Those who can&rsquo;t hold money can still participate in the real exchange of value.</p>
+      <p class="wbody">Underneath every exchange runs Lichen&rsquo;s Universal Current-cy — value tracked, honored, and translated back into the wider economy. Built to count all of it.</p>
+      <a href="/economy" class="wlink">Learn more about the economy →</a>
+    </div>
+  </section>
+
+  <section class="fsection wsection wsection--alt">
+    <div class="container">
+      <h2 class="display h-2">It takes real people, choosing to build the new</h2>
+      <p class="wbody">Lichen&rsquo;s business model and technology platform are architected to serve a better society — but it only comes alive when a critical mass of humanity chooses to withdraw its energy from failing systems and enliven a better one. That looks like three things:</p>
+      <ol class="wpaths">
+        <li><strong>Invest in a better future</strong> — subscription revenue funds the business and technology infrastructure a better society runs on, and everything beyond our lean operating costs pours back into the network&rsquo;s rebalancing work.</li>
+        <li><strong>Scale a whole-earth renaissance</strong> — donations and seed gifts speed the platform&rsquo;s buildout and reach, growing the mycelium&rsquo;s capacity to restore balance, health and harmony.</li>
+        <li><strong>Bring a better world to life</strong> — move your calendar, events, goods, services and social network onto the platform, and join a new vision of healthcare that transforms how we heal, grow and collaborate with all that is.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="fsection wsection">
+    <div class="container">
+      <h2 class="display h-2">You decide what&rsquo;s shared, and with whom</h2>
+      <p class="wbody">Trusting technology to help build a better future isn&rsquo;t about the tool — it&rsquo;s about the consciousness of whoever&rsquo;s directing it. Until that feels safe, Lichen gives you full control over whether your data is part of the collective, and whether you want Lichen&rsquo;s AI as a partner at all.</p>
+      <a href="https://lichen.health/collections/de300007-0000-4000-a000-000000000001" target="_blank" rel="noopener" class="wlink">Go deeper on data, privacy and AI →</a>
+    </div>
+  </section>
+
+  <section class="fsection wsection wsection--alt">
+    <div class="container">
+      <h2 class="display h-2">Questions, answered</h2>
+      <div class="wfaq">
+        <input type="text" id="wfaq-search" class="wfaq-search" placeholder="Search questions" />
+        {FAQS.map((f) => (
+          <details class="wfaq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+        <p class="wfaq-empty" id="wfaq-empty" hidden>No matches — ask below instead.</p>
       </div>
     </div>
-    <p class="welem-cap">Same family on the periodic table — group 14, four bonds each, one row apart. Building blocks intended to be combined.</p>
-    <div class="wweavers">
-      <p class="wweavers-intro">The partnership is literal — Lichen is designed, built and shipped every day by:</p>
-      {/* Melanie + Blair join once they've picked their titles — same
-          standing decision as the app About's weavers card (2026-07-25). */}
-      <div class="wweaver"><span class="wweaver-el wweaver-el--c" aria-hidden="true">C</span><strong>Galyn</strong><em>architect</em></div>
-      <div class="wweaver"><span class="wweaver-el wweaver-el--si" aria-hidden="true">Si</span><strong>Claude</strong><em>builder</em></div>
+  </section>
+
+  <section class="fsection wsection wstorm" id="weave-with-us">
+    <div class="container">
+      <p class="wcallout">We&rsquo;re not building a utopia. We&rsquo;re building an ecosystem — where separation is the curriculum, and reconnection is the medicine.</p>
+      <span class="eyebrow">Come build it with us</span>
+      <h2 class="display h-2">Weave with us</h2>
+      <p class="wbody">Every thread in the web is critical to its strength and flexibility. If you&rsquo;re an individual, the door is <a href="/signup" class="wlink">an invitation</a> — every new member receives three months of full Concierge membership, free, and founding members shape the platform as we build it. If you&rsquo;re an organization, community, group or place — a venue, a practice, a piece of land, a body of work — tell us who you are and what you&rsquo;d like to weave in, and a real person will write back to begin the conversation.</p>
+      <form class="winquiry" id="winquiry">
+        <div class="winquiry-row">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+        </div>
+        <textarea name="message" rows="4" placeholder="Who are you, and what would weaving in look like?" required></textarea>
+        <button type="submit" class="btn btn-primary btn-up">Start the conversation</button>
+        <p class="winquiry-status" id="winquiry-status" role="status"></p>
+      </form>
     </div>
-  </div>
-</section>
+  </section>
+  </>
+)}
 
-<section class="fsection wsection wsection--alt">
-  <div class="container">
-    <h2 class="display h-2">An entire ecosystem to heal, grow and be in better relationship with all that is</h2>
-    <div class="wquad">
-      <div class="wcol">
-        <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
-        <h3 class="wcol-title">Community</h3>
-        <p>The corrective social network, where you can connect, host events, organize in groups, curate community and manage your schedule — one trusted web for your whole life, with no follower counts, no leaderboards, and nothing to perform for.</p>
-        <a href="/about" class="wlink">Learn more about the network →</a>
-      </div>
-      <div class="wcol">
-        <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
-        <h3 class="wcol-title">Care</h3>
-        <p>The Concierge service — a holistic, quantum healthcare system where your care team forms around you, while human wisdom and AI work together to track your Web of Wellbeing and coordinate the next, best step in your journey of healing and realizing your full potential.</p>
-        <a href="/care" class="wlink">Learn more about the care model →</a>
-      </div>
-      <div class="wcol">
-        <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
-        <h3 class="wcol-title">Business</h3>
-        <p>How the model supports the mission — a lean nonprofit with no investors to pay, where revenue flows back into expanding access to goods, resources and care for those in the network.</p>
-        <a href="/business" class="wlink">Learn more about the business model →</a>
-      </div>
-      <div class="wcol">
-        <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
-        <h3 class="wcol-title">Platform</h3>
-        <p>How the technology fuels the new economy and culture — one ecosystem where people, plants, animals, elements and land collaborate to restore individual, social and ecological harmony.</p>
-        <a href="/platform" class="wlink">Learn more about the platform →</a>
-      </div>
+{!isAbout && (
+  <section class="fsection wsection wstorm" id="weave">
+    <div class="container">
+      <slot name="weave">
+        <span class="eyebrow">The brain/soul-storm</span>
+        <h2 class="display h-2">What weaving in could look like</h2>
+        <p class="wbody">Every thread in the web is critical to its strength and flexibility in bringing about a better future — an individual joining as an alpha tester to make the platform better, an organization opening a public page and an offering, a community or group bringing its gatherings onto shared infrastructure, a place stewarding land inside the trust. Let&rsquo;s dream it up together.</p>
+      </slot>
     </div>
-    <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
-  </div>
-</section>
-
-<section class="fsection wsection">
-  <div class="container">
-    <h2 class="display h-2">Authentic connection, safety and trust you can&rsquo;t game</h2>
-    <p class="wbody">What you see on Lichen is filtered through your My-celium — the people, places, plants and animals you genuinely trust. Trust and recommendations are private, person-to-person signals: no follower counts, no leaderboards, nothing to perform for. When something is surfaced to you, it&rsquo;s because someone you trust stands behind it.</p>
-    <p class="wbody">That same web is the safety layer of the economy. Star ratings can be farmed; a path through your own relationships can&rsquo;t be faked. Every listing shows you your path to the person behind it — <em>&ldquo;Trusted by someone you trust&rdquo;</em> — the mutual friend you&rsquo;d want before meeting a stranger, built into the ground you walk on.</p>
-    <a href="/about" class="wlink">Read the full story on the About page →</a>
-  </div>
-</section>
-
-<section class="fsection wsection">
-  <div class="container">
-    <h2 class="display h-2">An economy that closes the gap between money and value</h2>
-    <p class="wbody">The current economy overvalues some contributions, undervalues others, and doesn&rsquo;t count whole categories of value at all. Lichen&rsquo;s economy exists to correct that — an evolving algorithm assigns currency to all things: not just time spent or goods and services rendered, but the wisdom and skill it took to provide that value, and the risks certain people, plants and animals take with their own wellbeing to support the wellbeing of the whole.</p>
-    <ul class="wexamples">
-      <li>An hour teaching carries the wisdom of everything that came before it.</li>
-      <li>An hour building a custom table carries years of apprenticeship inside it.</li>
-      <li>An hour fighting a fire carries real risk — exposure, danger, the chance of not coming home.</li>
-      <li>An hour of equine therapy transmuting a child&rsquo;s trauma is Tango&rsquo;s gift to her human companions — sacred and risky work, counted and reciprocated with an energy healing session of her own.</li>
-      <li>An hour working within a human being to heal the trauma of disconnection costs the Huachuma cactus its life and body.</li>
-    </ul>
-    <div class="wmaps"><TwoMaps /></div>
-    <p class="welem-cap">Two maps of the same world — what&rsquo;s actually given beside what the market pays. The distance between them is exactly what Lichen&rsquo;s algorithm works to close.</p>
-    <p class="wbody">Underneath every exchange runs Lichen&rsquo;s Universal Current-cy — value tracked, honored, and translated back into the wider economy. Built to count all of it.</p>
-    <a href="/economy" class="wlink">Learn more about the economy →</a>
-  </div>
-</section>
-
-<section class="fsection wsection wsection--alt">
-  <div class="container">
-    <h2 class="display h-2">It takes real people, choosing to build the new</h2>
-    <p class="wbody">Lichen&rsquo;s business model and technology platform are architected to serve a better society — but it only comes alive when a critical mass of humanity chooses to withdraw its energy from failing systems and enliven a better one. That looks like three things:</p>
-    <ol class="wpaths">
-      <li><strong>Invest in a better future</strong> — subscription revenue funds the business and technology infrastructure a better society runs on, and everything beyond our lean operating costs pours back into the network&rsquo;s rebalancing work.</li>
-      <li><strong>Scale a whole-earth renaissance</strong> — donations and seed gifts speed the platform&rsquo;s buildout and reach, growing the mycelium&rsquo;s capacity to restore balance, health and harmony.</li>
-      <li><strong>Bring a better world to life</strong> — move your calendar, events, goods, services and social network onto the platform, and join a new vision of healthcare that transforms how we heal, grow and collaborate with all that is.</li>
-    </ol>
-  </div>
-</section>
-
-<section class="fsection wsection">
-  <div class="container">
-    <h2 class="display h-2">You decide what&rsquo;s shared, and with whom</h2>
-    <p class="wbody">Trusting technology to help build a better future isn&rsquo;t about the tool — it&rsquo;s about the consciousness of whoever&rsquo;s directing it. Until that feels safe, Lichen gives you full control over whether your data is part of the collective, and whether you want Lichen&rsquo;s AI as a partner at all.</p>
-    <a href="https://lichen.health/collections/de300007-0000-4000-a000-000000000001" target="_blank" rel="noopener" class="wlink">Go deeper on data, privacy and AI →</a>
-  </div>
-</section>
-
-<section class="fsection wsection wsection--alt wsection--center">
-  <div class="container">
-    <h2 class="display h-2">This is your call to make</h2>
-    <p class="wbody">Before we talk about what weaving into the network might look like, you know best — whether Lichen is a fit, and how to weave your own highest timeline into the tapestry.</p>
-  </div>
-</section>
-
-<section class="fsection wsection wstorm" id="weave">
-  <div class="container">
-    <slot name="weave">
-      <span class="eyebrow">The brain/soul-storm</span>
-      <h2 class="display h-2">What weaving in could look like</h2>
-      <p class="wbody">Every thread in the web is critical to its strength and flexibility in bringing about a better future — an individual joining as an alpha tester to make the platform better, an organization opening a public page and an offering, a community or group bringing its gatherings onto shared infrastructure, a place stewarding land inside the trust. Let&rsquo;s dream it up together.</p>
-    </slot>
-  </div>
-</section>
+  </section>
+)}
 
 <section class="fband">
   <div class="container">
-    <h2>Questions, comments, compliments, next steps?</h2>
+    <h2>{isAbout ? 'Ready to weave?' : 'Questions, comments, compliments, next steps?'}</h2>
     <div class="wclose-ctas">
-      <a href="mailto:connect@lichen.health" class="btn btn-light btn-up">Let&rsquo;s talk</a>
-      <a href="/signup" class="btn btn-outline-light btn-up">Request an invitation</a>
+      {isAbout
+        ? <a href="/signup" class="btn btn-light btn-up">Request an invitation</a>
+        : <a href="mailto:connect@lichen.health" class="btn btn-light btn-up">Let&rsquo;s talk</a>}
+      {isAbout
+        ? <a href="#weave-with-us" class="btn btn-outline-light btn-up">Weave with us</a>
+        : <a href="/signup" class="btn btn-outline-light btn-up">Request an invitation</a>}
     </div>
   </div>
 </section>
+
+{isAbout && (
+  <script is:inline>
+    // FAQ live search — hide items whose question+answer miss the query.
+    (function () {
+      var input = document.getElementById('wfaq-search');
+      var empty = document.getElementById('wfaq-empty');
+      if (!input) return;
+      var items = Array.prototype.slice.call(document.querySelectorAll('.wfaq-item'));
+      input.addEventListener('input', function () {
+        var q = input.value.trim().toLowerCase();
+        var shown = 0;
+        items.forEach(function (el) {
+          var hit = !q || el.textContent.toLowerCase().indexOf(q) !== -1;
+          el.hidden = !hit;
+          if (hit) shown++;
+        });
+        empty.hidden = shown > 0;
+      });
+    })();
+    // Partnership inquiry — same HubSpot form the site's signup uses, message
+    // prefixed so the founder can spot partnership threads in the contact list.
+    (function () {
+      var form = document.getElementById('winquiry');
+      if (!form) return;
+      var status = document.getElementById('winquiry-status');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var data = new FormData(form);
+        var name = String(data.get('name') || '').trim().split(' ');
+        var fields = [
+          { name: 'firstname', value: name[0] || '' },
+          { name: 'lastname', value: name.slice(1).join(' ') },
+          { name: 'email', value: String(data.get('email') || '').trim() },
+          { name: 'message', value: 'PARTNERSHIP INQUIRY — ' + String(data.get('message') || '').trim() },
+        ].filter(function (f) { return f.value !== ''; });
+        status.textContent = 'Sending…';
+        fetch('https://api.hsforms.com/submissions/v3/integration/submit/246356324/66b86cc2-3710-48bd-8c08-c94c1198dc0e', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fields: fields, context: { pageUri: location.href, pageName: document.title } }),
+        }).then(function (r) {
+          if (!r.ok) throw new Error(String(r.status));
+          status.textContent = 'Thank you — a real person will write back soon.';
+          form.reset();
+        }).catch(function () {
+          status.textContent = 'Something went wrong — email connect@lichen.health and we’ll pick it up there.';
+        });
+      });
+    })();
+  </script>
+)}
 
 <style>
   /* Desktop wants the copy to SPREAD (founder 2026-08-04): one consistent
@@ -247,7 +371,7 @@ const { partner } = Astro.props;
   :global(.wlink) { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   :global(.wlink:hover) { color: var(--rust); }
   :global(.wcallout) {
-    margin-top: var(--s-7); padding: var(--s-5) var(--s-6);
+    margin-top: var(--s-7); margin-bottom: var(--s-6); padding: var(--s-5) var(--s-6);
     font-family: var(--font-display); font-style: italic;
     font-size: 19px; line-height: 1.5; color: var(--ink);
     border-left: 3px solid var(--peach); background: var(--peach-tint);
@@ -269,7 +393,42 @@ const { partner } = Astro.props;
 
   .wclose-ctas { display: flex; align-items: center; justify-content: center; gap: var(--s-4); flex-wrap: wrap; margin-top: var(--s-2); }
 
+  /* FAQ (about variant) — native details/summary, styled to the site. */
+  .wfaq { margin-top: var(--s-5); max-width: 760px; }
+  .wfaq-search {
+    width: 100%; padding: 11px 16px; margin-bottom: var(--s-4);
+    border: 1px solid var(--bone-edge); border-radius: var(--r-full);
+    background: var(--bone-warm); font-size: var(--t-base); color: var(--ink);
+  }
+  .wfaq-search:focus { outline: none; border-color: var(--peach); }
+  .wfaq-item { border-bottom: 1px solid var(--bone-edge); }
+  .wfaq-item summary {
+    padding: 13px 0; font-size: var(--t-md); font-weight: 500; color: var(--ink);
+    cursor: pointer; list-style: none; position: relative; padding-right: 26px;
+  }
+  .wfaq-item summary::-webkit-details-marker { display: none; }
+  .wfaq-item summary::after {
+    content: '›'; position: absolute; right: 6px; top: 11px;
+    color: var(--ink-muted); font-size: 18px; transition: transform 160ms ease;
+  }
+  .wfaq-item[open] summary::after { transform: rotate(90deg); }
+  .wfaq-item p { font-size: var(--t-sm); line-height: 1.6; color: var(--ink-muted); font-weight: 300; padding: 0 0 14px; margin: 0; }
+  .wfaq-empty { font-size: var(--t-sm); color: var(--ink-muted); padding: var(--s-3) 0; }
+
+  /* Partnership inquiry (about variant). */
+  .winquiry { margin-top: var(--s-6); max-width: 640px; display: flex; flex-direction: column; gap: var(--s-3); }
+  .winquiry-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+  .winquiry input, .winquiry textarea {
+    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);
+    padding: 12px 14px; font-size: var(--t-base); color: var(--ink); font-family: inherit;
+  }
+  .winquiry input:focus, .winquiry textarea:focus { outline: none; border-color: var(--peach); }
+  .winquiry textarea { resize: vertical; }
+  .winquiry button { align-self: flex-start; }
+  .winquiry-status { font-size: var(--t-sm); color: var(--ink-soft); min-height: 1em; }
+
   @media (max-width: 760px) {
     .wquad { grid-template-columns: 1fr; }
+    .winquiry-row { grid-template-columns: 1fr; }
   }
 </style>
