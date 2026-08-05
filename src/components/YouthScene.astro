@@ -1,0 +1,145 @@
+---
+// Young people still becoming — the fourth group, and the one the current
+// economy reaches last (founder 2026-08-05). The map beside a child's actual
+// home screen: what the platform is when the member is eleven.
+//
+// The design answers a real question — what does a young person get? — with
+// the platform's own doctrine: a web woven by their guardians, making and
+// learning instead of a feed, no marketplace and no money, no counts to
+// perform for. Their contributions are still counted in their own name.
+import PhoneFrame from './PhoneFrame.astro';
+import AppIcon from './AppIcon.astro';
+import ScenePair from './ScenePair.astro';
+const PLANTS = '#98BE4D';
+interface Stop {
+  emoji: string; x: number; y: number;
+  name: string; sub: string; sub2?: string; sub2color?: string;
+  lx: number; ly: number; anchor: 'start' | 'end' | 'middle';
+}
+const YOUTH_STOPS: Stop[] = [
+  { emoji: '🧒', x: 44, y: 48, name: 'a young person', sub: 'curious, still whole', lx: 46, ly: 82, anchor: 'middle' },
+  { emoji: '🤲', x: 190, y: 60, name: 'their guardians', sub: 'weave the first web', lx: 212, ly: 56, anchor: 'start' },
+  { emoji: '🌱', x: 112, y: 136, name: 'an elder’s hands', sub: 'teaching in person', lx: 92, ly: 132, anchor: 'end' },
+  { emoji: '🎨', x: 268, y: 150, name: 'what they make', sub: 'counted in their own name', sub2: 'earns Current-cy', sub2color: 'var(--peach-deep)', lx: 262, ly: 180, anchor: 'middle' },
+  { emoji: '🏡', x: 96, y: 214, name: 'the neighborhood', sub: 'their work comes back to it', lx: 96, ly: 244, anchor: 'middle' },
+];
+---
+<ScenePair eyebrow="Young people still becoming · Ruby's first web">
+  <svg slot="map" viewBox="0 0 340 262" role="img"
+    aria-label="A map route: a young person, curious and still whole; their guardians weave the first web; an elder teaches seed-starting in person; what the child makes is counted in their own name and earns Current-cy; their work returns to the neighborhood.">
+    <path d="M-10,104 q45,-12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
+    <path d="M-10,180 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
+    <path d="M44,48 C92,20 148,34 190,60 C222,82 152,110 112,136 C82,156 200,140 268,150"
+      fill="none" stroke="var(--peach)" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" />
+    <path d="M252,164 C200,196 150,208 112,212"
+      fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
+    <text x="150" y="24" font-size="11" text-anchor="middle">✨</text>
+    {YOUTH_STOPS.map((s) => (
+      <g>
+        <circle cx={s.x} cy={s.y} r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+        <text x={s.x} y={s.y + 5} font-size="14" text-anchor="middle">{s.emoji}</text>
+        <text x={s.lx} y={s.ly} font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor={s.anchor}>{s.name}</text>
+        <text x={s.lx} y={s.ly + 12} font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor={s.anchor}>{s.sub}</text>
+        {s.sub2 && <text x={s.lx} y={s.ly + 24} font-size="9" font-style="italic" fill={s.sub2color} text-anchor={s.anchor}>{s.sub2}</text>}
+      </g>
+    ))}
+  </svg>
+
+  <PhoneFrame slot="phone" initial="R" active="home" mark={false}>
+    <div class="yth">
+      <div class="yth-id">
+        <span class="yth-ava">R</span>
+        <div>
+          <p class="yth-name">Ruby &middot; 11</p>
+          <p class="yth-guard">Woven by <span class="yth-ref">Melanie</span> &amp; <span class="yth-ref">Tom</span></p>
+        </div>
+      </div>
+
+      <div class="yth-doors" aria-hidden="true">
+        <span class="yth-door"><span class="yth-door-circ"><AppIcon name="graduation-cap" size={13} /></span><em>Learn</em></span>
+        <span class="yth-door"><span class="yth-door-circ"><AppIcon name="palette" size={13} /></span><em>Make</em></span>
+        <span class="yth-door"><span class="yth-door-circ"><AppIcon name="leaf" size={13} /></span><em>Grow</em></span>
+        <span class="yth-door"><span class="yth-door-circ"><AppIcon name="chat" size={13} /></span><em>Chat</em></span>
+        <span class="yth-door"><span class="yth-door-circ"><AppIcon name="calendar" size={13} /></span><em>Days</em></span>
+      </div>
+
+      <div class="yth-card">
+        <p class="yth-when">Saturday morning</p>
+        <p class="yth-what">Seed starting with <span class="yth-ref">Pine Valley Grange</span></p>
+        <p class="yth-who">Ada is teaching &middot; Mom is going too</p>
+      </div>
+
+      <div class="yth-card yth-card--made">
+        <p class="yth-when">What you made</p>
+        <p class="yth-what">Your seed-paper cards sold out at the Grange</p>
+        <p class="yth-earn">
+          <span class="yth-bolt"><svg viewBox="0 0 24 24" fill="none"><path d="M13.5 3 6 13.5h4.8L10.5 21 18 10.5h-4.8L13.5 3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+          18 Current &mdash; yours, in your own name
+        </p>
+      </div>
+
+      <p class="yth-safe">
+        No marketplace. No strangers. No counts to chase.
+        <em>Your grown-ups can see everything here.</em>
+      </p>
+    </div>
+  </PhoneFrame>
+
+  <Fragment slot="capmap">
+    Children arrive whole. The current economy spends years trading their joy and curiosity
+    for compliance — this is the group it reaches last and costs the most. Reaching them
+    early is the cheapest repair there is.
+  </Fragment>
+  <Fragment slot="capphone">
+    A young person&rsquo;s Lichen is making and learning, not a feed: a web their guardians
+    weave, elders who teach in person, and contributions counted in their own name. No
+    marketplace, no strangers, nothing to perform for — and everything visible to the
+    grown-ups who hold them.
+  </Fragment>
+</ScenePair>
+
+<style>
+  .yth { padding: 10px 12px 12px; }
+  .yth-id { display: flex; align-items: center; gap: 9px; }
+  .yth-ava {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    background: #98BE4D; color: #fff; font-family: var(--font-display); font-size: 15px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .yth-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .yth-guard { font-size: 9.5px; color: var(--ink-muted); margin-top: 1px; }
+  .yth-ref { color: var(--peach-deep); font-weight: 600; }
+  .yth-doors { display: flex; gap: 4px; margin-top: 10px; }
+  .yth-door { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 1; }
+  .yth-door-circ {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 1px solid var(--bone-edge); background: var(--bone-warm); color: var(--ink-soft);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .yth-door em {
+    font-style: normal; font-family: var(--font-mono); font-size: 5.5px;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted);
+  }
+  .yth-card {
+    margin-top: 9px; background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: var(--r-md); padding: 8px 10px;
+  }
+  .yth-when {
+    font-family: var(--font-mono); font-size: 7.5px; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .yth-what { font-size: 11px; font-weight: 600; color: var(--ink); margin-top: 2px; line-height: 1.3; }
+  .yth-who { font-size: 9.5px; color: var(--ink-muted); margin-top: 2px; }
+  .yth-card--made { border-color: #98BE4D; background: color-mix(in srgb, #98BE4D 10%, transparent); }
+  .yth-earn {
+    display: flex; align-items: center; gap: 4px; margin-top: 5px;
+    font-family: var(--font-display); font-size: 12px; color: var(--peach-deep);
+  }
+  .yth-bolt { display: inline-flex; }
+  .yth-bolt svg { width: 12px; height: 12px; }
+  .yth-safe {
+    margin-top: 10px; font-size: 9px; line-height: 1.5; color: var(--ink-muted);
+    border-top: 1px solid var(--bone-edge-soft); padding-top: 7px;
+  }
+  .yth-safe em { display: block; font-style: italic; color: var(--ink-faint); margin-top: 2px; }
+</style>

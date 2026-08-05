@@ -1,0 +1,160 @@
+---
+// Chronically undervalued — the firefighters' retreat. The map beside the
+// find-a-time that made it possible: one shared window across a whole
+// station's rotations (founder 2026-08-05).
+import PhoneFrame from './PhoneFrame.astro';
+import AppIcon from './AppIcon.astro';
+import ScenePair from './ScenePair.astro';
+const PLANTS = '#98BE4D';
+// Mon–Wed is broken up across the rotations; Thu–Sun is the one stretch all
+// four share — the grid has to actually SHOW what the caption claims.
+const CREW = [
+  { who: 'Engine 12 · A shift', busy: [0, 1] },
+  { who: 'Engine 12 · B shift', busy: [1, 2] },
+  { who: 'Ladder 4', busy: [0, 2] },
+  { who: 'Medics', busy: [0, 1, 2] },
+];
+const DAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+---
+<ScenePair eyebrow="Chronically undervalued · the firefighters' retreat">
+  <svg slot="map" viewBox="0 0 340 320" role="img"
+      aria-label="A map route: first responders — risk taken, vicarious trauma carried; the assistant weaves their shift rotations into a shared window; a community healing center offers a retreat close by; the healers arrive free to heal, coordination lifted, working with Huachuma medicine; a donor's large gift funds the services and the commons carries the rest; the medicine's own value flows onward to the Huachuma Foundation, which preserves and re-plants the cacti in Peru.">
+      <path d="M-10,116 q45,-8 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
+      <path d="M-10,178 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
+      <path d="M44,48 C92,20 148,36 200,64 C226,88 152,112 110,140 C78,162 190,168 256,204"
+        fill="none" stroke="var(--peach)" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" />
+      <path d="M280,153 C288,172 272,186 262,192"
+        fill="none" stroke="#D9A441" stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.9" />
+      <path d="M240,204 C210,200 186,206 178,214 C172,220 170,226 170,232"
+        fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.9" />
+      <path d="M160,244 C132,240 100,246 80,258"
+        fill="none" stroke={PLANTS} stroke-width="1.4" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.8" />
+      <circle cx="44" cy="48" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+      <text x="44" y="53" font-size="14" text-anchor="middle">🚒</text>
+      <text x="58" y="82" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">first responders</text>
+      <text x="58" y="94" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">risk taken,</text>
+      <text x="58" y="106" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">vicarious trauma carried</text>
+      <circle cx="200" cy="64" r="16" fill="var(--peach-tint)" stroke="var(--peach)" stroke-width="1.2" />
+      <g transform="translate(191,55)" color="var(--peach-deep)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M9.5 3.5a3 3 0 00-3 3v.6a3 3 0 00-2.5 2.95V12a3 3 0 002.5 2.95v.6a3 3 0 003 3h2.5V3.5H9.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M14.5 3.5a3 3 0 013 3v.6a3 3 0 012.5 2.95V12a3 3 0 01-2.5 2.95v.6a3 3 0 01-3 3H12V3.5h2.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M9.5 8h-1M9.5 11.5h-1M14.5 8h1M14.5 11.5h1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </g>
+      <text x="222" y="60" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="start">the assistant</text>
+      <text x="222" y="72" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="start">finds the shared window</text>
+      <circle cx="110" cy="140" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+      <text x="110" y="145" font-size="14" text-anchor="middle">🏞️</text>
+      <text x="88" y="130" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="end">a community</text>
+      <text x="88" y="142" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="end">healing center</text>
+      <text x="88" y="154" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="end">a retreat, close by</text>
+      <circle cx="282" cy="136" r="16" fill="var(--bone-warm)" stroke="#D9A441" stroke-width="1.2" />
+      <text x="282" y="141" font-size="14" text-anchor="middle">💝</text>
+      <text x="282" y="96" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">a donor</text>
+      <text x="282" y="108" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">one big gift, many healed</text>
+      <circle cx="256" cy="204" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
+      <text x="256" y="209" font-size="14" text-anchor="middle">🌿</text>
+      <text x="256" y="228" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">the healers</text>
+      <text x="256" y="240" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">free to heal, not coordinate</text>
+      <text x="256" y="252" font-size="9" font-style="italic" fill="var(--peach-deep)" text-anchor="middle">covered by the commons</text>
+      <circle cx="170" cy="234" r="14" fill="var(--bone-warm)" stroke={PLANTS} stroke-width="1.2" />
+      <text x="170" y="239" font-size="12" text-anchor="middle">🌵</text>
+      <text x="170" y="262" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Huachuma</text>
+      <text x="170" y="274" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">the medicine, honored</text>
+      <circle cx="72" cy="270" r="16" fill="var(--bone-warm)" stroke={PLANTS} stroke-width="1.2" />
+      <text x="72" y="275" font-size="14" text-anchor="middle">🌱</text>
+      <text x="72" y="298" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Huachuma Foundation</text>
+      <text x="72" y="310" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">preserves cacti in Peru</text>
+    </svg>
+
+  <PhoneFrame slot="phone" initial="R" active="calendar" mark={false}>
+    <div class="fir">
+      <p class="fir-title">Find a time</p>
+      <p class="fir-sub">Station 12 &middot; 34 people &middot; 3 nights</p>
+
+      <div class="fir-grid">
+        <div class="fir-row fir-row--head">
+          <span class="fir-who"></span>
+          {DAYS.map((d) => <span class="fir-day">{d}</span>)}
+        </div>
+        {CREW.map((c) => (
+          <div class="fir-row">
+            <span class="fir-who">{c.who}</span>
+            {DAYS.map((_, i) => (
+              <span class={'fir-cell' + (c.busy.includes(i) ? ' is-busy' : ' is-free')}></span>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <div class="fir-found">
+        <span class="fir-found-brain"><AppIcon name="brain" size={13} /></span>
+        <p><strong>Thursday to Sunday works for everyone</strong> — the only window all four rotations share this quarter.</p>
+      </div>
+
+      <div class="fir-book">
+        <p class="fir-book-name">Heroes Journey Center</p>
+        <p class="fir-book-line">3 nights &middot; 34 guests &middot; 22 miles away</p>
+        <p class="fir-book-cost">
+          <span class="fir-cost-gift">A donor covers the healers</span>
+          <span class="fir-cost-com">The commons carries the rest</span>
+        </p>
+      </div>
+      <span class="fir-cta">Hold these dates</span>
+    </div>
+  </PhoneFrame>
+
+  <Fragment slot="capmap">
+    First responders put mind, body and soul on the line for the rest of us — work the
+    current economy under-values and fails to support. And the medicine is honored as a
+    contributing member, its value flowing on to the Huachuma Foundation to re-plant the
+    cacti in Peru.
+  </Fragment>
+  <Fragment slot="capphone">
+    The assistant reads a whole station&rsquo;s rotations, finds the one window they share,
+    and books a healing center nearby — lifting every ounce of coordination off the healers,
+    who arrive simply to heal. One big gift heals whole crews.
+  </Fragment>
+</ScenePair>
+
+<style>
+  .fir { padding: 10px 12px 12px; }
+  .fir-title { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .fir-sub { font-size: 10px; color: var(--ink-muted); margin-top: 1px; }
+  .fir-grid { margin-top: 9px; }
+  .fir-row { display: flex; align-items: center; gap: 3px; margin-bottom: 3px; }
+  .fir-who {
+    width: 78px; flex-shrink: 0; font-size: 8px; color: var(--ink-soft);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .fir-day {
+    flex: 1; text-align: center; font-family: var(--font-mono);
+    font-size: 7.5px; color: var(--ink-faint);
+  }
+  .fir-cell { flex: 1; height: 13px; border-radius: 3px; }
+  .fir-cell.is-busy { background: var(--bone-edge); }
+  .fir-cell.is-free { background: color-mix(in srgb, #98BE4D 40%, transparent); }
+  .fir-found {
+    display: flex; gap: 7px; align-items: flex-start; margin-top: 9px;
+    background: var(--bone-warm); border: 1px solid var(--peach); border-radius: var(--r-md);
+    padding: 8px 10px;
+  }
+  .fir-found-brain { color: var(--peach-deep); flex-shrink: 0; display: inline-flex; }
+  .fir-found p { font-size: 10px; line-height: 1.4; color: var(--ink-soft); }
+  .fir-found p strong { color: var(--ink); font-weight: 600; }
+  .fir-book {
+    margin-top: 8px; background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: var(--r-md); padding: 8px 10px;
+  }
+  .fir-book-name { font-size: 11.5px; font-weight: 600; color: var(--ink); }
+  .fir-book-line { font-size: 9.5px; color: var(--ink-muted); margin-top: 1px; }
+  .fir-book-cost { display: flex; flex-direction: column; gap: 2px; margin-top: 6px; }
+  .fir-cost-gift { font-size: 9px; color: #B08428; }
+  .fir-cost-com { font-size: 9px; color: var(--peach-deep); }
+  .fir-cta {
+    display: block; margin-top: 9px; text-align: center;
+    background: var(--peach); color: #fff; font-size: 11.5px; font-weight: 600;
+    padding: 8px 0; border-radius: var(--r-full);
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+// One economy-in-action scene: the journey map beside the screen that makes it
+// real (founder 2026-08-05 — "let's create an economy in action mockup for
+// each scenario, like we did for Tango"). Map first on mobile, so the story
+// reads before the proof.
+//
+// Slots: `map` (the SVG), `phone` (a PhoneFrame), `capmap`, `capphone`.
+export interface Props { eyebrow?: string }
+const { eyebrow } = Astro.props;
+---
+<div class="sp">
+  <div class="sp-col">
+    <div class="sp-mapcard">
+      {eyebrow && <p class="sp-eyebrow">{eyebrow}</p>}
+      <slot name="map" />
+    </div>
+    <p class="sp-cap"><slot name="capmap" /></p>
+  </div>
+  <div class="sp-col">
+    <slot name="phone" />
+    <p class="sp-cap"><slot name="capphone" /></p>
+  </div>
+</div>
+
+<style>
+  .sp {
+    display: flex; justify-content: center; align-items: flex-start;
+    gap: var(--s-7); margin-top: var(--s-6); flex-wrap: wrap;
+  }
+  .sp-col { display: flex; flex-direction: column; align-items: center; flex: 1 1 300px; max-width: 460px; }
+  .sp-mapcard {
+    width: 100%;
+    background: var(--bone); border: 1px solid var(--bone-edge); border-radius: var(--r-lg);
+    padding: var(--s-4) var(--s-5);
+  }
+  .sp-eyebrow {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: var(--s-2);
+  }
+  /* DIRECT child only — the maps nest small svgs (the brain mark) that must
+     keep their own size. */
+  .sp-mapcard > :global(svg) { display: block; width: 100%; height: auto; }
+  .sp-cap {
+    text-align: center; font-size: var(--t-sm); font-style: italic;
+    color: var(--ink-muted); margin-top: var(--s-4); line-height: 1.5; max-width: 380px;
+  }
+</style>

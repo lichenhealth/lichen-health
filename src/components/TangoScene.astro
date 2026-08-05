@@ -1,11 +1,10 @@
 ---
-// Tango's exchange, below the commons epigraph (founder 2026-08-05): her
-// journey map beside her BOOKING — the Figma mockup (286-8171, Equine Energy
-// Healing with Rick Smith) translated into the real UI vocabulary. A
-// beyond-human member earning in her own name on the left; spending on her
-// own care on the right. Map first on mobile. PhoneFrame = authentic chrome.
+// Tango's exchange — now one of the economy-in-action scenes (founder
+// 2026-08-05: "move Tango's story back down into the examples of the economy
+// in action"). Her journey map beside the booking that spends what she earned.
 import PhoneFrame from './PhoneFrame.astro';
 import AppIcon from './AppIcon.astro';
+import ScenePair from './ScenePair.astro';
 const PLANTS = '#98BE4D';
 interface Stop {
   emoji: string; x: number; y: number;
@@ -29,11 +28,8 @@ const APRIL = [
 ];
 const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
 ---
-<div class="tx">
-  <div class="tx-col">
-    <div class="tx-mapcard">
-      <p class="tx-eyebrow">Carrying wounds · Tango&rsquo;s exchange</p>
-      <svg class="tx-journey" viewBox="0 0 340 250" role="img"
+<ScenePair eyebrow="Carrying wounds · Tango's exchange">
+  <svg slot="map" viewBox="0 0 340 250" role="img"
         aria-label="A map route: a hurting child releases what’s heavy, Tango the therapy horse takes it on, her bodyworker clears her and is paid in Current-cy, and cashes out to dollars in the wider world. A green loop closes alongside: Tango’s manure feeds the organic farm, and fresh produce comes back to her steward.">
         <path d="M-10,108 q45,-12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
         <path d="M-10,178 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
@@ -54,12 +50,8 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
           </g>
         ))}
       </svg>
-    </div>
-    <p class="tx-cap">Tango&rsquo;s work is sacred and risky — absorbing what a hurting child releases — and it&rsquo;s counted in her own name: real value, moving through three lives, held by her steward.</p>
-  </div>
 
-  <div class="tx-col">
-    <PhoneFrame initial="T" active="calendar">
+  <PhoneFrame slot="phone" initial="T" active="calendar">
       <AppIcon slot="center" name="calendar" size={26} />
       <div class="tx-head">
         <div>
@@ -108,27 +100,20 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
         </div>
       </div>
     </PhoneFrame>
-    <p class="tx-cap">And what she earns comes back to her: Elizabeth&rsquo;s note arrives in Chat, the sessions land on Tango&rsquo;s calendar, and her own Current-cy pays for the care — one platform carrying the conversation, the schedule and the exchange.</p>
-  </div>
-</div>
+
+  <Fragment slot="capmap">
+    Tango&rsquo;s work is sacred and risky — absorbing what a hurting child releases — and
+    it&rsquo;s counted in her own name: real value, moving through three lives, held by her
+    steward.
+  </Fragment>
+  <Fragment slot="capphone">
+    And what she earns comes back to her: Elizabeth&rsquo;s note arrives in Chat, the sessions
+    land on Tango&rsquo;s calendar, and her own Current-cy pays for the care — one platform
+    carrying the conversation, the schedule and the exchange.
+  </Fragment>
+</ScenePair>
 
 <style>
-  .tx {
-    display: flex; justify-content: center; align-items: flex-start;
-    gap: var(--s-7); margin-top: var(--s-8); flex-wrap: wrap;
-  }
-  .tx-col { display: flex; flex-direction: column; align-items: center; flex: 1 1 300px; max-width: 460px; }
-  .tx-mapcard {
-    width: 100%;
-    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg);
-    padding: var(--s-4) var(--s-5);
-  }
-  .tx-eyebrow {
-    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--ink-faint); margin-bottom: var(--s-2);
-  }
-  .tx-journey { display: block; width: 100%; height: auto; }
-  .tx-cap { text-align: center; font-size: var(--t-sm); font-style: italic; color: var(--ink-muted); margin-top: var(--s-4); line-height: 1.5; max-width: 380px; }
 
   .tx-head {
     display: flex; align-items: center; gap: 10px;
