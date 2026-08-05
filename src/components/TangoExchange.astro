@@ -62,7 +62,6 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
     <PhoneFrame initial="T" active="calendar">
       <AppIcon slot="center" name="calendar" size={26} />
       <div class="tx-head">
-        <span class="tx-avatar" aria-hidden="true">🐴</span>
         <div>
           <p class="tx-title">Equine Energy Healing</p>
           <p class="tx-sub">with <span class="tx-link">Rick Smith</span></p>
@@ -126,11 +125,6 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
     display: flex; align-items: center; gap: 10px;
     padding: 10px 16px 12px; border-bottom: 1px solid var(--bone-edge);
   }
-  .tx-avatar {
-    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
-    border: 1.5px solid var(--peach); background: var(--bone-warm);
-    display: inline-flex; align-items: center; justify-content: center; font-size: 15px;
-  }
   .tx-title { font-weight: 600; font-size: 14px; color: var(--ink); }
   .tx-sub { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
   .tx-link { color: var(--peach-deep); font-weight: 600; }
@@ -140,6 +134,8 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
     display: block; width: calc(50% - 3px); height: 64px; object-fit: cover;
     border-radius: var(--r-md);
   }
+  /* Frame Rick from a little lower so his hat isn't clipped (founder). */
+  .tx-photos img:last-child { object-position: 50% 78%; }
   .tx-wallet {
     display: flex; align-items: baseline; justify-content: space-between;
     background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);

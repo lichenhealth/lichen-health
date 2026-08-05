@@ -60,7 +60,7 @@ import AppIcon from './AppIcon.astro';
         <em>Add</em>
       </span>
       <span class="ph-door ph-door--aioff">
-        <span class="ph-door-circ"><AppIcon name="brain" size={13} /></span>
+        <span class="ph-door-circ"><AppIcon name="brain" size={13} /><span class="ph-door-slash"></span></span>
         <em>AI</em>
       </span>
       <span class="ph-doors-gap"></span>
@@ -88,8 +88,8 @@ import AppIcon from './AppIcon.astro';
       </div>
       <p class="ph-lesson">Curanderismo Training · Weekend 2</p>
       <div class="ph-protect">
-        <p class="ph-protect-line">Video download, screen recording &amp; AI — <strong>disabled</strong></p>
-        <p class="ph-protect-sub">This teaching stays in the room. A standing promise, made by the teacher, kept by the platform.</p>
+        <p class="ph-protect-line"><strong>Downloads, recordings &amp; AI</strong> — disabled <span class="ph-protect-chev">&#8964;</span></p>
+        <p class="ph-protect-sub">My plant allies asked that this teaching stay in the room. Sit with it live, or here — but it doesn&rsquo;t travel, and no machine reads it.</p>
       </div>
       <div class="ph-rows">
         <p class="ph-row"><span class="ph-row-done">✓</span> Weekend 1 — opening the four directions</p>
@@ -152,7 +152,11 @@ import AppIcon from './AppIcon.astro';
   }
   .ph-door--on .ph-door-circ { background: var(--peach); border-color: var(--peach); color: var(--bone-warm); }
   .ph-door--on em { color: var(--peach-deep); }
-  .ph-door--aioff .ph-door-circ { color: var(--ink-faint); }
+  .ph-door--aioff .ph-door-circ { color: var(--ink-faint); position: relative; }
+  .ph-door-slash {
+    position: absolute; width: 17px; height: 1.2px; background: var(--ink-faint);
+    transform: rotate(-45deg); border-radius: 1px;
+  }
   .ph-door--aioff em { color: var(--ink-faint); }
   .ph-doors-gap { width: 1px; align-self: stretch; background: var(--bone-edge); flex-shrink: 0; margin: 2px 3px; }
   .ph-card {
@@ -179,7 +183,8 @@ import AppIcon from './AppIcon.astro';
     background: var(--peach-tint); border-left: 3px solid var(--peach);
     border-radius: 0 var(--r-sm) var(--r-sm) 0;
   }
-  .ph-protect-line { font-size: 11.5px; color: var(--ink); }
+  .ph-protect-line { font-size: 11.5px; color: var(--ink-soft); display: flex; align-items: center; gap: 5px; }
+  .ph-protect-chev { margin-left: auto; color: var(--peach-deep); font-size: 10px; }
   .ph-protect-line strong { font-weight: 700; }
   .ph-protect-sub { font-size: 10px; color: var(--ink-muted); margin-top: 3px; line-height: 1.4; }
   .ph-rows { margin-top: 8px; }
