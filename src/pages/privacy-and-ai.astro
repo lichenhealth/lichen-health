@@ -1,0 +1,127 @@
+---
+// Data, privacy and AI — the public 101 (founder 2026-08-04: the About
+// page's "Go deeper" link used to open an in-app course that reads as a
+// jumble of posts when you're signed out; this page says it all in the
+// open). Content adapted faithfully from the founder-authored Settings 101
+// lessons on the platform; keep the two in step when either changes. The
+// back chip returns to whichever page sent you here (the original deck
+// outline: "with a back button on it, so they can go back").
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Data, privacy and AI — Lichen" description="What you share on Lichen, and with whom — presence, location, calendar, your financial picture, and the assistant. On by default, switchable off, one uniform rule.">
+  <section class="phero-min">
+    <div class="container">
+      <button class="pback" onclick="if (history.length > 1) { history.back(); } else { location.href = '/about'; }">← Back</button>
+      <span class="eyebrow">Data, privacy and AI</span>
+      <h1 class="display h-1">What you share, and with whom</h1>
+      <p class="plede">Lichen asks you to make real choices instead of guessing at defaults you never saw. Almost everything here is <strong>on by default and switchable off</strong> — one uniform rule across the platform, so you never have to wonder whether this particular corner works differently. What changes is only ever what you choose.</p>
+      <p class="plede-sub">This page walks the switches: your presence, your location, your calendar, your financial picture, and the assistant. Five minutes now saves you a lot of second-guessing later.</p>
+    </div>
+  </section>
+
+  <section class="fsection psec">
+    <div class="container">
+      <h2 class="display h-2">Presence: around, present, or neither</h2>
+      <p>Two signals, both yours to give:</p>
+      <p><strong>Around</strong> — a quiet dot when you&rsquo;re here. On by default, muted whenever you like.<br />
+      <strong>Present</strong> — the candle in the top bar. You light it by hand when you actually want to be found.</p>
+      <p>Presence lives in exactly one place: a panel your network can open. No ambient dots elsewhere, no timestamps, no &ldquo;last seen.&rdquo; Change either setting in the Mycelium directory.</p>
+      <p class="pmotto">Presence is a gift, not a status.</p>
+    </div>
+  </section>
+
+  <section class="fsection psec">
+    <div class="container">
+      <h2 class="display h-2">Where you are: five levels, per audience</h2>
+      <p>Your location isn&rsquo;t one switch — it&rsquo;s a ladder, and you set it per audience.</p>
+      <p class="pladder"><strong>Hidden · State · County · Area (town) · Exact</strong></p>
+      <p>Everyone can be at one level, your mycelium at another, a specific community at a third. Most-specific wins, and at a tie the most private wins. The &ldquo;Area&rdquo; rung is deliberate: findable without being pinpointable.</p>
+      <p class="pwhere">Set it in Profile → Home location → &ldquo;Who can find you on the map.&rdquo;</p>
+    </div>
+  </section>
+
+  <section class="fsection psec">
+    <div class="container">
+      <h2 class="display h-2">Your calendar: busy, or the details</h2>
+      <p>Sharing a calendar doesn&rsquo;t mean sharing your life.</p>
+      <p>Viewers see one of three things: <strong>nothing</strong>, <strong>busy blocks</strong> (no titles), or <strong>full details</strong> — again per audience, most-specific wins. Imported calendars go further: their titles stay yours alone unless you explicitly opt that calendar in.</p>
+      <p class="pwhere">Find it in Calendar → settings → &ldquo;Who sees my calendar.&rdquo;</p>
+    </div>
+  </section>
+
+  <section class="fsection psec">
+    <div class="container">
+      <h2 class="display h-2">Your financial picture — the most private thing here</h2>
+      <p>If you&rsquo;re seeking subsidized care, an honest picture of your means is what lets the network route fairly. So Lichen asks for it, and then protects it harder than anything else.</p>
+      <p>Only <strong>you</strong> and your <strong>active care team</strong> can read it. Not admins. Not other members. Never a score, never public, never compared.</p>
+      <p class="pwhere">It lives in Concierge → Web of Wellbeing → Financial position, and sharing it is entirely optional.</p>
+    </div>
+  </section>
+
+  <section class="fsection psec">
+    <div class="container">
+      <h2 class="display h-2">The assistant: consent, both ways</h2>
+      <p>The brain icon appears in each section of the app — Home, Marketplace, Calendar, Chat, your shelf. Tapping it asks the assistant to organize what&rsquo;s waiting <em>in that section only</em>.</p>
+      <p><strong>Consent runs both ways.</strong></p>
+      <p><em>What your assistant reads for you.</em> Nothing moves until you tap — no ambient reading, no background summarizing. Each section switches independently, so you can turn the assistant off for Chat and keep it on for Marketplace. Off means that section&rsquo;s data never reaches the assistant at all.</p>
+      <p><em>What other assistants read of you.</em> When someone you talk with asks their assistant to brief them, it reads recent messages in that conversation — including the ones you wrote. You decide whether that&rsquo;s allowed: Profile → Notifications → &ldquo;Let other members&rsquo; assistants read my messages.&rdquo; Switch it off and your words stay out of everyone else&rsquo;s briefings. They&rsquo;ll still see that you wrote, and can still read you in the app; only the machine is held back.</p>
+      <p>In Chat, an assistant that is on receives recent messages from rooms you&rsquo;re already in, summarizes rather than quotes, and is never handed your full history.</p>
+      <p class="pmotto">Two people, two switches, one conversation. Carbon decides; silicon organizes.</p>
+    </div>
+  </section>
+
+  <section class="fsection psec">
+    <div class="container">
+      <h2 class="display h-2">Notifications, and who hears from you</h2>
+      <p>Two dials worth knowing:</p>
+      <p><strong>Notification preference</strong> (Profile) — in-app only, or email as well, or off entirely.<br />
+      <strong>Push on this device</strong> (Profile → Notifications) — per device, so your phone can buzz while your laptop stays quiet.</p>
+      <p>And two things that deliberately never notify: <strong>weaving</strong> someone into your mycelium is silent, and <strong>trusting</strong> them is private. Nobody is told they&rsquo;ve been trusted, and no one can see a count.</p>
+    </div>
+  </section>
+
+  <section class="fsection psec">
+    <div class="container">
+      <h2 class="display h-2">Where your data lives</h2>
+      <p>Your data sits in an encrypted, managed Postgres database, and every rule on this page is enforced <em>at the database itself</em> through row-level security — not just in the app&rsquo;s interface. A switch you flip changes what the database will hand over, to anyone, through any door.</p>
+      <p>When you invite the assistant to help, the slice of data you consented to — that section, that tap — is sent to Anthropic&rsquo;s Claude. Lichen sends nothing ambient, and your data is never sold, never advertised against, and never used to train anyone&rsquo;s models.</p>
+      <p>The legal versions live at <a href="/privacy">Privacy</a> and <a href="/terms">Terms</a>.</p>
+    </div>
+  </section>
+
+  <section class="fsection psec psec--foot">
+    <div class="container">
+      <a href="/about" class="pfoot-link">← The full Lichen story</a>
+      <a href="/signup" class="btn btn-primary btn-up">Request an invitation</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .phero-min { padding: var(--s-9) 0 var(--s-7); background: var(--bone-warm); border-bottom: 1px solid var(--bone-edge); }
+  .pback {
+    display: inline-block; margin-bottom: var(--s-5);
+    font-size: var(--t-sm); color: var(--ink-muted);
+    background: none; border: 1px solid var(--bone-edge); border-radius: var(--r-full);
+    padding: 7px 16px; cursor: pointer;
+  }
+  .pback:hover { color: var(--ink); border-color: var(--ink-faint); }
+  .phero-min .eyebrow { display: block; margin-bottom: var(--s-3); }
+  .plede { margin-top: var(--s-4); font-size: clamp(18px, 2vw, 22px); line-height: var(--lh-normal); color: var(--ink-soft); font-weight: 300; }
+  .plede strong { color: var(--ink); font-weight: 500; }
+  .plede-sub { margin-top: var(--s-3); font-size: var(--t-md); color: var(--ink-muted); }
+  .psec { padding-block: var(--s-7); }
+  .psec p { margin-top: var(--s-3); font-size: var(--t-lg); line-height: var(--lh-normal); color: var(--ink-soft); font-weight: 300; }
+  .psec p strong { color: var(--ink); font-weight: 500; }
+  .psec a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .pladder { font-family: var(--font-mono); letter-spacing: 0.03em; }
+  .pmotto {
+    font-family: var(--font-display); font-style: italic; font-size: 20px; color: var(--ink);
+    border-left: 3px solid var(--peach); background: var(--peach-tint);
+    padding: var(--s-4) var(--s-5); border-radius: 0 var(--r-md) var(--r-md) 0;
+  }
+  .pwhere { font-size: var(--t-sm); color: var(--ink-muted); }
+  .psec--foot { display: block; border-top: 1px solid var(--bone-edge); }
+  .psec--foot .container { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); flex-wrap: wrap; }
+  .pfoot-link { font-size: var(--t-md); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
+</style>
