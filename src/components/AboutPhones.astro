@@ -22,18 +22,24 @@ import AppIcon from './AppIcon.astro';
     </div>
     <div class="ph-body">
       <div class="ph-card">
-        <p><strong>Rosa accepted your trade</strong> — her elderberry syrup for your garden hours. She suggested Thursday afternoon.</p>
+        <p><strong><span class="ph-ref">Rosa</span> accepted your trade</strong> — her elderberry syrup for your garden hours. She suggested Thursday afternoon.</p>
       </div>
       <div class="ph-card">
-        <p><strong>Two people are waiting at Pine Valley Grange&rsquo;s door</strong> — both woven in by members you trust. Your desk has them ready.</p>
+        <p><strong>Two people are waiting at <span class="ph-ref">Pine Valley Grange</span>&rsquo;s door</strong> — both woven in by members you trust. Your desk has them ready.</p>
       </div>
       <div class="ph-card ph-card--match">
-        <p><strong>A gift matches what you&rsquo;re seeking:</strong> a cedar planter box, offered by someone Melanie trusts, four miles away.</p>
+        <p><strong>A gift matches what you&rsquo;re seeking:</strong> a <span class="ph-ref">cedar planter box</span>, offered by someone <span class="ph-ref">Melanie</span> trusts, four miles away.</p>
       </div>
       <div class="ph-card">
         <p><strong>Tomorrow:</strong> your 3pm blood draw, then the Grange potluck at 5. Want a reminder to bring the seed packets?</p>
       </div>
       <p class="ph-foot">Carbon decides; silicon organizes.</p>
+      <div class="ph-ask">
+        <span class="ph-ask-btn"><AppIcon name="plus" size={14} /></span>
+        <span class="ph-ask-btn"><AppIcon name="mic" size={14} /></span>
+        <span class="ph-ask-input">Ask about any of this…</span>
+        <span class="ph-ask-send"><AppIcon name="send" size={12} /></span>
+      </div>
     </div>
   </PhoneFrame>
   <p class="ph-colcap">The assistant helps you live most fully, organizing your needs digitally so you can spend your time more organically.</p>
@@ -42,8 +48,8 @@ import AppIcon from './AppIcon.astro';
   <div class="ph-col">
   <PhoneFrame initial="M" active="home" mark={false}>
     <div class="ph-space">
-      <span class="ph-space-ava" aria-hidden="true">CK</span>
-      <p class="ph-space-name">Curanderismo Kapulli 2026</p>
+      <span class="ph-space-ava" aria-hidden="true">NM</span>
+      <p class="ph-space-name">Natural Medicine Cohort 2026</p>
       <p class="ph-space-kind">Group <AppIcon name="groups" size={15} /></p>
     </div>
     <div class="ph-tabs" aria-hidden="true">
@@ -83,12 +89,12 @@ import AppIcon from './AppIcon.astro';
       </span>
     </div>
     <div class="ph-body">
-      <div class="ph-video" role="img" aria-label="A course video player, paused on the Weekend 2 recording — two teachers on stage.">
-        <img class="ph-video-still" src="/img/2026/01/curanderismo-still.jpg" alt="" loading="lazy" />
+      <div class="ph-video" role="img" aria-label="A course video player, paused on the Weekend 2 recording — hands grinding herbs in a mortar.">
+        <img class="ph-video-still" src="/img/2026/01/natural-medicine-still.jpg" alt="" loading="lazy" />
         <span class="ph-play" aria-hidden="true">▶</span>
         <span class="ph-dur">1:48:22</span>
       </div>
-      <p class="ph-lesson">Curanderismo Training · Weekend 2</p>
+      <p class="ph-lesson">Natural Medicine Training · Weekend 2</p>
       <div class="ph-protect">
         <p class="ph-protect-line"><strong>Downloads, recordings &amp; AI</strong> — disabled <span class="ph-protect-chev">&#8964;</span></p>
         <p class="ph-protect-sub">My plant allies asked that this teaching stay in the room. Sit with it live, or here — but it doesn&rsquo;t travel, and no machine reads it.</p>
@@ -190,6 +196,22 @@ import AppIcon from './AppIcon.astro';
   /* Inside the assistant's world, selection and emphasis wear silicon blue
      rather than peach (founder 2026-08-05). */
   .ph-card--match { border-color: var(--sky); background: color-mix(in srgb, var(--sky) 12%, transparent); }
+  .ph-ref {
+    color: var(--sky); font-weight: 600;
+    border-bottom: 1px solid color-mix(in srgb, var(--sky) 45%, transparent);
+  }
+  .ph-ask {
+    display: flex; align-items: center; gap: 4px; margin-top: 10px;
+    background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: 14px; padding: 5px 6px;
+  }
+  .ph-ask-btn { color: var(--ink-muted); display: inline-flex; }
+  .ph-ask-input { flex: 1; font-size: 10.5px; color: var(--ink-faint); padding-left: 2px; }
+  .ph-ask-send {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    background: var(--sky); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
   .ph-foot { text-align: center; font-family: var(--font-display); font-style: italic; font-size: 11px; color: var(--ink-muted); margin-top: 10px; }
   .ph-video {
     position: relative; height: 126px; border-radius: var(--r-md);
@@ -199,7 +221,7 @@ import AppIcon from './AppIcon.astro';
   /* A real still behind the play button, dimmed so the control reads. */
   .ph-video-still {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; object-position: 50% 28%; filter: brightness(0.82);
+    object-fit: cover; object-position: 50% 42%; filter: brightness(0.86);
   }
   .ph-play {
     position: relative; z-index: 1;

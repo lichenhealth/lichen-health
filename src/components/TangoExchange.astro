@@ -97,6 +97,7 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
             ))}
           </tbody>
         </table>
+        <span class="tx-book">Book session</span>
         <div class="tx-msg">
           <span class="tx-msg-ava" aria-hidden="true">ER</span>
           <div class="tx-msg-main">
@@ -105,7 +106,6 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
             <span class="tx-msg-reply">Reply to Elizabeth in Chat &rarr;</span>
           </div>
         </div>
-        <span class="tx-book">Book session</span>
       </div>
     </PhoneFrame>
     <p class="tx-cap">And what she earns comes back to her: Elizabeth&rsquo;s note arrives in Chat, the sessions land on Tango&rsquo;s calendar, and her own Current-cy pays for the care — one platform carrying the conversation, the schedule and the exchange.</p>
@@ -140,7 +140,7 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
   .tx-body { padding: 10px 12px 12px; }
   .tx-photos { display: flex; gap: 6px; }
   .tx-photos img {
-    display: block; width: calc(50% - 3px); height: 56px; object-fit: cover;
+    display: block; width: calc(50% - 3px); height: 68px; object-fit: cover;
     border-radius: var(--r-md);
   }
   /* Frame Rick from a little lower so his hat isn't clipped (founder). */
@@ -196,7 +196,7 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
     padding: 2px 9px;
   }
   .tx-book {
-    display: block; margin-top: 10px; text-align: center;
+    display: block; margin-top: 8px; margin-bottom: 8px; text-align: center;
     background: var(--peach); color: #fff; font-size: 12px; font-weight: 600;
     padding: 9px 0; border-radius: var(--r-full);
   }
