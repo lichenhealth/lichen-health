@@ -62,8 +62,9 @@ const NAV: { key: Props['active']; label: string }[] = [
   }
   .pf-notch { width: 84px; height: 8px; background: #1a1a1a; border-radius: 0 0 8px 8px; margin: 0 auto; flex-shrink: 0; }
   .pf-top {
+    position: relative;
     display: flex; align-items: center; gap: 6px;
-    padding: 8px 10px 8px; flex-shrink: 0;
+    padding: 8px 10px 12px; flex-shrink: 0;
   }
   .pf-circ {
     width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
@@ -72,7 +73,13 @@ const NAV: { key: Props['active']; label: string }[] = [
     display: inline-flex; align-items: center; justify-content: center;
   }
   .pf-circ svg { width: 13px; height: 13px; }
-  .pf-mark { margin-left: 12px; border-color: var(--peach); color: var(--peach-deep); }
+  /* The section mark is the big centered circle in the real top bar. */
+  .pf-mark {
+    position: absolute; left: 50%; top: 6px; transform: translateX(-50%);
+    width: 42px; height: 42px;
+    border-color: var(--peach); color: var(--peach-deep);
+  }
+  .pf-mark svg { width: 21px; height: 21px; }
   .pf-gap { flex: 1; }
   .pf-avatar {
     width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;

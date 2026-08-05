@@ -68,11 +68,16 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
         </div>
       </div>
       <div class="tx-body">
+        <div class="tx-photos">
+          <img src="/img/2026/01/tango-bodywork.jpg" alt="Hands resting on a chestnut horse's coat during an energy-healing session." loading="lazy" />
+          <img src="/img/2026/01/tango-rick.jpg" alt="Rick Smith standing with a horse." loading="lazy" />
+        </div>
         <div class="tx-wallet">
           <span class="tx-wallet-name">Perfect Tango</span>
           <span class="tx-wallet-bal">973 Current</span>
         </div>
         <p class="tx-mon">April 2026</p>
+        <p class="tx-free">Times that work for Tango and Rick</p>
         <table class="tx-cal" aria-label="April 2026 — Tango's booked care days highlighted">
           <thead><tr>{['S','M','T','W','T','F','S'].map((d) => <th>{d}</th>)}</tr></thead>
           <tbody>
@@ -83,14 +88,18 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
             ))}
           </tbody>
         </table>
-        <div class="tx-notes">
-          <p class="tx-notes-label">Appointment notes</p>
-          <p>She&rsquo;ll need the usual, bi-weekly clearing of what she&rsquo;s taken on from her Equine Therapy clients, as well as continued PTSD processing and wound healing from pasture injury to left hind.</p>
+        <div class="tx-msg">
+          <span class="tx-msg-ava" aria-hidden="true">ER</span>
+          <div class="tx-msg-main">
+            <p class="tx-msg-who">Elizabeth Resager <em>· in Chat</em></p>
+            <p class="tx-msg-text">She&rsquo;ll need the usual, bi-weekly clearing of what she&rsquo;s taken on from her Equine Therapy clients, as well as continued PTSD processing and wound healing from pasture injury to left hind.</p>
+            <span class="tx-msg-reply">Reply to Elizabeth in Chat &rarr;</span>
+          </div>
         </div>
         <span class="tx-book">Request sessions</span>
       </div>
     </PhoneFrame>
-    <p class="tx-cap">And what she earns comes back to her: Tango books her own care — bi-weekly clearings, wound healing — paid from her own Current-cy, arranged by her steward.</p>
+    <p class="tx-cap">And what she earns comes back to her: Elizabeth&rsquo;s note arrives in Chat, the sessions land on Tango&rsquo;s calendar, and her own Current-cy pays for the care — one platform carrying the conversation, the schedule and the exchange.</p>
   </div>
 </div>
 
@@ -123,33 +132,55 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
   }
   .tx-title { font-weight: 600; font-size: 14px; color: var(--ink); }
   .tx-sub { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
-  .tx-body { padding: 12px 14px 16px; }
+  .tx-body { padding: 8px 12px 12px; }
+  .tx-photos { display: flex; gap: 6px; }
+  .tx-photos img {
+    display: block; width: calc(50% - 3px); height: 76px; object-fit: cover;
+    border-radius: var(--r-md);
+  }
   .tx-wallet {
     display: flex; align-items: baseline; justify-content: space-between;
     background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);
-    padding: 8px 12px;
+    padding: 6px 12px; margin-top: 8px;
   }
   .tx-wallet-name { font-size: 12px; font-weight: 600; color: var(--ink); }
   .tx-wallet-bal { font-family: var(--font-display); font-size: 15px; color: var(--peach-deep); }
-  .tx-mon { text-align: center; font-size: 11.5px; font-weight: 600; color: var(--ink); margin-top: 10px; }
-  .tx-cal { width: 100%; border-collapse: collapse; margin-top: 4px; }
-  .tx-cal th { font-family: var(--font-mono); font-size: 8px; color: var(--ink-faint); font-weight: 500; padding: 3px 0; }
+  .tx-mon { text-align: center; font-size: 11px; font-weight: 600; color: var(--ink); margin-top: 7px; }
+  .tx-free {
+    text-align: center; font-size: 9px; font-style: italic;
+    color: var(--peach-deep); margin-top: 1px;
+  }
+  .tx-cal { width: 100%; border-collapse: collapse; margin-top: 2px; }
+  .tx-cal th { font-family: var(--font-mono); font-size: 8px; color: var(--ink-faint); font-weight: 500; padding: 2px 0; }
   .tx-cal td {
-    text-align: center; font-size: 10px; color: var(--ink-soft);
-    padding: 4px 0; width: 14.28%;
+    text-align: center; font-size: 9.5px; color: var(--ink-soft);
+    padding: 3px 0; width: 14.28%;
   }
   .tx-cal td.is-on {
     background: var(--peach-tint); color: var(--peach-deep); font-weight: 700;
     border-radius: 50%;
   }
-  .tx-notes {
-    margin-top: 10px; background: var(--bone-warm); border: 1px solid var(--bone-edge);
-    border-radius: var(--r-md); padding: 9px 11px;
+  .tx-msg {
+    display: flex; gap: 7px; align-items: flex-start;
+    margin-top: 8px; background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: var(--r-md); padding: 8px 10px;
   }
-  .tx-notes-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
-  .tx-notes p:last-child { font-size: 10.5px; line-height: 1.45; color: var(--ink-soft); }
+  .tx-msg-ava {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    background: #A78BBA; color: #fff; font-size: 8.5px; font-weight: 600;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .tx-msg-who { font-size: 10.5px; font-weight: 600; color: var(--ink); }
+  .tx-msg-who em { font-style: normal; font-weight: 400; color: var(--ink-faint); }
+  .tx-msg-text { font-size: 10px; line-height: 1.4; color: var(--ink-soft); margin-top: 2px; }
+  .tx-msg-reply {
+    display: inline-block; margin-top: 5px;
+    font-size: 9.5px; font-weight: 600; color: var(--peach-deep);
+    border: 1px solid var(--peach); border-radius: var(--r-full);
+    padding: 2px 9px;
+  }
   .tx-book {
-    display: block; margin-top: 12px; text-align: center;
+    display: block; margin-top: 10px; text-align: center;
     background: var(--peach); color: #fff; font-size: 12px; font-weight: 600;
     padding: 9px 0; border-radius: var(--r-full);
   }
