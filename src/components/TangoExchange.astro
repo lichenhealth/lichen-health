@@ -5,6 +5,7 @@
 // beyond-human member earning in her own name on the left; spending on her
 // own care on the right. Map first on mobile. PhoneFrame = authentic chrome.
 import PhoneFrame from './PhoneFrame.astro';
+import AppIcon from './AppIcon.astro';
 const PLANTS = '#98BE4D';
 interface Stop {
   emoji: string; x: number; y: number;
@@ -59,7 +60,7 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
 
   <div class="tx-col">
     <PhoneFrame initial="T" active="calendar">
-      <svg slot="center" viewBox="0 0 24 24" fill="none"><rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M4 10h16M8 3v5M16 3v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <AppIcon slot="center" name="calendar" size={26} />
       <div class="tx-head">
         <span class="tx-avatar" aria-hidden="true">🐴</span>
         <div>
