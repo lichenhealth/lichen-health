@@ -112,19 +112,19 @@ const FAQS = [
         <p class="weco__joint">each one feeds the other — and both rest on</p>
         <div class="wcol wcol--base">
           <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
-          <h3 class="wcol-title">Platform</h3>
-          <div class="weco__basebody">
-            <p>How the technology fuels the new economy and culture — one ecosystem where people, plants, animals, elements and land collaborate to restore individual, social and ecological harmony.</p>
+          <div class="weco__basehead">
+            <h3 class="wcol-title">Platform</h3>
             <a href="/platform" class="wlink">Learn more about the platform →</a>
           </div>
+          <p>How the technology fuels the new economy and culture — one ecosystem where people, plants, animals, elements and land collaborate to restore individual, social and ecological harmony.</p>
         </div>
         <div class="wcol wcol--base">
           <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
-          <h3 class="wcol-title">Business</h3>
-          <div class="weco__basebody">
-            <p>How the model supports the mission — a lean nonprofit with no investors to pay, where revenue flows back into expanding access to goods, resources and care for those in the network.</p>
+          <div class="weco__basehead">
+            <h3 class="wcol-title">Business</h3>
             <a href="/business" class="wlink">Learn more about the business model →</a>
           </div>
+          <p>How the model supports the mission — a lean nonprofit with no investors to pay, where revenue flows back into expanding access to goods, resources and care for those in the network.</p>
         </div>
       </div>
       <h3 class="display h-2 wsub">The corrective social network</h3>
@@ -418,12 +418,17 @@ const FAQS = [
   /* The strata read as ground, not as bigger cards: wide, low, and laid out
      sideways so the eye passes along them rather than dwelling. */
   .weco .wcol--base {
-    display: grid; grid-template-columns: 200px 1fr;
+    /* Wide enough that "Learn more about the business model" holds one line —
+       at 200px it wrapped and made Business taller than Platform. */
+    display: grid; grid-template-columns: 280px 1fr;
     align-items: start; gap: var(--s-5);
     padding: var(--s-5) var(--s-6);
     border-color: var(--sky);
   }
-  .weco__basebody { display: flex; flex-direction: column; gap: var(--s-3); }
+  /* The link rides under the title, in the column that was otherwise empty
+     (founder 2026-08-08) — it fills the gap and takes a line off the height,
+     which is the standing rule: compact, nothing hollow, more above the fold. */
+  .weco__basehead { display: flex; flex-direction: column; gap: var(--s-2); align-items: flex-start; }
   @media (max-width: 720px) {
     .weco__pair { grid-template-columns: 1fr; }
     .weco__inf { text-align: center; }
