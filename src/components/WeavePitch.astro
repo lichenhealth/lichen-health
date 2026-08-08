@@ -65,6 +65,7 @@ const FAQS = [
         founder iterates About copy often. */}
     <section class="fsection wsection wsection--alt">
       <div class="container">
+        <span class="eyebrow">What is Lichen</span>
         <h2 class="display h-2">A partnership of carbon and silicon</h2>
         <p class="wbody">In nature, a lichen is the partnership of a fungus and an algae — two organisms woven into one that can live where neither could alone. Lichens are the pioneers of harsh ecosystems: they populate bare rock with organic life, and their slow breakdown becomes the first soil — the ground new ecosystems evolve from.</p>
         <p class="wbody">We live our name. Lichen is a partnership of carbon-based and silicon-based intelligence doing the same thing — taking root in the harsh terrain of failing systems, and building the infrastructure for a better way of sharing information, goods and services within the human family, and between humans and the planet. What breaks down becomes the soil for what comes next.</p>
@@ -78,6 +79,11 @@ const FAQS = [
             above the two cards it makes real. Optional: a deck that passes
             nothing simply shows the cards. */}
         <slot name="ecosystem" />
+        {/* Bridges the per-prospect mockups back to the general structure —
+            only when mockups are present, else it'd stack two headings. */}
+        {Astro.slots.has('ecosystem') && (
+          <h3 class="display h-2 wsub">How it all fits together</h3>
+        )}
         <EcosystemStack />
       </div>
     </section>

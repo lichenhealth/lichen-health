@@ -1,10 +1,12 @@
 ---
-// COMMUNITY AND CARE, AT FOUR WINDS (founder 2026-08-08: "community on the
-// left and care on the right, using 4 Winds the Place for Community and the
-// Concierge Care team supporting someone doing equine therapy at 4 winds on
-// the right"). Sits above the ecosystem cards it illustrates: the left phone
-// is the Community card made real, the right one is the Care card made real,
-// both at this specific property.
+// COMMUNITY AND CARE, MADE REAL (founder 2026-08-08). Sits above the
+// ecosystem cards it illustrates. LEFT: African Montessori Hub — one of
+// Audacity Lab's portfolio companies — as a Lichen community. Every program
+// on the phone is one they actually run (africanmontessorihub.org: the
+// educator fellowships, Mobile Montessori Labs & community pop-ups, AFMOCON,
+// the home-based parent toolkits; Harare HQ in Chadcombe, Montessori on
+// Wheels partner in Denver). RIGHT: the Concierge care team around one person
+// doing equine therapy at Four Winds, with Tango ON the team.
 //
 // Hand-built in the app's own vocabulary, the way AboutPhones and WeaveIn are
 // — PhoneFrame chrome, bone/peach/hairlines — so the scenario can be the ideal
@@ -14,41 +16,43 @@ import AppIcon from './AppIcon.astro';
 const W = 250;
 ---
 <div class="fwp">
-  {/* ── LEFT · COMMUNITY — Four Winds as a Place ───────────────────────── */}
+  {/* ── LEFT · COMMUNITY — African Montessori Hub ──────────────────────── */}
   <div class="fwp__col">
-    <PhoneFrame initial="A" active="home" mark={false} w={W}>
+    <PhoneFrame initial="T" active="home" mark={false} w={W}>
       <div class="fwp-head">
-        <span class="fwp-ava">4W</span>
+        <span class="fwp-ava fwp-ava--amh">AM</span>
         <span>
-          <p class="fwp-name">Four Winds Wholeness Sanctuary</p>
-          <p class="fwp-sub">Place <AppIcon name="location" size={11} /> · Castle Rock, Colorado</p>
+          <p class="fwp-name">African Montessori Hub</p>
+          <p class="fwp-sub">Community <AppIcon name="user-multiple" size={11} /> · Harare &amp; Denver</p>
         </span>
       </div>
-      <p class="fwp-awake">Three at Four Winds are awake.</p>
+      <p class="fwp-awake">Five in the Hub are awake.</p>
       <div class="fwp-doors">
         <span><span class="fwp-door"><AppIcon name="chat" size={12} /></span><em>Chat</em></span>
         <span><span class="fwp-door"><AppIcon name="rsvp" size={12} /></span><em>Events</em></span>
-        <span><span class="fwp-door"><AppIcon name="store" size={12} /></span><em>Rooms</em></span>
-        <span><span class="fwp-door"><AppIcon name="member-heart" size={12} /></span><em>Members</em></span>
+        <span><span class="fwp-door"><AppIcon name="book" size={12} /></span><em>Library</em></span>
+        <span><span class="fwp-door"><AppIcon name="groups" size={12} /></span><em>Groups</em></span>
       </div>
       <div class="fwp-body">
         <div class="fwp-card">
-          <p><strong>Concert in the 1899 barn</strong> — Saturday, 7pm. Twenty-two going.</p>
-          <p class="fwp-mode">Free · hosted by KAHUBA</p>
+          <p><strong>Mobile Montessori Lab pop-up</strong> — Saturday morning, Chadcombe. Bring the little ones.</p>
+          <p class="fwp-mode">Free · community pop-up</p>
         </div>
         <div class="fwp-card">
-          <p><strong>Hay day, Saturday morning</strong> — six of us stacking, students paid by the bale. Two spots left.</p>
-          <p class="fwp-mode">Work trade</p>
+          <p><strong>AFMOCON 2026</strong> — registration is open. Educators from eleven countries so far.</p>
+          <p class="fwp-mode">Event · hosted by the Hub</p>
         </div>
-        <p class="fwp-lbl">Rooms &amp; things</p>
+        <p class="fwp-lbl">Groups in this community</p>
         <div class="fwp-rows">
-          <p><span><AppIcon name="location" size={11} /> The Pavilion</span><em>Request</em></p>
-          <p><span><AppIcon name="location" size={11} /> Barn event space</span><em>Book</em></p>
-          <p><span><AppIcon name="store" size={11} /> Long tables, 40</span><em>Book</em></p>
+          <p><span><AppIcon name="groups" size={11} /> Fellowship cohort &rsquo;26</span><em>12 members</em></p>
+          <p><span><AppIcon name="groups" size={11} /> Montessori on Wheels · Denver</span><em>Partner</em></p>
+        </div>
+        <div class="fwp-card">
+          <p><strong>Home toolkit: practical life, ages 3–6</strong> — new in the Library for parents and caregivers.</p>
         </div>
       </div>
     </PhoneFrame>
-    <p class="fwp-cap">The place has its own front door — its gatherings, its work, and every room and thing it stewards on one real calendar.</p>
+    <p class="fwp-cap">An Audacity Lab portfolio company as a community — its fellowships as groups, its pop-ups and AFMOCON as events, its parent toolkits in the Library, Harare and Denver in one room.</p>
   </div>
 
   {/* ── RIGHT · CARE — a Concierge team around one person ──────────────── */}
@@ -109,6 +113,9 @@ const W = 250;
     display: inline-flex; align-items: center; justify-content: center;
   }
   .fwp-ava--care { border-radius: 50%; background: var(--peach); font-size: 12px; }
+  /* AMH's site leads with warm terracotta — close enough to echo without
+     pretending to their brand. */
+  .fwp-ava--amh { background: #C4703F; }
   .fwp-name { font-family: var(--font-display); font-size: 12.5px; color: var(--ink); line-height: 1.2; }
   .fwp-sub { font-size: 8.5px; color: var(--ink-muted); display: flex; align-items: center; gap: 4px; }
   .fwp-sub :global(svg) { width: 11px; height: 11px; }
