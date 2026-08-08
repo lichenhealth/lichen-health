@@ -17,6 +17,7 @@ import AboutPhones from './AboutPhones.astro';
 import WeaveIn from './WeaveIn.astro';
 import EconomyJourneys from './EconomyJourneys.astro';
 import TableScene from './TableScene.astro';
+import EcosystemStack from './EcosystemStack.astro';
 export interface Props {
   partner?: string;
   variant?: 'about' | 'pitch';
@@ -73,12 +74,7 @@ const FAQS = [
     <section class="fsection wsection">
       <div class="container">
         <h2 class="display h-2">An entire ecosystem to heal, grow and be in better relationship with all that is</h2>
-        <ol class="wpaths">
-          <li><strong>Community.</strong> The corrective social network, where you can connect, host events, organize in groups, curate community and manage your schedule — one trusted web for your whole life, with no follower counts, no leaderboards, and nothing to perform for.</li>
-          <li><strong>Care.</strong> The Concierge service — a holistic, quantum healthcare system where your care team forms around you, while human wisdom and AI work together to track your Web of Wellbeing and coordinate the next, best step in your journey of healing and realizing your full potential.</li>
-          <li><strong>Platform.</strong> How the technology fuels the new economy and culture — one ecosystem where people, plants, animals, elements and land collaborate to restore individual, social and ecological harmony.</li>
-          <li><strong>Business.</strong> How the model supports the mission — a lean nonprofit with no investors to pay, where revenue flows back into expanding access to goods, resources and care for those in the network.</li>
-        </ol>
+        <EcosystemStack />
         <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
       </div>
     </section>
@@ -170,40 +166,7 @@ const FAQS = [
   <section class="fsection wsection wsection--alt">
     <div class="container">
       <h2 class="display h-2">An entire ecosystem to heal, grow and be in better relationship with all that is</h2>
-      <div class="weco">
-        <div class="weco__pair">
-          <div class="wcol">
-            <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
-            <h3 class="wcol-title">Community</h3>
-            <p>The corrective social network, where you can connect, host events, organize in groups, curate community and manage your schedule — one trusted web for your whole life, with no follower counts, no leaderboards, and nothing to perform for.</p>
-            <a href="/signup" class="wlink">Join the network →</a>
-          </div>
-          <span class="weco__inf" aria-hidden="true">∞</span>
-          <div class="wcol">
-            <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
-            <h3 class="wcol-title">Care</h3>
-            <p>The Concierge service — a holistic, quantum healthcare system where your care team forms around you, while human wisdom and AI work together to track your Web of Wellbeing and coordinate the next, best step in your journey of healing and realizing your full potential.</p>
-            <a href="/care" class="wlink">Learn more about the care model →</a>
-          </div>
-        </div>
-        <p class="weco__joint">each one feeds the other — and both rest on</p>
-        <div class="wcol wcol--base">
-          <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
-          <div class="weco__basehead">
-            <h3 class="wcol-title">Platform</h3>
-            <a href="/platform" class="wlink">Learn more about the platform →</a>
-          </div>
-          <p>How the technology fuels the new economy and culture — one ecosystem where people, plants, animals, elements and land collaborate to restore individual, social and ecological harmony.</p>
-        </div>
-        <div class="wcol wcol--base">
-          <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
-          <div class="weco__basehead">
-            <h3 class="wcol-title">Business</h3>
-            <a href="/business" class="wlink">Learn more about the business model →</a>
-          </div>
-          <p>How the model supports the mission — a lean nonprofit with no investors to pay, where revenue flows back into expanding access to goods, resources and care for those in the network.</p>
-        </div>
-      </div>
+      <EcosystemStack />
       <h3 class="display h-2 wsub">The corrective social network</h3>
       <p class="wbody">Most technology platforms feed you to an algorithm tuned to maximize attention, harvest fear, and drive consumption that temporarily comforts the dis-ease of disconnection because our current political and economic systems rely on human suffering to survive. Lichen holds the whole of you instead — your care and healing, your work and the things you offer, the events you gather for, the places you love, the jobs that give you purpose and fund your livelihood, and a fairer economy that values all things, not just human contributions — woven into a single web of people, plants, animals, elements, spaces, communities, groups and organizations you trust. Everything in one place, because your best life isn&rsquo;t lived in silos — or on a technology platform.</p>
       <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
@@ -470,66 +433,6 @@ const FAQS = [
      more blank space between the quadrants and this paragraph). */
   .wsub { margin-top: var(--s-9); }
 
-  /* THE ECOSYSTEM, AS A STANDING STRUCTURE (founder 2026-08-08: "business is
-     the bottom, which supports the platform, which supports community and
-     care side by side with an infinity between the two").
-     The 2x2 grid it replaces said "four equal things", and worse: a
-     half-width Business sat under Community, which reads as Business
-     supporting Community alone. A foundation has to be at least as wide as
-     what it carries, so the two silicon strata run full width and the two
-     carbon panels stand on them. Read bottom-up it's the whole thesis in one
-     picture — silicon holds up what carbon does with it. */
-  .weco { margin-top: var(--s-6); display: flex; flex-direction: column; gap: var(--s-3); }
-  .weco__pair {
-    display: grid; grid-template-columns: 1fr auto 1fr;
-    align-items: center; gap: var(--s-3);
-  }
-  /* Community and Care don't sit in sequence, they feed each other — the
-     lemniscate is the claim, drawn on the seam between them. */
-  .weco__inf {
-    font-family: var(--font-display); font-size: 34px; line-height: 1;
-    color: var(--peach); user-select: none;
-  }
-  .weco__joint {
-    margin: var(--s-2) 0 var(--s-1); text-align: center;
-    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--ink-faint);
-  }
-  .weco .wcol {
-    padding: var(--s-6); background: var(--bone-warm);
-    border-radius: var(--r-lg); border: 2px solid var(--peach);
-    position: relative;
-  }
-  /* The strata read as ground, not as bigger cards: wide, low, and laid out
-     sideways so the eye passes along them rather than dwelling. */
-  .weco .wcol--base {
-    /* Wide enough that "Learn more about the business model" holds one line —
-       at 200px it wrapped and made Business taller than Platform. */
-    display: grid; grid-template-columns: 280px 1fr;
-    align-items: start; gap: var(--s-5);
-    padding: var(--s-5) var(--s-6);
-    border-color: var(--sky);
-  }
-  /* The link rides under the title, in the column that was otherwise empty
-     (founder 2026-08-08) — it fills the gap and takes a line off the height,
-     which is the standing rule: compact, nothing hollow, more above the fold. */
-  .weco__basehead { display: flex; flex-direction: column; gap: var(--s-2); align-items: flex-start; }
-  @media (max-width: 720px) {
-    .weco__pair { grid-template-columns: 1fr; }
-    .weco__inf { text-align: center; }
-    .weco .wcol--base { grid-template-columns: 1fr; gap: var(--s-3); }
-  }
-  /* Each block wears its element in the corner — C on the carbon side,
-     Si on the silicon side, echoing the tiles above. */
-  .wcol-el {
-    position: absolute; top: 12px; right: 16px;
-    font-family: var(--font-display); font-size: var(--t-lg); line-height: 1;
-  }
-  .wcol-el--c { color: var(--peach-deep); }
-  .wcol-el--si { color: var(--sky); }
-  .wcol { display: flex; flex-direction: column; gap: var(--s-3); }
-  .wcol-title { font-family: var(--font-display); font-size: var(--t-xl); color: var(--ink); font-weight: 400; }
-  .wcol p { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
   :global(.wlink) { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   :global(.wlink:hover) { color: var(--rust); }
   :global(.wcallout) {
