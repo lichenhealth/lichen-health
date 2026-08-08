@@ -439,7 +439,11 @@ const FAQS = [
   .wmaps { margin-top: var(--s-7); }
   /* Sub-heading inside a section — carries its own air above (founder:
      more blank space between the quadrants and this paragraph). */
-  .wsub { margin-top: var(--s-9); }
+  /* :global because the weave decks author .wsub headings inside SLOT content
+     — Astro scopes styles by component, so the plain selector never reached
+     them and slot headings sat flush against the copy above (founder
+     2026-08-08: "more space is needed here"). */
+  :global(.wsub) { margin-top: var(--s-9); }
 
   :global(.wlink) { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   :global(.wlink:hover) { color: var(--rust); }
