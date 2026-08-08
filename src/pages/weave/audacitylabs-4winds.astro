@@ -1,22 +1,22 @@
 ---
-// THE TRIFECTA DECK (founder 2026-08-07, built out 2026-08-08) — one page for
-// Andrea Pomarico (Four Winds Wholeness Sanctuary) and Steve Dobo (The
-// Audacity Lab), who asked to see this as a single proposition rather than
-// three separate conversations.
+// THE TRIFECTA DECK (founder 2026-08-07; rewritten to the founder's own edit
+// 2026-08-08) — one page for Andrea Pomarico (Four Winds Wholeness Sanctuary)
+// and Steve Dobo (The Audacity Lab).
 //
-// SOURCES: the Gaia brief "Four Winds: The Next Phase" (July 2026, Andrea +
-// Galyn) and the Four Winds acquisition proposal v2. Property facts, the
-// stewardship history and Steve's role as former Four Winds board president
-// all come from those documents.
+// THE COPY IS THE FOUNDER'S, VERBATIM (2026-08-08: "Make the literal edits I
+// input verbatim. Where I leave notes in ALL CAPS, I want you to take a stab
+// at adding the copy. If I deleted copy, delete it on the page, verbatim.").
+// Sections Claude drafted to the founder's ALL-CAPS notes, to be reviewed:
+// "A Community Hub, in action", Audacity Lab's second benefit, "Holistic
+// healing", and "Owner financing changes the math". Deleted per the same
+// edit: "Separately, each of these...", three of the platform bullets
+// (community / programme-group / KAHUBA front door), "Somewhere to start",
+// and "The shape of it".
 //
-// ⚠ DELIBERATELY CARRIES NO FINANCIAL CLAIM. Lichen is a 501(c)(3);
-// "investment" means something specific and legally distinct, and the founder
-// is settling the framing in their own prep document. Withheld on purpose,
-// and present in the source material: the seller expectation, the term of the
-// stewardship agreement, the instruments in the community-capital raise, and
-// anything resembling a return. The structure below is described
-// QUALITATIVELY only — roles, not terms. Do not add numbers here without the
-// founder's explicit go-ahead.
+// ⚠ FINANCIAL CONTENT: the $4.8M figure and the open-market financing
+// comparison are on the page BY THE FOUNDER'S EXPLICIT DIRECTION (the
+// owner-financing ALL-CAPS note). Andrea's own terms remain absent — she adds
+// those herself. Nothing else states a term, instrument or return.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WeavePitch from '../../components/WeavePitch.astro';
 import FourWindsPhones from '../../components/FourWindsPhones.astro';
@@ -24,7 +24,7 @@ import TangoScene from '../../components/TangoScene.astro';
 ---
 <BaseLayout
   title="Four Winds · Audacity Lab · Lichen"
-  description="Three organisations, one proposition: land held in trust, young people growing up alongside it, and the infrastructure that makes both repeatable."
+  description="Three organisations, forming a perfect pilot partnership: land held in trust, young people growing up alongside it, and the infrastructure that makes both repeatable."
 >
   <WeavePitch partner="Four Winds & Audacity Lab">
     <Fragment slot="ecosystem">
@@ -34,13 +34,14 @@ import TangoScene from '../../components/TangoScene.astro';
       <TangoScene kids />
     </Fragment>
     <Fragment slot="weave">
-      <span class="eyebrow">Three organisations, one proposition</span>
+      <span class="eyebrow">Three organisations, forming a perfect pilot partnership</span>
 
       <h3 class="display h-2 wsub">What each of us brings</h3>
 
+      <h4 class="display worg">Four Winds</h4>
       <ol class="wpaths">
         <li>
-          <strong>Four Winds — the land.</strong> Thirty-five acres against the
+          <strong>The land.</strong> Thirty-five acres against the
           Front Range, between Pikes Peak and Longs Peak. The 1899 Wolfensberger
           barn, whose acoustics are said to rival Carnegie Hall. Pastures,
           ponds, ancient pines and dark skies. Horses, llamas, goats and a wild
@@ -57,7 +58,21 @@ import TangoScene from '../../components/TangoScene.astro';
           Land Trust.
         </li>
         <li>
-          <strong>Audacity Lab — the young people.</strong> Steve&rsquo;s work
+          {/* Drafted to the founder's stub title — review me. */}
+          <strong>A Community Hub, in action.</strong> Long before any platform,
+          Andrea built the gathering place: concerts and ceremonies in the
+          historic barn, workshops and retreats, community events and holistic
+          fairs, high-schoolers earning service hours alongside the animals,
+          partner nonprofits sharing the venue, and farm-to-table meals feeding
+          all of it. Four Winds doesn&rsquo;t need to become a community hub —
+          it needs its years of already being one to finally be counted.
+        </li>
+      </ol>
+
+      <h4 class="display worg">Audacity Lab</h4>
+      <ol class="wpaths">
+        <li>
+          <strong>Education.</strong> Steve&rsquo;s work
           brings dreamers together to prototype the future one experiment at a
           time — Montessori microschools, the mobile classroom, and reach into
           communities that conscious-media platforms never touch. Steve is also
@@ -69,30 +84,62 @@ import TangoScene from '../../components/TangoScene.astro';
           rather than reading about them.
         </li>
         <li>
-          <strong>Lichen — the infrastructure.</strong> The legal, business and
-          technology layer that makes the other two durable. The Land Trust that
-          receives what&rsquo;s given and holds the ground. The Current-cy
-          economy that records every contribution once it&rsquo;s stewarded —
-          hay, work-trade, animal care, the hours a teenager puts into the
-          garden, the people who simply show up. And the network every
+          {/* Drafted to the founder's note ("figure out another benefit and
+              write about it") — review me. */}
+          <strong>A web of partners.</strong> Steve doesn&rsquo;t arrive alone.
+          Zero Dropouts, Up With Africa, and portfolio organizations like
+          African Montessori Hub — training Montessori educators from Harare,
+          with its Denver partner Montessori on Wheels — mean the education arm
+          lands with communities on two continents already attached. Nonprofit
+          collaboration opens donor doors a platform alone can&rsquo;t, and
+          Steve&rsquo;s standing in Colorado education anchors the pilot in
+          local credibility.
+        </li>
+      </ol>
+
+      <h4 class="display worg">Lichen</h4>
+      <ol class="wpaths">
+        <li>
+          {/* Drafted to the founder's ALL-CAPS note (why Four Winds is the
+              perfect place to pilot the care model) — review me. */}
+          <strong>Holistic healing.</strong> Lichen&rsquo;s care model — a
+          Concierge team forming around one person, human wisdom and AI
+          coordinating the next, best step — needs a place where every layer of
+          healing is within arm&rsquo;s reach. Four Winds is that place,
+          already: fifteen years of programming for veterans, first responders
+          and trauma survivors; equine therapy infrastructure and animals who
+          are themselves practitioners; practitioner housing, quiet, and food
+          grown on the same ground where care is given. Galyn has run an
+          integrated clinical, equine and land-based healing centre before —
+          Four Winds is where that model gets piloted on land that is ready for
+          it: care teams that can include a therapist, a horse, a garden and
+          the place itself, every contribution counted.
+        </li>
+        <li>
+          <strong>Business &amp; technology infrastructure.</strong> The legal,
+          business and technology layer that weaves it all together. The Land
+          Trust that receives what&rsquo;s given and holds the ground. The
+          Current-cy economy that records every contribution once it&rsquo;s
+          stewarded — hay, work-trade, animal care, the hours a teenager puts
+          into the garden, the people who simply show up. And the network every
           contributor is woven into, rather than left holding a receipt.
         </li>
       </ol>
 
+      <h3 class="display h-2 wsub">Together, these 3 organizations create an entire ecosystem</h3>
+
+      <h4 class="display worg">4 Winds</h4>
       <p class="wbody">
-        Separately, each of these is a good project that depends on someone
-        staying generous. Together they&rsquo;re a structure: the land
+        Andrea has created a fully functional, community center for healing,
+        growth, education and community commerce, in reciprocal relationship to
+        the plants, animals, land and spirits at 4 winds. By initiating the
+        Lichen Land Trust with the 4 Winds property, she is pioneering a new
+        way of facilitating land ownership and stewardship, which can be
+        replicated by like-hearted land owners around the world. The land
         can&rsquo;t be sold out from under the programming, the programming has
-        somewhere permanent to stand, and the contributions that keep both alive
-        are counted rather than forgotten.
-      </p>
-
-      <h3 class="display h-2 wsub">How each of you shows up on the platform</h3>
-
-      <p class="wbody">
-        Lichen holds one person and a whole valley on the same terms. Here is
-        what that means concretely for the two of you — not a metaphor, but the
-        actual objects in the system, live today.
+        somewhere permanent to stand, and the non-human contributions that make
+        4 winds a magical place to learn, grow, heal and connect are counted
+        and compensated, in reciprocity.
       </p>
 
       <ul class="wexamples">
@@ -106,39 +153,27 @@ import TangoScene from '../../components/TangoScene.astro';
           are recorded, and whose care is funded.
         </li>
         <li>
-          <strong>Audacity Lab becomes an organization.</strong> Its Lichen page
+          <strong>Audacity Lab becomes an Organization.</strong> Its Lichen page
           is a real website on the open web — programmes, offerings, a calendar,
           bookable sessions, and a team — updating itself as the work changes,
           because it draws from the same listings members already see. Donors,
           schools and families find it without a separate site to maintain.
         </li>
         <li>
-          <strong>Audacity Lab also becomes a community.</strong> The
-          organization is the public face; the community is the belonging.
-          Families, educators, alumni and volunteers join through request and
-          approval, with groups nested inside it — a cohort, a build team, a
-          board — each with its own chat, calendar, events and find-a-time.
+          <strong>Castle Rock becomes a geo-focused Community &amp; Concierge
+          healing hub.</strong> Because Andrea has created a working economy
+          that supports the land, animals and people of Castle Rock; with the
+          addition of Lichen&rsquo;s Healing programming and Audacity
+          Lab&rsquo;s educational offerings, 4 Winds is the perfect, pilot
+          Community hub on the Lichen network.
         </li>
         <li>
-          <strong>The young people become members.</strong> Not audience,
-          members: with their own contributions recorded in an economy that
-          counts an afternoon of fence-mending and an hour of teaching as the
-          real things they are. A young person who grows up inside this leaves
-          with a ledger of what they gave, and a web of people who know it.
-        </li>
-        <li>
-          <strong>Each programme becomes a group.</strong> A season, a cohort, a
-          research visit — its own room, its own calendar, graduating on its own
-          timeline while the community underneath it persists.
-        </li>
-        <li>
-          <strong>KAHUBA keeps its own front door.</strong> Andrea&rsquo;s
-          nonprofit is its own organization on the platform, with its own page,
-          its own donors and its own programmes — and the partner nonprofits it
-          has worked beside for years can each hold their own, booking the
-          sanctuary&rsquo;s rooms and land through the same calendar rather than
-          through a phone tree. The co-op model KAHUBA has run on goodwill for
-          seventeen years finally gets the machinery it deserved.
+          <strong>Young people are not left behind.</strong> With their own
+          contributions recorded in an economy that counts an afternoon of
+          fence-mending and an hour of teaching as the real things they are. A
+          young person who grows up inside the Lichen ecosystem leaves with a
+          ledger of what they gave, and a web of people who know it, as well as
+          the opportunity to give and receive value within a new social order.
         </li>
       </ul>
 
@@ -147,9 +182,9 @@ import TangoScene from '../../components/TangoScene.astro';
       <p class="wbody">
         Four Winds is uniquely ready to be first — healed, turnkey, legally and
         agriculturally established. It is the pilot: the place where Lichen&rsquo;s
-        model stops being an argument and becomes an address people can visit,
-        measure and belong to. Audacity Lab is a partner in that pilot, not a
-        tenant of it. What the education arm learns here — how young people
+        model stops being an idea and becomes an address people can visit,
+        measure and participate in. Audacity Lab is a partner in that pilot, not
+        a tenant of it. What the education arm learns here — how young people
         change when they grow up alongside land held in common — is part of what
         the pilot is for, and it travels to every property that follows.
       </p>
@@ -188,70 +223,45 @@ import TangoScene from '../../components/TangoScene.astro';
         Someone living there whose job is the place.
       </p>
 
-      <h3 class="display h-2 wsub">Somewhere to start</h3>
+      {/* Drafted to the founder's ALL-CAPS note (cost-effectiveness of Andrea
+          owner-financing the sale; honoring her restoration and mentorship).
+          The conventional-financing math is stated with its assumption named;
+          Andrea's own terms are deliberately absent — she adds those. */}
+      <h3 class="display h-2 wsub">Owner financing changes the math</h3>
 
       <p class="wbody">
-        The geothermal greenhouse is the right first project — modest, in the
-        ground before winter, mentors already willing, and useful the day it
-        opens. It grows food, it demonstrates the sustainability argument
-        rather than asserting it, and it is exactly the kind of thing a
-        fifteen-year-old can help build and then point at for the rest of their
-        life. Small enough to finish; real enough to prove the pattern.
+        There is a conventional way to buy a $4.8 million property: borrow it.
+        On a thirty-year note near seven percent, that purchase costs roughly
+        $11.5 million by the time it&rsquo;s paid — close to $7 million of it
+        interest, flowing to lenders who will never set foot on the land, feed
+        an animal, or teach a child to muck a stall.
       </p>
-
-      <h3 class="display h-2 wsub">The shape of it</h3>
 
       <p class="wbody">
-        Roles, not terms — the numbers belong in a conversation with counsel,
-        not on a web page:
+        Andrea is offering the other way: she finances the sale herself, taking
+        her equity out over time. Her terms are hers to state, and she&rsquo;ll
+        add them to this deck — but the shape of the difference is already
+        clear. The margin a bank would have taken stays in the ecosystem, the
+        land is never collateral in someone else&rsquo;s portfolio, and the
+        payments go to the person who spent fifteen years restoring the ground
+        being bought.
       </p>
 
-      <ol class="wpaths">
-        <li>
-          <strong>Title is held in permanent trust</strong> by a purpose-formed
-          nonprofit — never resold, subdivided or cashed out.
-        </li>
-        <li>
-          <strong>Acquisition is funded by a community</strong>, not a single
-          check, so the land stays beholden to no one owner and the structure
-          embodies the thesis instead of contradicting it.
-        </li>
-        <li>
-          <strong>Lichen stewards and operates</strong> under a long-term
-          agreement — land, water, animals, ecosystem, maintenance, insurance
-          and programming — with its capacity underwritten rather than left to
-          carry thirty-five acres unsupported.
-        </li>
-        <li>
-          <strong>Andrea&rsquo;s conditions become recorded covenants</strong> —
-          safety and clarity of the land, lifetime care for the sanctuary
-          animals, no extractive development, continuity of healing purpose —
-          surviving any future transfer. That is what makes a handoff
-          trustworthy to a steward of fifteen years.
-        </li>
-        <li>
-          <strong>Audacity Lab wraps in as the education arm</strong>, with a
-          permanent stake in the classroom rather than visiting rights to a
-          site — and, if it suits Steve, potentially as the umbrella under
-          which the property&rsquo;s own nonprofit component is formed. That
-          was raised on the fourth and is worth deciding on purpose rather than
-          by default.
-        </li>
-      </ol>
-
-
-      <!-- ── THE ASK ────────────────────────────────────────────────────────
-           Still deliberately empty. The founder is settling the structure of
-           what's being offered — philanthropic support for Lichen, a 501(c)(3),
-           versus participation in the Four Winds land trust; different
-           instruments, different legal footing — in their own prep document,
-           which this session could not open. Nothing here states or implies a
-           number, a term or a return until that arrives. -->
-
+      <p class="wbody">
+        Paid out over time, Andrea isn&rsquo;t just the seller — she&rsquo;s the
+        bridge: compensated for the restoration the land now embodies, and
+        present through the handover as mentor to the stewards who come next.
+        The structure honors her twice — once for what she built, and once for
+        what she still has to teach.
+      </p>
     </Fragment>
   </WeavePitch>
 </BaseLayout>
 
 <style>
   .h2-weave { font-size: clamp(24px, 3.5vw, 36px); margin: 4px 0 0; }
+  .worg {
+    font-size: var(--t-xl); font-weight: 400; color: var(--ink);
+    margin-top: var(--s-6);
+  }
 </style>
