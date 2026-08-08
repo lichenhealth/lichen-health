@@ -1,0 +1,298 @@
+---
+// THE FIVE WAYS IN (founder 2026-08-08): after "it takes real people", the
+// page has to answer "so what do I actually do?" — at every scale a person
+// might arrive at, from one member to a whole piece of land. Each rung gets a
+// hand-built mockup in the app's own vocabulary (the AboutPhones approach:
+// PhoneFrame chrome, bone/peach/hairlines, scenarios drawn rather than
+// screenshotted so they can be ideal).
+//
+// This section is written to be TRANSPORTED: the Four Winds deck instantiates
+// it — Four Winds as the land-trust partner, Audacity Lab as an organization,
+// a community, and a partner using the pilot. Keep the rungs generic here and
+// let the deck name names.
+import PhoneFrame from './PhoneFrame.astro';
+import AppIcon from './AppIcon.astro';
+const W = 232;
+---
+<div class="wvin">
+
+  <!-- 1 · MEMBER -->
+  <div class="wvin__row">
+    <div class="wvin__phone">
+      <PhoneFrame initial="R" active="profile" mark={false} w={W}>
+        <div class="wv-head">
+          <span class="wv-ava">R</span>
+          <span>
+            <p class="wv-name">Rosa Vega</p>
+            <p class="wv-sub">Herbalist · Bailey, Colorado</p>
+          </span>
+        </div>
+        <div class="wv-signals">
+          <span><AppIcon name="check" size={11} /> Member</span>
+          <span class="is-on"><AppIcon name="user-multiple" size={11} /> In your My-celium</span>
+        </div>
+        <div class="wv-body">
+          <p class="wv-lbl">What I offer</p>
+          <div class="wv-chips">
+            <span>Elderberry syrup</span><span>Herbal consults</span><span>Garden hours</span>
+          </div>
+          <p class="wv-lbl">This week</p>
+          <div class="wv-card"><p><strong>A trade closed</strong> — syrup for four hours in the greenhouse.</p></div>
+          <div class="wv-card"><p><strong>Current-cy received</strong> — $60, from the Grange&rsquo;s harvest fund.</p></div>
+        </div>
+      </PhoneFrame>
+    </div>
+    <div class="wvin__copy">
+      <p class="wvin__n">One</p>
+      <h3 class="wvin__h">Weave in as a member</h3>
+      <p>Bring your whole life — your calendar, the things you make, the skills you&rsquo;d trade, the people you already trust. You arrive through someone already here, and the first three months are free. Nothing you post is performed for strangers: your web decides what reaches you, and what you offer reaches them.</p>
+      <a href="/signup" class="wlink">Request an invitation →</a>
+    </div>
+  </div>
+
+  <!-- 2 · GROUP -->
+  <div class="wvin__row wvin__row--flip">
+    <div class="wvin__phone">
+      <PhoneFrame initial="G" active="home" mark={false} w={W}>
+        <div class="wv-head">
+          <span class="wv-ava wv-ava--sq">TC</span>
+          <span>
+            <p class="wv-name">The Trail Crew</p>
+            <p class="wv-sub">Group <AppIcon name="groups" size={12} /> · part of Pine Valley Grange</p>
+          </span>
+        </div>
+        <div class="wv-doors">
+          <span><span class="wv-door"><AppIcon name="chat" size={12} /></span><em>Chat</em></span>
+          <span><span class="wv-door"><AppIcon name="calendar" size={12} /></span><em>Find a time</em></span>
+          <span><span class="wv-door"><AppIcon name="rsvp" size={12} /></span><em>Events</em></span>
+          <span><span class="wv-door"><AppIcon name="member-heart" size={12} /></span><em>Members</em></span>
+        </div>
+        <div class="wv-body">
+          <div class="wv-free"><p><strong>Everyone&rsquo;s free</strong> — Saturday, 9am to noon.</p></div>
+          <div class="wv-card"><p><strong>Work party at the north gate</strong> — bring loppers. Six going, two maybe.</p></div>
+          <div class="wv-card"><p>Borrowed the Grange&rsquo;s chipper for the weekend. Back Sunday.</p></div>
+        </div>
+      </PhoneFrame>
+    </div>
+    <div class="wvin__copy">
+      <p class="wvin__n">Two</p>
+      <h3 class="wvin__h">Start a group</h3>
+      <p>A crew, a cohort, a class, a board. Groups are the smallest circle that can hold a thing — its own chat, calendar, events and find-a-time, and a members list where joining is asked for and granted, never assumed. A group can stand alone or nest inside a community, and nesting is consensual on both sides.</p>
+      <a href="/platform" class="wlink">See how groups work →</a>
+    </div>
+  </div>
+
+  <!-- 3 · COMMUNITY -->
+  <div class="wvin__row">
+    <div class="wvin__phone">
+      <PhoneFrame initial="G" active="home" mark={false} w={W}>
+        <div class="wv-head">
+          <span class="wv-ava wv-ava--sq">PV</span>
+          <span>
+            <p class="wv-name">Pine Valley Grange</p>
+            <p class="wv-sub">Community <AppIcon name="user-multiple" size={12} /></p>
+          </span>
+        </div>
+        <p class="wv-awake">Two in Pine Valley Grange are awake.</p>
+        <div class="wv-doors">
+          <span><span class="wv-door"><AppIcon name="chat" size={12} /></span><em>Chat</em></span>
+          <span><span class="wv-door"><AppIcon name="store" size={12} /></span><em>Market</em></span>
+          <span><span class="wv-door"><AppIcon name="rsvp" size={12} /></span><em>Events</em></span>
+          <span><span class="wv-door"><AppIcon name="groups" size={12} /></span><em>Groups</em></span>
+        </div>
+        <div class="wv-body">
+          <div class="wv-card"><p><strong>Potluck &amp; seed swap</strong> — Thursday, 5pm at the hall.</p></div>
+          <div class="wv-card"><p><strong>The tool library is open Saturdays</strong> — drills, ladders, canning rigs. <span class="wv-mode">Lend</span></p></div>
+          <div class="wv-card wv-card--desk"><p><strong>Two waiting at the door</strong> — both woven in by members you trust.</p></div>
+        </div>
+      </PhoneFrame>
+    </div>
+    <div class="wvin__copy">
+      <p class="wvin__n">Three</p>
+      <h3 class="wvin__h">Bring a community</h3>
+      <p>A grange, a congregation, a neighbourhood, a guild. A community holds groups inside it and runs on the same trust machinery — requests and approvals at the door, stewardship duties you can scope to one person&rsquo;s actual job, and a marketplace where what members offer each other stays among them, or opens to the wider web when they choose.</p>
+      <a href="/platform" class="wlink">See how communities work →</a>
+    </div>
+  </div>
+
+  <!-- 4 · ORGANIZATION -->
+  <div class="wvin__row wvin__row--flip">
+    <div class="wvin__phone">
+      <PhoneFrame initial="C" active="home" mark={false} w={W}>
+        <div class="wv-web">
+          <p class="wv-weblbl">Your page, on the open web</p>
+          <p class="wv-name wv-name--lg">Countryman Stables</p>
+          <p class="wv-sub">A family-owned hunter/jumper barn since 1981</p>
+          <span class="wv-cta">Call the barn</span>
+        </div>
+        <div class="wv-body">
+          <p class="wv-lbl">What we offer</p>
+          <div class="wv-rows">
+            <p><span>Full-care boarding</span><em>$850/mo</em></p>
+            <p><span>Private lesson</span><em>$75</em></p>
+            <p><span>Summer camp week</span><em>$425</em></p>
+          </div>
+          <div class="wv-card"><p><strong>Bookable sessions</strong> — riders pick a time from the barn&rsquo;s real calendar.</p></div>
+        </div>
+      </PhoneFrame>
+    </div>
+    <div class="wvin__copy">
+      <p class="wvin__n">Four</p>
+      <h3 class="wvin__h">Bring an organization</h3>
+      <p>A practice, a nonprofit, a farm, a studio. Your Lichen page is a real website on the open web — findable, shareable, and updating itself as what you offer changes, because it&rsquo;s drawn from the same listings your members already see. Bookable sessions, offerings, a calendar and a team come with it. No separate site to maintain, and no platform between you and the people you serve.</p>
+      <a href="/business" class="wlink">See the business model →</a>
+    </div>
+  </div>
+
+  <!-- 5 · PLACE + LAND TRUST -->
+  <div class="wvin__row">
+    <div class="wvin__phone">
+      <PhoneFrame initial="S" active="maps" mark={false} w={W}>
+        <div class="wv-head">
+          <span class="wv-ava wv-ava--sq">SS</span>
+          <span>
+            <p class="wv-name">Stillwater Sanctuary</p>
+            <p class="wv-sub">Place <AppIcon name="location" size={12} /> · 42 acres</p>
+          </span>
+        </div>
+        <p class="wv-trust"><AppIcon name="leaf" size={11} /> Held in the Lichen Land Trust</p>
+        <div class="wv-body">
+          <p class="wv-lbl">Rooms &amp; things</p>
+          <div class="wv-rows wv-rows--book">
+            <p><span><AppIcon name="location" size={11} /> The Pavilion</span><em>Request</em></p>
+            <p><span><AppIcon name="location" size={11} /> Journey Room</span><em>Book</em></p>
+            <p><span><AppIcon name="store" size={11} /> Dinner service, 40</span><em>Book</em></p>
+            <p><span><AppIcon name="store" size={11} /> Farm truck</span><em>Request</em></p>
+          </div>
+          <div class="wv-card"><p><strong>This weekend</strong> — a men&rsquo;s grief retreat has the Pavilion. Two beds unclaimed.</p></div>
+        </div>
+      </PhoneFrame>
+    </div>
+    <div class="wvin__copy">
+      <p class="wvin__n">Five</p>
+      <h3 class="wvin__h">Steward a place — and put it in the Land Trust</h3>
+      <p>Land, a hall, a retreat centre, a clinic. As a place on Lichen, every room and thing you steward becomes bookable on a real calendar — the pavilion, the treatment room, the truck, forty dinner plates — so what you already have stops sitting idle.</p>
+      <p>The <strong>Lichen Land Trust</strong> is the deeper commitment. Land held in the trust has no single owner. Donations and revenue pass through to the steward for the work of restoring, protecting and maintaining it, and the community that funded that work keeps its stake: an owner who wants to take land back out of the trust must show the investment was repaid to the community in free or reduced-fee service, and land sold for profit pays the value the trust added back to the community, where a community-elected council decides how it&rsquo;s spent on healing. It is the answer to the oldest problem in this work — that the places we heal in are only ever one sale away from being lost.</p>
+      <a href="/business" class="wlink">Read how the Land Trust works →</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .wvin { margin-top: var(--s-8); display: flex; flex-direction: column; gap: var(--s-9); }
+  .wvin__row {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: var(--s-7); align-items: center;
+  }
+  /* Alternate the side the phone stands on, so the eye zig-zags down the
+     five rungs instead of running one gutter. */
+  .wvin__row--flip .wvin__phone { order: 2; }
+  .wvin__phone { display: flex; justify-content: center; }
+  .wvin__copy { display: flex; flex-direction: column; gap: var(--s-3); align-items: flex-start; }
+  .wvin__n {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--peach-deep);
+  }
+  .wvin__h { font-family: var(--font-display); font-size: var(--t-2xl); font-weight: 400; color: var(--ink); line-height: 1.25; }
+  .wvin__copy p:not(.wvin__n) { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
+  .wvin__copy strong { color: var(--ink); font-weight: 500; }
+
+  /* ── inside the phones ──────────────────────────────────────────────── */
+  .wv-head {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 12px 10px; border-bottom: 1px solid var(--bone-edge);
+  }
+  .wv-ava {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    background: var(--peach); color: #fff; font-size: 11px; font-weight: 600;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .wv-ava--sq { background: #8C8F5B; border-radius: 9px; }
+  .wv-name { font-family: var(--font-display); font-size: 13px; color: var(--ink); line-height: 1.2; }
+  .wv-name--lg { font-size: 16px; margin-top: 4px; }
+  .wv-sub { font-size: 8.5px; color: var(--ink-muted); display: flex; align-items: center; gap: 4px; }
+  .wv-sub :global(svg) { width: 11px; height: 11px; }
+
+  .wv-signals { display: flex; gap: 12px; padding: 8px 12px 0; }
+  .wv-signals span {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 8px; color: var(--ink-muted);
+  }
+  .wv-signals .is-on { color: var(--peach-deep); }
+
+  .wv-awake {
+    padding: 8px 12px 0; font-family: var(--font-display); font-style: italic;
+    font-size: 11px; color: var(--peach-deep);
+  }
+  .wv-trust {
+    margin: 8px 12px 0; padding: 5px 8px; border-radius: 6px;
+    background: rgba(152, 190, 77, 0.14); color: #5F7A2E;
+    font-size: 8.5px; display: flex; align-items: center; gap: 5px;
+  }
+
+  .wv-doors { display: flex; gap: 10px; padding: 9px 12px 0; }
+  .wv-doors span { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .wv-door {
+    width: 24px; height: 24px; border-radius: 50%;
+    border: 1px solid var(--bone-edge); color: var(--ink-soft);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .wv-doors em {
+    font-style: normal; font-family: var(--font-mono);
+    font-size: 6px; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .wv-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; overflow: hidden; }
+  .wv-lbl {
+    font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .wv-card {
+    background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: 8px; padding: 7px 9px;
+  }
+  .wv-card p { font-size: 9px; line-height: 1.45; color: var(--ink-muted); }
+  .wv-card strong { color: var(--ink); font-weight: 500; }
+  .wv-card--desk { border-color: var(--sky); }
+  .wv-free {
+    background: rgba(152, 190, 77, 0.16); border: 1px solid rgba(152, 190, 77, 0.5);
+    border-radius: 8px; padding: 7px 9px;
+  }
+  .wv-free p { font-size: 9px; color: #4E6626; }
+
+  .wv-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .wv-chips span {
+    font-size: 8px; padding: 3px 7px; border-radius: 999px;
+    background: var(--bone-warm); border: 1px solid var(--bone-edge); color: var(--ink-soft);
+  }
+  .wv-mode { color: var(--peach-deep); }
+
+  .wv-rows { display: flex; flex-direction: column; gap: 5px; }
+  .wv-rows p {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    font-size: 9px; color: var(--ink-soft);
+    padding-bottom: 5px; border-bottom: 1px solid var(--bone-edge);
+  }
+  .wv-rows p span { display: inline-flex; align-items: center; gap: 5px; }
+  .wv-rows em { font-style: normal; color: var(--ink-muted); }
+  .wv-rows--book em {
+    color: var(--peach-deep); border: 1px solid var(--peach);
+    border-radius: 999px; padding: 2px 7px; font-size: 7.5px;
+  }
+
+  .wv-web { padding: 12px; border-bottom: 1px solid var(--bone-edge); }
+  .wv-weblbl {
+    font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .wv-cta {
+    display: inline-block; margin-top: 9px; padding: 5px 14px;
+    border-radius: 999px; background: var(--peach); color: #fff; font-size: 9px;
+  }
+
+  @media (max-width: 860px) {
+    .wvin__row, .wvin__row--flip { grid-template-columns: 1fr; gap: var(--s-5); }
+    .wvin__row--flip .wvin__phone { order: 0; }
+  }
+</style>

@@ -12,8 +12,11 @@ export interface Props {
   /** Space pages carry no section mark — the kind's glyph sits beside its
    *  word under the name instead (founder 2026-08-05). */
   mark?: boolean;
+  /** Frame width in px. 300 is the standalone size; the five ways-in
+   *  mockups run narrower so the section doesn't scroll forever. */
+  w?: number;
 }
-const { initial = 'G', active = 'home', mark = true } = Astro.props;
+const { initial = 'G', active = 'home', mark = true, w = 300 } = Astro.props;
 const NAV: { key: Props['active']; label: string }[] = [
   { key: 'home', label: 'Home' }, { key: 'concierge', label: 'Concierge' },
   { key: 'chat', label: 'Chat' }, { key: 'calendar', label: 'Calendar' },
@@ -21,7 +24,7 @@ const NAV: { key: Props['active']; label: string }[] = [
   { key: 'profile', label: 'Profile' },
 ];
 ---
-<div class="pf">
+<div class="pf" style={`width:${w}px`}>
   <div class="pf-notch" aria-hidden="true"></div>
   <div class="pf-top" aria-hidden="true">
     <span class="pf-circ"><AppIcon name="menu" size={15} /></span>
