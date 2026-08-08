@@ -74,8 +74,11 @@ const FAQS = [
     <section class="fsection wsection">
       <div class="container">
         <h2 class="display h-2">An entire ecosystem to heal, grow and be in better relationship with all that is</h2>
+        {/* Per-prospect illustration of Community and Care, sitting directly
+            above the two cards it makes real. Optional: a deck that passes
+            nothing simply shows the cards. */}
+        <slot name="ecosystem" />
         <EcosystemStack />
-        <p class="wcallout">The commons is yours to shape. Every member controls whether their data is woven into the shared web, and whether they want Lichen&rsquo;s AI as a partner in realizing their purpose — never a requirement, always a choice.</p>
       </div>
     </section>
 
@@ -90,6 +93,16 @@ const FAQS = [
           <li>A thoroughbred&rsquo;s hour of equine therapy transmuting a child&rsquo;s trauma is Tango&rsquo;s gift to her human companions — sacred and risky work, counted and reciprocated with an energy healing session of her own.</li>
           <li>A cactus&rsquo;s hour working within a human being to heal the trauma of disconnection costs the Huachuma its life and body — a reciprocal sacrifice compensated with a steward&rsquo;s planting of future generations of plant allies.</li>
         </ul>
+        <div class="wmaps"><TwoMaps /></div>
+        <p class="welem-cap">Two maps of the same world — what&rsquo;s actually given beside what the market pays. The distance between them is exactly what Lichen&rsquo;s algorithm works to close.</p>
+      </div>
+    </section>
+
+    <section class="fsection wsection">
+      <div class="container">
+        <h2 class="display h-2">An economy that closes the gap between money and value</h2>
+        <p class="wbody">Mapping the gap is the first half. Closing it is the work — and you can start closing it by hand today. When you exchange manually, you close the gap that you can see: a fair price offered, an hour given, a thing passed on to the person who needs it. Every member can do that, in the open, right now.</p>
+        <p class="wbody">The goal is bigger than one exchange at a time. Lichen&rsquo;s algorithm reads the whole web at once — who&rsquo;s seeking, who&rsquo;s offering, what something is truly worth, and who has the capacity to pay for it — and weaves the strands together so nothing, and no one, is wasted. The more it learns, the faster the two maps converge, closing the gap more efficiently than any of us could unaided. Carbon-based intelligence approves every step while the silicon-based mycelium earns our trust: a caring partner in your corner, never an oracle.</p>
       </div>
     </section>
 

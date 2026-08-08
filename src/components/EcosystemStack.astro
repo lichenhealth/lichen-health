@@ -45,6 +45,14 @@
   <div class="wcol wcol--base">
     <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
     <div class="weco__basehead">
+      <h3 class="wcol-title">Economy</h3>
+      <a href="/economy" class="wlink">Learn more about the economy →</a>
+    </div>
+    <p>Current-cy — a transparent, dollar-pegged ledger that maps what was actually contributed against what the market pays for it. Not just time, but the wisdom, skill and risk behind it, counted for people, plants, animals and land alike, and translatable back into the economy we are all still beholden to.</p>
+  </div>
+  <div class="wcol wcol--base wcol--carbon">
+    <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
+    <div class="weco__basehead">
       <h3 class="wcol-title">Business</h3>
       <a href="/business" class="wlink">Learn more about the business model →</a>
     </div>
@@ -75,6 +83,11 @@
     border-radius: var(--r-lg); border: 2px solid var(--peach);
     position: relative;
   }
+  /* Business is CARBON (founder 2026-08-08): the model is human decisions
+     about how money moves, so it wears C and peach even though it sits at the
+     bottom of the stack. Platform and Economy above it are the silicon layers
+     — the machinery those decisions run on. Declared after .wcol--base so its
+     border colour wins. */
   /* The strata read as ground, not as bigger cards: wide, low, and laid out
      sideways so the eye passes along them rather than dwelling. */
   .wcol--base {
@@ -89,6 +102,7 @@
      (founder 2026-08-08) — it fills the gap and takes a line off the height,
      which is the standing rule: compact, nothing hollow, more above the fold. */
   .weco__basehead { display: flex; flex-direction: column; gap: var(--s-2); align-items: flex-start; }
+  .wcol--carbon { border-color: var(--peach); }
   /* Each block wears its element in the corner — C on the carbon side,
      Si on the silicon side, echoing the tiles on the About page. */
   .wcol-el {
