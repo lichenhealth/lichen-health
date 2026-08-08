@@ -2,10 +2,19 @@
 // Tango's exchange — now one of the economy-in-action scenes (founder
 // 2026-08-05: "move Tango's story back down into the examples of the economy
 // in action"). Her journey map beside the booking that spends what she earned.
+//
+// `kids` (founder 2026-08-08, Four Winds deck): adds a third strand — Tango
+// teaching equine stewardship to Montessori on Wheels kids at Four Winds
+// (montessorionwheels.org: Denver mobile-classroom Montessori for BIPOC and
+// low-income families; MoW is also AMH's named partner). Off by default so
+// the About page's scene is unchanged; the phone side never changes.
 import PhoneFrame from './PhoneFrame.astro';
 import AppIcon from './AppIcon.astro';
 import ScenePair from './ScenePair.astro';
+export interface Props { kids?: boolean }
+const { kids = false } = Astro.props;
 const PLANTS = '#98BE4D';
+const ANIMALS = '#D9A441';   // the two-maps animal ochre — this is Tango's own strand
 interface Stop {
   emoji: string; x: number; y: number;
   name: string; sub: string; sub2?: string; sub2color?: string;
@@ -19,6 +28,16 @@ const TANGO_STOPS: Stop[] = [
   { emoji: '🥕', x: 300, y: 130, name: 'the organic farm', sub: 'her manure feeds the soil', lx: 278, ly: 126, anchor: 'end' },
   { emoji: '🤲', x: 64, y: 204, name: 'Tango’s steward', sub: 'fresh produce comes back', lx: 64, ly: 232, anchor: 'middle' },
 ];
+// The kids' strand: MoW's bus at Four Winds, Tango teaching. Node top-right
+// (clear of the farm strand below it); labels extend LEFT from the circle,
+// which claims the sparkle's spot — the ✨ steps aside when kids are here.
+const BUS_STOP: Stop = {
+  emoji: '🚌', x: 300, y: 40,
+  name: 'Montessori on Wheels', sub: 'Denver kids learn her stewardship',
+  sub2: 'her teaching hours, counted', sub2color: 'var(--peach-deep)',
+  lx: 278, ly: 13, anchor: 'end',
+};
+const STOPS = kids ? [...TANGO_STOPS, BUS_STOP] : TANGO_STOPS;
 const APRIL = [
   ['', '', '', '1', '2', '3', '4'],
   ['5', '6', '7', '8', '9', '10', '11'],
@@ -30,7 +49,10 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
 ---
 <ScenePair eyebrow="Carrying wounds · Tango's exchange">
   <svg slot="map" viewBox="0 0 340 250" role="img"
-        aria-label="A map route: a hurting child releases what’s heavy, Tango the therapy horse takes it on, her bodyworker clears her and is paid in Current-cy, and cashes out to dollars in the wider world. A green loop closes alongside: Tango’s manure feeds the organic farm, and fresh produce comes back to her steward.">
+        aria-label={
+          'A map route: a hurting child releases what’s heavy, Tango the therapy horse takes it on, her bodyworker clears her and is paid in Current-cy, and cashes out to dollars in the wider world. A green loop closes alongside: Tango’s manure feeds the organic farm, and fresh produce comes back to her steward.'
+          + (kids ? ' A third, ochre strand: the Montessori on Wheels bus brings Denver kids to Four Winds, where Tango teaches them equine stewardship — her teaching hours counted too.' : '')
+        }>
         <path d="M-10,108 q45,-12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
         <path d="M-10,178 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
         <path d="M44,48 C92,20 148,36 190,64 C226,88 152,112 110,140 C78,162 190,168 256,204"
@@ -39,8 +61,12 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
           fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
         <path d="M290,142 C258,192 160,222 80,208"
           fill="none" stroke={PLANTS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.85" />
-        <text x="140" y="26" font-size="11" text-anchor="middle">✨</text>
-        {TANGO_STOPS.map((s) => (
+        {kids && (
+          <path d="M203,56 C235,42 262,36 284,40"
+            fill="none" stroke={ANIMALS} stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" opacity="0.9" />
+        )}
+        {!kids && <text x="140" y="26" font-size="11" text-anchor="middle">✨</text>}
+        {STOPS.map((s) => (
           <g>
             <circle cx={s.x} cy={s.y} r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
             <text x={s.x} y={s.y + 5} font-size="14" text-anchor="middle">{s.emoji}</text>
@@ -105,6 +131,11 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
     Tango&rsquo;s work is sacred and risky — absorbing what a hurting child releases — and
     it&rsquo;s counted in her own name: real value, moving through three lives, held by her
     steward.
+    {kids && (
+      <> And she teaches: when the Montessori on Wheels bus brings Denver kids to Four
+      Winds, Tango is the one showing them what stewardship of another being asks — and
+      those hours enter her ledger like every other.</>
+    )}
   </Fragment>
   <Fragment slot="capphone">
     And what she earns comes back to her: Elizabeth&rsquo;s note arrives in Chat, the sessions

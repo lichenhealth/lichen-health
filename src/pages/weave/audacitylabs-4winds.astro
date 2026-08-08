@@ -20,6 +20,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WeavePitch from '../../components/WeavePitch.astro';
 import FourWindsPhones from '../../components/FourWindsPhones.astro';
+import TangoScene from '../../components/TangoScene.astro';
 ---
 <BaseLayout
   title="Four Winds · Audacity Lab · Lichen"
@@ -28,6 +29,9 @@ import FourWindsPhones from '../../components/FourWindsPhones.astro';
   <WeavePitch partner="Four Winds & Audacity Lab">
     <Fragment slot="ecosystem">
       <FourWindsPhones />
+    </Fragment>
+    <Fragment slot="economy">
+      <TangoScene kids />
     </Fragment>
     <Fragment slot="weave">
       <span class="eyebrow">Three organisations, one proposition</span>
