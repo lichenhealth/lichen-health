@@ -103,9 +103,11 @@ import TangoScene from '../../components/TangoScene.astro';
       <h4 class="display worg">Lichen</h4>
       <ol class="wpaths">
         <li>
-          {/* Drafted to the founder's ALL-CAPS note (why Four Winds is the
-              perfect place to pilot the care model) — review me. */}
-          <strong>Holistic healing.</strong> Lichen&rsquo;s care model — a
+          {/* STRUCK, NOT DELETED (founder 2026-08-08): Lichen's scope is the
+              technology partnership. The strikethrough shows a seat
+              deliberately left open; the slot invites the partner who fills
+              it. Matches the scope email. */}
+          <s class="wstrike"><strong>Holistic healing.</strong> Lichen&rsquo;s care model — a
           Concierge team forming around one person, human wisdom and AI
           coordinating the next, best step — needs a place where every layer of
           healing is within arm&rsquo;s reach. Four Winds is that place,
@@ -116,17 +118,22 @@ import TangoScene from '../../components/TangoScene.astro';
           integrated clinical, equine and land-based healing centre before —
           Four Winds is where that model gets piloted on land that is ready for
           it: care teams that can include a therapist, a horse, a garden and
-          the place itself, every contribution counted.
+          the place itself, every contribution counted.</s>
+          <span class="wslot">⟨ insert partner here ⟩</span>
         </li>
         <li>
-          <strong>Business &amp; technology infrastructure.</strong> The legal,
-          business and technology layer that weaves it all together. The
-          land-trust structure that receives what&rsquo;s given and holds the
-          ground. The
+          <strong>Technology infrastructure.</strong> The technology layer that
+          weaves it all together. The
           Current-cy economy that records every contribution once it&rsquo;s
           stewarded — hay, work-trade, animal care, the hours a teenager puts
           into the garden, the people who simply show up. And the network every
           contributor is woven into, rather than left holding a receipt.
+        </li>
+        <li>
+          <s class="wstrike"><strong>Business &amp; legal infrastructure.</strong> The
+          land-trust structure that receives what&rsquo;s given and holds the
+          ground, and the business layer that runs the property day to day.</s>
+          <span class="wslot">⟨ insert partner here ⟩</span>
         </li>
       </ol>
 
@@ -267,5 +274,17 @@ import TangoScene from '../../components/TangoScene.astro';
   .worg {
     font-size: var(--t-xl); font-weight: 400; color: var(--ink);
     margin-top: var(--s-6);
+  }
+  /* A struck seat: still legible — the point is showing what was deliberately
+     left open — but clearly not Lichen's to claim. */
+  .wstrike { text-decoration: line-through; text-decoration-thickness: 1.5px; color: var(--ink-faint); }
+  .wstrike strong { color: var(--ink-faint); }
+  /* The open seat itself: a dashed slot waiting for a name. */
+  .wslot {
+    display: inline-block; margin-left: 6px;
+    padding: 2px 12px; border: 1.5px dashed var(--peach);
+    border-radius: var(--r-full);
+    font-style: italic; font-size: var(--t-sm); color: var(--peach-deep);
+    white-space: nowrap;
   }
 </style>
