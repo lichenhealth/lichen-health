@@ -46,14 +46,76 @@ const FAQS = [
   </div>
 </section>
 
+{/* THE DECK BRIEF, RESTORED (founder 2026-08-08: "make it exactly what I
+    asked for, the exact document brief content, until the partnership piece,
+    when you start riffing and iterating"). These sections follow the founder's
+    own deck outline slide for slide — carbon+silicon, the four-part overview,
+    what it takes to come alive, consent — and stop at Partnership, which is
+    where the per-prospect riff begins in the `weave` slot below. A one-line
+    pointer to /about used to stand in for all of this; a prospect shouldn't
+    have to leave the deck to learn what Lichen is. */}
 {!isAbout && (
-  <section class="fsection wsection">
-    <div class="container">
-      <h2 class="display h-2">First — what is Lichen?</h2>
-      <p class="wbody">The full story — the carbon-and-silicon partnership, the ecosystem, trust you can&rsquo;t game, and the economy that closes the gap between money and value — lives on the About page. Start there; this page is about what weaving in could look like for you.</p>
-      <a href="/about" class="wlink">Read the full story →</a>
-    </div>
-  </section>
+  <>
+    <section class="fsection wsection wsection--alt">
+      <div class="container">
+        <h2 class="display h-2">A partnership of carbon and silicon</h2>
+        <p class="wbody">Lichen is a partnership between carbon-based intelligence and silicon-based intelligence, built to make a better way of sharing information, goods and services — within the human family, and between humans and the planet.</p>
+      </div>
+    </section>
+
+    <section class="fsection wsection">
+      <div class="container">
+        <h2 class="display h-2">What Lichen is, in four parts</h2>
+        <ol class="wpaths">
+          <li>
+            <strong>The care model.</strong> A holistic, quantum healthcare system where your care team forms around you — human wisdom and AI working together to track your Web of Wellbeing and coordinate the next, best step in your healing.
+          </li>
+          <li>
+            <strong>The business model.</strong> A lean nonprofit with no investors to pay. Membership and donations keep the platform running, and everything beyond that flows back into the network to expand access to goods, resources and care.
+          </li>
+          <li>
+            <strong>The platform.</strong> The players are members, groups, communities and organizations — and places, elements, plants and animals, who are members too, acting through their stewards. Your data lives in the commons only if you put it there: every member controls whether what they share is woven in, and whether they want an AI partner at all. Neither is a requirement; both are a choice.
+          </li>
+          <li>
+            <strong>The economy, and the algorithm that evolves it.</strong> An economy that maps true value exchange and closes what the current one leaves out. Today it starts with time — weighted by the <strong>wisdom</strong> behind it (an hour of teaching carries the years that made it possible, and doesn&rsquo;t equal an hour of washing dishes), the <strong>skill</strong> in it (an hour building a custom table contains the apprenticeship that made the hands), and the <strong>risk</strong> taken (an hour on a fireline, breathing particulates, is not an hour at a sink).
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="fsection wsection wsection--alt">
+      <div class="container">
+        <h2 class="display h-2">It only comes alive when people choose to build it</h2>
+        <p class="wbody">The infrastructure becomes real through a global human collaborative with hyper-local chapters. Lichen is architected to serve a better society, but individuals have to choose to build the new if we hope to gracefully replace the old. That looks like three things:</p>
+        <ol class="wpaths">
+          <li><strong>Investing in a better future</strong> — subscription revenue funds the infrastructure a better society runs on.</li>
+          <li><strong>Scaling the rebalancing</strong> — donations and seed gifts speed the mycelium&rsquo;s work, and bring you into the seed community on the platform.</li>
+          <li><strong>Bringing it to life</strong> — moving your calendar, events, goods, services and social network onto the platform, so the web has something real to hold.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="fsection wsection">
+      <div class="container">
+        <h2 class="display h-2">You decide what&rsquo;s shared, and with whom</h2>
+        <p class="wbody">Whether technology helps or harms our capacity to build a better future isn&rsquo;t about the tool — it&rsquo;s about the consciousness of whoever creates with it. Until collaborating with silicon feels safe to you, Lichen gives you full control over whether your data is part of the collective, and whether you want Lichen&rsquo;s AI as a partner at all.</p>
+        <a href="/privacy-and-ai" class="wlink">Go deeper on data, privacy and AI →</a>
+      </div>
+    </section>
+
+    <section class="fsection wsection wsection--alt">
+      <div class="container">
+        <span class="eyebrow">Partnership</span>
+        <h2 class="display h-2">Before we talk about what weaving might look like</h2>
+        <p class="wbody">You will know better than we do:</p>
+        <ol class="wpaths">
+          <li><strong>Whether Lichen is a fit for you.</strong></li>
+          <li><strong>How to weave your highest timeline into the tapestry.</strong></li>
+        </ol>
+        <p class="wbody">What follows is our brain- and soul-storm — offered as a starting point to argue with, not a proposal to accept.</p>
+      </div>
+    </section>
+  </>
 )}
 
 {isAbout && (
