@@ -114,7 +114,13 @@ const { alpha = false } = Astro.props;
     flex-direction: row; align-items: flex-start; justify-content: space-between;
     gap: var(--s-5); flex-wrap: wrap;
   }
-  .wcol-text { flex: 0 1 380px; max-width: 380px; display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; }
+  /* Flexbox decides line-wrapping from each item's flex-basis, not its
+     post-shrink size — a flat 380px max-width still wrapped the phone onto
+     its own line on narrower desktop widths (founder 2026-08-10: "the
+     desktop phone images are below not next to the text"). Capping against
+     the container's own width minus what the phone needs (128px + the row
+     gap) guarantees they always fit on one line together. */
+  .wcol-text { flex: 0 1 380px; max-width: min(380px, calc(100% - 148px)); display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; }
   .wcol-phone { flex: 0 0 auto; margin-top: var(--s-2); }
   /* Business is CARBON (founder 2026-08-08): the model is human decisions
      about how money moves, so it wears C and peach even though it sits at the
