@@ -1,147 +1,134 @@
 ---
-// Illustrated phone mockups for the Community/Care pair (founder 2026-08-10:
-// "put a mock of Community on the left and Concierge on the right" beneath
-// the "each one feeds the other" line). Hand-built from the app's real
-// PhoneFrame/AppIcon components — the same illustration technique the
-// economy-in-action scenes already use — not literal screenshots.
-import PhoneFrame from './PhoneFrame.astro';
+// Illustrated phone mockups, small, living INSIDE the Community/Care cards
+// (founder 2026-08-10: "make them smaller and put them in the bubbles and
+// move the text over"). One variant per card — Community shows the feed,
+// Concierge shows the Web of Wellbeing as an actual 6-sided web (a radar
+// chart, not the circular score gauge the first pass wrongly reached for —
+// "Web" is the point).
+//
+// A bespoke small shell, not <PhoneFrame> (founder 2026-08-10: "those
+// screen mocks are pretty rough, all the proportions are off"). PhoneFrame's
+// top-bar chrome — six ~29px circles/avatar plus a 7-icon nav bar — is fixed
+// pixel sizing tuned for the 232-300px mockups elsewhere in this repo
+// (WeaveIn, FourWindsPhones); dropped into a 128px frame it doesn't fit and
+// reads as oversized/broken. Scaling PhoneFrame itself would also reshape
+// those other, already-shipped decks. A plain notch + outline at this size
+// reads as "a phone" without needing chrome that can't scale down legibly.
 import AppIcon from './AppIcon.astro';
+export interface Props { variant: 'community' | 'concierge'; w?: number }
+const { variant, w = 128 } = Astro.props;
+
+// Six wellbeing axes, evenly spaced, starting at 12 o'clock. Illustrative
+// values only — this is a mockup, not a real member's data.
+const AXES = [
+  { label: 'Body', value: 0.85 },
+  { label: 'Mind', value: 0.6 },
+  { label: 'Spirit', value: 0.75 },
+  { label: 'Community', value: 0.9 },
+  { label: 'Purpose', value: 0.65 },
+  { label: 'Land', value: 0.8 },
+];
+const CX = 50, CY = 50, R = 38;
+function pt(i: number, frac: number) {
+  const angle = (-90 + i * 60) * (Math.PI / 180);
+  return { x: CX + frac * R * Math.cos(angle), y: CY + frac * R * Math.sin(angle) };
+}
+const outerPts = AXES.map((_, i) => pt(i, 1));
+const midPts = AXES.map((_, i) => pt(i, 0.5));
+const dataPts = AXES.map((a, i) => pt(i, a.value));
+const toPath = (pts: { x: number; y: number }[]) => pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ') + ' Z';
 ---
-<div class="ccm">
-  <div class="ccm-col">
-    <PhoneFrame initial="M" active="home" mark={false} w={260}>
-      <div class="ccm-feed">
-        <p class="ccm-greet">Good morning. <em>Your web is awake.</em></p>
-        <div class="ccm-card">
-          <div class="ccm-card-head">
-            <span class="ccm-avatar" style="background:#C97B3D">M</span>
-            <span class="ccm-card-id">
-              <strong>Maya Chen</strong>
-              <em>Pine Valley Grange</em>
-            </span>
-          </div>
-          <p class="ccm-card-body">Bring a dish and the seeds you saved — the Grange table has room for both.</p>
-          <div class="ccm-card-icons">
-            <AppIcon name="shield-user" size={13} />
-            <AppIcon name="thumbs-up" size={13} />
-            <AppIcon name="message" size={13} />
-            <AppIcon name="bookmark" size={13} />
-          </div>
+{variant === 'community' && (
+  <div class="ccm-phone" style={`width:${w}px`}>
+    <div class="ccm-notch" aria-hidden="true"></div>
+    <div class="ccm-feed">
+      <p class="ccm-greet">Good morning. <em>Your web is awake.</em></p>
+      <div class="ccm-card">
+        <div class="ccm-card-head">
+          <span class="ccm-avatar" style="background:#C97B3D">M</span>
+          <span class="ccm-card-id">
+            <strong>Maya Chen</strong>
+            <em>Pine Valley Grange</em>
+          </span>
         </div>
-        <div class="ccm-card">
-          <div class="ccm-card-head">
-            <span class="ccm-avatar" style="background:#7C8E5E">T</span>
-            <span class="ccm-card-id">
-              <strong>The Trail Crew</strong>
-              <em>Group · Events</em>
-            </span>
-          </div>
-          <p class="ccm-card-body">Loppers, gloves, and good company — we clear the flood debris before fall.</p>
-          <div class="ccm-card-icons">
-            <AppIcon name="shield-user" size={13} />
-            <AppIcon name="thumbs-up" size={13} />
-            <AppIcon name="message" size={13} />
-            <AppIcon name="bookmark" size={13} />
-          </div>
+        <p class="ccm-card-body">Bring a dish and the seeds you saved — the Grange table has room for both.</p>
+        <div class="ccm-card-icons">
+          <AppIcon name="shield-user" size={11} />
+          <AppIcon name="thumbs-up" size={11} />
+          <AppIcon name="message" size={11} />
+          <AppIcon name="bookmark" size={11} />
         </div>
       </div>
-    </PhoneFrame>
-    <p class="ccm-label">Community</p>
+    </div>
   </div>
-  <div class="ccm-col">
-    <PhoneFrame initial="M" active="concierge" w={260}>
-      <div class="ccm-conc">
-        <p class="ccm-conc-eyebrow">Web of Wellbeing</p>
-        <div class="ccm-wow">
-          <svg viewBox="0 0 80 80" class="ccm-wow-ring" aria-hidden="true">
-            <circle cx="40" cy="40" r="34" fill="none" stroke="var(--bone-edge)" stroke-width="7" />
-            <circle cx="40" cy="40" r="34" fill="none" stroke="var(--peach)" stroke-width="7"
-              stroke-linecap="round" stroke-dasharray="213.6" stroke-dashoffset="55"
-              transform="rotate(-90 40 40)" />
-          </svg>
-          <span class="ccm-wow-n">74</span>
-        </div>
-        <p class="ccm-conc-note">Trending up this week — sleep and movement both improved.</p>
-        <p class="ccm-conc-label">Your care team</p>
-        <div class="ccm-team">
-          <span class="ccm-avatar ccm-avatar--sm" style="background:#A78BBA">R</span>
-          <span class="ccm-avatar ccm-avatar--sm" style="background:#5A8B84">D</span>
-          <span class="ccm-avatar ccm-avatar--sm" style="background:#C97B3D">J</span>
-          <span class="ccm-team-note">3 people tending your care, together</span>
-        </div>
-        <div class="ccm-next">
-          <AppIcon name="concierge" size={15} />
-          <span><strong>Next best step</strong><br />Book a check-in with Dr. Reyes this week.</span>
-        </div>
+)}
+{variant === 'concierge' && (
+  <div class="ccm-phone" style={`width:${w}px`}>
+    <div class="ccm-notch" aria-hidden="true"></div>
+    <div class="ccm-conc">
+      <p class="ccm-conc-eyebrow">Web of Wellbeing</p>
+      <svg viewBox="0 0 100 100" class="ccm-web" aria-hidden="true">
+        <path d={toPath(outerPts)} fill="none" stroke="var(--bone-edge)" stroke-width="1" />
+        <path d={toPath(midPts)} fill="none" stroke="var(--bone-edge)" stroke-width="0.75" opacity="0.7" />
+        {outerPts.map((p) => (
+          <line x1={CX} y1={CY} x2={p.x} y2={p.y} stroke="var(--bone-edge)" stroke-width="0.75" />
+        ))}
+        <path d={toPath(dataPts)} fill="var(--peach)" fill-opacity="0.28" stroke="var(--peach)" stroke-width="1.5" stroke-linejoin="round" />
+        {dataPts.map((p) => (
+          <circle cx={p.x} cy={p.y} r="1.8" fill="var(--peach-deep)" />
+        ))}
+      </svg>
+      <div class="ccm-team">
+        <span class="ccm-avatar ccm-avatar--sm" style="background:#A78BBA">R</span>
+        <span class="ccm-avatar ccm-avatar--sm" style="background:#5A8B84">D</span>
+        <span class="ccm-avatar ccm-avatar--sm" style="background:#C97B3D">J</span>
+        <span class="ccm-team-note">Your care team</span>
       </div>
-    </PhoneFrame>
-    <p class="ccm-label">Concierge</p>
+    </div>
   </div>
-</div>
+)}
 
 <style>
-  .ccm {
-    display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap;
-    gap: var(--s-7); margin: var(--s-5) 0 var(--s-6);
+  /* ── Device shell ─────────────────────────────────────────────────── */
+  .ccm-phone {
+    aspect-ratio: 390 / 844;
+    border: 3px solid #1a1a1a; border-radius: 13px;
+    background: var(--bone); overflow: hidden;
+    box-shadow: 0 10px 24px rgba(18, 24, 28, 0.18);
+    display: flex; flex-direction: column;
   }
-  .ccm-col { display: flex; flex-direction: column; align-items: center; gap: var(--s-3); }
-  .ccm-label {
-    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--ink-faint);
-  }
+  .ccm-notch { width: 32%; height: 4px; background: #1a1a1a; border-radius: 0 0 4px 4px; margin: 0 auto; flex-shrink: 0; }
 
   /* ── Community feed mock ─────────────────────────────────────────── */
-  .ccm-feed { padding: 10px 12px 14px; display: flex; flex-direction: column; gap: 10px; }
-  .ccm-greet { font-size: 12px; color: var(--ink-soft); margin-bottom: 2px; }
+  .ccm-feed { padding: 8px 9px 10px; display: flex; flex-direction: column; gap: 7px; }
+  .ccm-greet { font-size: 8.5px; line-height: 1.35; color: var(--ink-soft); }
   .ccm-greet em { font-style: italic; color: var(--ink); }
   .ccm-card {
-    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);
-    padding: 9px 10px;
+    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: 8px;
+    padding: 7px 8px;
   }
-  .ccm-card-head { display: flex; align-items: center; gap: 7px; }
+  .ccm-card-head { display: flex; align-items: center; gap: 5px; }
   .ccm-avatar {
-    width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+    width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
     display: inline-flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 10px; font-weight: 600; font-family: var(--font-display);
+    color: #fff; font-size: 7.5px; font-weight: 600; font-family: var(--font-display);
   }
-  .ccm-avatar--sm { width: 20px; height: 20px; font-size: 9px; margin-left: -6px; border: 2px solid var(--bone); }
+  .ccm-avatar--sm { width: 16px; height: 16px; font-size: 7px; margin-left: -5px; border: 2px solid var(--bone); }
   .ccm-avatar--sm:first-child { margin-left: 0; }
-  .ccm-card-id { display: flex; flex-direction: column; line-height: 1.2; }
-  .ccm-card-id strong { font-size: 10.5px; color: var(--ink); font-weight: 600; }
-  .ccm-card-id em { font-style: normal; font-size: 9px; color: var(--ink-faint); }
-  .ccm-card-body { font-size: 10.5px; line-height: 1.4; color: var(--ink-soft); margin-top: 6px; }
-  .ccm-card-icons { display: flex; gap: 9px; margin-top: 8px; color: var(--ink-faint); }
-  .ccm-card-icons :global(svg) { width: 13px; height: 13px; }
+  .ccm-card-id { display: flex; flex-direction: column; line-height: 1.15; }
+  .ccm-card-id strong { font-size: 8px; color: var(--ink); font-weight: 600; }
+  .ccm-card-id em { font-style: normal; font-size: 6.5px; color: var(--ink-faint); }
+  .ccm-card-body { font-size: 8px; line-height: 1.3; color: var(--ink-soft); margin-top: 5px; }
+  .ccm-card-icons { display: flex; gap: 6px; margin-top: 6px; color: var(--ink-faint); }
+  .ccm-card-icons :global(svg) { width: 10px; height: 10px; }
 
-  /* ── Concierge mock ──────────────────────────────────────────────── */
-  .ccm-conc { padding: 12px 14px 16px; display: flex; flex-direction: column; align-items: center; }
+  /* ── Concierge: Web of Wellbeing ──────────────────────────────────── */
+  .ccm-conc { padding: 9px 10px 12px; display: flex; flex-direction: column; align-items: center; }
   .ccm-conc-eyebrow {
-    font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.07em; text-transform: uppercase;
+    font-family: var(--font-mono); font-size: 6.5px; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--ink-faint);
   }
-  .ccm-wow { position: relative; width: 80px; height: 80px; margin-top: 6px; }
-  .ccm-wow-ring { width: 80px; height: 80px; }
-  .ccm-wow-n {
-    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-size: 22px; color: var(--ink);
-  }
-  .ccm-conc-note { font-size: 9.5px; font-style: italic; color: var(--ink-muted); text-align: center; margin-top: 6px; max-width: 190px; }
-  .ccm-conc-label {
-    align-self: flex-start;
-    font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.07em; text-transform: uppercase;
-    color: var(--ink-faint); margin-top: 16px;
-  }
-  .ccm-team { display: flex; align-items: center; gap: 8px; margin-top: 6px; width: 100%; }
-  .ccm-team-note { font-size: 9px; color: var(--ink-soft); margin-left: 4px; line-height: 1.3; }
-  .ccm-next {
-    display: flex; align-items: flex-start; gap: 8px; margin-top: 14px; width: 100%;
-    background: var(--bone-warm); border: 1px solid var(--peach); border-radius: var(--r-md);
-    padding: 9px 10px; color: var(--peach-deep);
-  }
-  .ccm-next span { font-size: 9.5px; line-height: 1.4; color: var(--ink-soft); }
-  .ccm-next strong { color: var(--ink); font-weight: 600; }
-
-  @media (max-width: 640px) {
-    .ccm { gap: var(--s-5); }
-  }
+  .ccm-web { width: 92px; height: 92px; margin-top: 4px; }
+  .ccm-team { display: flex; align-items: center; gap: 6px; margin-top: 8px; width: 100%; }
+  .ccm-team-note { font-size: 6.5px; color: var(--ink-soft); margin-left: 3px; line-height: 1.2; }
 </style>

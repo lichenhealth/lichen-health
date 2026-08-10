@@ -27,24 +27,29 @@ const { alpha = false } = Astro.props;
 ---
 <div class="weco">
   <div class="weco__pair">
-    <div class="wcol">
+    <div class="wcol wcol--illustrated">
       {alpha && <span class="walpha">Alpha</span>}
       <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
-      <h3 class="wcol-title">Community</h3>
-      <p>The corrective social network, where you can connect, host events, organize in groups, curate community and manage your schedule — one trusted web for your whole life, with no follower counts, no leaderboards, and nothing to perform for.</p>
-      <a href="/signup" class="wlink">Join the network →</a>
+      <div class="wcol-text">
+        <h3 class="wcol-title">Community</h3>
+        <p>The corrective social network, where you can connect, host events, organize in groups, curate community and manage your schedule — one trusted web for your whole life, with no follower counts, no leaderboards, and nothing to perform for.</p>
+        <a href="/signup" class="wlink">Join the network →</a>
+      </div>
+      <div class="wcol-phone"><CommunityConciergeMockups variant="community" /></div>
     </div>
     <span class="weco__inf" aria-hidden="true">∞</span>
-    <div class="wcol">
+    <div class="wcol wcol--illustrated">
       {alpha && <span class="walpha">Alpha</span>}
       <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
-      <h3 class="wcol-title">Care</h3>
-      <p>The Concierge service — a holistic, quantum healthcare system where your care team forms around you, while human wisdom and AI work together to track your Web of Wellbeing and coordinate the next, best step in your journey of healing and realizing your full potential.</p>
-      <a href="/care" class="wlink">Learn more about the care model →</a>
+      <div class="wcol-text">
+        <h3 class="wcol-title">Care</h3>
+        <p>The Concierge service — a holistic, quantum healthcare system where your care team forms around you, while human wisdom and AI work together to track your Web of Wellbeing and coordinate the next, best step in your journey of healing and realizing your full potential.</p>
+        <a href="/care" class="wlink">Learn more about the care model →</a>
+      </div>
+      <div class="wcol-phone"><CommunityConciergeMockups variant="concierge" /></div>
     </div>
   </div>
   <p class="weco__joint">each one feeds the other — and both rest on</p>
-  <CommunityConciergeMockups />
   <div class="wcol wcol--base">
     {alpha && <span class="walpha walpha--si">Alpha</span>}
     <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
@@ -97,6 +102,16 @@ const { alpha = false } = Astro.props;
     border-radius: var(--r-lg); border: 2px solid var(--peach);
     position: relative;
   }
+  /* Community/Care carry a small illustrated phone in the corner (founder
+     2026-08-10: "make them smaller and put them in the bubbles and move
+     the text over") — text becomes the flexible column, the phone a fixed
+     one beside it. */
+  .wcol--illustrated {
+    flex-direction: row; align-items: flex-start; gap: var(--s-4);
+    flex-wrap: wrap;
+  }
+  .wcol-text { flex: 1 1 220px; display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; }
+  .wcol-phone { flex: 0 0 auto; margin-top: var(--s-2); }
   /* Business is CARBON (founder 2026-08-08): the model is human decisions
      about how money moves, so it wears C and peach even though it sits at the
      bottom of the stack. Platform and Economy above it are the silicon layers
@@ -109,7 +124,10 @@ const { alpha = false } = Astro.props;
        at 200px it wrapped and made Business taller than Platform. */
     display: grid; grid-template-columns: 280px 1fr;
     align-items: start; gap: var(--s-5);
-    padding: var(--s-5) var(--s-6);
+    /* Left tighter (founder 2026-08-10: the title sat too far from the
+       card edge) — right wider, so the body text clears the Si/C mark's
+       absolute top-right corner instead of running under it. */
+    padding: var(--s-5) 44px var(--s-5) var(--s-4);
     border-color: var(--sky);
   }
   /* The link rides under the title, in the column that was otherwise empty
