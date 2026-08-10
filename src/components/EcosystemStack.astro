@@ -105,12 +105,16 @@ const { alpha = false } = Astro.props;
   /* Community/Care carry a small illustrated phone in the corner (founder
      2026-08-10: "make them smaller and put them in the bubbles and move
      the text over") — text becomes the flexible column, the phone a fixed
-     one beside it. */
+     one beside it. Text is capped, not flex-grown to fill the row (founder
+     2026-08-10: it was stretching wide enough to crowd the phone and the
+     C mark) — a narrower column leaves deliberate space between the two,
+     with `space-between` pushing the phone out toward the card's own
+     corner instead of hugging the text. */
   .wcol--illustrated {
-    flex-direction: row; align-items: flex-start; gap: var(--s-4);
-    flex-wrap: wrap;
+    flex-direction: row; align-items: flex-start; justify-content: space-between;
+    gap: var(--s-5); flex-wrap: wrap;
   }
-  .wcol-text { flex: 1 1 220px; display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; }
+  .wcol-text { flex: 0 1 380px; max-width: 380px; display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; }
   .wcol-phone { flex: 0 0 auto; margin-top: var(--s-2); }
   /* Business is CARBON (founder 2026-08-08): the model is human decisions
      about how money moves, so it wears C and peach even though it sits at the
