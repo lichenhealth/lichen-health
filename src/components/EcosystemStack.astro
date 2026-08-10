@@ -21,6 +21,7 @@
 // ALPHA label on Community and Care. The weave decks turn it on — partners
 // should see the maturity honestly; About leaves it off unless the founder
 // says otherwise.
+import CommunityConciergeMockups from './CommunityConciergeMockups.astro';
 export interface Props { alpha?: boolean }
 const { alpha = false } = Astro.props;
 ---
@@ -43,6 +44,7 @@ const { alpha = false } = Astro.props;
     </div>
   </div>
   <p class="weco__joint">each one feeds the other — and both rest on</p>
+  <CommunityConciergeMockups />
   <div class="wcol wcol--base">
     {alpha && <span class="walpha walpha--si">Alpha</span>}
     <span class="wcol-el wcol-el--si" aria-hidden="true">Si</span>
