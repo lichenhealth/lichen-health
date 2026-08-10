@@ -1,22 +1,29 @@
 ---
-// Under-resourced innovators — Crystal's startup. The map beside the
-// introduction her assistant actually makes (founder 2026-08-05).
+// Under-resourced innovators — Crystal's startup, enriched into the fuller
+// "Founder Burnout" scenario (founder 2026-08-10, Figma Lichen Pitch
+// Collateral node 700:2029): two years in, Crystal is quietly eroding —
+// not a crisis, a slow one. She flags it herself in Concierge; within 48
+// hours a care team assembles, and her AI Assistant scans the ecosystem for
+// relevant support and peer collaboration. Six weeks later the rhythm is
+// holding — the company doesn't lose its founder, and the founder doesn't
+// lose herself. "Healing isn't a benefit. It's how the ecosystem protects
+// what it's building."
 import PhoneFrame from './PhoneFrame.astro';
 import AppIcon from './AppIcon.astro';
 import ScenePair from './ScenePair.astro';
 ---
-<ScenePair eyebrow="Under-resourced innovators · Crystal's startup">
+<ScenePair eyebrow="Under-resourced innovators · Crystal's burnout">
   <img slot="image" src="/img/2026/01/crystal-home.jpg" alt="A founder working at her kitchen counter while holding her toddler." loading="lazy" />
   <svg slot="map" viewBox="0 0 340 250" role="img"
-    aria-label="A map route: Crystal, an under-resourced founder; her AI assistant reads the roadblock; a peer founder holds the missing half; together they launch a shared venture — plan drafted by the assistant, seeded by the commons.">
+    aria-label="A map route: Crystal, two years into building her company and quietly eroding; she flags it herself in Concierge; within 48 hours a care team assembles — a somatic therapist, a naturopath, a founder coach; her AI assistant scans the ecosystem and matches her with a peer founder support group; six weeks later, the rhythm is holding and the company keeps its founder.">
     <path d="M-10,108 q45,-12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
     <path d="M-10,178 q45,10 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.4" />
     <path d="M44,48 C92,20 148,36 200,64 C226,88 152,112 110,140 C78,162 190,168 256,204"
       fill="none" stroke="var(--peach)" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" />
     <circle cx="44" cy="48" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
-    <text x="44" y="53" font-size="14" text-anchor="middle">💡</text>
+    <text x="44" y="53" font-size="14" text-anchor="middle">😮‍💨</text>
     <text x="46" y="82" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">Crystal</text>
-    <text x="46" y="94" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">a founder, under-resourced</text>
+    <text x="46" y="94" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">two years in, quietly eroding</text>
     <circle cx="200" cy="64" r="16" fill="var(--peach-tint)" stroke="var(--peach)" stroke-width="1.2" />
     <g transform="translate(191,55)" color="var(--peach-deep)">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -26,18 +33,18 @@ import ScenePair from './ScenePair.astro';
       </svg>
     </g>
     <text x="222" y="60" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="start">her assistant</text>
-    <text x="222" y="72" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="start">reads the roadblock</text>
+    <text x="222" y="72" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="start">scans the ecosystem</text>
     <circle cx="110" cy="140" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
-    <text x="110" y="145" font-size="14" text-anchor="middle">🔧</text>
-    <text x="88" y="136" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="end">a peer founder</text>
-    <text x="88" y="148" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="end">the missing half</text>
+    <text x="110" y="145" font-size="14" text-anchor="middle">🩺</text>
+    <text x="88" y="136" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="end">her care team</text>
+    <text x="88" y="148" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="end">assembled within 48 hours</text>
     <circle cx="256" cy="204" r="16" fill="var(--bone-warm)" stroke="var(--bone-edge)" stroke-width="1.2" />
-    <text x="256" y="209" font-size="14" text-anchor="middle">🚀</text>
-    <text x="250" y="236" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">a shared venture</text>
-    <text x="250" y="248" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">plan drafted · seeded by the commons</text>
+    <text x="256" y="209" font-size="14" text-anchor="middle">🌿</text>
+    <text x="250" y="236" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">six weeks later</text>
+    <text x="250" y="248" font-size="9" font-style="italic" fill="var(--ink-soft)" text-anchor="middle">steady — the company keeps its founder</text>
   </svg>
 
-  <PhoneFrame slot="phone" initial="C" active="home" mark={false}>
+  <PhoneFrame slot="phone" initial="C" active="concierge" mark={false}>
     <div class="cry">
       <div class="cry-ai">
         <span class="cry-ai-avatar">
@@ -49,29 +56,28 @@ import ScenePair from './ScenePair.astro';
       </div>
 
       <div class="cry-card cry-card--match">
-        <p><strong>Your roadblock is <span class="cry-ref">Devon Marsh</span>&rsquo;s strength</strong> — he&rsquo;s solved supply-chain twice, and he&rsquo;s stuck exactly where you&rsquo;re strong.</p>
-        <span class="cry-chip">Introduce us &rarr;</span>
+        <p><strong>I flagged it, and your team assembled fast</strong> — a somatic therapist, a naturopath and <span class="cry-ref">Payton Slawinski</span>, your founder coach. Feeling seen and not alone is powerful medicine.</p>
       </div>
       <div class="cry-card">
-        <p><strong>Both of you are in <span class="cry-ref">Founders in Residence</span></strong> — the shared room already exists. I drafted a first plan you can both edit.</p>
+        <p><strong>A Founder Support Group</strong> is meeting weekly, via Community — other builders who know exactly what this erosion feels like. You&rsquo;re not the only one carrying this.</p>
+        <span class="cry-chip">Join the group &rarr;</span>
       </div>
       <div class="cry-card">
-        <p><strong>After what you can build together</strong>, one gap is left: $4,200 of lab time. That&rsquo;s the piece the commons can seed.</p>
-        <span class="cry-chip">Ask the commons &rarr;</span>
+        <p><strong>Six weeks in:</strong> weekly somatic sessions, a supplement protocol, adjusted sleep, a standing coach call. Your Imagine advisor is looped in on capacity, never on clinical details.</p>
       </div>
-      <p class="cry-foot">Carbon decides; silicon organizes.</p>
+      <p class="cry-foot">Healing isn&rsquo;t a benefit. It&rsquo;s how the ecosystem protects what it&rsquo;s building.</p>
     </div>
   </PhoneFrame>
 
   <Fragment slot="capmap">
-    Innovation today runs on exclusivity — guard the idea, outrun the rest. Radical
-    collaboration is the more efficient engine: shared knowledge compounds instead of
-    duplicating effort.
+    The kind of depletion that doesn&rsquo;t show up in a board meeting — it just quietly
+    hollows out the person running everything. Trauma-informed care catches it before it
+    becomes a crisis, not after.
   </Fragment>
   <Fragment slot="capphone">
-    Her assistant reads what each founder is missing, makes the introduction, and drafts
-    the plan — then the platform resources only what they still can&rsquo;t contribute
-    together. The commons seeds what the old economy starved.
+    Her assistant reads the roadblock as a wellbeing one, assembles the right team, and
+    finds her the peers who&rsquo;ve carried the same weight. The company doesn&rsquo;t
+    lose its founder. The founder doesn&rsquo;t lose herself.
   </Fragment>
 </ScenePair>
 

@@ -7,6 +7,7 @@ import type { Project } from '../data/projects';
 
 interface Props { project: Project }
 const { project } = Astro.props;
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 ---
 <BaseLayout overHero={true} title={project.seoTitle} description={project.seoDesc}>
   <section class="phero">
@@ -28,7 +29,7 @@ const { project } = Astro.props;
   </section>
 
   {project.sections.map((s, i) => (
-    <section class="fsection sec-block">
+    <section class="fsection sec-block" id={s.title ? slugify(s.title) : undefined}>
       <div class:list={['container', 'sec-grid', { flip: i % 2 === 1 }]}>
         {s.img && (
           <div class:list={['sec-pic', { 'sec-pic--composed': s.bgPhoto }]}>

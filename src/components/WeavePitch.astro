@@ -236,6 +236,7 @@ const FAQS = [
         <li><strong>Chronically undervalued by the current economy</strong> — goods and resources subsidized to close the value gap</li>
         <li><strong>Deliberately under-resourced</strong> — innovators whose ideas challenge the systems that limit us, invested in</li>
         <li><strong>Young people still becoming</strong> — the children reached before they lose their joy, curiosity and knowing</li>
+        <li><strong>Plants, animals and places needing stewards</strong> — equal participants in the economy, valued and cared for like any other member</li>
       </ol>
       <p class="wbody">This is corrective investment — targeted, efficient, and designed to become obsolete. Lichen <em>pays only the gap</em>: what insurance doesn&rsquo;t cover, what organizations can&rsquo;t absorb, what individuals can&rsquo;t yet afford, what the current market won&rsquo;t fund. No further — and only until the community&rsquo;s own economy can hold everyone. Money dedicated to the commons here can never turn back into private profit — you&rsquo;re not the product; you&rsquo;re a contributing member to a better way of being in relationship with each other and the planet.</p>
       <EconomyJourneys />
@@ -248,11 +249,25 @@ const FAQS = [
     <div class="container">
       <h2 class="display h-2">It takes real people, choosing to build the new</h2>
       <p class="wbody">Lichen&rsquo;s business model and technology platform are architected to serve a better society — but it only comes alive when a critical mass of humanity chooses to withdraw its energy from a failing system to enliven a better one. That looks like three things:</p>
-      <ol class="wpaths">
-        <li><strong>Investing in a better future</strong> — subscription revenue funds the business and technology infrastructure a better society runs on, and everything beyond our lean operating costs pours back into the network&rsquo;s rebalancing work.</li>
-        <li><strong>Scaling a whole-earth renaissance</strong> — donations and seed gifts speed the platform&rsquo;s buildout and reach, growing the mycelium&rsquo;s capacity to restore balance, health and harmony.</li>
-        <li><strong>Bringing a better world to life</strong> — move your calendar, events, goods, services and social network onto the platform, and join a new vision of community, commerce and healthcare that transforms how we heal, grow and collaborate with all that is.</li>
-      </ol>
+      <div class="ppl">
+        <div class="ppl-box">
+          <h3 class="ppl-h">Investing in a better future</h3>
+          <p>Subscription revenue funds the business and technology infrastructure a better society runs on, and everything beyond our lean operating costs pours back into the network&rsquo;s rebalancing work.</p>
+          <a href="/signup" class="wlink">Ask to join the platform →</a>
+        </div>
+        <div class="ppl-box">
+          <h3 class="ppl-h">Bringing a better world to life</h3>
+          <p>Move your calendar, events, goods, services and social network onto the platform, and join a new vision of community, commerce and healthcare that transforms how we heal, grow and collaborate with all that is.</p>
+        </div>
+      </div>
+      <!-- Philanthropy is the foundation the other two stand on (founder
+           2026-08-10) — same wide-strata language EcosystemStack uses for
+           Platform/Economy beneath Community/Care. -->
+      <div class="ppl-box ppl-box--base">
+        <h3 class="ppl-h">Scaling a whole-earth renaissance</h3>
+        <p>Donations and seed gifts speed the platform&rsquo;s buildout and reach, growing the mycelium&rsquo;s capacity to restore balance, health and harmony.</p>
+        <a href="/donate" class="wlink">Donate →</a>
+      </div>
     </div>
   </section>
 
@@ -447,6 +462,10 @@ const FAQS = [
 
   :global(.wlink) { font-size: var(--t-sm); color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   :global(.wlink:hover) { color: var(--rust); }
+  /* .wlink is sized for standalone CTA links under a card/paragraph — an
+     inline one mid-sentence (the "an invitation" link, founder 2026-08-10)
+     needs to read as part of the sentence, not a smaller aside. */
+  :global(.wbody .wlink) { font-size: inherit; }
   :global(.wcallout) {
     margin-top: var(--s-7); margin-bottom: 0; padding: var(--s-5) var(--s-6);
     font-family: var(--font-display); font-style: italic;
@@ -464,6 +483,22 @@ const FAQS = [
   :global(.wpaths li) { counter-increment: wpath; position: relative; padding-left: var(--s-8); font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-soft); }
   :global(.wpaths li::before) { content: counter(wpath); position: absolute; left: 0; top: -2px; width: 28px; height: 28px; border-radius: 50%; background: var(--peach-tint); color: var(--peach-deep); font-family: var(--font-mono); font-size: var(--t-sm); display: flex; align-items: center; justify-content: center; }
   :global(.wpaths strong) { color: var(--ink); font-weight: 500; }
+
+  /* Two boxes standing on a wide one (founder 2026-08-10): same
+     foundation language EcosystemStack uses for Platform/Economy under
+     Community/Care — philanthropy is what the other two rest on here. */
+  .ppl { margin-top: var(--s-6); display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+  .ppl-box {
+    display: flex; flex-direction: column; gap: var(--s-3);
+    padding: var(--s-6); background: var(--bone-warm);
+    border-radius: var(--r-lg); border: 2px solid var(--peach);
+  }
+  .ppl-h { font-family: var(--font-display); font-size: var(--t-xl); color: var(--ink); font-weight: 400; }
+  .ppl-box p { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
+  .ppl-box--base { margin-top: var(--s-3); }
+  @media (max-width: 720px) {
+    .ppl { grid-template-columns: 1fr; }
+  }
 
   .wstorm { border-top: 2px solid var(--peach); }
   .wstorm :global(.wcallout) { margin-bottom: var(--s-8); }
