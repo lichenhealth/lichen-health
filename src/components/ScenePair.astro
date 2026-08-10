@@ -4,12 +4,22 @@
 // each scenario, like we did for Tango"). Map first on mobile, so the story
 // reads before the proof.
 //
-// Slots: `map` (the SVG), `phone` (a PhoneFrame), `capmap`, `capphone`.
+// `image` (founder 2026-08-10, "insert stock images... above each map, then
+// have the map, then have the phone mockup... picture above the map and to
+// the left of the mock on desktop"): an optional photo above the map card,
+// in the same left column — on mobile that reads image → map → phone in
+// document order for free; on desktop the column just sits left of the phone
+// as it already did. Optional because not every scene has a real photo yet.
+//
+// Slots: `image` (an <img>, optional), `map` (the SVG), `phone` (a
+// PhoneFrame), `capmap`, `capphone`.
 export interface Props { eyebrow?: string }
 const { eyebrow } = Astro.props;
+const hasImage = Astro.slots.has('image');
 ---
 <div class="sp">
   <div class="sp-col">
+    {hasImage && <div class="sp-image"><slot name="image" /></div>}
     <div class="sp-mapcard">
       {eyebrow && <p class="sp-eyebrow">{eyebrow}</p>}
       <slot name="map" />
@@ -28,6 +38,11 @@ const { eyebrow } = Astro.props;
     gap: var(--s-7); margin-top: var(--s-6); flex-wrap: wrap;
   }
   .sp-col { display: flex; flex-direction: column; align-items: center; flex: 1 1 300px; max-width: 460px; }
+  .sp-image { width: 100%; margin-bottom: var(--s-4); }
+  .sp-image :global(img) {
+    display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover;
+    border-radius: var(--r-lg);
+  }
   .sp-mapcard {
     width: 100%;
     background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg);
