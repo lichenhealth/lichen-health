@@ -253,21 +253,21 @@ const FAQS = [
         <div class="ppl-box">
           <h3 class="ppl-h">Investing in a better future</h3>
           <p>Subscription revenue funds the business and technology infrastructure a better society runs on, and everything beyond our lean operating costs pours back into the network&rsquo;s rebalancing work.</p>
-          <a href="/signup" class="wlink">Ask to join the platform →</a>
         </div>
         <div class="ppl-box">
           <h3 class="ppl-h">Bringing a better world to life</h3>
           <p>Move your calendar, events, goods, services and social network onto the platform, and join a new vision of community, commerce and healthcare that transforms how we heal, grow and collaborate with all that is.</p>
         </div>
       </div>
+      <p class="ppl-cta"><a href="/signup" class="wlink">Ask to join the platform →</a></p>
       <!-- Philanthropy is the foundation the other two stand on (founder
            2026-08-10) — same wide-strata language EcosystemStack uses for
            Platform/Economy beneath Community/Care. -->
       <div class="ppl-box ppl-box--base">
         <h3 class="ppl-h">Scaling a whole-earth renaissance</h3>
         <p>Donations and seed gifts speed the platform&rsquo;s buildout and reach, growing the mycelium&rsquo;s capacity to restore balance, health and harmony.</p>
-        <a href="/donate" class="wlink">Donate →</a>
       </div>
+      <p class="ppl-cta"><a href="/donate" class="wlink">Donate →</a></p>
     </div>
   </section>
 
@@ -495,7 +495,10 @@ const FAQS = [
   }
   .ppl-h { font-family: var(--font-display); font-size: var(--t-xl); color: var(--ink); font-weight: 400; }
   .ppl-box p { font-size: var(--t-md); line-height: var(--lh-normal); color: var(--ink-muted); }
-  .ppl-box--base { margin-top: var(--s-3); }
+  .ppl-box--base { margin-top: 0; }
+  /* CTAs live BETWEEN the strata, centered (founder 2026-08-13) — each one
+     belongs to the layer above it, not to a single bubble. */
+  .ppl-cta { text-align: center; margin: var(--s-4) 0; }
   @media (max-width: 720px) {
     .ppl { grid-template-columns: 1fr; }
   }
