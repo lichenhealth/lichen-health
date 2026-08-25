@@ -39,6 +39,29 @@ const heroImg = '/founders-hero.jpg';
     </div>
   </section>
 
+  <section class="fsection" id="paths">
+    <div class="container container--narrow">
+      <div class="sec-head"><span class="eyebrow">Two forms of thanks</span><h2 class="display h-2">Name the true value of everything</h2></div>
+      <p class="paths-lead">Lichen's economy is built on one discipline: name the true value of everything. We apply it to ourselves first — so our gratitude comes in two forms, and we're transparent about the difference.</p>
+      <div class="thanks-forms">
+        <div class="thanks-form">
+          <h3 class="thanks-form-t">Recognition &amp; Relationship</h3>
+          <p>Your name in the land's permanent record, your voice in our circle, your place at community gatherings, a direct line to the founding team. These carry no market value the IRS can price — which means they attach to <em>every</em> gift, however you give, and your full contribution remains deductible.</p>
+        </div>
+        <div class="thanks-form">
+          <h3 class="thanks-form-t">Founders' Experiences</h3>
+          <p>Ceremonies, retreats, consultations, private dinners. These are real things with real value — and a conscious economy doesn't pretend otherwise. Experiences are available as an <em>election</em> on gifts made from personal funds: we state each experience's fair market value in writing before you commit, and your deductible amount is your gift minus that value. Nothing hidden, nothing inflated. It's simply the honest price of the honey.</p>
+        </div>
+      </div>
+      <p class="paths-choose"><strong>Every founder chooses their path at commitment:</strong></p>
+      <ul class="path-list">
+        <li><strong>Full Deduction path</strong> — Recognition &amp; Relationship only. Your entire gift is deductible. <em>This is the required path for gifts made through donor-advised funds, private foundations, and IRA qualified charitable distributions — IRS rules do not permit personal benefits on these giving vehicles, and we protect your tax position as carefully as our own.</em></li>
+        <li><strong>Experiences path</strong> — Recognition &amp; Relationship plus your tier's elected experiences, on personal-fund gifts, with written value disclosure. Many founders choose this and consider the non-deductible portion the best money they spend all year.</li>
+      </ul>
+      <p class="paths-switch">You may switch to the Full Deduction path at any time by waiving future experiences.</p>
+    </div>
+  </section>
+
   <section class="fsection" id="tiers">
     <div class="container">
       <div class="sec-head"><span class="eyebrow">Membership tiers</span><h2 class="display h-2">Each tier, a deeper layer of the forest</h2></div>
@@ -48,12 +71,15 @@ const heroImg = '/founders-hero.jpg';
             <span class="ftier-from">{t.from}</span>
             <h3 class="ftier-name">{t.name}</h3>
             <p class="ftier-essence">{t.essence}</p>
-            <ul class="ftier-benefits">{t.benefits.map((b) => <li>{b}</li>)}</ul>
+            <div class="ftier-sub"><span class="ftier-sublabel">Recognition &amp; Relationship</span><span class="ftier-subnote">all gift types</span></div>
+            <ul class="ftier-benefits">{t.recognition.map((b) => <li>{b}</li>)}</ul>
+            <div class="ftier-sub"><span class="ftier-sublabel">Elected Experiences</span><span class="ftier-subnote">personal-fund gifts; value disclosed in writing</span></div>
+            <ul class="ftier-benefits ftier-benefits--exp">{t.experiences.map((b) => <li>{b}</li>)}</ul>
             <span class="ftier-choose">Choose this tier →</span>
           </div>
         ))}
       </div>
-      <p class="tier-foot">Contributions compound — a member at one level is welcomed into the next as commitments accumulate. Anonymity is honored at every tier. Full tax documentation is confirmed with you in writing before any transfer of funds.</p>
+      <p class="tier-foot">Contributions compound — a member at one level is welcomed into the next as commitments accumulate, across all giving vehicles. Anonymity is honored at every tier. Before any transfer of funds, you receive in writing: confirmation of your tier, your chosen path, and — on the Experiences path — the stated fair market value of each elected experience and your resulting deductible amount.</p>
     </div>
   </section>
 
@@ -82,6 +108,7 @@ const heroImg = '/founders-hero.jpg';
         <thead><tr><th>Month</th><th>Gathering</th><th>Access</th></tr></thead>
         <tbody>{calendar.map(([m, g, a]) => <tr><td class="cal-m">{m}</td><td>{g}</td><td class="cal-a">{a}</td></tr>)}</tbody>
       </table>
+      <p class="cal-foot">All-tier gatherings are community events, open in spirit and free of charge. Where a gathering has a ticketed equivalent (e.g., the Founders' Gala), its fair market value is disclosed to attending founders in writing.</p>
     </div>
   </section>
 
@@ -146,6 +173,20 @@ const heroImg = '/founders-hero.jpg';
   .intro-rule { height: 1px; background: #12181C; border: 0; margin-top: var(--s-8); }
 
   .sec-head { display: flex; flex-direction: column; gap: var(--s-2); margin-bottom: var(--s-7); }
+
+  .paths-lead { font-size: var(--t-lg); line-height: var(--lh-loose); color: var(--ink-soft); font-weight: 300; max-width: 64ch; margin-bottom: var(--s-6); }
+  .thanks-forms { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); margin-bottom: var(--s-7); }
+  .thanks-form { padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); }
+  .thanks-form-t { font-family: var(--font-display); font-weight: 400; font-size: var(--t-xl); color: var(--ink); margin-bottom: var(--s-3); }
+  .thanks-form p { font-size: var(--t-sm); color: var(--ink-soft); line-height: var(--lh-loose); }
+  .paths-choose { font-size: var(--t-base); color: var(--ink); margin-bottom: var(--s-4); }
+  .path-list { display: flex; flex-direction: column; gap: var(--s-4); list-style: none; padding: 0; margin: 0; }
+  .path-list li { position: relative; padding-left: var(--s-5); font-size: var(--t-base); color: var(--ink-soft); line-height: var(--lh-loose); }
+  .path-list li::before { content: ''; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--peach); }
+  .path-list strong { color: var(--ink); font-weight: 500; }
+  .path-list em { color: var(--ink-muted); }
+  .paths-switch { margin-top: var(--s-5); font-size: var(--t-sm); color: var(--ink-muted); }
+  @media (max-width: 640px) { .thanks-forms { grid-template-columns: 1fr; } }
   .tier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-4); }
   .ftier { padding: var(--s-6); background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-lg); display: flex; flex-direction: column; gap: var(--s-2); cursor: pointer; transition: transform var(--d-base) var(--ease-out), border-color var(--d-fast) var(--ease-out); }
   .ftier:hover { transform: translateY(-3px); border-color: var(--peach); }
@@ -158,6 +199,10 @@ const heroImg = '/founders-hero.jpg';
   .ftier-benefits { display: flex; flex-direction: column; gap: var(--s-2); list-style: none; padding: 0; margin: 0; }
   .ftier-benefits li { position: relative; padding-left: var(--s-5); font-size: var(--t-sm); color: var(--ink-soft); line-height: var(--lh-normal); }
   .ftier-benefits li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--peach); }
+  .ftier-benefits--exp li::before { background: transparent; border: 1.5px solid var(--peach); width: 5px; height: 5px; }
+  .ftier-sub { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-2); margin-top: var(--s-3); }
+  .ftier-sublabel { font-family: var(--font-mono); font-size: var(--t-2xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+  .ftier-subnote { font-size: var(--t-2xs); color: var(--ink-faint); }
   .tier-foot { font-size: var(--t-sm); color: var(--ink-muted); margin-top: var(--s-6); max-width: 70ch; line-height: var(--lh-loose); }
 
   .give-paths { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
@@ -183,6 +228,7 @@ const heroImg = '/founders-hero.jpg';
   .cal td { padding: var(--s-3); border-bottom: 1px solid var(--bone-edge); color: var(--ink-soft); }
   .cal-m { font-weight: 500; color: var(--ink); white-space: nowrap; }
   .cal-a { color: var(--ink-muted); white-space: nowrap; }
+  .cal-foot { font-size: var(--t-sm); color: var(--ink-muted); margin-top: var(--s-5); max-width: 70ch; line-height: var(--lh-loose); }
 
   .faqs { display: flex; flex-direction: column; gap: var(--s-6); }
   .faq-q { font-family: var(--font-display); font-weight: 400; font-size: var(--t-lg); color: var(--ink); margin-bottom: var(--s-2); }

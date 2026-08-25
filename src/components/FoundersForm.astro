@@ -2,6 +2,7 @@
 const PORTAL_ID = '246356324';
 const FORM_ID = '66b86cc2-3710-48bd-8c08-c94c1198dc0e';
 const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth Circle ($75K+)', 'Maloka Circle ($250K+)', 'Old Growth Circle ($1M+)', 'Not sure yet — let’s talk'];
+const pathChoices = ['Full Deduction', 'Experiences', 'Not sure yet'];
 ---
 <form class="signup" id="foundersForm" data-portal={PORTAL_ID} data-form={FORM_ID}>
   <div class="field-row">
@@ -28,6 +29,16 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
       </select>
     </label>
     <p class="tier-hint">Not sure which level? <a href="#tiers">Review the membership tiers ↑</a> — pick one and you'll come right back here with your tier (and your give/pledge choice) already filled in.</p>
+  </div>
+  <div class="tier-row">
+    <label class="field tier-field">
+      <span class="field-label">Preferred path</span>
+      <select name="path" id="pathSelect">
+        <option value="">Choose one…</option>
+        {pathChoices.map((p) => <option>{p}</option>)}
+      </select>
+    </label>
+    <p class="tier-hint">The two paths — Full Deduction and Experiences — are explained under <a href="#paths">Two forms of thanks ↑</a>. You can switch to Full Deduction at any time.</p>
   </div>
   <button type="submit" class="btn btn-primary signup-submit">Begin the conversation</button>
   <p class="signup-status" id="foundersStatus" role="status"></p>
@@ -71,6 +82,7 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
     const data = new FormData(form);
     const g = (n: string) => String(data.get(n) || '').trim();
     const tier = g('tier');
+    const path = g('path');
     const contribution = g('contribution');
     const btn = form.querySelector('.signup-submit') as HTMLButtonElement;
     // All fields map to default HubSpot properties; tier is folded into the note so it's never lost.
@@ -79,7 +91,7 @@ const tierChoices = ['Substrate Circle ($5K+)', 'Root Circle ($25K+)', 'Hearth C
       { name: 'lastname', value: g('lastname') },
       { name: 'email', value: g('email') },
       { name: 'phone', value: g('phone') },
-      { name: 'message', value: `Founder's Circle inquiry${contribution ? ` — ${contribution}` : ''}${tier ? `; tier of interest: ${tier}` : ''}` },
+      { name: 'message', value: `Founder's Circle inquiry${contribution ? ` — ${contribution}` : ''}${tier ? `; tier of interest: ${tier}` : ''}${path ? `; preferred path: ${path}` : ''}` },
     ].filter((f) => f.value !== '');
     btn.disabled = true; status.className = 'signup-status'; status.textContent = 'Sending…';
     try {
