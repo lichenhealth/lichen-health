@@ -16,7 +16,7 @@ const heroImg = '/founders-hero.jpg';
   <section class="fsection intro-section">
     <div class="container">
       <p class="intro-lead">Beneath every old-growth forest is a quiet architecture — mycelium sharing water, nutrients, and medicine between trees so the whole canopy may thrive. The Founders Circles are the foundational network that ensures the forest will thrive and its trees will stand tall.</p>
-      <p class="intro-note">An inner cohort of patrons, stewards and quiet believers who anchor the first land, the first maloka, the first version of the Lichen platform, and the first generation of healing offered. A foundational community where membership isn't transactional — it's a relationship, carrying lifetime recognition, year-round invitations, connection with like-hearted patrons, and a direct line to the founding team.</p>
+      <p class="intro-note">We are gathering an inner cohort of patrons, stewards and quiet believers to anchor the first land, the first maloka, the first version of the Lichen platform, and the first generation of healing offered. A foundational community where membership isn't transactional — it's a relationship, carrying lifetime recognition, year-round invitations, connection with like-hearted patrons, and a direct line to the founding team.</p>
       <hr class="intro-rule" />
     </div>
   </section>
@@ -27,7 +27,7 @@ const heroImg = '/founders-hero.jpg';
       <div class="give-paths">
         <div class="give-path" data-contribution="Give now" role="button" tabindex="0">
           <h3 class="give-path-t">Give now</h3>
-          <p>Make a contribution today and impact access to care immediately. Your gift flows straight into the work already underway — including the initial platform build and the scholarship fund that brings healers, veterans, and frontline workers onto the land at no cost.</p>
+          <p>Make a contribution today and impact access to care immediately. Your gift flows straight into the work already underway — including the initial platform build and the scholarship fund that will bring healers, veterans, and frontline workers onto the land at no cost.</p>
           <span class="give-path-cta">Give now →</span>
         </div>
         <div class="give-path" data-contribution="Pledge toward the build" role="button" tabindex="0">
@@ -79,14 +79,14 @@ const heroImg = '/founders-hero.jpg';
           </div>
         ))}
       </div>
-      <p class="tier-foot">Contributions compound — a member at one level is welcomed into the next as commitments accumulate, across all giving vehicles. Anonymity is honored at every tier. Before any transfer of funds, you receive in writing: confirmation of your tier, your chosen path, and — on the Experiences path — the stated fair market value of each elected experience and your resulting deductible amount.</p>
+      <p class="tier-foot">Contributions compound — a member at one level is welcomed into the next as commitments accumulate, across all giving vehicles. Anonymity is honored at every tier. Before any transfer of funds, you receive in writing: confirmation of your tier, your chosen path, and — on the Experiences path — the stated fair market value of each elected experience and your resulting deductible amount. The Founders&rsquo; Stone, the gatherings, and every on-the-land experience come online with the land itself — they are what Phase 1 builds.</p>
     </div>
   </section>
 
   <section class="fband">
     <div class="container container--narrow band-center">
       <h2>Where your contribution lives</h2>
-      <p>Founders Circle commitments fund the Phase 1 land, the maloka, the first guest structures, the founding clinical and ceremonial program, the Phase 1 tech platform — and the scholarship fund that brings healers, veterans, and frontline workers onto the land at no cost.</p>
+      <p>Founders Circle commitments fund the Phase 1 land, the maloka, the first guest structures, the founding clinical and ceremonial program, the Phase 1 tech platform — and the scholarship fund that will bring healers, veterans, and frontline workers onto the land at no cost. The platform is live today; the land is what we're raising toward.</p>
     </div>
   </section>
 
@@ -104,6 +104,7 @@ const heroImg = '/founders-hero.jpg';
   <section class="fsection">
     <div class="container container--narrow">
       <div class="sec-head"><span class="eyebrow">The year on the land</span><h2 class="display h-2">Annual convergence calendar</h2></div>
+      <p class="cal-note">This is the annual rhythm your commitment brings into being — gatherings begin as the land and programming come online, and founders are the first to know when each one is scheduled.</p>
       <table class="cal">
         <thead><tr><th>Month</th><th>Gathering</th><th>Access</th></tr></thead>
         <tbody>{calendar.map(([m, g, a]) => <tr><td class="cal-m">{m}</td><td>{g}</td><td class="cal-a">{a}</td></tr>)}</tbody>
@@ -229,6 +230,7 @@ const heroImg = '/founders-hero.jpg';
   .cal-m { font-weight: 500; color: var(--ink); white-space: nowrap; }
   .cal-a { color: var(--ink-muted); white-space: nowrap; }
   .cal-foot { font-size: var(--t-sm); color: var(--ink-muted); margin-top: var(--s-5); max-width: 70ch; line-height: var(--lh-loose); }
+  .cal-note { font-size: var(--t-sm); color: var(--ink-muted); margin: calc(-1 * var(--s-4)) 0 var(--s-5); max-width: 70ch; line-height: var(--lh-loose); }
 
   .faqs { display: flex; flex-direction: column; gap: var(--s-6); }
   .faq-q { font-family: var(--font-display); font-weight: 400; font-size: var(--t-lg); color: var(--ink); margin-bottom: var(--s-2); }

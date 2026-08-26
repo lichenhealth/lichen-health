@@ -57,7 +57,7 @@ export const steps = [
   { n: '02', t: 'Choose your tier', d: 'Select the level that matches your capacity and intended depth.' },
   { n: '03', t: 'Complete your commitment', d: 'Confirm in writing — a single gift or a twelve-month pledge, your giving vehicle, and your path: Full Deduction, or Experiences with values disclosed.' },
   { n: '04', t: 'Receive your welcome', d: 'A personal letter, land book, and the year’s convergence calendar arrive.' },
-  { n: '05', t: 'Come to the land', d: 'Your first invitation to walk the property arrives within the season.' },
+  { n: '05', t: 'Come to the land', d: 'The moment Phase 1 secures the property, your first invitation to walk it goes out — founders set foot on the land before anyone else.' },
 ];
 
 export const calendar = [
