@@ -8,24 +8,25 @@
 // outline: "with a back button on it, so they can go back").
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Data, privacy and AI — Lichen" description="What you share on Lichen, and with whom — presence, location, calendar, your financial picture, and the assistant. On by default, switchable off, one uniform rule.">
+<BaseLayout title="Data, privacy and AI — Lichen" description="What you share on Lichen, and with whom — presence, location, calendar, your financial picture, and the assistant. The concrete defaults, and where each switch lives.">
   <section class="phero-min">
     <div class="container">
       <button class="pback" onclick="if (history.length > 1) { history.back(); } else { location.href = '/about'; }">← Back</button>
       <span class="eyebrow">Data, privacy and AI</span>
       <h1 class="display h-1">What you share, and with whom</h1>
-      <p class="plede">Lichen asks you to make real choices instead of guessing at defaults you never saw. Almost everything here is <strong>on by default and switchable off</strong> — one uniform rule across the platform, so you never have to wonder whether this particular corner works differently. What changes is only ever what you choose.</p>
+      <p class="plede">Lichen asks you to make real choices instead of guessing at defaults you never saw. So here are the defaults, concretely. <strong>Signals of connection start on</strong>: your presence candle, your findability in the directory, and the AI collaboration the platform is built around — each switchable off in a tap. <strong>Anything that exposes your life starts closed</strong>: you have no availability hours and can&rsquo;t be booked until you set hours yourself, your task list starts hidden, your open-web page stays unpublished until you publish it, and your financial picture is readable only by you, your active care team, and the rebalancing intelligence described below. The rule underneath: where you haven&rsquo;t chosen, unknown is never yes.</p>
       <p class="plede-sub">This page walks the switches: your presence, your location, your calendar, your financial picture, and the assistant. Five minutes now saves you a lot of second-guessing later.</p>
     </div>
   </section>
 
   <section class="fsection psec">
     <div class="container">
-      <h2 class="display h-2">Presence: around, present, or neither</h2>
-      <p>Two signals, both yours to give:</p>
-      <p><strong>Around</strong> — a quiet dot when you&rsquo;re here. On by default, muted whenever you like.<br />
-      <strong>Present</strong> — the candle in the top bar. You light it by hand when you actually want to be found.</p>
-      <p>Presence lives in exactly one place: a panel your network can open. No ambient dots elsewhere, no timestamps, no &ldquo;last seen.&rdquo; Change either setting in the Mycelium directory.</p>
+      <h2 class="display h-2">Presence: present, available, or elsewhere</h2>
+      <p>Three honest states, all yours:</p>
+      <p><strong>Present</strong> — the candle in the top bar, lit by default while you&rsquo;re actually here. The app counts you present only while it&rsquo;s open in front of you — a pocketed phone or a backgrounded tab stops claiming you within minutes — and you can snuff the candle whenever you like.<br />
+      <strong>Available</strong> — inside the social hours you publish in Calendar settings, minus whatever&rsquo;s already booked. It asks nothing of you in the moment: set your hours, close the app. Nobody has hours — and nobody can be booked — until they set them.<br />
+      <strong>Elsewhere</strong> — neither of the above, and it&rsquo;s a good sign: when nobody&rsquo;s here, Home says your network is out living.</p>
+      <p>No ambient online dots, no timestamps, no &ldquo;last seen&rdquo; — nothing shows that you&rsquo;re merely online. And neither signal gates messaging; they set expectations, not walls. Presence controls live in the My-celium directory; hours live in Calendar → settings.</p>
       <p class="pmotto">Presence is a gift, not a status.</p>
     </div>
   </section>
@@ -36,7 +37,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p>Your location isn&rsquo;t one switch — it&rsquo;s a ladder, and you set it per audience.</p>
       <p class="pladder"><strong>Hidden · State · County · Area (town) · Exact</strong></p>
       <p>Everyone can be at one level, your mycelium at another, a specific community at a third. Most-specific wins, and at a tie the most private wins. The &ldquo;Area&rdquo; rung is deliberate: findable without being pinpointable.</p>
-      <p class="pwhere">Set it in Profile → Home location → &ldquo;Who can find you on the map.&rdquo;</p>
+      <p>Addresses you add for your goods &amp; services are the opposite by design — their whole point is being found — and each one carries its own switches for Maps and for your public page.</p>
+      <p class="pwhere">Set it all in Profile → Location.</p>
     </div>
   </section>
 
@@ -45,7 +47,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 class="display h-2">Your calendar: busy, or the details</h2>
       <p>Sharing a calendar doesn&rsquo;t mean sharing your life.</p>
       <p>Viewers see one of three things: <strong>nothing</strong>, <strong>busy blocks</strong> (no titles), or <strong>full details</strong> — again per audience, most-specific wins. Imported calendars go further: their titles stay yours alone unless you explicitly opt that calendar in.</p>
-      <p class="pwhere">Find it in Calendar → settings → &ldquo;Who sees my calendar.&rdquo;</p>
+      <p>Your to-do list follows the same per-audience grammar and starts <strong>hidden</strong> from everyone — undone work is nobody&rsquo;s business until you decide it is.</p>
+      <p class="pwhere">Find both in Calendar → settings: &ldquo;Who sees my calendar&rdquo; and &ldquo;My tasks — who sees them.&rdquo;</p>
     </div>
   </section>
 
@@ -53,18 +56,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <h2 class="display h-2">Your financial picture — the most private thing here</h2>
       <p>If you&rsquo;re seeking subsidized care, an honest picture of your means is what lets the network route fairly. So Lichen asks for it, and then protects it harder than anything else.</p>
-      <p>Only <strong>you</strong> and your <strong>active care team</strong> can read it. Not admins. Not other members. Never a score, never public, never compared.</p>
-      <p class="pwhere">It lives in Concierge → Web of Wellbeing → Financial position, and sharing it is entirely optional.</p>
+      <p>Who reads it, exactly: <strong>you</strong>, your <strong>active care team</strong>, and — named here because most platforms would bury it — <strong>the silicon side of Lichen&rsquo;s rebalancing</strong>: the assistant and the mycelium&rsquo;s routing algorithm read your financial picture to map the gap between what the economy has given you and what you need, and to route subsidies where the imbalance is real. Not admins. Not other members. Never donors. Never a score, never public, never compared.</p>
+      <p>And every line stays yours to hold back: mark any field &ldquo;Omit from AI&rdquo; — keep your credit score out while the assistant helps streamline your monthly budget — and any care entry can be written with &ldquo;Omit from AI — sensitive medical/financial.&rdquo; What you hold back never enters the collective AI system, the rebalancing algorithm included.</p>
+      <p class="pwhere">It lives in Concierge → Financial health profile, and filling it out is entirely optional.</p>
     </div>
   </section>
 
   <section class="fsection psec">
     <div class="container">
       <h2 class="display h-2">The assistant: consent, both ways</h2>
-      <p>The brain icon appears in each section of the app — Home, Marketplace, Calendar, Chat, your shelf. Tapping it asks the assistant to organize what&rsquo;s waiting <em>in that section only</em>.</p>
+      <p>The brain icon appears in each section of the app — Home, Marketplace, Calendar, Chat, your Drive. Tapping it asks the assistant to help with <em>that section only</em> — nothing is gathered until you open that door.</p>
       <p><strong>Consent runs both ways.</strong></p>
-      <p><em>What your assistant reads for you.</em> Nothing moves until you tap — no ambient reading, no background summarizing. Each section switches independently, so you can turn the assistant off for Chat and keep it on for Marketplace. Off means that section&rsquo;s data never reaches the assistant at all.</p>
-      <p><em>What other assistants read of you.</em> When someone you talk with asks their assistant to brief them, it reads recent messages in that conversation — including the ones you wrote. You decide whether that&rsquo;s allowed: Profile → Notifications → &ldquo;Let other members&rsquo; assistants read my messages.&rdquo; Switch it off and your words stay out of everyone else&rsquo;s briefings. They&rsquo;ll still see that you wrote, and can still read you in the app; only the machine is held back.</p>
+      <p><em>What your assistant reads for you.</em> Collaboration between AI and OI — organic intelligence — is the premise of the platform, so the assistant is <strong>on by default, and every scope switches off</strong> — for real: your choices live in the database with your account, not on one device. Profile → Privacy holds the whole de-selection list: each section of the platform independently, and each of your groups and communities separately, so AI can help you in one space and stay out of another. A space can switch off its own AI too, and both sides are shown that honestly. Off means that scope&rsquo;s data never reaches the assistant at all.</p>
+      <p><em>What other assistants read of you.</em> When someone you talk with asks their assistant to brief them, it reads recent messages in that conversation — including the ones you wrote. You decide whether that&rsquo;s allowed: Profile → Privacy → &ldquo;Let other members&rsquo; assistants read my messages.&rdquo; Switch it off and your words stay out of everyone else&rsquo;s briefings. They&rsquo;ll still see that you wrote, and can still read you in the app; only the machine is held back.</p>
+      <p>Your own threads with Claude are private by construction — readable by you alone, not by other members, not even by the founder. And when you ask Claude to edit your page or profile, it can: on by default, switchable off in Profile → Privacy, and it only ever acts when you ask it to, in your own thread, on your own page or a space you steward — reporting every change it makes.</p>
       <p>In Chat, an assistant that is on receives recent messages from rooms you&rsquo;re already in, summarizes rather than quotes, and is never handed your full history.</p>
       <p class="pmotto">Two people, two switches, one conversation. Carbon decides; silicon organizes.</p>
     </div>
@@ -113,7 +118,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .psec { padding-block: var(--s-7); }
   .psec p { margin-top: var(--s-3); font-size: var(--t-lg); line-height: var(--lh-normal); color: var(--ink-soft); font-weight: 300; }
   .psec p strong { color: var(--ink); font-weight: 500; }
-  .psec a { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .psec a:not(.btn) { color: var(--peach-deep); text-decoration: underline; text-underline-offset: 3px; }
   .pladder { font-family: var(--font-mono); letter-spacing: 0.03em; }
   .pmotto {
     font-family: var(--font-display); font-style: italic; font-size: 20px; color: var(--ink);
