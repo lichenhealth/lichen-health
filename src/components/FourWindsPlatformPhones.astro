@@ -9,6 +9,7 @@ import AppIcon from './AppIcon.astro';
 ---
 <div class="ph-pair">
   <div class="ph-col">
+  <span class="ph-alpha">Alpha</span>
   <PhoneFrame initial="M" active="home" mark={false}>
     <div class="ph-space">
       <img class="ph-space-ava" src="/img/2026/01/natural-medicine-avatar.jpg" alt="" loading="lazy" />
@@ -72,7 +73,8 @@ import AppIcon from './AppIcon.astro';
   </div>
 
   <div class="ph-col">
-  <PhoneFrame initial="K" active="concierge" mark={false}>
+  <span class="ph-alpha">Alpha</span>
+  <PhoneFrame initial="K" active="concierge">
     <div class="ph-conc">
       <p class="ph-conc-title">Concierge</p>
       <div class="ph-tabs ph-tabs--conc" aria-hidden="true">
@@ -104,6 +106,11 @@ import AppIcon from './AppIcon.astro';
         <div class="ph-msg">
           <p>Glad to hear it. I moved our meditation session to Thursday if that still works for you.</p>
           <span class="ph-msg-t">11:35 AM</span>
+        </div>
+        <p class="ph-cchat-who ph-cchat-who--ai">Ai</p>
+        <div class="ph-msg ph-msg--ai">
+          <p>Thursday at 4pm is clear on all five calendars — I&rsquo;ve moved the session and everyone&rsquo;s reminders. One more thing worth holding: Kelly&rsquo;s wellbeing scores have risen every week since the herbs began.</p>
+          <span class="ph-msg-t">11:36 AM</span>
         </div>
         <div class="ph-compose" aria-hidden="true">
           <span>Write something kind</span>
@@ -263,10 +270,12 @@ import AppIcon from './AppIcon.astro';
   @media (min-width: 900px) {
     .ph-pair { width: 720px; margin-left: calc((100% - 720px) / 2); }
   }
-  .ph-conc { padding: 4px 0 0; }
+  /* The chat fills the phone so the composer sits at its foot, just above
+     the bottom nav — where a real thread keeps it (founder 2026-09-02). */
+  .ph-conc { padding: 4px 0 0; display: flex; flex-direction: column; flex: 1; min-height: 0; }
   .ph-conc-title { font-family: var(--font-display); font-size: 20px; text-align: center; color: var(--ink); margin: 6px 0 4px; }
   .ph-tabs--conc { justify-content: center; gap: 10px; }
-  .ph-cchat { padding: 8px 10px 0; }
+  .ph-cchat { padding: 8px 10px 0; display: flex; flex-direction: column; flex: 1; min-height: 0; }
   .ph-cchat-head { display: flex; align-items: center; gap: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--bone-edge); }
   .ph-cchat-ava {
     width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
@@ -289,8 +298,26 @@ import AppIcon from './AppIcon.astro';
     border-radius: 12px; border-bottom-right-radius: 4px;
   }
   .ph-compose {
-    margin-top: 10px; padding: 7px 12px;
+    margin-top: auto; margin-bottom: 10px; padding: 7px 12px;
     border: 1px solid var(--bone-edge); border-radius: 999px;
     background: var(--bone-warm); color: var(--ink-faint); font-size: 9.5px;
+  }
+  /* Ai chimes in wearing silicon blue — the assistant's element, never
+     peach (the deck stays vendor-generic: "Ai", not a product name). */
+  .ph-cchat-who--ai { color: var(--sky); }
+  .ph-msg--ai {
+    border-color: color-mix(in srgb, var(--sky) 45%, transparent);
+    background: color-mix(in srgb, var(--sky) 9%, var(--bone-warm));
+  }
+  /* The maturity stamp, EcosystemStack's walpha idiom — half-out of the
+     frame's top-left corner (founder 2026-09-02: "Add Alpha stickers"). */
+  .ph-col { position: relative; }
+  .ph-alpha {
+    position: absolute; top: -11px; left: 2px; z-index: 2;
+    padding: 3px 14px; border-radius: var(--r-full);
+    background: var(--bone); border: 1.5px dashed var(--peach);
+    font-family: var(--font-mono); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--peach-deep); white-space: nowrap;
   }
 </style>
