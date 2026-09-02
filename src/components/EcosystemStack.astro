@@ -69,7 +69,10 @@ const { alpha = false } = Astro.props;
     <p>Current-cy — a transparent, dollar-pegged ledger that maps what was actually contributed against what the market pays for it. Not just time, but the wisdom, skill and risk behind it, counted for people, plants, animals and land alike, and translatable back into the economy we are all still beholden to.</p>
   </div>
   <div class="wcol wcol--base wcol--carbon">
-    {alpha && <span class="walpha">In Development</span>}
+    {/* Alpha as of 2026-09-01 (founder): the donation/subsidy policy work —
+        purpose funds, donor neutrality, the operating share — moved the
+        business layer from designed to operating-in-alpha. */}
+    {alpha && <span class="walpha">Alpha</span>}
     <span class="wcol-el wcol-el--c" aria-hidden="true">C</span>
     <div class="weco__basehead">
       <h3 class="wcol-title">Business</h3>
