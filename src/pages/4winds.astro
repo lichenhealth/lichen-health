@@ -1,193 +1,158 @@
 ---
-// THE FOUR WINDS STEWARDSHIP-CIRCLE DECK (founder 2026-09-01) — supersedes
-// /weave/audacitylabs-4winds (which now 308s here). Audience: the coalition
-// of nonprofits Andrea is bringing together to steward the Four Winds
-// property. Purpose: show the other players what Lichen IS and the role it
-// holds in the collaboration — an orientation, not a capital ask.
+// THE FOUR WINDS SYNOPSIS DECK (rebuilt 2026-09-01 to Andrea Pomarico's
+// request, relayed by the founder): each nonprofit in the stewardship
+// circle provides a brief synopsis — what the org is and how it fits the
+// Four Winds puzzle, a bio of the founder, who it will assist and how, and
+// why Four Winds is the ideal location. Andrea's fundraising guidance:
+// LEAD with equine-assisted therapy for first responders and veterans
+// ("8,700 veterans in Castle Rock alone" — her figure), introduce the
+// platform gently through AI SCHEDULING ("breathing time for the land,
+// animals, and practitioners"), and SAVE the mycelium/Current-cy economy
+// for later — "there will be time for introducing that awesome and
+// mind-bending piece later once things get rolling."
 //
-// ⚠ NO FINANCIAL CONTENT, deliberately: the $4.8M figure and the
-// owner-financing section from the superseded deck belonged to a different
-// room and are omitted here per the standing rule (no financial claims
-// without the founder's explicit per-deck go-ahead).
+// Deliberately NOT on the WeavePitch shell: the shared opening leads with
+// exactly the novel-economy story Andrea asked to defer. Same visual
+// vocabulary, her structure. Styles below mirror WeavePitch's w-classes.
 //
-// Copy provenance: the land/hub/technology/economy passages are the
-// founder-approved copy from the superseded deck, reframed for the circle;
-// the role/of-scope sections are new. The struck-seat pattern stays — this
-// audience IS the partners who fill the open chairs.
+// ⚠ NO FINANCIAL CONTENT (standing rule). The 8,700-veterans figure is
+// Andrea's own, used at her direction.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import WeavePitch from '../components/WeavePitch.astro';
-import FourWindsPhones from '../components/FourWindsPhones.astro';
-import TangoScene from '../components/TangoScene.astro';
 ---
 <BaseLayout
-  title="Four Winds · Lichen"
-  description="For the circle of organizations stewarding Four Winds: what Lichen is, and the role it holds in the collaboration."
+  title="Lichen at Four Winds"
+  description="Lichen's synopsis for the Four Winds stewardship circle: equine-assisted care for first responders and veterans, and the scheduling layer that gives land, animals and practitioners room to breathe."
 >
-  <WeavePitch partner="the Four Winds stewardship circle">
-    <Fragment slot="ecosystem">
-      <FourWindsPhones />
-    </Fragment>
-    <Fragment slot="economy">
-      <TangoScene kids />
-    </Fragment>
-    <Fragment slot="weave">
-      <span class="eyebrow">The Four Winds collaboration</span>
+  <main>
+    <section class="container container--narrow fw">
+      <span class="fw-for">Lichen at Four Winds · for the stewardship circle</span>
+      <h1 class="display h-1">Care that begins with a horse,<br />and a calendar that protects everyone giving it.</h1>
 
-      <h3 class="display h-2 wsub">The land at the center</h3>
+      <h3 class="display h-2 wsub">Lichen, in brief</h3>
+      <p class="wbody">
+        Lichen is a nonprofit healing network — a care model and the
+        technology that runs it. Members are held by small care teams;
+        practitioners, spaces and programs share one platform for
+        scheduling, membership and coordination; and donors fund
+        subsidized care through a published, transparent policy. In the
+        Four Winds puzzle, Lichen is two pieces: a <strong>care
+        partner</strong> bringing trauma-informed, equine-assisted
+        programming, and the <strong>coordination layer</strong> that lets
+        a many-organization sanctuary run as one calm, legible whole.
+      </p>
 
+      <h3 class="display h-2 wsub">Who&rsquo;s behind it</h3>
+      <p class="wbody">
+        <strong>Galyn Burke</strong>, Lichen&rsquo;s founder, is a tech
+        professional turned trauma therapist — a licensed Marriage and
+        Family Therapist and counselor across Colorado, California and
+        Washington, working with anxiety, depression and PTSD. Before
+        Lichen, she ran an integrated clinical, equine and land-based
+        healing center, and she founded Lichen after a decade in
+        technology to build the infrastructure that kind of care has
+        always deserved. At Four Winds she wears both hats: clinician
+        shaping the care programming, and builder of the platform
+        beneath it.
+      </p>
+
+      <h3 class="display h-2 wsub">Who Lichen will assist, and how</h3>
+      <p class="wbody">
+        <strong>First responders and veterans, first.</strong> Some 8,700
+        veterans live in Castle Rock alone — and for many of them, and for
+        the firefighters, medics and officers alongside them, a clinic
+        waiting room is exactly the wrong door. Equine-assisted therapy is
+        the right one: a horse asks for regulation before conversation,
+        honesty before analysis, and presence before anything at all.
+        Lichen&rsquo;s care model wraps that session in a team — a
+        therapist, the horse, and the coordination that makes the next
+        step obvious — so a first visit becomes a path, not a one-off.
+      </p>
+      <p class="wbody">
+        The same doors open to trauma survivors, caregivers running on
+        empty, young people who need a reason to show up somewhere, and
+        families healing together — the people Four Winds has already
+        served for fifteen years. Lichen&rsquo;s published subsidy policy
+        means ability to pay never decides who gets to stand in the
+        arena.
+      </p>
+
+      <h3 class="display h-2 wsub">The scheduling layer — efficiency, and breathing room</h3>
+      <p class="wbody">
+        The gentle first taste of Lichen&rsquo;s platform is a calendar
+        that finally matches how a sanctuary actually works. Every room,
+        arena, pasture, animal and practitioner has a real schedule;
+        sessions are booked through stewards who approve each request; and
+        AI helps find the times that work across many organizations
+        without a single spreadsheet or double-booked barn.
+      </p>
+      <p class="wbody">
+        Just as important is what the calendar refuses to give away:
+        <strong>breathing time</strong>. On Lichen, nobody is bookable by
+        default — a horse&rsquo;s day has a ceiling, a pasture&rsquo;s
+        recovery is scheduled as firmly as a session, and a
+        practitioner&rsquo;s rest is protected structurally, not left to
+        their willpower. Maximum efficiency and mandatory rest, in the
+        same system — for the land, the animals, and the people who care
+        for both.
+      </p>
+
+      <h3 class="display h-2 wsub">Why Four Winds</h3>
       <p class="wbody">
         Thirty-five acres against the Front Range, between Pikes Peak and
-        Longs Peak. The 1899 Wolfensberger barn, whose acoustics are said to
-        rival Carnegie Hall. Pastures, ponds, ancient pines and dark skies.
-        Horses, llamas, goats and a wild mustang, alongside the deer, elk,
-        fox and owls that were already here. A regenerative farm with
-        agricultural status, an organic garden and greenhouse, lodging and
-        practitioner housing, and fifteen years of programming for veterans,
-        first responders, trauma survivors, people with special needs, and
-        anyone else who came to grow. It is also KAHUBA&rsquo;s headquarters
-        — seventeen years of sanctuary work, 45+ rescued horses, llamas,
-        goats, dogs and feral cats given a forever home. This becomes the
-        first property held in a purpose-formed land trust: the land
-        can&rsquo;t be sold out from under the work, and the work has
-        somewhere permanent to stand.
-      </p>
-
-      <p class="wbody">
-        No single organization stewards a place like this. Andrea is
-        gathering a circle — healing programming, education, animal
-        sanctuary, land care, business operations — each sovereign, each
-        bringing what it already does well. This page is Lichen&rsquo;s
-        introduction to that circle: what we are, what we hold, and what we
-        deliberately don&rsquo;t.
-      </p>
-
-      <h3 class="display h-2 wsub">The role Lichen holds</h3>
-
-      <h4 class="display worg">The property&rsquo;s operating system</h4>
-      <p class="wbody">
-        Every room and thing Four Winds stewards goes onto a real calendar —
-        the barn, the arena, the therapy rooms, the guest house, the stables,
-        the truck, the long tables. What the sanctuary already has stops
-        sitting idle, and anyone booking it does so through a steward who
-        approves each request. The land itself is a member, not a backdrop: a
-        beyond-human entity whose contributions are recorded, and whose care
-        is funded. Scheduling, membership, care coordination, events and
-        shared calendars run on one platform instead of a dozen
-        spreadsheets.
-      </p>
-
-      <h4 class="display worg">The economy that counts what&rsquo;s already happening</h4>
-      <p class="wbody">
-        Walking through the operating history, the striking thing isn&rsquo;t
-        the costs. It&rsquo;s how much of Four Winds already runs on exactly
-        what Lichen was built to count. Land care happens through work-trade.
-        A neighbour farms the fields in exchange for half the crop. The vet
-        donates her services because she loves what the education centre
-        does. Students get paid to stack hay. Llama fibre and pellets hold
-        the agricultural status. Volunteers arrive, and some of them stay.
-      </p>
-      <p class="wbody">
-        None of that appears in any ledger. It is a reciprocity economy
-        already operating in the analog — held together by Andrea&rsquo;s
-        relationships and fifteen years of goodwill, and invisible the moment
-        she steps back. The gap isn&rsquo;t generosity; Four Winds has never
-        lacked that. The gap is that nobody has ever <em>counted</em> it,
-        which means it can&rsquo;t be seen by a funder, scaled to another
-        property, or handed to a successor. That is precisely the gap
-        Current-cy closes: every hour, every bale, every trade recorded and
-        returned to the person who gave it.
-      </p>
-
-      <h4 class="display worg">The web every partner is woven into</h4>
-      <p class="wbody">
-        Each organization in the circle gets its own presence on the
-        platform: a real website on the open web — programmes, offerings, a
-        calendar, bookable sessions, a team — updating itself as the work
-        changes, because it draws from the same listings members already see.
-        Your people become members of one shared network; your events land on
-        shared calendars; contributions across organizations are counted in
-        one economy rather than scattered across goodwill and memory.
-      </p>
-
-      <h3 class="display h-2 wsub">What Lichen deliberately does not hold</h3>
-
-      <p class="wbody">
-        A circle works when every seat is honestly named — including the
-        empty ones. Lichen&rsquo;s scope here is the technology, economy and
-        network layer. These seats belong to partners:
-      </p>
-
-      <ol class="wpaths">
-        <li>
-          <s class="wstrike"><strong>Healing programming.</strong> The care
-          delivered on the land — clinical, equine, somatic, ceremonial —
-          belongs to the practitioners and organizations who bring it.</s>
-          <span class="wslot">&#10216; a healing partner &#10217;</span>
-        </li>
-        <li>
-          <s class="wstrike"><strong>Education.</strong> Young people growing
-          up alongside land, animals and a working farm, learning stewardship
-          and reciprocity by living them.</s>
-          <span class="wslot">&#10216; an education partner &#10217;</span>
-        </li>
-        <li>
-          <s class="wstrike"><strong>Business &amp; day-to-day operations.</strong>
-          The land-trust structure that receives what&rsquo;s given and holds
-          the ground, and the business layer that runs the property day to
-          day.</s>
-          <span class="wslot">&#10216; an operations partner &#10217;</span>
-        </li>
-      </ol>
-
-      <p class="wbody">
-        Sovereignty is the design, not a compromise: each organization keeps
-        its own board, finances, donors and identity. The platform is where
-        the collaboration becomes visible and countable — never who&rsquo;s
-        in charge of it.
-      </p>
-
-      <h3 class="display h-2 wsub">What the pilot proves</h3>
-
-      <p class="wbody">
-        Four Winds is uniquely ready to be first — healed land, turnkey
-        operations, legally and agriculturally established. It is the pilot:
-        the place where Lichen&rsquo;s model stops being an idea and becomes
-        an address people can visit, measure and participate in. Every
-        organization in the circle is a partner in that pilot, not a tenant
-        of it. What each partner learns here travels to every property that
-        follows.
+        Longs Peak. The 1899 Wolfensberger barn, whose acoustics are said
+        to rival Carnegie Hall. Pastures, ponds, ancient pines and dark
+        skies. Horses, llamas, goats and a wild mustang, alongside the
+        deer, elk, fox and owls that were already here. A regenerative
+        farm with agricultural status, an organic garden and greenhouse,
+        lodging and practitioner housing, and fifteen years of programming
+        for veterans, first responders, trauma survivors and people with
+        special needs — plus KAHUBA&rsquo;s seventeen years of sanctuary
+        work on the same ground. Equine-assisted care needs healed land,
+        seasoned animals, and a community that already knows how to hold
+        people. Four Winds is not a promising site for this work;
+        it is the rare place where the work is already true.
       </p>
 
       <p class="wcallout">
-        The land can&rsquo;t be sold out from under the work. That is the
-        whole point, and it is the one promise no ordinary sale can make.
+        Horses and humans, healing each other on land that can&rsquo;t be
+        sold out from under the work.
       </p>
 
-      <h3 class="display h-2 wsub">Where this starts</h3>
-
+      <h3 class="display h-2 wsub">And beneath it all, quietly</h3>
       <p class="wbody">
-        Concretely, and soon: your organization gets its page and calendar on
-        the platform, your people join as alpha members, and the
-        contributions already flowing at Four Winds start being counted. The
-        circle fills its open seats in its own time — the table is set either
-        way.
+        There is a deeper layer to Lichen — an economy that counts every
+        contribution, human and otherwise, so the generosity that keeps a
+        place like Four Winds alive is finally visible. It will matter
+        enormously, later, once things get rolling. For now it simply
+        hums underneath, and the curious can read more at
+        <a href="/about" class="wlink">lichen.health/about</a>.
       </p>
-    </Fragment>
-  </WeavePitch>
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
-  .worg {
-    font-size: var(--t-xl); font-weight: 400; color: var(--ink);
-    margin-top: var(--s-6);
+  .fw { padding-block: var(--s-9); }
+  .fw-for {
+    font-family: var(--font-mono); font-size: var(--t-sm);
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--peach-deep);
   }
-  .wstrike { text-decoration: line-through; text-decoration-thickness: 1.5px; color: var(--ink-faint); }
-  .wstrike strong { color: var(--ink-faint); }
-  .wslot {
-    display: inline-block; margin-left: 6px;
-    padding: 2px 12px; border: 1.5px dashed var(--peach);
-    border-radius: var(--r-full);
-    font-style: italic; font-size: var(--t-sm); color: var(--peach-deep);
-    white-space: nowrap;
+  .fw .h-1 { margin-top: var(--s-3); }
+  /* Mirror of WeavePitch's shared content classes, so this page reads as a
+     sibling of every other deck without carrying the shell's opening. */
+  .wsub { margin-top: var(--s-9); }
+  .wbody {
+    font-size: var(--t-lg); line-height: var(--lh-normal);
+    color: var(--ink-soft); font-weight: 300; margin-top: var(--s-4);
+  }
+  .wbody strong { color: var(--ink); font-weight: 500; }
+  .wbody + .wbody { margin-top: var(--s-4); }
+  .wlink { color: var(--rust); text-decoration: underline; text-underline-offset: 3px; }
+  .wcallout {
+    margin-top: var(--s-7); margin-bottom: 0; padding: var(--s-5) var(--s-6);
+    font-family: var(--font-display); font-style: italic;
+    font-size: 22px; line-height: 1.5; color: var(--ink);
+    border-left: 3px solid var(--peach); background: var(--peach-tint);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
   }
 </style>
