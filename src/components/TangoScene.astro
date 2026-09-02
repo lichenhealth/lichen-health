@@ -11,8 +11,8 @@
 import PhoneFrame from './PhoneFrame.astro';
 import AppIcon from './AppIcon.astro';
 import ScenePair from './ScenePair.astro';
-export interface Props { kids?: boolean }
-const { kids = false } = Astro.props;
+export interface Props { kids?: boolean; firstResponder?: boolean }
+const { kids = false, firstResponder = false } = Astro.props;
 const PLANTS = '#98BE4D';
 const ANIMALS = '#D9A441';   // the two-maps animal ochre — this is Tango's own strand
 interface Stop {
@@ -21,7 +21,9 @@ interface Stop {
   lx: number; ly: number; anchor: 'start' | 'end' | 'middle';
 }
 const TANGO_STOPS: Stop[] = [
-  { emoji: '🧒', x: 44, y: 48, name: 'a hurting child', sub: 'releases what’s heavy', lx: 46, ly: 82, anchor: 'middle' },
+  firstResponder
+    ? { emoji: '🧑\u200d🚒', x: 44, y: 48, name: 'a firefighter with PTSD', sub: 'releases what’s heavy', lx: 46, ly: 82, anchor: 'middle' as const }
+    : { emoji: '🧒', x: 44, y: 48, name: 'a hurting child', sub: 'releases what’s heavy', lx: 46, ly: 82, anchor: 'middle' as const },
   { emoji: '🐴', x: 190, y: 64, name: 'Tango', sub: 'takes on the heavy energy', lx: 212, ly: 60, anchor: 'start' },
   { emoji: '💆', x: 110, y: 140, name: 'the bodyworker', sub: 'clears Tango’s load', sub2: 'paid in Current-cy', sub2color: 'var(--peach-deep)', lx: 88, ly: 136, anchor: 'end' },
   { emoji: '🛒', x: 256, y: 204, name: 'the wider world', sub: 'Current-cy cashed out to dollars', lx: 250, ly: 236, anchor: 'middle' },
@@ -51,7 +53,7 @@ const BOOKED = new Set(['21', '22', '23', '24', '28', '29', '30']);
   <img slot="image" src="/img/2026/01/tango-forehead.jpg" alt="A woman resting her forehead against Tango's, an equine energy-healing horse." loading="lazy" />
   <svg slot="map" viewBox="0 0 340 250" role="img"
         aria-label={
-          'A map route: a hurting child releases what’s heavy, Tango the therapy horse takes it on, her bodyworker clears her and is paid in Current-cy, and cashes out to dollars in the wider world. A green loop closes alongside: Tango’s manure feeds the organic farm, and fresh produce comes back to her steward.'
+          `A map route: ${firstResponder ? 'a firefighter with PTSD' : 'a hurting child'} releases what’s heavy, Tango the therapy horse takes it on, her bodyworker clears her and is paid in Current-cy, and cashes out to dollars in the wider world. A green loop closes alongside: Tango’s manure feeds the organic farm, and fresh produce comes back to her steward.`
           + (kids ? ' A third, ochre strand: the Montessori on Wheels bus brings Denver kids to Four Winds, where Tango teaches them equine stewardship — her teaching hours counted too.' : '')
         }>
         <path d="M-10,108 q45,-12 90,0 t90,0 t90,0 t90,0" fill="none" stroke="var(--bone-edge)" stroke-width="0.9" opacity="0.5" />
