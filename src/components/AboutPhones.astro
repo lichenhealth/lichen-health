@@ -1,11 +1,17 @@
 ---
-// Two realistic phone mockups, side by side (founder 2026-08-05): the
-// assistant briefing a member on the left; a protected course recording on
-// the right — "Video download, screen recording & AI disabled" as clear
-// language. Hand-built in the app's own visual vocabulary (bone, peach,
-// hairlines) rather than screenshots, so the scenarios can be ideal.
+// Two realistic phone mockups, side by side (founder 2026-08-05; refreshed
+// 2026-10-05 against the REAL buildout — founder: "update the mockups…to
+// reflect the true buildout of the actual platform"): the assistant on the
+// left is the feed as it actually ships — a two-sided CONVERSATION (bubbles
+// with speakers and faces, the thread icon rail, Claude's real small hands:
+// it adds the task and the calendar entry itself) — not a card list. The
+// right phone keeps the protected course recording; its retired feed tabs
+// (All/Social/Actionable) are gone and the icon row speaks the doors
+// grammar the app ships today, Feed door included. Hand-built in the app's
+// own visual vocabulary (bone, peach, silicon blue, hairlines) rather than
+// screenshots, so the scenarios can be ideal while the UI stays true.
 // PhoneFrame supplies the authentic chrome: true 390:844 proportions, the
-// app's top bar and the seven-door bottom nav (founder 2026-08-05).
+// app's top bar and the real seven-door bottom nav.
 import PhoneFrame from './PhoneFrame.astro';
 import AppIcon from './AppIcon.astro';
 ---
@@ -14,28 +20,52 @@ import AppIcon from './AppIcon.astro';
   <PhoneFrame initial="G" active="home" mark={false}>
     <div class="ph-ai">
       <span class="ph-ai-avatar">
-        <AppIcon name="brain" size={30} />
+        <AppIcon name="brain" size={22} />
         <span class="ph-ai-el">Si</span>
       </span>
       <p class="ph-ai-name">AI Assistant</p>
       <p class="ph-ai-scope">Your Lichen Partner</p>
     </div>
-    <div class="ph-body">
-      <div class="ph-card">
-        <p><strong><span class="ph-ref">Rosa</span> accepted your trade</strong> — her elderberry syrup for your garden hours. She suggested Thursday afternoon.</p>
+    {/* The thread rail — the relationship is threaded by platform section
+        (General · Profile · Marketplace · Events · Calendar · Concierge),
+        each an icon circle; the open thread is lit. */}
+    <div class="ph-rail" aria-hidden="true">
+      <span class="ph-rail-circ is-on"><AppIcon name="brain" size={12} /></span>
+      <span class="ph-rail-circ"><AppIcon name="profile" size={12} /></span>
+      <span class="ph-rail-circ"><AppIcon name="store" size={12} /></span>
+      <span class="ph-rail-circ"><AppIcon name="rsvp" size={12} /></span>
+      <span class="ph-rail-circ"><AppIcon name="calendar" size={12} /></span>
+      <span class="ph-rail-circ"><AppIcon name="concierge" size={12} /></span>
+    </div>
+    <div class="ph-body ph-body--chat">
+      <p class="ph-spk">Claude · <em>AI Assistant</em></p>
+      <div class="ph-run">
+        <span class="ph-mini"><AppIcon name="brain" size={11} /></span>
+        <div class="ph-bub ph-bub--match">
+          <p><strong><span class="ph-ref">Rosa</span> accepted your trade</strong> — her elderberry syrup for your garden hours, Thursday afternoon. And a gift matches what you&rsquo;re seeking: a <span class="ph-ref">cedar planter box</span>, offered by someone <span class="ph-ref">Melanie</span> trusts, four miles away.</p>
+        </div>
       </div>
-      <div class="ph-card">
-        <p><strong>Two people are waiting at <span class="ph-ref">Pine Valley Grange</span>&rsquo;s door</strong> — both woven in by members you trust. Your desk has them ready.</p>
+      <div class="ph-run">
+        <span class="ph-mini"><AppIcon name="brain" size={11} /></span>
+        <div class="ph-bub">
+          <p><strong>Tomorrow:</strong> your 3pm blood draw, then the Grange potluck at 5. Want the seed packets on your to-dos?</p>
+        </div>
       </div>
-      <div class="ph-card ph-card--match">
-        <p><strong>A gift matches what you&rsquo;re seeking:</strong> a <span class="ph-ref">cedar planter box</span>, offered by someone <span class="ph-ref">Melanie</span> trusts, four miles away.</p>
+      <div class="ph-run ph-run--me">
+        <div class="ph-bub ph-bub--me">
+          <p>Yes — and put Thursday with Rosa on my calendar.</p>
+        </div>
+        <span class="ph-mini ph-mini--me">G</span>
       </div>
-      <div class="ph-card">
-        <p><strong>Tomorrow:</strong> your 3pm blood draw, then the Grange potluck at 5. Want a reminder to bring the seed packets?</p>
+      <div class="ph-run">
+        <span class="ph-mini"><AppIcon name="brain" size={11} /></span>
+        <div class="ph-bub">
+          <p>Done — seed packets are on tomorrow&rsquo;s list, and Thursday 2pm with Rosa is on your calendar. <span class="ph-done">✓</span></p>
+        </div>
       </div>
       <p class="ph-foot">Carbon decides; silicon organizes.</p>
       <div class="ph-ask">
-        <span class="ph-ask-btn"><AppIcon name="plus" size={14} /></span>
+        <span class="ph-ask-btn"><AppIcon name="image" size={14} /></span>
         <span class="ph-ask-btn"><AppIcon name="mic" size={14} /></span>
         <span class="ph-ask-input">Ask about any of this…</span>
         <span class="ph-ask-send"><AppIcon name="send" size={12} /></span>
@@ -52,11 +82,10 @@ import AppIcon from './AppIcon.astro';
       <p class="ph-space-name">Natural Medicine Cohort 2026</p>
       <p class="ph-space-kind">Group <AppIcon name="groups" size={15} /></p>
     </div>
-    <div class="ph-tabs" aria-hidden="true">
-      <span class="ph-tab is-on">All</span>
-      <span class="ph-tab">Social</span>
-      <span class="ph-tab">Actionable</span>
-    </div>
+    {/* The retired All/Social/Actionable feed tabs are GONE (the app
+        dropped them — the icon row leads with the Feed door now). Doors in
+        the platform's real order: search · post · assistant, the hairline,
+        then Feed and this group's own rooms. */}
     <div class="ph-doors" aria-hidden="true">
       <span class="ph-door">
         <span class="ph-door-circ"><AppIcon name="search" size={13} /></span>
@@ -64,13 +93,17 @@ import AppIcon from './AppIcon.astro';
       </span>
       <span class="ph-door">
         <span class="ph-door-circ"><AppIcon name="plus" size={13} /></span>
-        <em>Add</em>
+        <em>Post</em>
       </span>
       <span class="ph-door ph-door--aioff">
         <span class="ph-door-circ"><AppIcon name="brain" size={13} /><span class="ph-door-slash"></span></span>
         <em>AI</em>
       </span>
       <span class="ph-doors-gap"></span>
+      <span class="ph-door">
+        <span class="ph-door-circ"><AppIcon name="newsfeed" size={13} /></span>
+        <em>Feed</em>
+      </span>
       <span class="ph-door">
         <span class="ph-door-circ"><AppIcon name="chat" size={13} /></span>
         <em>Chat</em>
@@ -123,10 +156,10 @@ import AppIcon from './AppIcon.astro';
   .ph-body { padding: 12px 12px 16px; }
   /* The assistant page is shaped like a profile: picture, then the name —
      the mark wearing its silicon badge in the elements blue. */
-  .ph-ai { text-align: center; padding: 8px 14px 10px; }
+  .ph-ai { text-align: center; padding: 3px 14px 5px; }
   .ph-ai-avatar {
     position: relative; display: inline-flex; align-items: center; justify-content: center;
-    width: 52px; height: 52px; border-radius: 50%;
+    width: 40px; height: 40px; border-radius: 50%;
     border: 1px solid var(--sky); color: var(--sky);
   }
   .ph-ai-el {
@@ -136,7 +169,7 @@ import AppIcon from './AppIcon.astro';
     font-family: var(--font-mono); font-size: 7.5px; font-weight: 600;
     display: inline-flex; align-items: center; justify-content: center;
   }
-  .ph-ai-name { font-family: var(--font-display); font-size: 15px; color: var(--ink); margin-top: 6px; }
+  .ph-ai-name { font-family: var(--font-display); font-size: 14px; color: var(--ink); margin-top: 4px; }
   .ph-ai-scope {
     font-family: var(--font-mono); font-size: 7.5px; letter-spacing: 0.06em;
     text-transform: uppercase; color: var(--sky); margin-top: 2px;
@@ -153,17 +186,8 @@ import AppIcon from './AppIcon.astro';
     display: inline-flex; align-items: center; gap: 5px;
   }
   .ph-space-kind :global(svg) { width: 15px; height: 15px; color: var(--ink-soft); }
-  /* All | Social | Actionable — the same tabs every feed carries, so you can
-     browse a space at the highest level (founder 2026-08-05). */
-  .ph-tabs { display: flex; gap: 14px; padding: 0 14px 6px; }
-  .ph-tab { position: relative; font-size: 11px; font-weight: 300; color: var(--ink); padding-bottom: 4px; }
-  .ph-tab.is-on { color: var(--peach-deep); font-weight: 600; }
-  .ph-tab.is-on::after {
-    content: ''; position: absolute; left: 0; right: 0; bottom: 0;
-    height: 2px; border-radius: 2px; background: var(--peach);
-  }
-  /* The section doors, in the platform's order: search · add · assistant,
-     then the hairline, then this space's own rooms. */
+  /* The section doors, in the platform's real order: search · post ·
+     assistant, then the hairline, then Feed + this space's own rooms. */
   .ph-doors { display: flex; align-items: flex-start; gap: 4px; padding: 0 8px 8px; }
   .ph-door { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 1; min-width: 0; }
   .ph-door-circ {
@@ -185,15 +209,53 @@ import AppIcon from './AppIcon.astro';
   }
   .ph-door--aioff em { color: var(--ink-faint); }
   .ph-doors-gap { width: 1px; align-self: stretch; background: var(--bone-edge); flex-shrink: 0; margin: 2px 3px; }
-  .ph-card {
-    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);
-    padding: 10px 12px; margin-bottom: 8px;
+  /* THE CONVERSATION (refreshed 2026-10-05 to the app's real grammar):
+     Claude's bubbles sit LEFT with the silicon face beside them, yours sit
+     RIGHT in the peach tint with your own face — every utterance wears its
+     speaker. A conversation bottom-anchors like the real screen, so if
+     words outgrow the frame the OLDEST clip at the top, never the newest. */
+  .ph-body--chat {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    flex: 1; min-height: 0; overflow: hidden;
   }
-  .ph-card p { font-size: 11.5px; line-height: 1.45; color: var(--ink-soft); }
-  .ph-card p strong { color: var(--ink); font-weight: 600; }
+  .ph-spk { font-size: 8.5px; font-weight: 600; color: var(--ink-muted); padding-left: 26px; margin-bottom: 2px; }
+  .ph-spk em { font-style: normal; font-weight: 400; color: var(--ink-faint); }
+  .ph-run { display: flex; align-items: flex-end; gap: 5px; margin-bottom: 6px; }
+  .ph-run--me { justify-content: flex-end; }
+  .ph-mini {
+    width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+    border: 1px solid var(--sky); color: var(--sky); background: var(--bone);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .ph-mini--me {
+    border: 0; background: #A78BBA; color: #fff;
+    font-size: 9px; font-weight: 600;
+  }
+  .ph-bub {
+    background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: 11px 11px 11px 4px;
+    padding: 7px 10px; max-width: 88%;
+  }
+  .ph-bub p { font-size: 10.5px; line-height: 1.42; color: var(--ink-soft); }
+  .ph-bub p strong { color: var(--ink); font-weight: 600; }
   /* Inside the assistant's world, selection and emphasis wear silicon blue
      rather than peach (founder 2026-08-05). */
-  .ph-card--match { border-color: var(--sky); background: color-mix(in srgb, var(--sky) 12%, transparent); }
+  .ph-bub--match { border-color: var(--sky); background: color-mix(in srgb, var(--sky) 12%, transparent); }
+  .ph-bub--me {
+    background: var(--peach-tint, color-mix(in srgb, var(--peach) 16%, transparent));
+    border-color: color-mix(in srgb, var(--peach) 45%, transparent);
+    border-radius: 11px 11px 4px 11px;
+  }
+  .ph-done { color: var(--moss, #4A5D3F); font-weight: 600; }
+  /* The thread rail — each platform section's icon as a small circle, the
+     doors grammar; the open thread deepens. */
+  .ph-rail { display: flex; justify-content: center; gap: 7px; padding: 2px 12px 6px; }
+  .ph-rail-circ {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 1px solid var(--bone-edge); background: var(--bone-warm); color: var(--ink-soft);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .ph-rail-circ.is-on { border-color: var(--sky); color: var(--sky); background: color-mix(in srgb, var(--sky) 10%, transparent); }
   .ph-ref {
     color: var(--sky); font-weight: 600;
     border-bottom: 1px solid color-mix(in srgb, var(--sky) 45%, transparent);
@@ -210,7 +272,7 @@ import AppIcon from './AppIcon.astro';
     background: var(--sky); color: #fff;
     display: inline-flex; align-items: center; justify-content: center;
   }
-  .ph-foot { text-align: center; font-family: var(--font-display); font-style: italic; font-size: 11px; color: var(--ink-muted); margin-top: 10px; }
+  .ph-foot { text-align: center; font-family: var(--font-display); font-style: italic; font-size: 10.5px; color: var(--ink-muted); margin-top: 6px; }
   .ph-video {
     position: relative; height: 122px; border-radius: var(--r-md);
     background: #23201c; display: flex; align-items: center; justify-content: center;

@@ -8,7 +8,7 @@
 import AppIcon from './AppIcon.astro';
 export interface Props {
   initial?: string;          // avatar letter(s); omit for the plain dot
-  active?: 'home' | 'concierge' | 'chat' | 'calendar' | 'saved' | 'maps' | 'profile';
+  active?: 'home' | 'concierge' | 'chat' | 'calendar' | 'drive' | 'maps' | 'currentcy';
   /** Space pages carry no section mark — the kind's glyph sits beside its
    *  word under the name instead (founder 2026-08-05). */
   mark?: boolean;
@@ -17,11 +17,16 @@ export interface Props {
   w?: number;
 }
 const { initial = 'G', active = 'home', mark = true, w = 300 } = Astro.props;
+// The REAL mobile nav as of 2026-10 (BottomNav.tsx in the app, founder
+// 2026-09-13: the wallet is a nav door; Saved grew into Drive; Profile
+// lives in the hamburger): Lichen · Concierge · Chat · Calendar · Drive ·
+// Maps · Current-cy. The hyphen in Current-cy is NON-BREAKING, like the
+// app's own label, so it never wraps.
 const NAV: { key: Props['active']; label: string }[] = [
-  { key: 'home', label: 'Home' }, { key: 'concierge', label: 'Concierge' },
+  { key: 'home', label: 'Lichen' }, { key: 'concierge', label: 'Concierge' },
   { key: 'chat', label: 'Chat' }, { key: 'calendar', label: 'Calendar' },
-  { key: 'saved', label: 'Saved' }, { key: 'maps', label: 'Maps' },
-  { key: 'profile', label: 'Profile' },
+  { key: 'drive', label: 'Drive' }, { key: 'maps', label: 'Maps' },
+  { key: 'currentcy', label: 'Current‑cy' },
 ];
 ---
 <div class="pf" style={`width:${w}px`}>
@@ -44,9 +49,9 @@ const NAV: { key: Props['active']; label: string }[] = [
         {n.key === 'concierge' && <AppIcon name="concierge" size={17} />}
         {n.key === 'chat' && <AppIcon name="chat" size={17} />}
         {n.key === 'calendar' && <AppIcon name="calendar" size={17} />}
-        {n.key === 'saved' && <AppIcon name="saved" size={17} />}
+        {n.key === 'drive' && <AppIcon name="drive" size={17} />}
         {n.key === 'maps' && <AppIcon name="maps" size={17} />}
-        {n.key === 'profile' && <AppIcon name="profile" size={17} />}
+        {n.key === 'currentcy' && <AppIcon name="currentcy" size={17} />}
         <em>{n.label}</em>
       </span>
     ))}

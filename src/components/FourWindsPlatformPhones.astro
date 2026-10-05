@@ -16,11 +16,8 @@ import AppIcon from './AppIcon.astro';
       <p class="ph-space-name">Natural Medicine Cohort 2026</p>
       <p class="ph-space-kind">Group <AppIcon name="groups" size={15} /></p>
     </div>
-    <div class="ph-tabs" aria-hidden="true">
-      <span class="ph-tab is-on">All</span>
-      <span class="ph-tab">Social</span>
-      <span class="ph-tab">Actionable</span>
-    </div>
+    {/* The All/Social/Actionable feed tabs were retired in the app — the
+        icon row carries the Feed door now. */}
     <div class="ph-doors" aria-hidden="true">
       <span class="ph-door">
         <span class="ph-door-circ"><AppIcon name="search" size={13} /></span>
