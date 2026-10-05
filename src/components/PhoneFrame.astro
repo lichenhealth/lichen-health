@@ -1,10 +1,13 @@
 ---
 // The authentic phone shell for hand-built mockups (founder 2026-08-05):
 // true iPhone proportions (390:844 — the same viewport the real screenshots
-// on /care /business /platform were captured at), the app's real top-bar
-// chrome (menu · back · section mark · avatar · bell) and the seven-door
-// bottom nav in the hairline icon style. Content goes in the default slot;
-// the `center` slot carries the section mark glyph.
+// on /care /business /platform were captured at), the REAL iPhone status
+// bar (founder 2026-10-05: time · notch · signal/wifi/battery — the app's
+// chrome starts below it, as on her phone), the app's real top-bar chrome
+// (menu · back · section mark · avatar · candle · bell), the seven-door
+// bottom nav in the hairline icon style, and the home-indicator pill.
+// Content goes in the default slot; the `center` slot carries the section
+// mark glyph.
 import AppIcon from './AppIcon.astro';
 export interface Props {
   initial?: string;          // avatar letter(s); omit for the plain dot
@@ -30,7 +33,15 @@ const NAV: { key: Props['active']; label: string }[] = [
 ];
 ---
 <div class={'pf' + (w < 260 ? ' pf--narrow' : '')} style={`width:${w}px`}>
-  <div class="pf-notch" aria-hidden="true"></div>
+  <div class="pf-status" aria-hidden="true">
+    <span class="pf-time">9:41</span>
+    <span class="pf-notch"></span>
+    <span class="pf-sicons">
+      <svg class="pf-cell" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="0.8"/><rect x="5" y="5.5" width="3" height="6.5" rx="0.8"/><rect x="10" y="3" width="3" height="9" rx="0.8"/><rect x="15" y="0.5" width="3" height="11.5" rx="0.8"/></svg>
+      <svg class="pf-wifi" viewBox="0 0 16 12" fill="currentColor"><circle cx="8" cy="10.4" r="1.5"/><path d="M8 6.9c1.5 0 2.86.6 3.86 1.56l-1.44 1.44A3.5 3.5 0 0 0 8 8.9c-.94 0-1.8.37-2.42 1l-1.44-1.44A5.45 5.45 0 0 1 8 6.9z"/><path d="M8 3.2c2.5 0 4.77 1 6.43 2.6l-1.42 1.42A6.98 6.98 0 0 0 8 5.2c-1.96 0-3.74.8-5.01 2.02L1.57 5.8A9 9 0 0 1 8 3.2z"/></svg>
+      <svg class="pf-batt" viewBox="0 0 25 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.2" fill="none" stroke="currentColor" opacity="0.4"/><rect x="2" y="2" width="12" height="8" rx="1.8" fill="currentColor"/><path d="M22.8 4v4a2.1 2.1 0 0 0 0-4z" fill="currentColor" opacity="0.4"/></svg>
+    </span>
+  </div>
   <div class="pf-top" aria-hidden="true">
     <span class="pf-circ"><AppIcon name="menu" size={15} /></span>
     <span class="pf-circ"><AppIcon name="chevron-left" size={15} /></span>
@@ -39,6 +50,9 @@ const NAV: { key: Props['active']; label: string }[] = [
     </slot></span>}
     <span class="pf-gap"></span>
     <span class="pf-avatar">{initial}</span>
+    <span class="pf-circ pf-candle">
+      <svg viewBox="0 0 10 16" aria-hidden="true"><path d="M5 0.6C4.1 2 3.5 2.9 3.5 3.9a1.5 1.5 0 1 0 3 0C6.5 2.9 5.9 2 5 0.6z" fill="#E8A268"/><rect x="3.1" y="6.5" width="3.8" height="8.8" rx="1" fill="none" stroke="currentColor" stroke-width="0.9"/></svg>
+    </span>
     <span class="pf-circ"><AppIcon name="bell" size={15} /></span>
   </div>
   <div class="pf-body"><slot /></div>
@@ -56,6 +70,7 @@ const NAV: { key: Props['active']; label: string }[] = [
       </span>
     ))}
   </nav>
+  <div class="pf-homebar" aria-hidden="true"></div>
 </div>
 
 <style>
@@ -66,27 +81,49 @@ const NAV: { key: Props['active']; label: string }[] = [
     box-shadow: 0 18px 44px rgba(18, 24, 28, 0.22);
     display: flex; flex-direction: column;
   }
-  .pf-notch { width: 84px; height: 8px; background: #1a1a1a; border-radius: 0 0 8px 8px; margin: 0 auto; flex-shrink: 0; }
-  /* The real top bar: 38pt circles centred ~41pt down, the section mark a
-     68pt disc overhanging below them, and real air before the content. */
+  /* THE STATUS BAR (founder 2026-10-05): time left, notch center, signal ·
+     wifi · battery right — the real top of a real phone, so every app bar
+     below it sits where it truly sits. */
+  .pf-status { position: relative; height: 24px; flex-shrink: 0; }
+  .pf-notch {
+    position: absolute; left: 50%; transform: translateX(-50%); top: 0;
+    width: 78px; height: 13px; background: #1a1a1a; border-radius: 0 0 9px 9px;
+  }
+  .pf-time {
+    position: absolute; left: 15px; top: 55%; transform: translateY(-50%);
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .pf-sicons {
+    position: absolute; right: 11px; top: 55%; transform: translateY(-50%);
+    display: flex; align-items: center; gap: 3.5px; color: var(--ink);
+  }
+  .pf-cell { width: 12px; height: 8px; }
+  .pf-wifi { width: 11px; height: 8.5px; }
+  .pf-batt { width: 17px; height: 8.5px; }
+  /* The real top bar: hairline circles, the section mark a big disc
+     overhanging below them, real air before the content. */
   .pf-top {
     position: relative;
-    display: flex; align-items: flex-start; gap: 6px;
-    padding: 17px 10px 0; height: 72px; flex-shrink: 0;
+    display: flex; align-items: flex-start; gap: 5px;
+    padding: 8px 10px 0; height: 60px; flex-shrink: 0;
   }
   /* Transparent, hairline-ringed — the real top bar has no white discs. */
   .pf-circ {
-    width: 29px; height: 29px; border-radius: 50%; flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
     border: 1px solid var(--ink); background: transparent;
     color: var(--ink);
     display: inline-flex; align-items: center; justify-content: center;
   }
   .pf-circ :global(svg) { width: 15px; height: 15px; }
+  /* The candle (presence) wears its peach ring, as on the real device. */
+  .pf-candle { border-color: var(--peach); }
+  .pf-candle svg { width: 9px; height: 14px; }
   /* The section mark is the big centred disc in the real top bar. It stays
      quiet — the bottom nav is what shows you which section you're in. */
   .pf-mark {
-    position: absolute; left: 50%; top: 14px; transform: translateX(-50%);
-    width: 52px; height: 52px;
+    position: absolute; left: 50%; top: 6px; transform: translateX(-50%);
+    width: 50px; height: 50px;
   }
   .pf-mark :global(svg) { width: 26px; height: 26px; }
   /* The app pins section-mark strokes to a 1.2px hairline in SCREEN px
@@ -95,14 +132,14 @@ const NAV: { key: Props['active']; label: string }[] = [
   .pf-mark :global(svg *) { vector-effect: non-scaling-stroke; stroke-width: 1.2px; }
   .pf-gap { flex: 1; }
   .pf-avatar {
-    width: 29px; height: 29px; border-radius: 50%; flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
     background: #A78BBA; color: #fff; font-size: 11px; font-weight: 600;
     display: inline-flex; align-items: center; justify-content: center;
   }
   .pf-body { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
   .pf-nav {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 11px 8px 16px; border-top: 1px solid var(--bone-edge);
+    padding: 10px 8px 6px; border-top: 1px solid var(--bone-edge);
     background: var(--bone); flex-shrink: 0;
   }
   .pf-nav-item {
@@ -115,8 +152,24 @@ const NAV: { key: Props['active']; label: string }[] = [
     letter-spacing: 0.05em; text-transform: uppercase;
   }
   .pf-nav-item.is-active { color: var(--peach-deep); }
+  /* The home-indicator pill — the one thing under the nav on a real phone. */
+  .pf-homebar {
+    width: 86px; height: 3.5px; border-radius: 2px; background: #1a1a1a;
+    margin: 2px auto 5px; flex-shrink: 0; opacity: 0.85;
+  }
   /* Seven REAL labels (Current-cy is the long one) need smaller type in
      the narrow ways-in frames, or MAPS and CURRENT-CY collide. */
   .pf--narrow .pf-nav-item em { font-size: 5px; letter-spacing: 0.02em; }
   .pf--narrow .pf-nav-item :global(svg) { width: 15px; height: 15px; }
+  .pf--narrow .pf-status { height: 20px; }
+  .pf--narrow .pf-notch { width: 62px; height: 11px; }
+  .pf--narrow .pf-time { font-size: 9px; left: 11px; }
+  .pf--narrow .pf-sicons { right: 8px; gap: 2.5px; }
+  .pf--narrow .pf-cell { width: 10px; }
+  .pf--narrow .pf-wifi { width: 9.5px; }
+  .pf--narrow .pf-batt { width: 14px; }
+  .pf--narrow .pf-circ { width: 24px; height: 24px; }
+  .pf--narrow .pf-avatar { width: 24px; height: 24px; font-size: 9px; }
+  .pf--narrow .pf-top { height: 52px; }
+  .pf--narrow .pf-mark { width: 42px; height: 42px; }
 </style>
