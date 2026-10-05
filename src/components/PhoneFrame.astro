@@ -29,7 +29,7 @@ const NAV: { key: Props['active']; label: string }[] = [
   { key: 'currentcy', label: 'Current‑cy' },
 ];
 ---
-<div class="pf" style={`width:${w}px`}>
+<div class={'pf' + (w < 260 ? ' pf--narrow' : '')} style={`width:${w}px`}>
   <div class="pf-notch" aria-hidden="true"></div>
   <div class="pf-top" aria-hidden="true">
     <span class="pf-circ"><AppIcon name="menu" size={15} /></span>
@@ -115,4 +115,8 @@ const NAV: { key: Props['active']; label: string }[] = [
     letter-spacing: 0.05em; text-transform: uppercase;
   }
   .pf-nav-item.is-active { color: var(--peach-deep); }
+  /* Seven REAL labels (Current-cy is the long one) need smaller type in
+     the narrow ways-in frames, or MAPS and CURRENT-CY collide. */
+  .pf--narrow .pf-nav-item em { font-size: 5px; letter-spacing: 0.02em; }
+  .pf--narrow .pf-nav-item :global(svg) { width: 15px; height: 15px; }
 </style>

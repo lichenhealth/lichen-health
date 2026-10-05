@@ -89,6 +89,10 @@ const DAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
         ))}
       </div>
 
+      {/* Find-a-time's real honesty rule: the legend names its coverage —
+          shading only claims what members actually shared (2026-10-05). */}
+      <p class="fir-legend">Going on 31 of 34 members&rsquo; shared hours — three haven&rsquo;t set any yet.</p>
+
       <div class="fir-found">
         <span class="fir-found-brain"><AppIcon name="brain" size={13} /></span>
         <p><strong>Thursday to Sunday works for everyone</strong> — the only window all four rotations share this quarter.</p>
@@ -103,6 +107,11 @@ const DAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
         </p>
       </div>
       <span class="fir-cta">Hold these dates</span>
+
+      <div class="fir-msg">
+        <span class="fir-msg-ava" aria-hidden="true">CR</span>
+        <p><span class="fir-msg-who">Capt. Reyes <em>· Station 12 chat</em></span>Held. Rotations are covered — medics swap with Ladder 4 and nobody loses a shift.</p>
+      </div>
     </div>
   </PhoneFrame>
 
@@ -164,4 +173,18 @@ const DAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
     background: var(--peach); color: #fff; font-size: 11.5px; font-weight: 600;
     padding: 8px 0; border-radius: var(--r-full);
   }
+  .fir-legend { font-size: 8.5px; font-style: italic; color: var(--ink-muted); margin-top: 5px; }
+  .fir-msg {
+    display: flex; gap: 7px; align-items: flex-start; margin-top: 9px;
+    background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: var(--r-md); padding: 8px 10px;
+  }
+  .fir-msg-ava {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    background: #A78BBA; color: #fff; font-size: 8.5px; font-weight: 600;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .fir-msg p { font-size: 10px; line-height: 1.4; color: var(--ink-soft); }
+  .fir-msg-who { display: block; font-size: 10.5px; font-weight: 600; color: var(--ink); }
+  .fir-msg-who em { font-style: normal; font-weight: 400; color: var(--ink-faint); }
 </style>

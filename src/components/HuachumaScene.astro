@@ -48,6 +48,16 @@ const PLANTS = '#98BE4D';
         </div>
       </div>
 
+      {/* The real community-page grammar (2026-10-05): presence in the
+          platform's own words, then the icon-row doors into her rooms. */}
+      <p class="hua-present">Two of her stewards are present.</p>
+      <div class="hua-doors" aria-hidden="true">
+        <span class="hua-door"><span class="hua-door-circ"><AppIcon name="chat" size={12} /></span><em>Chat</em></span>
+        <span class="hua-door"><span class="hua-door-circ"><AppIcon name="rsvp" size={12} /></span><em>Events</em></span>
+        <span class="hua-door"><span class="hua-door-circ"><AppIcon name="book" size={12} /></span><em>Library</em></span>
+        <span class="hua-door"><span class="hua-door-circ"><AppIcon name="member-heart" size={12} /></span><em>Members</em></span>
+      </div>
+
       <div class="hua-card">
         <p class="hua-card-h">Huachuma Wisdom</p>
         <p class="hua-card-body">Join us for an immersive 6-month exploration into the profound world of Huachuma — a blend of historical, scientific, spiritual and practical knowledge, guiding participants.</p>
@@ -108,4 +118,16 @@ const PLANTS = '#98BE4D';
   .hua-bolt { width: 14px; height: 14px; }
   .hua-cy-note { font-size: 8.5px; color: var(--ink-muted); margin-top: 1px; }
   .hua-foot { text-align: center; font-family: var(--font-display); font-style: italic; font-size: 10px; color: var(--ink-muted); margin-top: 10px; }
+  .hua-present { text-align: center; font-size: 9px; font-style: italic; color: var(--ink-muted); margin-top: 7px; }
+  .hua-doors { display: flex; justify-content: center; gap: 14px; margin-top: 6px; }
+  .hua-door { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .hua-door-circ {
+    width: 25px; height: 25px; border-radius: 50%;
+    border: 1px solid var(--bone-edge); background: var(--bone-warm); color: var(--ink-soft);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .hua-door em {
+    font-style: normal; font-family: var(--font-mono); font-size: 5.5px;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted);
+  }
 </style>

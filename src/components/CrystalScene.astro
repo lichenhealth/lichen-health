@@ -55,15 +55,34 @@ import ScenePair from './ScenePair.astro';
         <p class="cry-ai-scope">Your Lichen Partner</p>
       </div>
 
-      <div class="cry-card cry-card--match">
-        <p><strong>I flagged it, and your team assembled fast</strong> — a somatic therapist, a naturopath and <span class="cry-ref">Payton Slawinski</span>, your founder coach. Feeling seen and not alone is powerful medicine.</p>
+      {/* The feed's real grammar (2026-10-05): a two-sided conversation —
+          Crystal flags it HERSELF in her own bubble, and every reply wears
+          its speaker. */}
+      <div class="cry-run cry-run--me">
+        <div class="cry-bub cry-bub--me">
+          <p>I&rsquo;m not in crisis — but I&rsquo;m eroding. Two years of carrying this company. Flagging it before it becomes one.</p>
+        </div>
+        <span class="cry-mini cry-mini--me">C</span>
       </div>
-      <div class="cry-card">
-        <p><strong>A Founder Support Group</strong> is meeting weekly, via Community — other builders who know exactly what this erosion feels like. You&rsquo;re not the only one carrying this.</p>
-        <span class="cry-chip">Join the group &rarr;</span>
+      <p class="cry-spk">Claude · <em>AI Assistant</em></p>
+      <div class="cry-run">
+        <span class="cry-mini"><AppIcon name="brain" size={11} /></span>
+        <div class="cry-bub cry-bub--match">
+          <p><strong>Heard — and your team assembled fast:</strong> a somatic therapist, a naturopath and <span class="cry-ref">Payton Slawinski</span>, your founder coach. Feeling seen and not alone is powerful medicine.</p>
+        </div>
       </div>
-      <div class="cry-card">
-        <p><strong>Six weeks in:</strong> weekly somatic sessions, a supplement protocol, adjusted sleep, a standing coach call. Your Imagine advisor is looped in on capacity, never on clinical details.</p>
+      <div class="cry-run">
+        <span class="cry-mini"><AppIcon name="brain" size={11} /></span>
+        <div class="cry-bub">
+          <p><strong>A Founder Support Group</strong> meets weekly, via Community — builders who know exactly what this erosion feels like. You&rsquo;re not the only one carrying this.</p>
+          <span class="cry-chip">Join the group &rarr;</span>
+        </div>
+      </div>
+      <div class="cry-run">
+        <span class="cry-mini"><AppIcon name="brain" size={11} /></span>
+        <div class="cry-bub">
+          <p><strong>Six weeks in:</strong> weekly somatic sessions, a supplement protocol, adjusted sleep, a standing coach call. Your Imagine advisor is looped in on capacity, never on clinical details.</p>
+        </div>
       </div>
       <p class="cry-foot">Healing isn&rsquo;t a benefit. It&rsquo;s how the ecosystem protects what it&rsquo;s building.</p>
     </div>
@@ -101,13 +120,28 @@ import ScenePair from './ScenePair.astro';
     font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.06em;
     text-transform: uppercase; color: var(--sky); margin-top: 1px;
   }
-  .cry-card {
-    background: var(--bone-warm); border: 1px solid var(--bone-edge); border-radius: var(--r-md);
-    padding: 8px 10px; margin-bottom: 7px;
+  .cry-spk { font-size: 8px; font-weight: 600; color: var(--ink-muted); padding-left: 24px; margin-bottom: 2px; }
+  .cry-spk em { font-style: normal; font-weight: 400; color: var(--ink-faint); }
+  .cry-run { display: flex; align-items: flex-end; gap: 5px; margin-bottom: 6px; }
+  .cry-run--me { justify-content: flex-end; }
+  .cry-mini {
+    width: 19px; height: 19px; border-radius: 50%; flex-shrink: 0;
+    border: 1px solid var(--sky); color: var(--sky); background: var(--bone);
+    display: inline-flex; align-items: center; justify-content: center;
   }
-  .cry-card p { font-size: 10px; line-height: 1.45; color: var(--ink-soft); }
-  .cry-card p strong { color: var(--ink); font-weight: 600; }
-  .cry-card--match { border-color: var(--sky); background: color-mix(in srgb, var(--sky) 12%, transparent); }
+  .cry-mini--me { border: 0; background: #A78BBA; color: #fff; font-size: 8.5px; font-weight: 600; }
+  .cry-bub {
+    background: var(--bone-warm); border: 1px solid var(--bone-edge);
+    border-radius: 11px 11px 11px 4px; padding: 6px 10px; max-width: 88%;
+  }
+  .cry-bub p { font-size: 10px; line-height: 1.45; color: var(--ink-soft); }
+  .cry-bub p strong { color: var(--ink); font-weight: 600; }
+  .cry-bub--match { border-color: var(--sky); background: color-mix(in srgb, var(--sky) 12%, transparent); }
+  .cry-bub--me {
+    background: var(--peach-tint, color-mix(in srgb, var(--peach) 16%, transparent));
+    border-color: color-mix(in srgb, var(--peach) 45%, transparent);
+    border-radius: 11px 11px 4px 11px;
+  }
   .cry-ref {
     color: var(--sky); font-weight: 600;
     border-bottom: 1px solid color-mix(in srgb, var(--sky) 45%, transparent);
@@ -119,6 +153,6 @@ import ScenePair from './ScenePair.astro';
   }
   .cry-foot {
     text-align: center; font-family: var(--font-display); font-style: italic;
-    font-size: 10px; color: var(--ink-muted); margin-top: 8px;
+    font-size: 10px; color: var(--ink-muted); margin-top: 3px;
   }
 </style>
