@@ -127,7 +127,11 @@ input, textarea, select { font: inherit; color: inherit; }
 .fnav-toggle { order: 3; }
 .fnav-links { order: 4; }
 @media (min-width: 861px) { .fnav-signin { margin-left: 16px; order: 5; } .fnav-links { margin-left: auto; } }
-.fnav-toggle { display: none; margin-left: auto; flex-direction: column; gap: 4px; }
+/* Sign in sits BESIDE the hamburger on mobile (founder 2026-11-01: "let's
+   move sign in closer to the hamburger menu") — the pill's own
+   margin-left:auto pushes the pair right; the toggle no longer carries its
+   own auto margin, which used to strand Sign in mid-header. */
+.fnav-toggle { display: none; flex-direction: column; gap: 4px; }
 .fnav-toggle span { width: 22px; height: 2px; background: currentColor; display: block; }
 .fheader:not(.solid) .fnav-toggle { color: #fff; }
 
